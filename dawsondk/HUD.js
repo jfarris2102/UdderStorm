@@ -18,5 +18,8 @@ function create() {
     ct.strokeRect(0,0,w,h);
 }
 //the draw button
+function display() {
+    
+}
 
 });
