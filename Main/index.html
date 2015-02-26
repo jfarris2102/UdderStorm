@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <!--UdderStorm-->
+<!--Main Section-->
 <head>
 	<title>Get Your Ass to Mars</title>
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://www.jar42.com/brine/engine/brine.js"></script>
+	<script type='text/javascript'>
+		var food=1000;
+		var energy=1000;
+		var money=1000;
+		var popMars=1000;
+	</script>
 	<!--script src="earth.js"></script-->
 	<script src="HUD.js"></script>
-	<script src="building.js"></script>
+	<script id="building" src="building.js"></script>
 </head>
-
+<!--Defines Hex Type-->
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"> 
-
+<!--Main Game Canvas-->
 <canvas id="canvas" width="640" height="480">
 	<img id="background" src="http://people.ucsc.edu/~dadkelly/source/space_center.png" alt="Background">
 </canvas>
-
+<!--HUD Canvas-->
 <canvas id="HUD" width="640" height="100"></canvas>

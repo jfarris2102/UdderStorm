@@ -8,6 +8,8 @@ var canvas=$("#HUD")[0];
 var ct=canvas.getContext("2d");
 var w=$("#HUD").width();
 var h=$("#HUD").height();
+//pull in building.js
+
 //the box creation function
 window.onload=create;
 create();

@@ -1,13 +1,13 @@
 /* Assuming game time of 5 years per minute */
 //Possible resources
-var money;		//Displayed in millions
-var food;		//Displayed in food units (1 unit feeds a human for a year)
+//var money;		//Displayed in millions
+//var food;		//Displayed in food units (1 unit feeds a human for a year)
 var water;  	//Displayed in water units (1 unit quenches a human for a year)
 var minerals;	//Displayed in thousand tons
-var energy;		//Displayed in million BTU's
+//var energy;		//Displayed in million BTU's
 var happiness;	//Displayed as % (50 is content, <50 upset, >50 happy)
 var popEarth;	//Displayed in billions
-var popMars;	//Displayed in ones
+//var popMars;	//Displayed in ones
 var air;  		//Displayed as % of oxygen in atmosphere
 
 //Resource incrementers
