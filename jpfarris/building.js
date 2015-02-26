@@ -1,5 +1,4 @@
 /* Assuming game time of 5 years per minute */
-console.log("started");
 //Possible resources
 var money;		//Displayed in millions
 var food;		//Displayed in food units (1 unit feeds a human for a year)
@@ -49,10 +48,8 @@ function initGame(){
 	popEarth = 1000;
 	popMars = 1000;
 	happiness = 1000;
-	console.log("hello");
-	setInterval(update, 1000);
+	setInterval(update, 6000);
 }
-
 function update(){
 	moneyInc = 0;
 	foodInc = 0;
