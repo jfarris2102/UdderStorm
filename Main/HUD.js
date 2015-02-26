@@ -8,12 +8,15 @@ var canvas=$("#HUD")[0];
 var ct=canvas.getContext("2d");
 var w=$("#HUD").width();
 var h=$("#HUD").height();
-//pull in building.js
-
 //the box creation function
 window.onload=create;
 create();
 function create() {
+    //background image
+    var back=document.getElementById("backHUD");
+    var pat=ct.createPattern(back,"repeat");
+    ct.fillStyle=pat;
+    ct.fillRect(0,0,w,h);
     //background outline
     ct.strokeStyle="black";
     ct.lineWidth=4;
