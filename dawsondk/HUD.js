@@ -4,10 +4,10 @@ $(document).ready(
 function(){
     
 //canvas details
-var canvas=$("#canvas")[0];
+var canvas=$("#HUD")[0];
 var ct=canvas.getContext("2d");
-var w=$("#canvas").width();
-var h=$("#canvas").height();
+var w=$("#HUD").width();
+var h=$("#HUD").height();
 //the core function
 window.onload=main;
 main();
