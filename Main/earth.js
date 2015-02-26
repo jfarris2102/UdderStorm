@@ -28,11 +28,6 @@ function main() {
     ct.strokeStyle="black";
     ct.lineWidth=2;
     ct.strokeRect(10,h-100,w-20,90);
-    //test
-    ct.font="15px Georgia";
-    ct.fillStyle="Black";
-    var moneyD="MONEY:  "+money;
-    ct.fillText(moneyD,20,h-120);
 }
 
 });

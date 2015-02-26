@@ -28,7 +28,6 @@ function create() {
 function display() {
     ct.font="15px Georgia";
     ct.fillStyle="Black";
-    //ct.strokeStyle="black";
     var moneyD="MONEY:  "+money;
     ct.fillText(moneyD,40,40);
 }
