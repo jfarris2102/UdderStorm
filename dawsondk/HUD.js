@@ -8,10 +8,10 @@ var canvas=$("#HUD")[0];
 var ct=canvas.getContext("2d");
 var w=$("#HUD").width();
 var h=$("#HUD").height();
-//the core function
-window.onload=main;
-main();
-function main() {
+//the box creation function
+window.onload=create;
+create();
+function create() {
     //background outline
     ct.strokeStyle="black";
     ct.lineWidth=4;
