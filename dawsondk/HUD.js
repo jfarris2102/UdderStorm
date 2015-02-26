@@ -17,5 +17,6 @@ function create() {
     ct.lineWidth=4;
     ct.strokeRect(0,0,w,h);
 }
+//the draw button
 
 });
