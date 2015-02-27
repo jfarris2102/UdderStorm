@@ -251,9 +251,9 @@ function drawTileEngine() {
 		myY -= MouseCurrY-MousePrevY;
 		//edge of screen
 		if(myX < drawWidth/2) myX = drawWidth/2;
-		else if(myX > (worldSize/2)-(drawWidth/2)) myX = (worldSize/2)-(drawWidth/2);
+		else if(myX > worldSize-(drawWidth)-tileSize*2) myX = worldSize-(drawWidth)-tileSize*2;
 		if(myY < drawHeight/2) myY = drawHeight/2;
-		else if(myY > (worldSize/2)-(drawHeight/2)) myY = (worldSize/2)-(drawHeight/2);
+		else if(myY > worldSize-(drawHeight/2)-tileSize*2) myY = worldSize-(drawHeight/2)-tileSize*2;
 	}
 	placeBuilding = false;
 	//Set previous mouse pos
