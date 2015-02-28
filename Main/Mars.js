@@ -13,7 +13,7 @@ function startMars(){
 
 function stopMars(){
 	marsActive = false;
-	canvas.removeEventListener("mousemove", drawTileEngine)
+	canvas.removeEventListener("mousemove", drawTileEngine);
 	gInput.removeMouseDownListener(manager2);
 	gInput.removeMouseUpListener(manager2);
 	world.removeChild(manager2);
@@ -173,18 +173,18 @@ window.onkeypress = function(event) { //Global Esc key functionality
 		start();
 		}
 	}
-}
+};
 
 //Check if sprite clicked
 manager2.onMouseDown = function () {
 	dragging = true;
-}
+};
 manager2.onMouseUp = function () {
 	placeBuilding = true;
 	dragging = false;
 	MouseOverFirst = true;
 	drawTileEngine();
-}
+};
 
 function sortBuildings(){
 	var temp;

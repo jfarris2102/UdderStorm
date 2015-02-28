@@ -8,7 +8,6 @@ HUD.image = Textures.load("http://people.ucsc.edu/~dadkelly/source/HUD.png");
 var textArr = [];
 
 function displayHUDtext(){
-<<<<<<< HEAD
 	//creating the text
 	moneyRound = Math.ceil(money*10)/10;
 	energyRound = Math.ceil(energy*10)/10;
@@ -42,7 +41,7 @@ function displayHUDtext(){
 		textArr[i].font = 15;
 		textArr[i].padLeft = 805;
 		world.addChild(textArr[i]);
-=======
+
 	if(marsActive){
 		//creating the text
 		var moneyD="MONEY     : "+money;
@@ -80,7 +79,6 @@ function displayHUDtext(){
 		
 		//Earth stuff
 		
->>>>>>> ff6b4c58453a73df75deb1daa00231118f3b8818
 	}
 	
 }
