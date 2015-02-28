@@ -1,5 +1,7 @@
 //Start Menu Code
 use2D=true;
+var first = true;
+var tutorialActive = false;
 
 var MainMenu = new Sprite();
 MainMenu.width = 960;
@@ -7,7 +9,13 @@ MainMenu.height = 640;
 MainMenu.x = 0;
 MainMenu.y = 0;
 MainMenu.image = Textures.load("images/MainMenu.jpg");
-world.addChild(MainMenu);
+
+var TutorialPage = new Sprite();
+TutorialPage.width = 960;
+TutorialPage.height = 640;
+TutorialPage.x = 0;
+TutorialPage.y = 0;
+TutorialPage.image = Textures.load("images/Tutorial.jpg");
 
 //////////////////////////////////////////////////////////////////
 //Sprite Textures
@@ -34,10 +42,10 @@ TutorialHover.image = Textures.load("images/TutorialHover.png");
 
 //////////////////////////////////////////////////////////////////
 //Sprite Arrays
-var sprites = new Array();
-sprites.push(StartGame);
-sprites.push(LoadGame);
-sprites.push(Tutorial);
+var spritesMenu = new Array();
+spritesMenu.push(StartGame);
+spritesMenu.push(LoadGame);
+spritesMenu.push(Tutorial);
 
 var spritesDown = new Array();
 spritesDown.push(StartGameDown);
@@ -52,13 +60,13 @@ spritesHover.push(TutorialHover);
 //Sprite Positions
 function initSprites(){
 	var canvas = document.getElementById('canvas');
-	for(var i = 0; i < sprites.length; i++){
-		sprites[i].visible = true;
-		sprites[i].width = 250;
-		sprites[i].height = 40;
-		sprites[i].x = (canvas.width/2) - (sprites[i].width/2);
-		sprites[i].y = 200 + (i*100);
-		world.addChild(sprites[i]);
+	for(var i = 0; i < spritesMenu.length; i++){
+		spritesMenu[i].visible = true;
+		spritesMenu[i].width = 250;
+		spritesMenu[i].height = 40;
+		spritesMenu[i].x = (canvas.width/2) - (spritesMenu[i].width/2);
+		spritesMenu[i].y = 200 + (i*100);
+		world.addChild(spritesMenu[i]);
 	}
 	for(var i = 0; i < spritesDown.length; i++){
 		spritesDown[i].visible = false;
@@ -81,9 +89,6 @@ function initSprites(){
 
 //manager for sprite dragging
 var manager = new Sprite();
-world.addChild(manager);
-gInput.addMouseDownListener(manager);
-gInput.addMouseUpListener(manager);
 
 //Check if sprite clicked
 manager.onMouseDown = function () {
@@ -102,12 +107,22 @@ manager.onMouseUp = function () {
             if (checkMouseOver(spritesDown[i], gInput.mouse.x, gInput.mouse.y)){
                 spritesDown[i].visible = false;
                 spritesHover[i].visible = true;
-                if(i == 0) {} //StartGame();
-                else if(i == 1) {} //LoadGame();
-                else {} //Tutorial();
+                if(i == 0) { //StartGame;
+					stop();
+					newGameMars();
+					startMars();
+				}
+                else if(i == 1) {
+					stop();
+					startMars();
+				} //LoadGame;
+                else {
+					stop();
+					startTutorial();
+				} //Tutorial;
             }else{
                 spritesDown[i].visible = false;
-                sprites[i].visible = true;
+                spritesMenu[i].visible = true;
             }
             break;
         }
@@ -125,24 +140,47 @@ function checkMouseOver(sprite, x, y) {
 }
 
 function mouseHover(){
-    for(i = 0; i < sprites.length; i++){
-        if(sprites[i].visible == true){
-            if (checkMouseOver(sprites[i], gInput.mouse.x, gInput.mouse.y)){
-                sprites[i].visible = false;
+    for(i = 0; i < spritesMenu.length; i++){
+        if(spritesMenu[i].visible == true){
+            if (checkMouseOver(spritesMenu[i], gInput.mouse.x, gInput.mouse.y)){
+                spritesMenu[i].visible = false;
                 spritesHover[i].visible = true;
                 break;
             }
         }else if(spritesHover[i].visible == true){
             if(!checkMouseOver(spritesHover[i], gInput.mouse.x, gInput.mouse.y)){
                 spritesHover[i].visible = false;
-                sprites[i].visible = true;
+                spritesMenu[i].visible = true;
             }
         }
     }    
 }
 
 function start(){
-	initGame("canvas");
+	if(first) initGame("canvas");
+	first = false;
+	world.addChild(MainMenu);
 	initSprites();
+	world.addChild(manager);
+	gInput.addMouseDownListener(manager);
+	gInput.addMouseUpListener(manager);
 	canvas.addEventListener("mousemove", mouseHover, false);
+}
+
+function stop(){
+	canvas.removeEventListener("mousemove", mouseHover);
+	gInput.removeMouseDownListener(manager);
+	gInput.removeMouseUpListener(manager);
+	for(var i = 0; i < spritesMenu.length; i++){
+		world.removeChild(spritesMenu[i]);
+		world.removeChild(spritesDown[i]);
+		world.removeChild(spritesHover[i]);
+		world.removeChild(manager);
+		world.removeChild(MainMenu);
+	}
+}
+
+function startTutorial(){
+	tutorialActive = true;
+	world.addChild(TutorialPage);
 }
