@@ -110,7 +110,7 @@ manager.onMouseUp = function () {
                 if(i == 0) { //StartGame;
 					stop();
 					newGameMars();
-					//resetVariables();
+					resetVariables();
 					startMars();
 					startHUD();
 				}
