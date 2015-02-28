@@ -1,6 +1,6 @@
 //dadkelly
-//$(document).ready(
-//function(){
+$(document).ready(
+function(){
     
 //canvas details
 var canvas=$("#canvas")[0];
@@ -43,4 +43,4 @@ function display() {
     ct.fillText(popMarsD,805,85);
 }
 
-//});
+});
