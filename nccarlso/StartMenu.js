@@ -110,6 +110,7 @@ manager.onMouseUp = function () {
                 if(i == 0) { //StartGame;
 					stop();
 					newGameMars();
+					resetVariables();
 					startMars();
 					startHUD();
 				}
@@ -170,6 +171,9 @@ function start(){
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
+	if(typeof update != "undefined") {
+		clearInterval(update);
+	}
 }
 
 function stop(){
@@ -183,6 +187,7 @@ function stop(){
 		world.removeChild(manager);
 		world.removeChild(MainMenu);
 	}
+	init(); //Start global variable timer
 }
 
 function startTutorial(){
