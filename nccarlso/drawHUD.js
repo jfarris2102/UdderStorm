@@ -41,7 +41,7 @@ function displayHUDtext(){
 		textArr[i].font = 15;
 		textArr[i].padLeft = 805;
 		world.addChild(textArr[i]);
-
+}
 	if(marsActive){
 		//creating the text
 		var moneyD="MONEY     : "+money;
