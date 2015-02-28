@@ -171,8 +171,8 @@ function start(){
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
-	if(typeof update != "undefined") {
-		clearInterval(update);
+	if(typeof resourceTimer != "undefined") {
+		clearInterval(resourceTimer);
 	}
 }
 
@@ -187,7 +187,7 @@ function stop(){
 		world.removeChild(manager);
 		world.removeChild(MainMenu);
 	}
-	init(); //Start global variable timer
+	resourceTimer = setInterval(buildResource,6000);
 }
 
 function startTutorial(){

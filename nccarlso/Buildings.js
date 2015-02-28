@@ -49,7 +49,6 @@ function initBuildings(){
 		world.addChild(spriteTemp);
 		buildings[i] = spriteTemp;
 	}
-	setInterval(buildResource,6000);
 	buildingCount = 0;
 }
 
