@@ -49,11 +49,12 @@ function initBuildings(){
 		world.addChild(spriteTemp);
 		buildings[i] = spriteTemp;
 	}
+	setInterval(buildResource,6000);
 	buildingCount = 0;
 }
 
 function makeBuilding(model){
-	var temp = getModel(model);
+	var temp = makeModel(model);
 	buildings[buildingCount].image = temp.image;
 	buildings[buildingCount].width = temp.width;
 	buildings[buildingCount].height = temp.height;
@@ -88,7 +89,30 @@ function getModel(model){
 		break;
 	}
 }
-
+function makeModel(model){
+	switch(model) {
+    case 1:
+        live++;
+        return pop1;
+        break;
+    case 2:
+        green++;
+        return green1;
+        break;
+    case 3:
+        solar++;
+        return solar1;
+        break;
+    case 4:
+        comms++;
+        return comms1;
+        break;
+    default:
+        live++;
+        return pop1;
+		break;
+	}
+}
 function BuildingSize(model){
 	var building = getModel(model);
 	var temp = {};
@@ -96,7 +120,51 @@ function BuildingSize(model){
 	temp.sy = building.sy;
 	return temp;
 }
+function buildResource(){
+	 moneyInc = 0;
+	 foodInc = 0;
+	 waterInc = 0;
+	 energyInc = 0;
+	 mineralInc = 0;
+	 happyInc = 0;
+	 popInc = 0;
+	 airInc = 0;
+	 resInc = 0;
+	updateBuild();
+	updateResource();
+	console.log("food:",food);
+	console.log("money:",money);
+	console.log("energy:",energy);
+	console.log("water:",water);
+	console.log("minerals:",minerals);
+	console.log("air:",air);
+	console.log("popEarth:",popEarth);
+	console.log("popMars:",popMars);
+	console.log("happiness:",happiness);
+}
+function updateBuild(){ //Every 6 months game time
+	energyInc += turbine + 3*solar;
+	foodInc += 2*green + 2*hydro;
+	if (popMars/5>live)
+	    happyInc--;
+	airInc += photosyn*.01;
+	mineralInc += mine;
+	resInc += .1*comms;
+	
+	energyInc -= live + mine + green + hydro + comms;
+	waterInc -= 2*hydro + .5*green + .5*live;
+}
 
+function updateResource(){
+	money += moneyInc;
+	food += foodInc;
+	water += waterInc;
+	minerals += mineralInc;
+	energy += energyInc;
+	happiness += happyInc;
+	popMars += popInc;
+	air += airInc;
+}
 function checkOccupied(model, xOff, yOff){
 	for(var i = 0; i < BuildingSize(model).sy; i++){
 		for(var j = 0; j < BuildingSize(model).sx; j++){
