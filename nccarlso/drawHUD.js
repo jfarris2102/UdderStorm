@@ -5,16 +5,7 @@ HUD.x = 800;
 HUD.y = 0;
 HUD.image = Textures.load("images/highlight.png");
 
-function drawHUD(){
-	world.addChild(HUD);
-	display();
-}
-
-function clearHUD(){ //Not necessary
-	world.removeChild(HUD);
-}
-
-function display() {
+function displayHUDtext(){
 	
 	//creating the text
 	var moneyD="MONEY     : "+money;
@@ -42,5 +33,16 @@ function display() {
 		textArr[i].font = "Courier New";
 		textArr[i].font = 15;
 		textArr[i].padLeft = 805;
+		world.addChild(textArr[i]);
 	}
+	
+}
+
+function drawHUD(){
+	world.addChild(HUD);
+	displayHUDtext();
+}
+
+function clearHUD(){ //Not necessary
+	world.removeChild(HUD);
 }
