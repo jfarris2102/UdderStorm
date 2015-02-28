@@ -37,13 +37,13 @@ function display() {
     ct.font="20px Courier New";
     ct.fillStyle='rgb(0,0,0)';
     //creating the text
-    var moneyD="MONEY    : "+money;
+    var moneyD="MONEY     : "+money;
     ct.fillText(moneyD,10,25);
-    var foodD="FOOD     : "+food;
+    var foodD="FOOD      : "+food;
     ct.fillText(foodD,10,45);
-    var energyD="ENERGY   : "+energy;
+    var energyD="ENERGY    : "+energy;
     ct.fillText(energyD,10,65);
-    var popMarsD="Pop(Mars): "+popMars;
+    var popMarsD="POPULATION: "+popMars;
     ct.fillText(popMarsD,10,85);
 }
 
