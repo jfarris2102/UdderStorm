@@ -11,12 +11,12 @@
 //var air;  		//Displayed as % of oxygen in atmosphere
 
 //Resource incrementers
-var moneyInc;
-var foodInc;
-var energyInc;
-var happyInc;
-var popInc;
-var airInc;
+//var moneyInc;
+//var foodInc;
+//var energyInc;
+//var happyInc;
+//var popInc;
+//var airInc;
 
 init();
 
@@ -52,8 +52,9 @@ function updateBuild(){ //Every 6 months game time
 	    happyInc--;
 	airInc += photosyn*.01;
 	mineralInc += mine;
+	resInc += .1*comms;
 	
-	energyInc -= live + mine + green + hydro;
+	energyInc -= live + mine + green + hydro + comms;
 	waterInc -= 2*hydro + .5*green + .5*live;
 }
 
