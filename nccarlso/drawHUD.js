@@ -3,7 +3,7 @@ HUD.width = 160;
 HUD.height = 640;
 HUD.x = 800;
 HUD.y = 0;
-HUD.image = Textures.load("images/highlight.png");
+HUD.image = Textures.load("http://people.ucsc.edu/~dadkelly/source/HUD.png");
 
 function displayHUDtext(){
 	
@@ -39,8 +39,8 @@ function displayHUDtext(){
 }
 
 function drawHUD(){
-
     world.addChild(HUD);
+	displayHUDtext();
 }
 
 function clearHUD(){ //Not necessary
