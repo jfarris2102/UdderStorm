@@ -39,10 +39,10 @@ function displayHUDtext(){
 }
 
 function drawHUD(){
-	world.addChild(HUD);
-	displayHUDtext();
+
+    world.addChild(HUD);
 }
 
 function clearHUD(){ //Not necessary
-	world.removeChild(HUD);
+    world.removeChild(HUD);
 }
