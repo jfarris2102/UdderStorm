@@ -89,6 +89,7 @@ function getModel(model){
 		break;
 	}
 }
+
 function makeModel(model){
 	switch(model) {
     case 1:
@@ -118,6 +119,7 @@ function makeModel(model){
 		break;
 	}
 }
+
 function BuildingSize(model){
 	var building = getModel(model);
 	var temp = {};
