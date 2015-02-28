@@ -148,7 +148,7 @@ function sortBuildings(){
 	var temp;
 	for(var i = 0; i < buildingCount-1; i++){
 		for(var j = 1; j < buildingCount-i; j++){
-			if(buildings[j-1].y > buildings[j].y){
+			if(buildings[j-1].y+buildings[j-1].height > buildings[j].y+buildings[j].height){
 				temp = buildings[j-1];
 				buildings[j-1]= buildings[j];
 				buildings[j] = temp;
@@ -243,8 +243,8 @@ function drawTileEngine() {
 					tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].occupied = true;
 				}
 			}
-		}
-		highlight.image =  Textures.load("images/highlight.png");
+			highlight.image =  Textures.load("images/highlight2.png");
+		}else highlight.image =  Textures.load("images/highlight.png");
 	}else highlight.image =  Textures.load("images/highlight2.png");
 	if(dragging){
 		myX -= MouseCurrX-MousePrevX;
