@@ -1,0 +1,22 @@
+///////////////////////////////////////
+
+var MouseCurrX = 0;
+var MouseCurrY = 0;
+var MousePrevX = 0;
+var MousePrevY = 0;
+var MouseOverFirst = true;
+canvas.addEventListener("mousemove", mouseHover, false);
+
+function mouseHover(){
+    if(MouseOverFirst){
+        MouseOverFirst = false;
+        MousePrevX = gInput.mouse.x;
+        MousePrevY = gInput.mouse.y;
+    }
+    MouseCurrX = gInput.mouse.x;
+    MouseCurrY = gInput.mouse.y;
+    myX += MouseCurrX-MousePrevX;
+    myY += MouseCurrY-MousePrevY;
+    MousePrevX = MouseCurrX;
+    MousePrevY = MouseCurrY;
+}
