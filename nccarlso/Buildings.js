@@ -92,23 +92,28 @@ function getModel(model){
 function makeModel(model){
 	switch(model) {
     case 1:
-        live++;
+        live++; 
+        money -= .01;
         return pop1;
         break;
     case 2:
         green++;
+        money -= .05;
         return green1;
         break;
     case 3:
         solar++;
+        money -= .01;
         return solar1;
         break;
     case 4:
         comms++;
+        money -= .02;
         return comms1;
         break;
     default:
         live++;
+        money -=.01;
         return pop1;
 		break;
 	}
@@ -164,6 +169,26 @@ function updateResource(){
 	happiness += happyInc;
 	popMars += popInc;
 	air += airInc;
+}
+function resetVariables(){
+	money = 100;
+	food = 50;
+	water = 50;
+	air = 0.04;
+	minerals=1000; //Displayed in thousand tons
+    energy=100; //Displayed in million BTU's
+	money=100; //Displayed in millions
+	popEarth=8; //Displayed in billions
+	popMars=10; //Displayed in ones
+	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+	solar = 0;
+	turbine = 0;
+	hydro = 0;
+	photosyn = 0;
+	mine = 0;
+	green = 0;
+	comms = 0;
+	live = 0;
 }
 function checkOccupied(model, xOff, yOff){
 	for(var i = 0; i < BuildingSize(model).sy; i++){

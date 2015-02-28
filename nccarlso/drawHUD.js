@@ -9,9 +9,11 @@ var textArr = [];
 
 function displayHUDtext(){
 	//creating the text
-	var moneyD="MONEY     : "+money;
+	moneyRound = Math.ceil(money*10)/10;
+	energyRound = Math.ceil(energy*10)/10;
+	var moneyD="MONEY     : "+moneyRound+" mil";
 	var foodD="FOOD      : "+food;
-	var energyD="ENERGY    : "+energy;
+	var energyD="ENERGY    : "+energyRound + " mil BTU";
 	var popMarsD="POPULATION: "+popMars;
 	
 	var text1 = new TextBox(moneyD);
