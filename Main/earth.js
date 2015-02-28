@@ -8,9 +8,16 @@ var canvas=$("#earth")[0];
 var ct=canvas.getContext("2d");
 var w=$("#earth").width();
 var h=$("#earth").height();
+//initilization function
+window.onload=init;
+init();
+function init() {
+    if(typeof timer!="undefined") {
+        clearInterval(timer);
+    }
+    timer=setInterval(main,50);
+}
 //the core function
-window.onload=main;
-main();
 function main() {
     //background image
     var back=document.getElementById("background");
@@ -18,16 +25,33 @@ function main() {
     ct.fillStyle=pat;
     ct.fillRect(0,0,w,h);
     //ct.fill();
+    //menu
+    ct.fillStyle='white';
+    ct.fillRect(800,0,160,640);
+    ct.strokeStyle="black";
+    ct.lineWidth=2;
+    ct.strokeRect(800,0,160,640);
     //background outline
     ct.strokeStyle="black";
     ct.lineWidth=4;
     ct.strokeRect(0,0,w,h);
-    //bottom menu
-    ct.fillStyle='white';
-    ct.fillRect(10,h-100,w-20,90);
-    ct.strokeStyle="black";
-    ct.lineWidth=2;
-    ct.strokeRect(10,h-100,w-20,90);
+    //call display function
+    display();
+}
+//display function
+function display() {
+    //defining text style
+    ct.font="15px Courier New";
+    ct.fillStyle='rgb(0,0,0)';
+    //creating the text
+    var moneyD="MONEY     : "+money;
+    ct.fillText(moneyD,805,25);
+    var foodD="FOOD      : "+food;
+    ct.fillText(foodD,805,45);
+    var energyD="ENERGY    : "+energy;
+    ct.fillText(energyD,805,65);
+    var popMarsD="POPULATION: "+popMars;
+    ct.fillText(popMarsD,805,85);
 }
 
 });
