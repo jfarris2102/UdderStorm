@@ -35,7 +35,7 @@ function update(){
 	airInc = 0;
 	updateBuild();
 	updateResource();
-	console.log("food:",food);
+	/*console.log("food:",food);
 	console.log("money:",money);
 	console.log("energy:",energy);
 	console.log("water:",water);
@@ -43,7 +43,7 @@ function update(){
 	console.log("air:",air);
 	console.log("popEarth:",popEarth);
 	console.log("popMars:",popMars);
-	console.log("happiness:",happiness);
+	console.log("happiness:",happiness);*/
 }
 function updateBuild(){ //Every 6 months game time
 	energyInc += turbine + 3*solar;

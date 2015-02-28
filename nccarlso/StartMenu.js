@@ -109,14 +109,15 @@ manager.onMouseUp = function () {
                 spritesHover[i].visible = true;
                 if(i == 0) { //StartGame;
 					stop();
-					startHUD();
 					newGameMars();
+					resetVariables();
 					startMars();
+					startHUD();
 				}
                 else if(i == 1) {
-					startHUD();
 					stop();
 					startMars();
+					startHUD();
 				} //LoadGame;
                 else {
 					stop();
@@ -170,6 +171,9 @@ function start(){
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
+	if(typeof resourceTimer != "undefined") {
+		clearInterval(resourceTimer);
+	}
 }
 
 function stop(){
@@ -183,6 +187,7 @@ function stop(){
 		world.removeChild(manager);
 		world.removeChild(MainMenu);
 	}
+	resourceTimer = setInterval(buildResource,6000);
 }
 
 function startTutorial(){
