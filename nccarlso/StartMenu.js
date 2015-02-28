@@ -109,10 +109,12 @@ manager.onMouseUp = function () {
                 spritesHover[i].visible = true;
                 if(i == 0) { //StartGame;
 					stop();
+					startHUD();
 					newGameMars();
 					startMars();
 				}
                 else if(i == 1) {
+					startHUD();
 					stop();
 					startMars();
 				} //LoadGame;
@@ -165,6 +167,9 @@ function start(){
 	gInput.addMouseDownListener(manager);
 	gInput.addMouseUpListener(manager);
 	canvas.addEventListener("mousemove", mouseHover, false);
+	if(typeof timer != "undefined") {
+		clearInterval(timer);
+	}
 }
 
 function stop(){
