@@ -18,37 +18,12 @@ var happyInc;
 var popInc;
 var airInc;
 
-//Possible building types
-var tunnel = [];
-var tunnelLvl;
-var mine = [];
-var mineLvl;
-var solar = [];
-var solarLvl;
-var photosyn = [];
-var photosynLvl;
-var hydro = [];
-var hyrdoLvl;
-var turbine = [];
-var turbineLvl;
-var living = [];
-var livingLvl;
-var greenhouse = [];
-var greenhouseLvl;
+init();
 
-initGame();
-
-function initGame(){
+function init(){
 	setInterval(update, 6000);
 }
 
-function draw(){
-	/*Insert code to draw sprites*/
-	
-	if(building){
-		
-	}
-}
 function update(){
 	moneyInc = 0;
 	foodInc = 0;
@@ -71,15 +46,15 @@ function update(){
 	console.log("happiness:",happiness);
 }
 function updateBuild(){ //Every 6 months game time
-	energyInc += turbine.length + 3*solar.length;
-	foodInc += 2*greenhouse.length + 2*hydro.length;
-	if (popMars/5>living.length)
+	energyInc += turbine + 3*solar;
+	foodInc += 2*green + 2*hydro;
+	if (popMars/5>live)
 	    happyInc--;
-	airInc += photosyn.length*.01;
-	mineralInc += mine.length;
+	airInc += photosyn*.01;
+	mineralInc += mine;
 	
-	energyInc -= living.length + mine.length + greenhouse.length + hydro.length;
-	waterInc -= 2*hydro.length + .5*greenhouse.length + .5*living.length;
+	energyInc -= live + mine + green + hydro;
+	waterInc -= 2*hydro + .5*green + .5*live;
 }
 
 function updateResource(){
@@ -92,8 +67,3 @@ function updateResource(){
 	popMars += popInc;
 	air += airInc;
 }
-
-var Building = function(x,y){
-	this.x = x;
-	this.y = y;
-};
