@@ -1,9 +1,43 @@
 //This  program creates a tile engine
 use2D = true;
-function start(){
-	initGame("canvas");
+var marsActive = false;
+function startMars(){
+	marsActive = true;
 	drawTileEngine();
 	canvas.addEventListener("mousemove", drawTileEngine, false);
+	//manager for sprite dragging
+	world.addChild(manager2);
+	gInput.addMouseDownListener(manager2);
+	gInput.addMouseUpListener(manager2);
+}
+
+function stopMars(){
+	marsActive = false;
+	canvas.removeEventListener("mousemove", drawTileEngine)
+	gInput.removeMouseDownListener(manager2);
+	gInput.removeMouseUpListener(manager2);
+	world.removeChild(manager2);
+}
+
+function newGameMars(){
+	for ( i=0; i< tileGrid.length; i++ ) {
+		for ( j = 0; j< tileGrid[i].length; j++ ) {
+			tileGrid[i][j].occupied =false;
+		}
+	}
+	for(var i = 0; i < buildingCount; i++){
+		console.log(i);
+		world.removeChild(buildings[i]);
+	}
+	placeBuildingMode = false;
+	flip = false;
+	flop = false;
+	myX = worldSize/2;
+	myY = worldSize/2;
+	selection = 1;
+	highlight.alpha = 0;
+	placing.alpha = 0;
+	initBuildings();
 }
 
 //dimension variables(easy to edit)
@@ -48,6 +82,7 @@ for(var i = 0; i < Math.floor(960/tileSize)+2; i++){
 }
 
 //Mouse movement stuff
+var manager2 = new Sprite();
 var dragging = false;
 var placeBuilding = false;
 var placeBuildingMode = false;
@@ -59,12 +94,6 @@ var MouseCurrY = 0;
 var MousePrevX = 0;
 var MousePrevY = 0;
 var MouseOverFirst = true;
-
-//manager for sprite dragging
-var manager = new Sprite();
-world.addChild(manager);
-gInput.addMouseDownListener(manager);
-gInput.addMouseUpListener(manager);
 
 var highlight  = new Sprite();
 highlight.width = tileSize;
@@ -108,36 +137,49 @@ gInput.addBool(65, "left");
 gInput.addBool(68, "right");
 //S
 gInput.addBool(83, "down");
+//Esc
+gInput.addBool(27, "escape");
 
 ////////////////////////////////////////////////// Functions /////////////////////////////////////////////////////////////
 
-window.onkeypress = function(event) {
-	if(gInput.left && placeBuildingMode){
-		selection = Math.max(1, --selection);
-		flip = true;
-	}else if(gInput.right && placeBuildingMode){
-		selection = Math.min(buildingTypes, ++selection);
-		flip = true;
-	}else if(gInput.down){
-		if(placeBuildingMode){
-			placeBuildingMode = false;
-			flip = false;
-			flop = true;
-		}
-		else{
-			placeBuildingMode = true;
+window.onkeypress = function(event) { //Global Esc key functionality
+	if(marsActive){
+		if(gInput.left && placeBuildingMode){
+			selection = Math.max(1, --selection);
 			flip = true;
-			flop = false;
+		}else if(gInput.right && placeBuildingMode){
+			selection = Math.min(buildingTypes, ++selection);
+			flip = true;
+		}else if(gInput.down){
+			if(placeBuildingMode){
+				placeBuildingMode = false;
+				flip = false;
+				flop = true;
+			}
+			else{
+				placeBuildingMode = true;
+				flip = true;
+				flop = false;
+			}
+		}else if(gInput.escape){ //Back to menu
+			stopMars();
+			start();
+		}
+		drawTileEngine();
+	}else if(tutorialActive){
+		if(gInput.escape){
+		world.removeChild(TutorialPage);
+		tutorialActive = false;
+		start();
 		}
 	}
-	drawTileEngine();
 }
 
 //Check if sprite clicked
-manager.onMouseDown = function () {
+manager2.onMouseDown = function () {
 	dragging = true;
 }
-manager.onMouseUp = function () {
+manager2.onMouseUp = function () {
 	placeBuilding = true;
 	dragging = false;
 	MouseOverFirst = true;

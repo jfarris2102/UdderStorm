@@ -41,11 +41,15 @@ var buildings = [];
 var buildingCount = 0;
 var maxBuildings = 250;
 var buildingTypes = 4;
-for(var i = 0; i < maxBuildings; i++){
-	var spriteTemp  = new Sprite();
-	spriteTemp.id = "null";
-	world.addChild(spriteTemp);
-	buildings[i] = spriteTemp;
+
+function initBuildings(){
+	for(var i = 0; i < maxBuildings; i++){
+		var spriteTemp  = new Sprite();
+		spriteTemp.id = "null";
+		world.addChild(spriteTemp);
+		buildings[i] = spriteTemp;
+	}
+	buildingCount = 0;
 }
 
 function makeBuilding(model){
