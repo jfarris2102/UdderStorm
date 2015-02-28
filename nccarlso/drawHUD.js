@@ -6,9 +6,9 @@ HUD.y = 0;
 HUD.image = Textures.load("images/highlight.png");
 
 function drawHUD(){
-	world.addChild(HUD);
+    world.addChild(HUD);
 }
 
 function clearHUD(){ //Not necessary
-	world.removeChild(HUD);
+    world.removeChild(HUD);
 }
