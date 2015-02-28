@@ -3,10 +3,11 @@ HUD.width = 160;
 HUD.height = 640;
 HUD.x = 800;
 HUD.y = 0;
-HUD.image = Textures.load("images/highlight.png");
+HUD.image = Textures.load("http://people.ucsc.edu/~dadkelly/source/HUD.png");
+
+var textArr = [];
 
 function displayHUDtext(){
-	
 	//creating the text
 	var moneyD="MONEY     : "+money;
 	var foodD="FOOD      : "+food;
@@ -23,7 +24,11 @@ function displayHUDtext(){
 	text3.padTop = 65;
 	text4.padTop = 85;
 	
-	var textArr = [];
+	for(var i = 0; i < textArr.length; i++){
+		world.removeChild(textArr[i]);
+	}
+	textArr = [];
+	
 	textArr.push(text1);
 	textArr.push(text2);
 	textArr.push(text3);
@@ -39,10 +44,18 @@ function displayHUDtext(){
 }
 
 function drawHUD(){
-	world.addChild(HUD);
+    world.addChild(HUD);
 	displayHUDtext();
 }
 
 function clearHUD(){ //Not necessary
-	world.removeChild(HUD);
+    world.removeChild(HUD);
 }
+
+function startHUD(){
+	if(typeof timer != "undefined") {
+		clearInterval(timer);
+	}
+	timer = setInterval(displayHUDtext, 1000);
+}
+
