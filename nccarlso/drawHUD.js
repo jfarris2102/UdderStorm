@@ -59,6 +59,7 @@ function clearHUD(){ //Not necessary
 }
 
 function startHUD(){
+	displayHUDtext();
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}

@@ -109,14 +109,14 @@ manager.onMouseUp = function () {
                 spritesHover[i].visible = true;
                 if(i == 0) { //StartGame;
 					stop();
-					startHUD();
 					newGameMars();
 					startMars();
+					startHUD();
 				}
                 else if(i == 1) {
-					startHUD();
 					stop();
 					startMars();
+					startHUD();
 				} //LoadGame;
                 else {
 					stop();
