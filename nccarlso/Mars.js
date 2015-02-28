@@ -26,7 +26,6 @@ function newGameMars(){
 		}
 	}
 	for(var i = 0; i < buildingCount; i++){
-		console.log(i);
 		world.removeChild(buildings[i]);
 	}
 	placeBuildingMode = false;
@@ -38,6 +37,7 @@ function newGameMars(){
 	highlight.alpha = 0;
 	placing.alpha = 0;
 	initBuildings();
+	drawHUD();
 }
 
 //dimension variables(easy to edit)
@@ -48,7 +48,7 @@ var tilesPerLine= Math.floor(worldSize/tileSize);
 //Variables for the display functions
 //should be how big the canvas is
 var drawHeight=640;
-var drawWidth=960;
+var drawWidth=800;
 //holds the displayed number visual tiles
 var drawTileWidth = Math.floor(drawWidth/tileSize);
 var drawTileHeight = Math.floor(drawHeight/tileSize);
@@ -201,6 +201,8 @@ function sortBuildings(){
 		world.removeChild(buildings[i]);
 		world.addChild(buildings[i]);
 	}
+	clearHUD();
+	drawHUD();
 }
 
 var placing  = new Sprite();
@@ -276,7 +278,7 @@ function drawTileEngine() {
 	}
 	//Check if occupied by building
 	if(!checkOccupied(model, leftTile+HighlightX, topTile+HighlightY)){
-		if(placeBuilding && placeBuildingMode && buildingCount < maxBuildings){ //Places a building
+		if(placeBuilding && placeBuildingMode && buildingCount < maxBuildings && MouseCurrX < 800){ //Places a building
 			makeBuilding(model); //in Building.js
 			buildingCount++;
 			sortBuildings();
@@ -302,5 +304,6 @@ function drawTileEngine() {
 	MousePrevX = MouseCurrX;
 	MousePrevY = MouseCurrY;
 }//end of drawTileEngine()
+
 
 
