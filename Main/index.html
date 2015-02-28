@@ -3,9 +3,11 @@
 
 <!--Main Section-->
 <head>
-	<title>Get Your Ass to Mars</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Final Game Alpha Test</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script src="Brine.js"></script>
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://www.jar42.com/brine/engine/brine.js"></script>
 	<script type='text/javascript'>
 	//Global Variables
 		var food=50;       //Displayed in food units (1 unit feeds a human for a year)
@@ -36,17 +38,26 @@
         var airInc;
         var resInc;
 	</script>
+    <script src="StartMenu.js"></script>
+	<script src="Buildings.js"></script>
+	<script src="Mars.js"></script>
 	<script src="HUD.js"></script>
 	<script src="earth.js"></script>
 	<script id="building" src="building.js"></script>
 </head>
 <!--Defines Character Set (gets rid of an annoying warning)-->
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"> 
-<!--Earth Veiw Canvas-->
+<!--Earth View Canvas
 <canvas id="earth" width="640" height="480">
 	<img id="background" src="http://people.ucsc.edu/~dadkelly/source/space_center.png" alt="Background">
-</canvas>
-<!--HUD Canvas-->
+</canvas> 
+<!--HUD Canvas
 <canvas id="HUD" width="640" height="100">
 	<img id="backHUD" src="http://people.ucsc.edu/~dadkelly/source/HUD.png" alt="Background">
-</canvas>
+</canvas> -->
+    <body onload="initGame('canvas'); start()">
+        <h1>Final Game Alpha Test</h1>
+        <canvas id="canvas" width="960" height="640">
+        	Error.
+        </canvas>
+    </body>
