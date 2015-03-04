@@ -1,4 +1,5 @@
 //Building sprites
+
 var pop1  = new Sprite();
 pop1.width = 40;
 pop1.height = 50;
