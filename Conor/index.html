@@ -3,13 +3,15 @@
 <!--Main Section-->
 <html>
 	<head>
-		<title>Dawson Test Index-u</title>
-		<canvas id="canvas" width="960" height="640">
-			Error.
-		</canvas>
+		<title>Get Your Ass to Mars</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="Brine.js"></script>
-		<script src="earth.js"></script>
+		<script src="StartMenu.js"></script>
+		<script src="Buildings.js"></script>
+		<script src="drawHUD.js"></script>
+		<script src="Mars.js"></script>
 		<script type='text/javascript'>
 			//Global Variables
 			var food=50; //Displayed in food units (1 unit feeds a human for a year)
@@ -40,4 +42,14 @@
 	        var resInc = 0;
 		</script>
 	</head>
+	<body onload="initGame('canvas'); start();">
+		<!--Main Game Canvas-->
+		<canvas id="canvas" width="960" height="640">
+			Error.
+		</canvas>
+		<!--HUD Canvas-->
+		<!--<canvas id="HUD" width="640" height="100">
+			<img id="backHUD" src="http://people.ucsc.edu/~dadkelly/source/HUD.png" alt="Background">
+		</canvas>-->
+	</body>
 </html>

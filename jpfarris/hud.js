@@ -24,10 +24,6 @@ function main() {
     ct.strokeStyle="black";
     ct.lineWidth=2;
     ct.strokeRect(800,0,160,640);
-    //background outline
-    ct.strokeStyle="black";
-    ct.lineWidth=4;
-    ct.strokeRect(0,0,w,h);
     //call display function
     display();
 }
