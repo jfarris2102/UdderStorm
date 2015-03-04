@@ -1,6 +1,5 @@
 //dadkelly
-$(document).ready(
-function(){
+function StartHUD(){
     
 //canvas details
 var canvas=$("#canvas")[0];
@@ -42,5 +41,3 @@ function display() {
     var popMarsD="POPULATION: "+popMars;
     ct.fillText(popMarsD,805,85);
 }
-
-});

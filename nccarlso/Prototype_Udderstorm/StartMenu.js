@@ -116,9 +116,8 @@ manager.onMouseUp = function () {
 				}
                 else if(i == 1) {
 					stop();
-					//startMars();
-					//startHUD();
-					startSolar();
+					startMars();
+					startHUD();
 				} //LoadGame;
                 else {
 					stop();
@@ -169,9 +168,6 @@ function start(){
 	gInput.addMouseDownListener(manager);
 	gInput.addMouseUpListener(manager);
 	canvas.addEventListener("mousemove", mouseHover, false);
-	if(typeof solarTime != "undefined") {
-		clearInterval(solarTime);
-	}
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
