@@ -142,7 +142,7 @@ gInput.addBool(27, "escape");
 
 ////////////////////////////////////////////////// Functions /////////////////////////////////////////////////////////////
 
-window.onkeypress = function(event) { //Global Esc key functionality
+window.onkeydown = function(event) { //Global Esc key functionality
 	if(marsActive){
 		if(gInput.left && placeBuildingMode){
 			selection = Math.max(1, --selection);
