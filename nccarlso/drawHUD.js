@@ -18,20 +18,26 @@ function displayHUDtext(){
 		//creating the text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
+		var years = getYears();
+		var days = getDays()%365;
+		var months = getMonths()%days;
 		var moneyD="MONEY     : "+moneyRound+" mil";
 		var foodD="FOOD      : "+food;
 		var energyD="ENERGY    : "+energyRound + " mil BTU";
 		var popMarsD="POPULATION: "+popMars;
+		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
 		var text3 = new TextBox(energyD);
 		var text4 = new TextBox(popMarsD);
+		var text5 = new TextBox(timeD);
 		
 		text1.padTop = 25;
 		text2.padTop = 45;
 		text3.padTop = 65;
 		text4.padTop = 85;
+		text5.padTop = 105;
 		
 		for(var i = 0; i < textArr.length; i++){
 			world.removeChild(textArr[i]);
@@ -42,6 +48,7 @@ function displayHUDtext(){
 		textArr.push(text2);
 		textArr.push(text3);
 		textArr.push(text4);
+		textArr.push(text5);
 		
 		for(var i = 0; i < textArr.length; i++){
 			textArr[i].font = "Courier New";
