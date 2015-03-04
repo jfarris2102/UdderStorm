@@ -1,5 +1,5 @@
 var days = 0;
-var mult = 400;
+var mult = 395;
 var RocketOffset = 0;
 var Launched = false;
 var LaunchQueued = false;
