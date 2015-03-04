@@ -11,4 +11,5 @@ var bg=new Sprite(); {
     bg.y=0;
     bg.image=Textures.load(back);
 } world.addChild(bg);
+//
 
