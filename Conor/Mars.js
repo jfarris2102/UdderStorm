@@ -54,12 +54,14 @@ var drawTileWidth = Math.floor(drawWidth/tileSize);
 var drawTileHeight = Math.floor(drawHeight/tileSize);
 
 //Sprite stuff
+//sand is held by a 0 in the array
 var sandSprite  = new Sprite();
 sandSprite.width = tileSize;
 sandSprite.height = tileSize;
 sandSprite.visible = false;
 sandSprite.image = Textures.load("images/sandSprite.png");
 
+//rock is held by a 1 in the array
 var rockSprite  = new Sprite();
 rockSprite.width = tileSize;
 rockSprite.height = tileSize;
@@ -105,6 +107,9 @@ world.addChild(highlight);
 //constants hold the ids for grid squares
 var sandTile=0;
 var rockTile=1;
+
+
+
 //creates an array with the respective colors for each grid square
 var tileColors= ['#0000DD','#00CC00'];
 var totalTileTypes=2;
@@ -121,9 +126,21 @@ var tiles = [];
 for ( i=0; i<tilesPerLine; i++ ) {
     var column = new Array();
     //creates an array of ints worldsize/tilesize long
+	//and fills it with variables that have int type and boolean occupied
     for ( j = 0; j<tilesPerLine; j++ ) {
 		var temp = {};
-        temp.type = Math.floor (Math.random() * totalTileTypes);
+		
+		//this section of code is hard-coded to select sand or rock.
+		//IF WE ADD another texture it will need serious work
+		//code to choose between 0 (sand) and 1 (rock)
+        var typeVAR = Math.floor (Math.random()*100);
+		if(typeVAR>27){
+			temp.type = sandTile;
+		}
+		else{
+			temp.type= rockTile;
+		}
+		
 		temp.occupied = false; 
 		column[j] = temp;
     }
