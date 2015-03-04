@@ -1,29 +1,43 @@
 <!DOCTYPE html>
+<!--UdderStorm-->
+<!--Main Section-->
 <html>
-<!--dadkelly-->
-<head>
-	<title>Dawson's Sexy Test Index-u</title>
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="/UdderStorm/Main/earth.js"></script>
-	<script id="building" src="/UdderStorm/Main/building.js"></script>
-	<script type='text/javascript'>
-	//Global Variables
-		var food=50;       //Displayed in food units (1 unit feeds a human for a year)
-		var water=50;      //Displayed in water units (1 unit quenches a human for a year)
-		var air=.04;       //Displayed as % of oxygen in atmosphere
-		var minerals=1000; //Displayed in thousand tons
-		var energy=100;    //Displayed in million BTU's
-		var money=100;     //Displayed in millions
-		var popEarth=8;    //Displayed in billions
-		var popMars=10;    //Displayed in ones
-		var happiness=80;  //Displayed as % (50 is content, <50 upset, >50 happy)
-		var research = 50; //Research points used to develop technologies and/or buildings
-	</script>
-</head>
-<!--Defines Character Set (gets rid of an annoying warning)-->
-<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-<!--Canvas for Earth-->
-<canvas id="earth" width="960" height="640">
-	<img id="background" src="http://people.ucsc.edu/~dadkelly/source/paint_center.png" alt="Background">
-</canvas>
+	<head>
+		<title>Dawson Test Index-u</title>
+		<canvas id="canvas" width="960" height="640">
+			Error.
+		</canvas>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="Brine.js"></script>
+		<script src="earth.js"></script>
+		<script type='text/javascript'>
+			//Global Variables
+			var food=50; //Displayed in food units (1 unit feeds a human for a year)
+			var water=50; //Displayed in water units (1 unit quenches a human for a year)
+			var air=.04; //Displayed as % of oxygen in atmosphere
+			var minerals=1000; //Displayed in thousand tons
+			var energy=100; //Displayed in million BTU's
+			var money=100; //Displayed in millions
+			var popEarth=8; //Displayed in billions
+			var popMars=10; //Displayed in ones
+			var happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+			var solar = 0;
+			var turbine = 0;
+			var hydro = 0;
+			var photosyn = 0;
+			var mine = 0;
+			var green = 0;
+			var comms = 0;
+			var live = 0;
+		    var moneyInc = 0;
+	        var foodInc = 0;
+	        var waterInc = 0;
+	        var energyInc = 0;
+	        var mineralInc = 0;
+	        var happyInc = 0;
+	        var popInc = 0;
+	        var airInc = 0;
+	        var resInc = 0;
+		</script>
+	</head>
 </html>
