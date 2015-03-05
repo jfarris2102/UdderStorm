@@ -22,14 +22,12 @@ function displayHUDtext(){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var years = getYears();
-		var days = getDays()%365;
-		var months = getMonths()%days;
+		var days = getDays()%31;
 		var moneyD="MONEY     : "+moneyRound+" mil";
 		var foodD="FOOD        : "+food;
 		var energyD="ENERGY   : "+energyRound + " mil BTU";
 		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
+		var timeD = "CURRENT DATE: "+ getYears() + "."+ getMonths() +"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
@@ -60,18 +58,16 @@ function displayHUDtext(){
 			textArr[i].padLeft = canvas.width - 150;
 			world.addChild(textArr[i]);
 		}
-	}else if(earthActive){
+	}else if(earthActive||solarActive){
 		//Earth text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var years = getYears();
-		var days = getDays()%365;
-		var months = getMonths()%days;
+		var days = getDays() % 31;
 		var moneyD="MONEY     : "+moneyRound+" mil";
 		var foodD="FOOD        : "+food;
 		var energyD="ENERGY   : "+energyRound + " mil BTU";
 		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
+		var timeD = "CURRENT DATE: "+ getYears() + "."+ getMonths()+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
@@ -128,7 +124,7 @@ function startHUD(){
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
-	timer = setInterval(displayHUDtext, 1000);
+	timer = setInterval(displayHUDtext, 200);
 }
 
 function stopActive(){
