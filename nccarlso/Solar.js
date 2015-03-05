@@ -7,13 +7,13 @@ var solarActive = false;
 var firstSolar = true;
 
 function getYears(){
-	return Math.floor(days / 365);
+	return 2015 + Math.floor(days / 365);
 }
 function getMonths(){
-	return Math.floor(days / 12);
+	return Math.floor((days%365) / 31)%getDays() + 1;
 }
 function getDays(){
-	return days;
+	return days%365 + 1;
 }
 function getTimeToNextLaunch(){
 	return 780-((days+77)%780); //Synodic period for Mars/Earth
