@@ -3,6 +3,8 @@ var mult = 360;
 var RocketOffset = 0;
 var Launched = false;
 var LaunchQueued = false;
+var solarActive = false;
+var firstSolar = true;
 
 function getYears(){
 	return Math.floor(days / 365);
@@ -14,11 +16,10 @@ function getDays(){
 	return days;
 }
 function getTimeToNextLaunch(){
-	return 780-(days%780); //Synodic period for Mars/Earth
+	return 780-((days+77)%780); //Synodic period for Mars/Earth
 }
 
 var SolarSystem = new Sprite();
-world.addChild(SolarSystem);
 var sun = new Sprite();
 var rotate88 = new Sprite();
 var rotate225 = new Sprite();
@@ -141,46 +142,52 @@ function initSolar(){
 }
 
 function startSolar() {
-	setInterval(solarTime, 1000 / 30);
+	solarActive = true;
+	world.addChild(SolarSystem);
 	for (var i = 0; i < solarSprites.length; i++)
 		solarSprites[i].visible = true;
+	redrawHUD();
 }
 
 function stopSolar() {
+	solarActive = false;
+	world.removeChild(SolarSystem);
 	for (var i = 0; i < solarSprites.length; i++)
 		solarSprites[i].visible = false;
 }
 ///////////////////////////////////////////////////////
 	
 function solarTime(){
-	rotate88.rotation -= DTR(mult/88);
-	rotate225.rotation -= DTR(mult/225);
-	rotate365.rotation -= DTR(mult/365);
-	rotate27.rotation -= DTR(mult/27);
-	rotate687.rotation -= DTR(mult/687);
-	if (rotate88.rotation < -2*Math.PI) rotate88.rotation = 0;
-	if (rotate225.rotation < -2*Math.PI) rotate225.rotation = 0;
-	if (rotate365.rotation < -2*Math.PI) rotate365.rotation = 0;
-	if (rotate27.rotation < -2*Math.PI) rotate27.rotation = 0;
-	if (rotate687.rotation < -2*Math.PI) rotate687.rotation = 0;
-	days++;
-	//Mars 45 degrees ahead of earth
-	var dif = Math.abs(-0.5233 - rotate687.rotation + rotate365.rotation);
-	if(dif < 0.08 && !Launched && LaunchQueued)
-		Launch();
-	else if(Launched && RocketOffset > 80){
-		Rocket.visible = false;
-		RocketOffset = 0;
-		Launched = false;
-	}else if(Launched){ //Rocket flight trajectory
-		Rocket.y = RocketOffset*3.5;
-		Rocket.x = 20+(((41*RocketOffset)/26)-((RocketOffset*RocketOffset)/26));
-		RocketOffset+=(mult)/1000;
+	if(solarActive || marsActive || earthActive){
+		rotate88.rotation -= DTR(mult/88);
+		rotate225.rotation -= DTR(mult/225);
+		rotate365.rotation -= DTR(mult/365);
+		rotate27.rotation -= DTR(mult/27);
+		rotate687.rotation -= DTR(mult/687);
+		if (rotate88.rotation < -2*Math.PI) rotate88.rotation = 0;
+		if (rotate225.rotation < -2*Math.PI) rotate225.rotation = 0;
+		if (rotate365.rotation < -2*Math.PI) rotate365.rotation = 0;
+		if (rotate27.rotation < -2*Math.PI) rotate27.rotation = 0;
+		if (rotate687.rotation < -2*Math.PI) rotate687.rotation = 0;
+		if(getTimeToNextLaunch()<=1 && !Launched && !LaunchQueued)
+			Launch();
+		else if(Launched && RocketOffset > 80){
+			Rocket.visible = false;
+			RocketOffset = 0;
+			Launched = false;
+		}else if(Launched){ //Rocket flight trajectory
+			Rocket.y = RocketOffset*3.5;
+			Rocket.x = 20+(((41*RocketOffset)/26)-((RocketOffset*RocketOffset)/26));
+			RocketOffset+=(mult)/1000;
+		}
+		days++;
 	}
 }
 
 function Launch(){
 	RocketOffset = 0;
+	Rocket.y = 0;
+	Rocket.x = 20;
 	Rocket.visible = true;
 	Launched = true;
 	LaunchQueued = false;

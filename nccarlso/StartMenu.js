@@ -57,6 +57,31 @@ spritesHover.push(StartGameHover);
 spritesHover.push(LoadGameHover);
 spritesHover.push(TutorialHover);
 
+/* Buttons */
+var buttonEarth  = new Sprite();
+buttonEarth.image = Textures.load("images/bEarth_up.png");
+var buttonMars  = new Sprite();
+buttonMars.image = Textures.load("images/bMars_up.png");
+var buttonSolar  = new Sprite();
+buttonSolar.image = Textures.load("images/bSpace_up.png");
+var buttonEarthDown  = new Sprite();
+buttonEarthDown.image = Textures.load("images/bEarth_down.png");
+var buttonMarsDown  = new Sprite();
+buttonMarsDown.image = Textures.load("images/bMars_down.png");
+var buttonSolarDown  = new Sprite();
+buttonSolarDown.image = Textures.load("images/bSpace_down.png");
+
+var buttons = new Array();
+buttons.push(buttonEarth);
+buttons.push(buttonMars);
+buttons.push(buttonSolar);
+
+var buttonsDown = new Array();
+buttonsDown.push(buttonEarthDown);
+buttonsDown.push(buttonMarsDown);
+buttonsDown.push(buttonSolarDown);
+/* End Buttons*/
+
 //Sprite Positions
 function initSprites(){
 	var canvas = document.getElementById('canvas');
@@ -84,54 +109,27 @@ function initSprites(){
 		spritesHover[i].y = 200 + (i*100);
 		world.addChild(spritesHover[i]);
 	}
+	/* Buttons */
+	for(var i = 0; i < buttons.length; i++){
+		buttons[i].visible = false;
+		buttonsDown[i].visible = false;
+		buttons[i].width = 40;
+		buttons[i].height = 40;
+		buttonsDown[i].width = 40;
+		buttonsDown[i].height = 40;
+		buttons[i].x = (canvas.width-150) + (i*50);
+		buttons[i].y = canvas.height - 50;
+		buttonsDown[i].x = (canvas.width-150) + (i*50);
+		buttonsDown[i].y = canvas.height - 50;
+		world.addChild(buttons[i]);
+		world.addChild(buttonsDown[i]);
+	}
+	/* End Buttons */
 }
 //////////////////////////////////////////////////////////////////
 
 //manager for sprite dragging
-var manager = new Sprite();
-
-//Check if sprite clicked
-manager.onMouseDown = function () {
-    for(i = 0; i < spritesHover.length; i++){
-        if (checkMouseOver(spritesHover[i], gInput.mouse.x, gInput.mouse.y)){
-            spritesHover[i].visible = false;
-            spritesDown[i].visible = true;
-            break;
-        }
-    }
-};
-
-manager.onMouseUp = function () {
-    for(i = 0; i < spritesDown.length; i++){
-        if (spritesDown[i].visible == true){
-            if (checkMouseOver(spritesDown[i], gInput.mouse.x, gInput.mouse.y)){
-                spritesDown[i].visible = false;
-                spritesHover[i].visible = true;
-                if(i == 0) { //StartGame;
-					stop();
-					newGameMars();
-					resetVariables();
-					startMars();
-					startHUD();
-				}
-                else if(i == 1) {
-					stop();
-					//startMars();
-					//startHUD();
-					startSolar();
-				} //LoadGame;
-                else {
-					stop();
-					startTutorial();
-				} //Tutorial;
-            }else{
-                spritesDown[i].visible = false;
-                spritesMenu[i].visible = true;
-            }
-            break;
-        }
-    }
-};
+var manager = new Sprite(); //For all
 
 //Check if mouse position over sprite
 function checkMouseOver(sprite, x, y) {
@@ -161,17 +159,18 @@ function mouseHover(){
 }
 
 function start(){
-	if(first) initGame("canvas");
-	first = false;
+	if(first){
+		initGame("canvas");
+		first = false;
+	} else {
+		world.removeChild(HUD);
+	}
 	world.addChild(MainMenu);
 	initSprites();
 	world.addChild(manager);
 	gInput.addMouseDownListener(manager);
 	gInput.addMouseUpListener(manager);
 	canvas.addEventListener("mousemove", mouseHover, false);
-	if(typeof solarTime != "undefined") {
-		clearInterval(solarTime);
-	}
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
@@ -182,13 +181,10 @@ function start(){
 
 function stop(){
 	canvas.removeEventListener("mousemove", mouseHover);
-	gInput.removeMouseDownListener(manager);
-	gInput.removeMouseUpListener(manager);
 	for(var i = 0; i < spritesMenu.length; i++){
 		world.removeChild(spritesMenu[i]);
 		world.removeChild(spritesDown[i]);
 		world.removeChild(spritesHover[i]);
-		world.removeChild(manager);
 		world.removeChild(MainMenu);
 	}
 	resourceTimer = setInterval(buildResource,6000);
