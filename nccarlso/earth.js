@@ -19,4 +19,5 @@ var bd=new Sprite(); {
     bd.x=-5;
     bd.y=-5;
     bd.image=Textures.load(border);
-} world.addChild(bd);
+} //world.addChild(bd);
+//IDK WHAT TO DO!!!
