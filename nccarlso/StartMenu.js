@@ -99,7 +99,7 @@ manager.onMouseDown = function () {
             break;
         }
     }
-}
+};
 
 manager.onMouseUp = function () {
     for(i = 0; i < spritesDown.length; i++){
@@ -131,7 +131,7 @@ manager.onMouseUp = function () {
             break;
         }
     }
-}
+};
 
 //Check if mouse position over sprite
 function checkMouseOver(sprite, x, y) {
