@@ -10,6 +10,11 @@ function startMars(){
 
 function stopMars(){
 	marsActive = false;
+	placeBuildingMode = false;
+	flip = false;
+	flop = false;
+	highlight.alpha = 0;
+	placing.alpha = 0;
 	canvas.removeEventListener("mousemove", drawTileEngine)
 }
 

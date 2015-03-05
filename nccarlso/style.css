@@ -21,3 +21,11 @@ p {
     -1px 1px 0 #000,
     1px 1px 0 #000; 
 } 
+.divTerminatorFont {
+	font-family: terminator;
+} 
+@font-face{
+    font-family: 'terminator';
+    src: url('terminator.ttf'),
+    url('terminator.eot'); /* IE */
+}
