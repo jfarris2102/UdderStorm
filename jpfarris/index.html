@@ -6,13 +6,13 @@
 		<title>Get Your Ass to Mars</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="/UdderStorm/nccarlso/Brine.js"></script>
-		<script src="/UdderStorm/nccarlso/StartMenu.js"></script>
-		<script src="/UdderStorm/nccarlso/Buildings.js"></script>
-		<script src="/UdderStorm/nccarlso/drawHUD.js"></script>
-		<script src="/UdderStorm/nccarlso/Mars.js"></script>
-		<script src="hud.js"></script>
+		<!--script src="http://code.jquery.com/jquery-1.7.1.min.js"></script-->
+		<script src="Brine.js"></script>
+		<script src="Solar.js"></script>
+		<script src="StartMenu.js"></script>
+		<script src="Buildings.js"></script>
+		<script src="drawHUD.js"></script>
+		<script src="Mars.js"></script>
 		<script type='text/javascript'>
 			//Global Variables
 			var food=50; //Displayed in food units (1 unit feeds a human for a year)
@@ -24,13 +24,29 @@
 			var popEarth=8; //Displayed in billions
 			var popMars=10; //Displayed in ones
 			var happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+			var years = 2015;
+			var months = 0;
+			var days = 0;
 			var solar = 0;
+			var turbine = 0;
+			var hydro = 0;
+			var photosyn = 0;
+			var mine = 0;
 			var green = 0;
 			var comms = 0;
 			var live = 0;
+		    var moneyInc = 0;
+	        var foodInc = 0;
+	        var waterInc = 0;
+	        var energyInc = 0;
+	        var mineralInc = 0;
+	        var happyInc = 0;
+	        var popInc = 0;
+	        var airInc = 0;
+	        var resInc = 0;
 		</script>
 	</head>
-	<body onload="initGame('canvas'); start()">
+	<body onload="initGame('canvas'); start(); initSolar();">
 		<!--Main Game Canvas-->
 		<canvas id="canvas" width="960" height="640">
 			Error.
