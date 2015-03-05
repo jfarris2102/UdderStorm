@@ -1,22 +1,16 @@
 //This  program creates a tile engine
-use2D = true;
+//use2D = true;
 var marsActive = false;
 function startMars(){
 	marsActive = true;
 	drawTileEngine();
 	canvas.addEventListener("mousemove", drawTileEngine, false);
-	//manager for sprite dragging
-	world.addChild(manager2);
-	gInput.addMouseDownListener(manager2);
-	gInput.addMouseUpListener(manager2);
+	redrawHUD();
 }
 
 function stopMars(){
 	marsActive = false;
 	canvas.removeEventListener("mousemove", drawTileEngine)
-	gInput.removeMouseDownListener(manager2);
-	gInput.removeMouseUpListener(manager2);
-	world.removeChild(manager2);
 }
 
 function newGameMars(){
@@ -37,7 +31,6 @@ function newGameMars(){
 	highlight.alpha = 0;
 	placing.alpha = 0;
 	initBuildings();
-	drawHUD();
 }
 
 //dimension variables(easy to edit)
@@ -82,7 +75,6 @@ for(var i = 0; i < Math.floor(960/tileSize)+2; i++){
 }
 
 //Mouse movement stuff
-var manager2 = new Sprite();
 var dragging = false;
 var placeBuilding = false;
 var placeBuildingMode = false;
@@ -142,7 +134,7 @@ gInput.addBool(27, "escape");
 
 ////////////////////////////////////////////////// Functions /////////////////////////////////////////////////////////////
 
-window.onkeydown = function(event) { //Global Esc key functionality
+window.onkeydown = function(event) {
 	if(marsActive){
 		if(gInput.left && placeBuildingMode){
 			selection = Math.max(1, --selection);
@@ -161,29 +153,13 @@ window.onkeydown = function(event) { //Global Esc key functionality
 				flip = true;
 				flop = false;
 			}
-		}else if(gInput.escape){ //Back to menu
-			stopMars();
-			start();
 		}
 		drawTileEngine();
-	}else if(tutorialActive){
-		if(gInput.escape){
-		world.removeChild(TutorialPage);
-		tutorialActive = false;
-		start();
-		}
 	}
-}
-
-//Check if sprite clicked
-manager2.onMouseDown = function () {
-	dragging = true;
-}
-manager2.onMouseUp = function () {
-	placeBuilding = true;
-	dragging = false;
-	MouseOverFirst = true;
-	drawTileEngine();
+	if(gInput.escape){ //Back to menu (Global Esc key functionality)
+		stopActive();
+		start();
+	}
 }
 
 function sortBuildings(){
@@ -201,8 +177,7 @@ function sortBuildings(){
 		world.removeChild(buildings[i]);
 		world.addChild(buildings[i]);
 	}
-	clearHUD();
-	drawHUD();
+	redrawHUD();
 }
 
 var placing  = new Sprite();
