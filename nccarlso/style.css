@@ -24,6 +24,13 @@ p {
 
 @font-face{
     font-family: 'terminator';
-    src: url('terminator.ttf'),
-    url('terminator.eot'); /* IE */
+    src: url('fonts/terminator.ttf'),
+    url('fonts/terminator.eot'); /* IE */
 }
+
+@font-face{
+    font-family: 'BebasNeue';
+    src: url('fonts/BebasNeue.ttf'),
+    url('fonts/BebasNeue.eot'); /* IE */
+}
+

@@ -25,23 +25,17 @@ function displayHUDtext(){
 		var years = getYears();
 		var days = getDays()%365;
 		var months = getMonths()%days;
-		var moneyD="MONEY     : "+moneyRound+" mil";
-		var foodD="FOOD        : "+food;
-		var energyD="ENERGY   : "+energyRound + " mil BTU";
-		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
+		var moneyD="MONEY:  "+moneyRound+"mil";
+		var foodD="FOOD:  "+food;
+		var energyD="ENERGY:  "+energyRound + "mil BTU";
+		var popMarsD="POPULATION:  "+popMars;
+		var timeD = "DATE:  "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
 		var text3 = new TextBox(energyD);
 		var text4 = new TextBox(popMarsD);
 		var text5 = new TextBox(timeD);
-		
-		text1.padTop = 25;
-		text2.padTop = 45;
-		text3.padTop = 65;
-		text4.padTop = 85;
-		text5.padTop = 105;
 		
 		textArr.push(text1);
 		textArr.push(text2);
@@ -50,9 +44,10 @@ function displayHUDtext(){
 		textArr.push(text5);
 		
 		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = 'terminator';
-			textArr[i].fontSize = '15';
+			textArr[i].font = 'BebasNeue';
+			textArr[i].fontSize = '20';
 			textArr[i].padLeft = canvas.width - 150;
+			textArr[i].padTop = 30*(i+1);
 			world.addChild(textArr[i]);
 		}
 	}else if(earthActive){
@@ -62,23 +57,17 @@ function displayHUDtext(){
 		var years = getYears();
 		var days = getDays()%365;
 		var months = getMonths()%days;
-		var moneyD="MONEY     : "+moneyRound+" mil";
-		var foodD="FOOD        : "+food;
-		var energyD="ENERGY   : "+energyRound + " mil BTU";
-		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
+		var moneyD="MONEY:  "+moneyRound+"mil";
+		var foodD="FOOD:  "+food;
+		var energyD="ENERGY:  "+energyRound + "mil BTU";
+		var popMarsD="POPULATION:  "+popMars;
+		var timeD = "DATE:  "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
 		var text3 = new TextBox(energyD);
 		var text4 = new TextBox(popMarsD);
 		var text5 = new TextBox(timeD);
-		
-		text1.padTop = 25;
-		text2.padTop = 45;
-		text3.padTop = 65;
-		text4.padTop = 85;
-		text5.padTop = 105;
 
 		textArr.push(text1);
 		textArr.push(text2);
@@ -86,9 +75,10 @@ function displayHUDtext(){
 		textArr.push(text4);
 		textArr.push(text5);
 		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = 'terminator';
-			textArr[i].fontSize = '15';
+			textArr[i].font = 'BebasNeue';
+			textArr[i].fontSize = '20';
 			textArr[i].padLeft = canvas.width - 150;
+			textArr[i].padTop = 30*(i+1);
 			world.addChild(textArr[i]);
 		}
 	}else{
