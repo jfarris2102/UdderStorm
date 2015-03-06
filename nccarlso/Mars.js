@@ -1,6 +1,8 @@
 //This  program creates a tile engine
 //use2D = true;
 var marsActive = false;
+document.oncontextmenu=function (){ return false;}
+
 function startMars(){
 	marsActive = true;
 	drawTileEngine();
@@ -120,7 +122,15 @@ for ( i=0; i<tilesPerLine; i++ ) {
     //creates an array of ints worldsize/tilesize long
     for ( j = 0; j<tilesPerLine; j++ ) {
 		var temp = {};
-        temp.type = Math.floor (Math.random() * totalTileTypes);
+		//creates a random int 0-99
+		var typeVAR = Math.floor (Math.random()*100);
+		if(typeVAR>27){
+			temp.type = sandTile;//roughly 27% 
+		}
+		else{
+			temp.type= rockTile;//roughly 73%
+		}
+		
 		temp.occupied = false; 
 		column[j] = temp;
     }
