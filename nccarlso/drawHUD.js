@@ -22,12 +22,14 @@ function displayHUDtext(){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays()%31;
+		var years = getYears();
+		var days = getDays()%365;
+		var months = getMonths()%days;
 		var moneyD="MONEY     : "+moneyRound+" mil";
 		var foodD="FOOD        : "+food;
 		var energyD="ENERGY   : "+energyRound + " mil BTU";
 		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ getYears() + "."+ getMonths() +"."+ days;
+		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
@@ -41,11 +43,6 @@ function displayHUDtext(){
 		text4.padTop = 85;
 		text5.padTop = 105;
 		
-		//for(var i = 0; i < textArr.length; i++){
-		//	world.removeChild(textArr[i]);
-		//}
-		//textArr = [];
-		
 		textArr.push(text1);
 		textArr.push(text2);
 		textArr.push(text3);
@@ -53,21 +50,23 @@ function displayHUDtext(){
 		textArr.push(text5);
 		
 		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = "Courier New";
-			textArr[i].font = 15;
+			textArr[i].font = 'terminator';
+			textArr[i].fontSize = '15';
 			textArr[i].padLeft = canvas.width - 150;
 			world.addChild(textArr[i]);
 		}
-	}else if(earthActive||solarActive){
+	}else if(earthActive){
 		//Earth text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays() % 31;
+		var years = getYears();
+		var days = getDays()%365;
+		var months = getMonths()%days;
 		var moneyD="MONEY     : "+moneyRound+" mil";
 		var foodD="FOOD        : "+food;
 		var energyD="ENERGY   : "+energyRound + " mil BTU";
 		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ getYears() + "."+ getMonths()+"."+ days;
+		var timeD = "CURRENT DATE: "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
@@ -80,20 +79,15 @@ function displayHUDtext(){
 		text3.padTop = 65;
 		text4.padTop = 85;
 		text5.padTop = 105;
-		
-		//for(var i = 0; i < textArr.length; i++){
-		//	world.removeChild(textArr[i]);
-		//}
-		//textArr = [];
-		
+
 		textArr.push(text1);
 		textArr.push(text2);
 		textArr.push(text3);
 		textArr.push(text4);
 		textArr.push(text5);
 		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = 'Courier New';
-			textArr[i].font = 15;
+			textArr[i].font = 'terminator';
+			textArr[i].fontSize = '15';
 			textArr[i].padLeft = canvas.width - 150;
 			world.addChild(textArr[i]);
 		}
@@ -124,7 +118,7 @@ function startHUD(){
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
-	timer = setInterval(displayHUDtext, 200);
+	timer = setInterval(displayHUDtext, 1000);
 }
 
 function stopActive(){
@@ -237,6 +231,12 @@ manager.onMouseUp = function () {
 			if(earthActive){
 				stopActive();
 				startTech();
+					for(var i = 0; i < buttons.length; i++){
+						world.removeChild(buttons[i]);
+						world.removeChild(buttonsDown[i]);
+						world.addChild(buttons[i]);
+						world.addChild(buttonsDown[i]);
+					}
 			}else if(techActive){
 				stopActive();
 				startEarth();
