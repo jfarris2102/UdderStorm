@@ -18,7 +18,7 @@ function displayHUDtext(){
 
 	clearText();
 
-	if(marsActive){
+	if(marsActive||solarActive){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
