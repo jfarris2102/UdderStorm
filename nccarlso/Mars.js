@@ -22,7 +22,12 @@ function stopMars(){
 function newGameMars(){
 	for ( i=0; i< tileGrid.length; i++ ) {
 		for ( j = 0; j< tileGrid[i].length; j++ ) {
-			tileGrid[i][j].occupied =false;
+			if(tileGrid.type!=blockedTile){
+				tileGrid[i][j].occupied =false;
+			}
+			else{
+				tileGrid[i][j].occupied =true;
+			}
 		}
 	}
 	for(var i = 0; i < buildingCount; i++){
@@ -132,15 +137,15 @@ for ( i=0; i<tilesPerLine; i++ ) {
 		var typeVAR = Math.floor (Math.random()*100);
 		if(typeVAR>98){
 			temp.type = blockedTile;//roughly 1%
-			temp.occupied = true;
+			temp.occupied = true;//makes this tile occupied
 		}
 		else if(typeVAR>28){
 			temp.type = sandTile;//roughly 72%
-			temp.occupied = false;
+			temp.occupied = false;//makes this tile unoccupied
 		}
 		else{
 			temp.type= rockTile;//roughly 27%
-			temp.occupied = false;
+			temp.occupied = false;//makes this tile unoccupied
 		} 
 		column[j] = temp;
     }
@@ -231,7 +236,7 @@ function drawTileEngine() {
 				sprites[x][y].image = sandSprite.image;
 			}else if(tileColor == 1){
 				sprites[x][y].image =  rockSprite.image;
-				}else if(tileColor == 2){
+			}else if(tileColor == 2){
 				sprites[x][y].image =  blockedSprite.image;
 			}else{
 				alert("Invalid texture code");
