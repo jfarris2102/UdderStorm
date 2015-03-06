@@ -1,7 +1,9 @@
 //Start Menu Code
 use2D=true;
 var first = true;
+var canLoad = false;
 var tutorialActive = false;
+var startActive = true;
 
 var MainMenu = new Sprite();
 MainMenu.width = 960;
@@ -159,6 +161,7 @@ function mouseHover(){
 }
 
 function start(){
+	startActive = true;
 	if(first){
 		initGame("canvas");
 		first = false;
@@ -180,6 +183,7 @@ function start(){
 }
 
 function stop(){
+	startActive = false;
 	canvas.removeEventListener("mousemove", mouseHover);
 	for(var i = 0; i < spritesMenu.length; i++){
 		world.removeChild(spritesMenu[i]);

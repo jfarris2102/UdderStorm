@@ -7,6 +7,7 @@ pop1.visible = false;
 pop1.id = "pop1";
 pop1.sx = 1;
 pop1.sy = 1;
+pop1.isNode = 1;
 pop1.image = Textures.load("images/1.png");
 
 var green1  = new Sprite();
@@ -16,6 +17,7 @@ green1.visible = false;
 green1.id = "green1";
 green1.sx = 3;
 green1.sy = 4;
+green1.isNode = 2;
 green1.image = Textures.load("images/2.png");
 
 var solar1  = new Sprite();
@@ -25,6 +27,7 @@ solar1.visible = false;
 solar1.id = "solar1";
 solar1.sx = 1;
 solar1.sy = 1;
+solar1.isNode = 0;
 solar1.image = Textures.load("images/3.png");
 
 var comms1  = new Sprite();
@@ -34,6 +37,7 @@ comms1.visible = false;
 comms1.id = "comms1";
 comms1.sx = 1;
 comms1.sy = 1;
+comms1.isNode = 0;
 comms1.image = Textures.load("images/4.png");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,7 +45,11 @@ comms1.image = Textures.load("images/4.png");
 var buildings = [];
 var buildingCount = 0;
 var maxBuildings = 250;
-var buildingTypes = 4;
+var buildingTypes = 4; //# of different types of buildings
+var buidlingsAvailable = []; //Array of building counts
+for(var i = 1; i <= buildingTypes; i++){
+	buidlingsAvailable[i] = 0;
+}
 
 function initBuildings(){
 	for(var i = 0; i < maxBuildings; i++){
@@ -198,5 +206,22 @@ function checkOccupied(model, xOff, yOff){
 			if(tileGrid[xOff-j][yOff-i].occupied == true) return true;
 		}
 	}
+	return false;
+}
+
+function checkNode(model, xOff, yOff){
+	if(getModel(model).isNode == 0) return true;
+	var top = -1;
+	var bot = BuildingSize(model).sy;
+	var left = -1;
+	var right = BuildingSize(model).sx;
+	if(getModel(model).isNode == 2){
+		if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
+		else return false;
+	}
+	if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;
+	if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
+	if(tileGrid[xOff-right][yOff-Math.floor((bot/2))].node == true) return true;
+	if(tileGrid[xOff-left][yOff-Math.floor((bot/2))].node == true) return true;
 	return false;
 }

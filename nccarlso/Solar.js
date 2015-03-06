@@ -16,7 +16,7 @@ function getDays(){
 	return days%365 + 1;
 }
 function getTimeToNextLaunch(){
-	return 707 - (days%783); //Synodic period for Mars/Earth
+	return 707 - (days%783.23); //Synodic period for Mars/Earth
 }
 
 var SolarSystem = new Sprite();
@@ -169,7 +169,7 @@ function solarTime(){
 		if (rotate365.rotation < -2*Math.PI) rotate365.rotation = 0;
 		if (rotate27.rotation < -2*Math.PI) rotate27.rotation = 0;
 		if (rotate687.rotation < -2*Math.PI) rotate687.rotation = 0;
-		if(getTimeToNextLaunch()<1 && !Launched && !LaunchQueued)
+		if(getTimeToNextLaunch()<1 && !Launched && LaunchQueued)
 			Launch();
 		else if(Launched && RocketOffset > 80){
 			Rocket.visible = false;
