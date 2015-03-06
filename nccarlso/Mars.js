@@ -22,7 +22,7 @@ function stopMars(){
 function newGameMars(){
 	for ( i=0; i< tileGrid.length; i++ ) {
 		for ( j = 0; j< tileGrid[i].length; j++ ) {
-			if(tileGrid.type!=blockedTile){
+			if(tileGrid[i][j].type!=blockedTile){
 				tileGrid[i][j].occupied =false;
 			}
 			else{
