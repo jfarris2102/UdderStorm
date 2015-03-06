@@ -13,11 +13,11 @@ function getMonths(){
 	return Math.floor((days%365) / 31)%getDays() + 1;
 }
 function getDays(){
-	return days%365 + 1;
+	return Math.floor(days%365 + 1);
 }
 function getTimeToNextLaunch(){
 	console.log(getYears())
-	return 780-((days+77)%780); //Synodic period for Mars/Earth
+	return 700-((days)%780); //Synodic period for Mars/Earth
 }
 
 var SolarSystem = new Sprite();
@@ -181,7 +181,7 @@ function solarTime(){
 			Rocket.x = 20+(((41*RocketOffset)/26)-((RocketOffset*RocketOffset)/26));
 			RocketOffset+=(mult)/1000;
 		}
-		days++;
+		days += (mult/365);
 	}
 }
 

@@ -21,7 +21,7 @@ function stopTech(){
 	//canvas.removeEventListener("mousemove", mouseHover)
 }
 
-function checkTechClicked(x, y) {
+function checkTechOver(x, y) {
 	if (earthActive){
 		if (x > 437 && x < 762 && y > 119 && y < 180) {
 			return true;
@@ -35,10 +35,10 @@ function checkTechClicked(x, y) {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var techBG="images/techBG.png";
+var techBG="images/terminal.png";
 var techbg=new Sprite(); {
-    techbg.width=3743;
-    techbg.height=1434;
+    techbg.width=960;
+    techbg.height=640;
     techbg.x=0;
     techbg.y=0;
     techbg.image=Textures.load(techBG);

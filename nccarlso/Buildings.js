@@ -39,15 +39,12 @@ comms1.image = Textures.load("images/4.png");
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];
-var levels = [];
 var buildingCount = 0;
 var maxBuildings = 250;
 var buildingTypes = 4;
 
 function initBuildings(){
 	for(var i = 0; i < maxBuildings; i++){
-		if(i<buildingTypes)
-		    levels[i] = 0;
 		var spriteTemp  = new Sprite();
 		spriteTemp.id = "null";
 		world.addChild(spriteTemp);
@@ -122,9 +119,7 @@ function makeModel(model){
 		break;
 	}
 }
-function getLevel(model){
-	return levels[model];
-}
+
 function BuildingSize(model){
 	var building = getModel(model);
 	var temp = {};
@@ -143,7 +138,7 @@ function buildResource(){
 	 airInc = 0;
 	 resInc = 0;
 	updateBuild();
-	//updateResource();
+	updateResource();
 	console.log("food:",food);
 	console.log("money:",money);
 	console.log("energy:",energy);
@@ -155,18 +150,27 @@ function buildResource(){
 	console.log("happiness:",happiness);
 }
 function updateBuild(){ //Every 6 months game time
-//1=living, 2=food prod. 3=solar, 4=comm. 5=turbine 6=reactor
-//7=mine, 8=lab, 9=photosyn. 10=gravity 11=magnetic
-	energy += turbine + solar;
-	food += 2*green + 2*hydro;
+	energyInc += turbine + 3*solar;
+	foodInc += 2*green + 2*hydro;
 	if (popMars/5>live)
-	    happy--;
-	air += photosyn*.01;
-	minerals += mine;
-	research += .1*comms;
+	    happyInc--;
+	airInc += photosyn*.01;
+	mineralInc += mine;
+	resInc += .1*comms;
 	
-	energy -= (live + mine + green + hydro + comms);
-	water -= 2*hydro + .5*green + .5*live;
+	energyInc -= live + mine + green + hydro + comms;
+	waterInc -= 2*hydro + .5*green + .5*live;
+}
+
+function updateResource(){
+	money += moneyInc;
+	food += foodInc;
+	water += waterInc;
+	minerals += mineralInc;
+	energy += energyInc;
+	happiness += happyInc;
+	popMars += popInc;
+	air += airInc;
 }
 function resetVariables(){
 	money = 100;
@@ -196,4 +200,3 @@ function checkOccupied(model, xOff, yOff){
 	}
 	return false;
 }
-

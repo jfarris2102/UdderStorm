@@ -18,7 +18,7 @@ function displayHUDtext(){
 
 	clearText();
 
-	if(marsActive||solarActive){
+	if(marsActive || solarActive){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
@@ -200,7 +200,7 @@ manager.onMouseUp = function () {
 						}
 					} 
 					else { //Space
-						if (marsActive || earthActive){
+						if (!solarActive){
 							stopActive();
 							startSolar();
 						}
@@ -213,7 +213,7 @@ manager.onMouseUp = function () {
 				break;
 			}
 		} //Switch to tech and back
-		if(checkTechClicked(gInput.mouse.x, gInput.mouse.y)){
+		if(checkTechOver(gInput.mouse.x, gInput.mouse.y)){
 			if(earthActive){
 				stopActive();
 				startTech();

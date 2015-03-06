@@ -7,18 +7,20 @@ var earthActive = false;
 function startEarth(){
 	earthActive = true;
 	world.addChild(bg);
+	world.addChild(techHighlight);
 	redrawHUD();
 	if(firstSolar){
 		setInterval(solarTime, 1000 / 30);
 		firstSolar = false;
 	}
-	//canvas.addEventListener("mousemove", mouseHover, false);
+	canvas.addEventListener("mousemove", earthHover, false);
 }
 function stopEarth(){
 	earthActive = false;
 	world.removeChild(bg);
-	//initSpritesEarth();
-	//canvas.removeEventListener("mousemove", mouseHover)
+	techHighlight.alpha = 0;
+	world.removeChild(techHighlight);
+	canvas.removeEventListener("mousemove", earthHover)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -30,6 +32,14 @@ var bg=new Sprite(); {
     bg.y=0;
     bg.image=Textures.load(back);
 }
+
+var techHighlight = new Sprite();
+techHighlight.x = 437;
+techHighlight.y = 119;
+techHighlight.width = 325;
+techHighlight.height = 61;
+techHighlight.image = Textures.load("images/highlight.png");
+techHighlight.alpha = 0;
 
 function getLifetime(){
 	var ePerCapita = 2000*energyFactor; //2,000 kg of oil equivalent per capita at 2015
@@ -44,4 +54,11 @@ function getLifetime(){
 	if(lifetime > 500000000);
 	   lifetime = 500000000;
 	return lifetime;
+}
+
+function earthHover(){
+	console.log(checkTechOver(gInput.mouse.x, gInput.mouse.y));
+	if(checkTechOver(gInput.mouse.x, gInput.mouse.y)){
+		techHighlight.alpha = 0.3;
+	}else techHighlight.alpha = 0;
 }
