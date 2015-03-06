@@ -1,6 +1,30 @@
+
 //dadkelly
-use2D=true;
-initGame('canvas');
+//use2D=true;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+var earthActive = false;
+function startEarth(){
+	earthActive = true;
+	world.addChild(bg);
+	world.addChild(bd);
+	redrawHUD();
+	if(firstSolar){
+		setInterval(solarTime, 1000 / 30);
+		firstSolar = false;
+	}
+	//canvas.addEventListener("mousemove", mouseHover, false);
+}
+function stopEarth(){
+	earthActive = false;
+	world.removeChild(bg);
+	world.removeChild(bd);
+	//initSpritesEarth();
+	//canvas.removeEventListener("mousemove", mouseHover)
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//initGame('canvas');
 //load background image
 var back="http://people.ucsc.edu/~dadkelly/source/paint_center.png";
 var bg=new Sprite(); {
@@ -9,7 +33,7 @@ var bg=new Sprite(); {
     bg.x=0;
     bg.y=0;
     bg.image=Textures.load(back);
-} world.addChild(bg);
+} //world.addChild(bg);
 //load border
 var border="images/Border.png";
 var bd=new Sprite(); {

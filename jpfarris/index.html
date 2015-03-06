@@ -9,34 +9,50 @@
 		<!--script src="http://code.jquery.com/jquery-1.7.1.min.js"></script-->
 		<script src="Brine.js"></script>
 		<script src="Solar.js"></script>
+		<script src="earth.js"></script>
 		<script src="StartMenu.js"></script>
 		<script src="Buildings.js"></script>
 		<script src="drawHUD.js"></script>
 		<script src="Mars.js"></script>
 		<script type='text/javascript'>
-			//Global Variables
+//Global Variables
+	//Resources
 			var food=50; //Displayed in food units (1 unit feeds a human for a year)
 			var water=50; //Displayed in water units (1 unit quenches a human for a year)
 			var air=.04; //Displayed as % of oxygen in atmosphere
+			var atmosphere = 20;
+			var temperature = 38;
 			var minerals=1000; //Displayed in thousand tons
 			var energy=100; //Displayed in million BTU's
 			var money=100; //Displayed in millions
 			var popEarth=8; //Displayed in billions
 			var popMars=10; //Displayed in ones
 			var happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+			var research = 100;
+			var diplomacy = 100;
+			var economy = 100;
+	//Lifetime and gametime
 			var damageFactor = 1;
 			var energyFactor = 1;
 			var years = 2015;
 			var months = 0;
 			var days = 0;
+	//Buildings
+	        //Energy
 			var solar = 0;
 			var turbine = 0;
-			var hydro = 0;
-			var photosyn = 0;
-			var mine = 0;
+			var reactor = 0;
+			//Infrastructure
 			var green = 0;
+			var mine = 0;
 			var comms = 0;
 			var live = 0;
+			var lab = 0;
+			//Terraform
+			var photosyn = 0;
+			var gravity = 0;
+			var magnet = 0;
+			/*Resource incrementers
 		    var moneyInc = 0;
 	        var foodInc = 0;
 	        var waterInc = 0;
@@ -45,7 +61,7 @@
 	        var happyInc = 0;
 	        var popInc = 0;
 	        var airInc = 0;
-	        var resInc = 0;
+	        var resInc = 0;*/
 		</script>
 	</head>
 	<body onload="initGame('canvas'); start(); initSolar();">
