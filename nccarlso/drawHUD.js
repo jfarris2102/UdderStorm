@@ -131,11 +131,11 @@ function stopActive(){
 	} else if(techActive) stopTech();
 }
 
-//Button code below
+//Mouse Click code below
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Check if sprite clicked
 manager.onMouseDown = function () {
-	if(marsActive){ //Mars
+	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
 		dragging = true;
 	}
 	if (!earthActive && !solarActive && !tutorialActive && !marsActive && !techActive){ //If Menu
