@@ -7,40 +7,35 @@ HUD.image = Textures.load("images/menu.png");
 
 var textArr = [];
 
-function displayHUDtext(){
-
+function clearText(){
 	for(var i = 0; i < textArr.length; i++){
 		world.removeChild(textArr[i]);
 	}
 	textArr = [];
+}
+
+function displayHUDtext(){
+
+	clearText();
 
 	if(marsActive){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays()%31;
-		var moneyD="MONEY     : "+moneyRound+" mil";
-		var foodD="FOOD        : "+food;
-		var energyD="ENERGY   : "+energyRound + " mil BTU";
-		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ getYears() + "."+ getMonths() +"."+ days;
+		var years = getYears();
+		var days = getDays()%365;
+		var months = getMonths()%days;
+		var moneyD="MONEY:  "+moneyRound+"mil";
+		var foodD="FOOD:  "+food;
+		var energyD="ENERGY:  "+energyRound + "mil BTU";
+		var popMarsD="POPULATION:  "+popMars;
+		var timeD = "DATE:  "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
 		var text3 = new TextBox(energyD);
 		var text4 = new TextBox(popMarsD);
 		var text5 = new TextBox(timeD);
-		
-		text1.padTop = 25;
-		text2.padTop = 45;
-		text3.padTop = 65;
-		text4.padTop = 85;
-		text5.padTop = 105;
-		
-		for(var i = 0; i < textArr.length; i++){
-			world.removeChild(textArr[i]);
-		}
-		textArr = [];
 		
 		textArr.push(text1);
 		textArr.push(text2);
@@ -49,49 +44,41 @@ function displayHUDtext(){
 		textArr.push(text5);
 		
 		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = "Courier New";
-			textArr[i].font = 15;
+			textArr[i].font = 'BebasNeue';
+			textArr[i].fontSize = '20';
 			textArr[i].padLeft = canvas.width - 150;
+			textArr[i].padTop = 30*(i+1);
 			world.addChild(textArr[i]);
 		}
-	}else if(earthActive||solarActive){
+	}else if(earthActive){
 		//Earth text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays() % 31;
-		var moneyD="MONEY     : "+moneyRound+" mil";
-		var foodD="FOOD        : "+food;
-		var energyD="ENERGY   : "+energyRound + " mil BTU";
-		var popMarsD="POPULATION: "+popMars;
-		var timeD = "CURRENT DATE: "+ getYears() + "."+ getMonths()+"."+ days;
+		var years = getYears();
+		var days = getDays()%365;
+		var months = getMonths()%days;
+		var moneyD="MONEY:  "+moneyRound+"mil";
+		var foodD="FOOD:  "+food;
+		var energyD="ENERGY:  "+energyRound + "mil BTU";
+		var popMarsD="POPULATION:  "+popMars;
+		var timeD = "DATE:  "+ years + "."+ months+"."+ days;
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
 		var text3 = new TextBox(energyD);
 		var text4 = new TextBox(popMarsD);
 		var text5 = new TextBox(timeD);
-		
-		text1.padTop = 25;
-		text2.padTop = 45;
-		text3.padTop = 65;
-		text4.padTop = 85;
-		text5.padTop = 105;
-		
-		for(var i = 0; i < textArr.length; i++){
-			world.removeChild(textArr[i]);
-		}
-		textArr = [];
-		
+
 		textArr.push(text1);
 		textArr.push(text2);
 		textArr.push(text3);
 		textArr.push(text4);
 		textArr.push(text5);
-		
 		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = "Courier New";
-			textArr[i].font = 15;
+			textArr[i].font = 'BebasNeue';
+			textArr[i].fontSize = '20';
 			textArr[i].padLeft = canvas.width - 150;
+			textArr[i].padTop = 30*(i+1);
 			world.addChild(textArr[i]);
 		}
 	}else{
@@ -121,7 +108,7 @@ function startHUD(){
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
 	}
-	timer = setInterval(displayHUDtext, 200);
+	timer = setInterval(displayHUDtext, 1000);
 }
 
 function stopActive(){
@@ -131,18 +118,17 @@ function stopActive(){
 	else if(tutorialActive){
 		world.removeChild(TutorialPage);
 		tutorialActive = false;
-	}
+	} else if(techActive) stopTech();
 }
 
-//Button code below
-
-
+//Mouse Click code below
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Check if sprite clicked
 manager.onMouseDown = function () {
-	if(marsActive){ //Mars
+	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
 		dragging = true;
 	}
-	if (!earthActive && !solarActive && !tutorialActive && !marsActive){ //If Menu
+	if (!earthActive && !solarActive && !tutorialActive && !marsActive && !techActive){ //If Menu
 		for(i = 0; i < spritesHover.length; i++){
 			if (checkMouseOver(spritesHover[i], gInput.mouse.x, gInput.mouse.y)){
 				spritesHover[i].visible = false;
@@ -169,7 +155,7 @@ manager.onMouseUp = function () {
 		MouseOverFirst = true;
 		drawTileEngine();
 	}
-	if (!earthActive && !solarActive && !tutorialActive && !marsActive){ //If Menu
+	if (!earthActive && !solarActive && !tutorialActive && !marsActive && !techActive){ //If Menu
 		for(i = 0; i < spritesDown.length; i++){
 			if (spritesDown[i].visible == true){
 				if (checkMouseOver(spritesDown[i], gInput.mouse.x, gInput.mouse.y)){
@@ -198,10 +184,11 @@ manager.onMouseUp = function () {
 				break;
 			}
 		}
-	} else {
-		for(i = 0; i < buttonsDown.length; i++){
+	} else { // Not in menu
+		for(i = 0; i < buttonsDown.length; i++){ //Check buttons
 			if (buttonsDown[i].visible == true){
 				if (checkMouseOver(buttonsDown[i], gInput.mouse.x, gInput.mouse.y)){
+					buttonPressed = true;
 					buttonsDown[i].visible = false;
 					buttons[i].visible = true;
 					if(i == 0) { //Earth
@@ -225,8 +212,24 @@ manager.onMouseUp = function () {
 				}else{
 					buttonsDown[i].visible = false;
 					buttons[i].visible = true;
+					console.log("test");
 				}
 				break;
+			}
+		} //Switch to tech and back
+		if(checkTechClicked(gInput.mouse.x, gInput.mouse.y)){
+			if(earthActive){
+				stopActive();
+				startTech();
+					for(var i = 0; i < buttons.length; i++){
+						world.removeChild(buttons[i]);
+						world.removeChild(buttonsDown[i]);
+						world.addChild(buttons[i]);
+						world.addChild(buttonsDown[i]);
+					}
+			}else if(techActive){
+				stopActive();
+				startEarth();
 			}
 		}
 	}

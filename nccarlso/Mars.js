@@ -1,6 +1,7 @@
 //This  program creates a tile engine
 //use2D = true;
 var marsActive = false;
+document.oncontextmenu=function (){ return false;}
 function startMars(){
 	marsActive = true;
 	drawTileEngine();
@@ -10,13 +11,23 @@ function startMars(){
 
 function stopMars(){
 	marsActive = false;
+	placeBuildingMode = false;
+	flip = false;
+	flop = false;
+	highlight.alpha = 0;
+	placing.alpha = 0;
 	canvas.removeEventListener("mousemove", drawTileEngine)
 }
 
 function newGameMars(){
 	for ( i=0; i< tileGrid.length; i++ ) {
 		for ( j = 0; j< tileGrid[i].length; j++ ) {
-			tileGrid[i][j].occupied =false;
+			if(tileGrid[i][j].type!=blockedTile){
+				tileGrid[i][j].occupied =false;
+			}
+			else{
+				tileGrid[i][j].occupied =true;
+			}
 		}
 	}
 	for(var i = 0; i < buildingCount; i++){
@@ -59,6 +70,12 @@ rockSprite.height = tileSize;
 rockSprite.visible = false;
 rockSprite.image = Textures.load("images/rockSprite.png");
 
+var blockedSprite  = new Sprite();
+blockedSprite.width = tileSize;
+blockedSprite.height = tileSize;
+blockedSprite.visible = false;
+blockedSprite.image = Textures.load("images/blockedSprite.png");
+
 var sprites = [];
 for(var i = 0; i < Math.floor(960/tileSize)+2; i++){
 	var cols = [];
@@ -97,6 +114,7 @@ world.addChild(highlight);
 //constants hold the ids for grid squares
 var sandTile=0;
 var rockTile=1;
+var blockedTile=2;
 //creates an array with the respective colors for each grid square
 var tileColors= ['#0000DD','#00CC00'];
 var totalTileTypes=2;
@@ -115,8 +133,20 @@ for ( i=0; i<tilesPerLine; i++ ) {
     //creates an array of ints worldsize/tilesize long
     for ( j = 0; j<tilesPerLine; j++ ) {
 		var temp = {};
-        temp.type = Math.floor (Math.random() * totalTileTypes);
-		temp.occupied = false; 
+        //creates a random int 0-99
+		var typeVAR = Math.floor (Math.random()*100);
+		if(typeVAR>98){
+			temp.type = blockedTile;//roughly 1%
+			temp.occupied = true;//makes this tile occupied
+		}
+		else if(typeVAR>28){
+			temp.type = sandTile;//roughly 72%
+			temp.occupied = false;//makes this tile unoccupied
+		}
+		else{
+			temp.type= rockTile;//roughly 27%
+			temp.occupied = false;//makes this tile unoccupied
+		} 
 		column[j] = temp;
     }
     //assigns each column to a row in the main 2D array
@@ -206,6 +236,8 @@ function drawTileEngine() {
 				sprites[x][y].image = sandSprite.image;
 			}else if(tileColor == 1){
 				sprites[x][y].image =  rockSprite.image;
+			}else if(tileColor == 2){
+				sprites[x][y].image =  blockedSprite.image;
 			}else{
 				alert("Invalid texture code");
 			}
