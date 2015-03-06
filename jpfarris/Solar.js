@@ -16,6 +16,7 @@ function getDays(){
 	return days%365 + 1;
 }
 function getTimeToNextLaunch(){
+	console.log(getYears())
 	return 780-((days+77)%780); //Synodic period for Mars/Earth
 }
 
