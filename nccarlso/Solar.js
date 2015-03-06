@@ -13,11 +13,10 @@ function getMonths(){
 	return Math.floor((days%365) / 31)%getDays() + 1;
 }
 function getDays(){
-	return Math.floor(days%365 + 1);
+	return days%365 + 1;
 }
 function getTimeToNextLaunch(){
-	console.log(getYears())
-	return 700-((days)%780); //Synodic period for Mars/Earth
+	return 700 - (days%780); //Synodic period for Mars/Earth
 }
 
 var SolarSystem = new Sprite();
@@ -170,8 +169,10 @@ function solarTime(){
 		if (rotate365.rotation < -2*Math.PI) rotate365.rotation = 0;
 		if (rotate27.rotation < -2*Math.PI) rotate27.rotation = 0;
 		if (rotate687.rotation < -2*Math.PI) rotate687.rotation = 0;
-		if(getTimeToNextLaunch()<=1 && !Launched && !LaunchQueued)
+		if(getTimeToNextLaunch()<1 && !Launched && !LaunchQueued){
 			Launch();
+			console.log(days);
+		}
 		else if(Launched && RocketOffset > 80){
 			Rocket.visible = false;
 			RocketOffset = 0;
@@ -181,7 +182,7 @@ function solarTime(){
 			Rocket.x = 20+(((41*RocketOffset)/26)-((RocketOffset*RocketOffset)/26));
 			RocketOffset+=(mult)/1000;
 		}
-		days += (mult/365);
+		days += 1;
 	}
 }
 
