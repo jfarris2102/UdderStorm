@@ -208,7 +208,6 @@ manager.onMouseUp = function () {
 				}else{
 					buttonsDown[i].visible = false;
 					buttons[i].visible = true;
-					console.log("test");
 				}
 				break;
 			}
