@@ -3,6 +3,8 @@ var techActive = false;
 function startTech(){
 	techActive = true;
 	world.addChild(techbg);
+	world.addChild(currentTreeTextbox);
+	world.addChild(researchPointsTextbox);
 	world.removeChild(HUD);
 	clearText();
 	generateTech();
@@ -12,107 +14,63 @@ function startTech(){
 function stopTech(){
 	techActive = false;
 	world.removeChild(techbg);
+	world.removeChild(currentTreeTextbox);
+	world.removeChild(researchPointsTextbox);
 	startHUD();
 	clearTech();
 	//canvas.removeEventListener("mousemove", techHover)
 }
 
+var currentTreeTextbox = new TextBox("Space Flight Technology");
+currentTreeTextbox.x = 150;
+currentTreeTextbox.y = 150;
+currentTreeTextbox.fontSize = '25';
+currentTreeTextbox.font = 'bitwise';
+currentTreeTextbox.color = '#CCFFCC';
+var researchPointsTextbox = new TextBox("Points: 14500");
+researchPointsTextbox.x = 500;
+researchPointsTextbox.y = 150;
+researchPointsTextbox.fontSize = '25';
+researchPointsTextbox.font = 'bitwise';
+researchPointsTextbox.color = '#CCFFCC';
+
 /////////////////////////////////////////////////////////////
-//Tech objects
+//Tech Arrays
 var activeTech = [];
-var techObjects = [];
 
-var tech1 = {};
-tech1.name = new TextBox("Thermal-neutron Reactor");
-tech1.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default");
-tech1.avail = true;
-tech1.unlocked = true;
+var SpaceTree = [];
 
-var tech2 = {};
-tech2.name = new TextBox("Fast-neutron Reactor");
-tech2.desc = new TextBox("A slightly upgraded nuclear reactor utilizing\nnew technology, cost: 100 Research points.");
-tech2.avail = true;
-tech2.unlocked = false;
+var EnergyTree = [];
+EnergyTree.push(tech1);
+EnergyTree.push(tech2);
+EnergyTree.push(tech3);
+EnergyTree.push(tech4);
+EnergyTree.push(tech5);
+EnergyTree.push(tech6);
+EnergyTree.push(tech7);
+EnergyTree.push(tech8);
+EnergyTree.push(tech9);
+EnergyTree.push(tech10);
+EnergyTree.push(tech11);
+EnergyTree.push(tech12);
 
-var tech3 = {};
-tech3.name = new TextBox("Liquid Flouride Thorium Reactor");
-tech3.desc = new TextBox("A nuclear reactor that utilizes thorium and is\nmore efficient than traditional uranium based\nreactors, cost: 250 Research points.");
-tech3.avail = false;
-tech3.unlocked = false;
+var SustTree = [];
 
-var tech4 = {};
-tech4.name = new TextBox("Nuclear Fusion Reactor");
-tech4.desc = new TextBox("Advanced reactor utilizing Nuclear Fusion technology,\noutputs 500 BTU of energy per second,\ncost: 500 Research points.");
-tech4.avail = false;
-tech4.unlocked = false;
+var EconTree = [];
 
-var tech5 = {};
-tech5.name = new TextBox("Thermal-neutron Reactor");
-tech5.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default");
-tech5.avail = false;
-tech5.unlocked = false;
+var TerraTree = [];
 
-var tech6 = {};
-tech6.name = new TextBox("Fast-neutron Reactor");
-tech6.desc = new TextBox("A slightly upgraded nuclear reactor utilizing\nnew technology, cost: 100 Research points.");
-tech6.avail = false;
-tech6.unlocked = false;
+var MineralTree = [];
 
-var tech7 = {};
-tech7.name = new TextBox("Liquid Flouride Thorium Reactor");
-tech7.desc = new TextBox("A nuclear reactor that utilizes thorium and is\nmore efficient than traditional uranium based\nreactors, cost: 250 Research points.");
-tech7.avail = false;
-tech7.unlocked = false;
+var InfasTree = [];
 
-var tech8 = {};
-tech8.name = new TextBox("Nuclear Fusion Reactor");
-tech8.desc = new TextBox("Advanced reactor utilizing Nuclear Fusion technology,\noutputs 500 BTU of energy per second,\ncost: 500 Research points.");
-tech8.avail = false;
-tech8.unlocked = false;
 
-var tech9 = {};
-tech9.name = new TextBox("Thermal-neutron Reactor");
-tech9.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default");
-tech9.avail = false;
-tech9.unlocked = false;
-
-var tech10 = {};
-tech10.name = new TextBox("Fast-neutron Reactor");
-tech10.desc = new TextBox("A slightly upgraded nuclear reactor utilizing\nnew technology, cost: 100 Research points.");
-tech10.avail = false;
-tech10.unlocked = false;
-
-var tech11 = {};
-tech11.name = new TextBox("Liquid Flouride Thorium Reactor");
-tech11.desc = new TextBox("A nuclear reactor that utilizes thorium and is\nmore efficient than traditional uranium based\nreactors, cost: 250 Research points.");
-tech11.avail = false;
-tech11.unlocked = false;
-
-var tech12 = {};
-tech12.name = new TextBox("Nuclear Fusion Reactor");
-tech12.desc = new TextBox("Advanced reactor utilizing Nuclear Fusion technology,\noutputs 500 BTU of energy per second,\ncost: 500 Research points.");
-tech12.avail = false;
-tech12.unlocked = false;
-
-techObjects.push(tech1);
-techObjects.push(tech2);
-techObjects.push(tech3);
-techObjects.push(tech4);
-techObjects.push(tech5);
-techObjects.push(tech6);
-techObjects.push(tech7);
-techObjects.push(tech8);
-techObjects.push(tech9);
-techObjects.push(tech10);
-techObjects.push(tech11);
-techObjects.push(tech12);
-
-for(var i = 0; i < techObjects.length; i++){
-	techObjects[i].name.fontSize = '25';
-	techObjects[i].name.font = 'BebasNeue';
-	techObjects[i].desc.color = '#00FF00';
-	techObjects[i].desc.fontSize = '14';
-	techObjects[i].desc.font = 'bitwise';
+for(var i = 0; i < EnergyTree.length; i++){
+	EnergyTree[i].name.fontSize = '25';
+	EnergyTree[i].name.font = 'BebasNeue';
+	EnergyTree[i].desc.color = '#00FF00';
+	EnergyTree[i].desc.fontSize = '14';
+	EnergyTree[i].desc.font = 'bitwise';
 }
 ////////////////////////////////////////////////////////////
 
@@ -122,48 +80,80 @@ function pickColor(x){
 	else x.name.color = '#507450';
 }
 
+var currTech = 1;
+function getCurrentTechTree(){
+	switch(currTech) {
+	case 0:
+        return SpaceTree;
+        break;
+    case 1:
+        return EnergyTree;
+        break;
+    case 2:
+        return SustTree;
+        break;
+    case 3:
+        return EconTree;
+        break;
+    case 4:
+        return TerraTree;
+        break;
+	case 5:
+        return MineralTree;
+        break;
+	case 6:
+        return InfasTree;
+        break;
+    default:
+        return SpaceTree;
+		break;
+	}
+}
+
 function generateTech(){
 	activeTech = [];
 	scrollOffset = 0;
-	for(var i = 0; i < 7; i++){
-		activeTech.push(techObjects[i]);
+	var curr = getCurrentTechTree();
+	for(var i = 0; i < 6; i++){
+		activeTech.push(curr[i]);
 		activeTech[i].name.x = 150;
-		activeTech[i].name.y = 150 + (50*i);
+		activeTech[i].name.y = 200 + (50*i);
 		pickColor(activeTech[i]);
 		activeTech[i].desc.x = 500;
-		activeTech[i].desc.y = 150 + (50*i);
+		activeTech[i].desc.y = 200 + (50*i);
 		world.addChild(activeTech[i].name);
 		world.addChild(activeTech[i].desc);
 	}
 }
 
 function reDrawActiveTech(){
-	for(var i = 0; i < 7; i++){
+	for(var i = 0; i < 6; i++){
 		activeTech[i].name.x = 150;
-		activeTech[i].name.y = 150 + (50*i);
+		activeTech[i].name.y = 200 + (50*i);
 		pickColor(activeTech[i]);
 		activeTech[i].desc.x = 500;
-		activeTech[i].desc.y = 150 + (50*i);
+		activeTech[i].desc.y = 200 + (50*i);
 	}
 }
 
 var scrollOffset = 0;
 function moveTechScreen(x) {
+	var curr = getCurrentTechTree();
 	if (x == 0 && scrollOffset > 0){
 		scrollOffset--;
 		var temp =  activeTech.pop();
 		world.removeChild(temp.name);
 		world.removeChild(temp.desc);
-		temp =  techObjects[scrollOffset];
+		temp =  curr[scrollOffset];
 		activeTech.unshift(temp);
 		world.addChild(temp.name);
 		world.addChild(temp.desc);
 		reDrawActiveTech();
-	} else if (x == 1 && scrollOffset < (techObjects.length-7)) {
+	} else if (x == 1 && scrollOffset < (curr.length-6)) {
 		var temp =  activeTech.shift();
 		world.removeChild(temp.name);
 		world.removeChild(temp.desc);
-		temp =  techObjects[7+scrollOffset];
+		temp =  curr[6+scrollOffset];
 		activeTech.push(temp);
 		world.addChild(temp.name);
 		world.addChild(temp.desc);
@@ -173,7 +163,7 @@ function moveTechScreen(x) {
 }
 
 function clearTech(){
-	for(var i = 0; i < 7; i++){
+	for(var i = 0; i < 6; i++){
 		world.removeChild(activeTech[i].name);
 		world.removeChild(activeTech[i].desc);
 	}
