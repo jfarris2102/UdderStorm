@@ -34,3 +34,8 @@ p {
     url('fonts/BebasNeue.eot'); /* IE */
 }
 
+@font-face{
+    font-family: 'bitwise';
+    src: url('fonts/bitwise.ttf'),
+    url('fonts/bitwise.eot'); /* IE */
+}

@@ -119,7 +119,7 @@ function stopActive(){
 		world.removeChild(TutorialPage);
 		tutorialActive = false;
 	} else if(techActive) stopTech();
-	else if(storeActive) stopTech();
+	else if(storeActive) stopStore();
 }
 
 //Mouse Click code below
@@ -216,25 +216,32 @@ manager.onMouseUp = function () {
 				}
 				break;
 			}
-		} //Switch to tech and back
-		if(checkTechOver(gInput.mouse.x, gInput.mouse.y)){ //Swith to/from tech
-			if(earthActive){
-				stopActive();
-				startTech();
-				redrawButtons();
-			}else if(techActive){
-				stopActive();
-				startEarth();
+			//Tech and Store menus
+			if(checkTechOver(gInput.mouse.x, gInput.mouse.y)){ //Swith to and from tech
+				if(earthActive){
+					stopActive();
+					startTech();
+					redrawButtons();
+				}else if(techActive){
+					stopActive();
+					startEarth();
+				}
+			}else if(checkStoreOver(gInput.mouse.x, gInput.mouse.y)){
+				if(earthActive){
+					stopActive();
+					startStore();
+					redrawButtons();
+				}else if(storeActive){
+					stopActive();
+					startEarth();
+				}
 			}
-		}else if(checkStoreOver(gInput.mouse.x, gInput.mouse.y)){
-			if(earthActive){
-				stopActive();
-				startStore();
-				redrawButtons();
-			}else if(storeActive){
-				stopActive();
-				startEarth();
-			}
+		}
+		var tmpChk = checkTechScroll(gInput.mouse.x, gInput.mouse.y);
+		if (techActive && tmpChk != -1){
+			moveTechScreen(tmpChk);
+		} else if (storeActive && tmpChk != -1){
+			//moveStoreScreen(tmpChk);
 		}
 	}
 }

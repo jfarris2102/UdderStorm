@@ -165,14 +165,14 @@ function start(){
 	if(first){
 		initGame("canvas");
 		first = false;
+		world.addChild(manager);
+		gInput.addMouseDownListener(manager);
+		gInput.addMouseUpListener(manager);
 	} else {
 		world.removeChild(HUD);
 	}
 	world.addChild(MainMenu);
 	initSprites();
-	world.addChild(manager);
-	gInput.addMouseDownListener(manager);
-	gInput.addMouseUpListener(manager);
 	canvas.addEventListener("mousemove", mouseHover, false);
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
