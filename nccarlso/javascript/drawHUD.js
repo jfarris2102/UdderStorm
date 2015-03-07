@@ -1,3 +1,12 @@
+/*
+drawHUD.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program provides a graphical heads up display 
+for all parts of the game.
+It should draw different values and images in the appropriate
+places based on which stage of the game is active
+and what is currently happening in the game
+*/
 var HUD = new Sprite();
 HUD.width = 160;
 HUD.height = 640;
@@ -14,6 +23,8 @@ function clearText(){
 	textArr = [];
 }
 
+//draws all of these values on the HUD, should be called every time 
+//the world updates or whenever the display values change
 function displayHUDtext(){
 	
 	//Check if time is up
@@ -126,6 +137,7 @@ function startHUD(){
 	timer = setInterval(displayHUDtext, 200);
 }
 
+//stops whatever part of the game is active, effectively a pause
 function stopActive(){
 	if (earthActive) stopEarth();
 	else if (marsActive) stopMars();

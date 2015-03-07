@@ -1,5 +1,14 @@
+/*
+drawHUD.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program manages what can be seen on the earth screen, 
+including the background and the numerous buttons.
+It also manages the life of the earth, which contains
+important information for several end conditions
+*/
 
 //Sprites
+
 var bg=new Sprite(); {
     bg.width=960;
     bg.height=640;

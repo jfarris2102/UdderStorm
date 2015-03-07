@@ -1,5 +1,23 @@
-//Building sprites
+/*
+Buildings.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This document contains the game's building system, including
+the characteristics of each building and the affect that they
+have on the global game variables. It also supports the placing
+of buildings, which requires that its observe the game matrix and
+certain variables to ensure the game's primary source of
+interaction functions smoothly
+*/
 
+/*Building sprites
+each of these sprites has several different properties:
+-height and width of the visible building
+-whether its visible or not
+-its internal id, to be used for reference
+-its size in the two dimensions
+-its Node variable
+-its display image
+*/
 var pop1  = new Sprite();
 pop1.width = 40;
 pop1.height = 50;
@@ -63,15 +81,16 @@ reactor1.image = Textures.load("images/6.png");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var buildings = [];
-var buildingCount = 0;
-var maxBuildings = 250;
-var buildingTypes = 6; //# of different types of buildings
+var buildings = [];//creates an array to hold all of the placed buildings
+var buildingCount = 0;//the total number of placed buildings
+var maxBuildings = 250;//sets a cap for the number of buildings that can be placed
+var buildingTypes = 6; //# of different types of buildings that can be placed
 var buidlingsAvailable = []; //Array of building counts
 for(var i = 1; i <= buildingTypes; i++){
-	buidlingsAvailable[i] = 0;
+	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
 
+//starts the building process
 function initBuildings(){
 	for(var i = 0; i < maxBuildings; i++){
 		var spriteTemp  = new Sprite();
@@ -82,6 +101,7 @@ function initBuildings(){
 	buildingCount = 0;
 }
 
+//adds a new building to the surface of mars
 function makeBuilding(model){
 	var temp = makeModel(model);
 	buildings[buildingCount].image = temp.image;
@@ -92,6 +112,7 @@ function makeBuilding(model){
 	buildings[buildingCount].id = temp.id;
 }
 
+//creates a ghost of the building that we are in the process of placing
 function makeGhost(model){
 	var temp = getModel(model);
 	placing.image = temp.image;
@@ -99,6 +120,7 @@ function makeGhost(model){
 	placing.height = temp.height;
 }
 
+//returns a building sprite based on the current model id
 function getModel(model){
 	switch(model) {
     case 1:
@@ -118,6 +140,7 @@ function getModel(model){
 	}
 }
 
+//sets the building model to the correct one based on the number provided
 function makeModel(model){
 	switch(model) {
     case 1:
@@ -151,6 +174,7 @@ function makeModel(model){
 	}
 }
 
+//returns the dimensions that the building "model" has while placed
 function BuildingSize(model){
 	var building = getModel(model);
 	var temp = {};
@@ -158,6 +182,10 @@ function BuildingSize(model){
 	temp.sy = building.sy;
 	return temp;
 }
+
+//sets all of our increment variables to 0,
+//updates them to their proper values, increments our resource values,
+//and finally prints the resource variables to the console
 function buildResource(){
 	moneyInc = 0;
 	foodInc = 0;
@@ -180,6 +208,8 @@ function buildResource(){
 	console.log("popMars:",popMars);
 	console.log("happiness:",happiness);
 }
+
+//sets the variables that should be used to increment our overall resource list
 function updateBuild(){ //Every 6 months game time
 	energyInc += turbine + 3*solar;
 	foodInc += 2*green + 2*hydro;
@@ -193,6 +223,8 @@ function updateBuild(){ //Every 6 months game time
 	waterInc -= 2*hydro + .5*green + .5*live;
 }
 
+//increases all resource variables by a predetermined amount
+//should be called regularly by a loop to run the game
 function updateResource(){
 	money += moneyInc;
 	food += foodInc;
@@ -203,6 +235,9 @@ function updateResource(){
 	popMars += popInc;
 	air += airInc;
 }
+
+//resets all of the stored variables to their default values
+//useful for starting a new game
 function resetVariables(){
 	money = 100;
 	food = 50;
@@ -225,6 +260,8 @@ function resetVariables(){
 	days = 0;
 	firstBuilding = true;
 }
+
+//checks if any component of the building model will hit an occupied grid
 function checkOccupied(model, xOff, yOff){
 	for(var i = 0; i < BuildingSize(model).sy; i++){
 		for(var j = 0; j < BuildingSize(model).sx; j++){
