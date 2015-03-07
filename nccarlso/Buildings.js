@@ -40,12 +40,22 @@ comms1.sy = 1;
 comms1.isNode = 0;
 comms1.image = Textures.load("images/4.png");
 
+var wind1  = new Sprite();
+wind1.width = 40;
+wind1.height = 40;
+wind1.visible = false;
+wind1.id = "wind1";
+wind1.sx = 1;
+wind1.sy = 1;
+wind1.isNode = 0;
+wind1.image = Textures.load("images/3.png");
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];
 var buildingCount = 0;
 var maxBuildings = 250;
-var buildingTypes = 4; //# of different types of buildings
+var buildingTypes = 5; //# of different types of buildings
 var buidlingsAvailable = []; //Array of building counts
 for(var i = 1; i <= buildingTypes; i++){
 	buidlingsAvailable[i] = 0;
@@ -92,6 +102,9 @@ function getModel(model){
     case 4:
         return comms1;
         break;
+    case 5:
+        return wind1;
+        break;
     default:
         return pop1;
 		break;
@@ -119,6 +132,11 @@ function makeModel(model){
         comms++;
         money -= .02;
         return comms1;
+        break;
+    case 5:
+        turbine++;
+        money -= .01;
+        return wind1;
         break;
     default:
         live++;
