@@ -197,3 +197,7 @@ function checkOccupied(model, xOff, yOff){
 	return false;
 }
 
+var Structure = function(){
+	this.level = 0;
+	
+};
