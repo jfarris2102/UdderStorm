@@ -1,6 +1,7 @@
 //This  program creates a tile engine
 //use2D = true;
 var marsActive = false;
+var firstBuilding = true;
 document.oncontextmenu=function (){ return false;}
 function startMars(){
 	marsActive = true;
@@ -16,13 +17,14 @@ function stopMars(){
 	flop = false;
 	highlight.alpha = 0;
 	placing.alpha = 0;
-	canvas.removeEventListener("mousemove", drawTileEngine)
+	highlightM.alpha = 0;
+	canvas.removeEventListener("mousemove", drawTileEngine);
 }
 
 function newGameMars(){
 	for ( i=0; i< tileGrid.length; i++ ) {
 		for ( j = 0; j< tileGrid[i].length; j++ ) {
-			if(tileGrid[i][j].type!=blockedTile){
+			if(tileGrid[i][j].type!=blockedTile) {
 				tileGrid[i][j].occupied =false;
 			}
 			else{
@@ -104,12 +106,25 @@ var MousePrevX = 0;
 var MousePrevY = 0;
 var MouseOverFirst = true;
 
+var highlightM  = new Sprite(); //Manager for highlight/text position
+world.addChild(highlightM);
 var highlight  = new Sprite();
 highlight.width = tileSize;
 highlight.height = tileSize;
 highlight.alpha = 0;
 highlight.image = Textures.load("images/highlight.png");
-world.addChild(highlight);
+highlightM.addChild(highlight);
+
+//Building counter
+var buildingOnscreenCount = new TextBox("0");
+buildingOnscreenCount.x = -22;
+buildingOnscreenCount.y = 0;
+buildingOnscreenCount.font = 'BebasNeue';
+buildingOnscreenCount.fontSize = '15';
+buildingOnscreenCount.color = 'white';
+highlightM.addChild(buildingOnscreenCount);
+
+highlightM.alpha = 0;
 
 //constants hold the ids for grid squares
 var sandTile=0;
@@ -146,7 +161,8 @@ for ( i=0; i<tilesPerLine; i++ ) {
 		else{
 			temp.type= rockTile;//roughly 27%
 			temp.occupied = false;//makes this tile unoccupied
-		} 
+		}
+		temp.node = false; //Used for checking adjacent resource nodes
 		column[j] = temp;
     }
     //assigns each column to a row in the main 2D array
@@ -211,7 +227,7 @@ function sortBuildings(){
 }
 
 var placing  = new Sprite();
-placing.alpha = 0.3;
+placing.alpha = 0.5;
 world.addChild(placing);
 
 //setInterval ( drawTileEngine, 1000 / 30 ); //30 FPS
@@ -266,32 +282,39 @@ function drawTileEngine() {
 	else if(HighlightX < 1) HighlightX = 1;
 	if(HighlightY > drawHeight/tileSize+1) HighlightY = drawHeight/tileSize+1;
 	else if(HighlightY < 1) HighlightY = 1;
-	if(flip){
+	if(flip){ //Highlight and ghost prop toggle
 		makeGhost(model);
 		placing.alpha = 0.5;
 		highlight.alpha = 0.5;
+		highlightM.alpha = 1;
+		buildingOnscreenCount.text = buidlingsAvailable[model];
 		flip = false;
 	}else if(flop){
 		placing.alpha = 0;
 		highlight.alpha = 0;
+		highlightM.alpha = 0;
 	}
 	if(placeBuildingMode){
 		highlight.width = BuildingSize(model).sx*tileSize;
 		highlight.height = BuildingSize(model).sy*tileSize;
-		highlight.x = sprites[HighlightX][HighlightY].x-highlight.width+tileSize;
-		highlight.y = sprites[HighlightX][HighlightY].y-highlight.height+tileSize;
+		highlightM.x = sprites[HighlightX][HighlightY].x-highlight.width+tileSize;
+		highlightM.y = sprites[HighlightX][HighlightY].y-highlight.height+tileSize;
 		placing.x = sprites[HighlightX][HighlightY].x - (Math.floor(placing.width/tileSize)-1)*tileSize;
 		placing.y = sprites[HighlightX][HighlightY].y + tileSize-placing.height;
 	}
 	//Check if occupied by building
-	if(!checkOccupied(model, leftTile+HighlightX, topTile+HighlightY)){
-		if(placeBuilding && placeBuildingMode && buildingCount < maxBuildings && MouseCurrX < 800){ //Places a building
+	if(!checkOccupied(model, leftTile+HighlightX, topTile+HighlightY) && (checkNode(model, leftTile+HighlightX, topTile+HighlightY) || firstBuilding)){
+		if(placeBuilding && placeBuildingMode && buildingCount < maxBuildings && MouseCurrX < 800 && buidlingsAvailable[model] > 0){ //Places a building if possible
 			makeBuilding(model); //in Building.js
+			firstBuilding = false;
 			buildingCount++;
+			buidlingsAvailable[model]--;
+			buildingOnscreenCount.text = buidlingsAvailable[model];
 			sortBuildings();
 			for(var i = 0; i < BuildingSize(model).sy; i++){
 				for(var j = 0; j < BuildingSize(model).sx; j++){
 					tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].occupied = true;
+					if(getModel(model).isNode == 1) tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].node = true;
 				}
 			}
 			highlight.image =  Textures.load("images/highlight2.png");

@@ -18,7 +18,7 @@ function displayHUDtext(){
 
 	clearText();
 
-	if(marsActive||solarActive){
+	if(marsActive || solarActive){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
@@ -87,6 +87,10 @@ function redrawHUD(){
 	world.removeChild(HUD);
     world.addChild(HUD);
 	displayHUDtext();
+	redrawButtons();
+}
+
+function redrawButtons(){
 	for(var i = 0; i < buttons.length; i++){
 		world.removeChild(buttons[i]);
 		world.removeChild(buttonsDown[i]);
@@ -115,6 +119,7 @@ function stopActive(){
 		world.removeChild(TutorialPage);
 		tutorialActive = false;
 	} else if(techActive) stopTech();
+	else if(storeActive) stopStore();
 }
 
 //Mouse Click code below
@@ -124,7 +129,7 @@ manager.onMouseDown = function () {
 	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
 		dragging = true;
 	}
-	if (!earthActive && !solarActive && !tutorialActive && !marsActive && !techActive){ //If Menu
+	if (startActive){ //If Menu
 		for(i = 0; i < spritesHover.length; i++){
 			if (checkMouseOver(spritesHover[i], gInput.mouse.x, gInput.mouse.y)){
 				spritesHover[i].visible = false;
@@ -151,7 +156,7 @@ manager.onMouseUp = function () {
 		MouseOverFirst = true;
 		drawTileEngine();
 	}
-	if (!earthActive && !solarActive && !tutorialActive && !marsActive && !techActive){ //If Menu
+	if (startActive){ //If Menu
 		for(i = 0; i < spritesDown.length; i++){
 			if (spritesDown[i].visible == true){
 				if (checkMouseOver(spritesDown[i], gInput.mouse.x, gInput.mouse.y)){
@@ -164,12 +169,12 @@ manager.onMouseUp = function () {
 						startEarth();
 						startHUD();
 					}
-					else if(i == 1) { //LoadGame;
+					else if(i == 1 && canLoad) { //LoadGame;
 						stop();
 						startEarth();
 						startHUD();
 					}
-					else { //Tutorial
+					else if (i == 2) { //Tutorial
 						stop();
 						startTutorial();
 					}
@@ -200,7 +205,7 @@ manager.onMouseUp = function () {
 						}
 					} 
 					else { //Space
-						if (marsActive || earthActive){
+						if (!solarActive){
 							stopActive();
 							startSolar();
 						}
@@ -208,25 +213,35 @@ manager.onMouseUp = function () {
 				}else{
 					buttonsDown[i].visible = false;
 					buttons[i].visible = true;
-					console.log("test");
 				}
 				break;
 			}
-		} //Switch to tech and back
-		if(checkTechClicked(gInput.mouse.x, gInput.mouse.y)){
-			if(earthActive){
-				stopActive();
-				startTech();
-					for(var i = 0; i < buttons.length; i++){
-						world.removeChild(buttons[i]);
-						world.removeChild(buttonsDown[i]);
-						world.addChild(buttons[i]);
-						world.addChild(buttonsDown[i]);
-					}
-			}else if(techActive){
-				stopActive();
-				startEarth();
+			//Tech and Store menus
+			if(checkTechOver(gInput.mouse.x, gInput.mouse.y)){ //Swith to and from tech
+				if(earthActive){
+					stopActive();
+					startTech();
+					redrawButtons();
+				}else if(techActive){
+					stopActive();
+					startEarth();
+				}
+			}else if(checkStoreOver(gInput.mouse.x, gInput.mouse.y)){
+				if(earthActive){
+					stopActive();
+					startStore();
+					redrawButtons();
+				}else if(storeActive){
+					stopActive();
+					startEarth();
+				}
 			}
+		}
+		var tmpChk = checkTechScroll(gInput.mouse.x, gInput.mouse.y);
+		if (techActive && tmpChk != -1){
+			moveTechScreen(tmpChk);
+		} else if (storeActive && tmpChk != -1){
+			//moveStoreScreen(tmpChk);
 		}
 	}
 }
