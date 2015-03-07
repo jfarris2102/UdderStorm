@@ -4,6 +4,7 @@ var first = true;
 var canLoad = false;
 var tutorialActive = false;
 var startActive = true;
+var gameOverActive = false;
 
 var MainMenu = new Sprite();
 MainMenu.width = 960;
@@ -18,6 +19,13 @@ TutorialPage.height = 640;
 TutorialPage.x = 0;
 TutorialPage.y = 0;
 TutorialPage.image = Textures.load("images/Tutorial.jpg");
+
+var gameOver = new Sprite();
+gameOver.width = 960;
+gameOver.height = 640;
+gameOver.x = 0;
+gameOver.y = 0;
+gameOver.image = Textures.load("images/gameOver.jpg");
 
 //////////////////////////////////////////////////////////////////
 //Sprite Textures
@@ -197,4 +205,26 @@ function stop(){
 function startTutorial(){
 	tutorialActive = true;
 	world.addChild(TutorialPage);
+}
+
+function stopTutorial(){
+	tutorialActive = false;
+	world.removeChild(TutorialPage);
+}
+
+function stopGameOver(){
+	gameOverActive = false;
+	world.removeChild(gameOver);
+}
+
+function gameOverMan(){
+	stopActive();
+	world.removeChild(HUD);
+	if(typeof timer != "undefined")
+		clearInterval(timer);
+	if(typeof resourceTimer != "undefined")
+		clearInterval(resourceTimer);
+	world.addChild(gameOver);
+	gameOverActive = true;
+	canLoad = false;
 }

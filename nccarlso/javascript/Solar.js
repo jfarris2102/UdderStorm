@@ -5,6 +5,7 @@ var Launched = false;
 var LaunchQueued = false;
 var solarActive = false;
 var firstSolar = true;
+var doomsDay = 2165;
 
 function getYears(){
 	return 2015 + Math.floor(days/365.25);

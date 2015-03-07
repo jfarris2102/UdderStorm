@@ -15,9 +15,11 @@ function clearText(){
 }
 
 function displayHUDtext(){
-
+	
+	//Check if time is up
+	if(doomsDay-getYears() < 1) gameOverMan();
+	
 	clearText();
-
 	if(marsActive || solarActive){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
@@ -52,12 +54,22 @@ function displayHUDtext(){
 		//Earth text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays()%31;
+		var days = Math.floor(getDays()%30.4375) + 1;
 		var moneyD="MONEY:  "+moneyRound+"mil";
 		var foodD="FOOD:  "+food;
 		var energyD="ENERGY:  "+energyRound + "mil BTU";
 		var popEarthD="POPULATION:  "+popEarth;
 		var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
+		var yearsAppend = "";
+		var monthsAppend = "";
+		var daysAppend = "";
+		if(doomsDay-(getYears()+1) < 10) yearsAppend = "00";
+		else if(doomsDay-getYears() < 100) yearsAppend = "0";
+		if(12-getMonths() < 10) monthsAppend = "0";
+		if(31-days < 10) daysAppend = "0";
+		
+		//Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
+		Countdown.text = yearsAppend+(doomsDay-(getYears()+1))+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
@@ -118,11 +130,11 @@ function stopActive(){
 	if (earthActive) stopEarth();
 	else if (marsActive) stopMars();
 	else if (solarActive) stopSolar();
-	else if(tutorialActive){
-		world.removeChild(TutorialPage);
-		tutorialActive = false;
-	} else if(techActive) stopTech();
+	else if(tutorialActive) stopTutorial();
+	else if(techActive) stopTech();
 	else if(storeActive) stopStore();
+	else if (gameOverActive) stopGameOver();
+	//else stop();
 }
 
 //Mouse Click code below

@@ -40,6 +40,7 @@ comms1.sy = 1;
 comms1.isNode = 0;
 comms1.image = Textures.load("images/4.png");
 
+
 var wind1  = new Sprite();
 wind1.width = 40;
 wind1.height = 40;
@@ -102,25 +103,18 @@ function getModel(model){
 	switch(model) {
     case 1:
         return pop1;
-        break;
     case 2:
         return green1;
-        break;
     case 3:
         return solar1;
-        break;
     case 4:
         return comms1;
-        break;
-    case 5:
+	case 5:
         return wind1;
-        break;
-    case 6:
+	case 6:
         return reactor1;
-        break;
     default:
         return pop1;
-		break;
 	}
 }
 
@@ -130,37 +124,30 @@ function makeModel(model){
         live++; 
         money -= .01;
         return pop1;
-        break;
     case 2:
         green++;
         money -= .05;
         return green1;
-        break;
     case 3:
         solar++;
         money -= .01;
         return solar1;
-        break;
     case 4:
         comms++;
         money -= .02;
         return comms1;
-        break;
-    case 5:
+	case 5:
         turbine++;
         money -= .01;
         return wind1;
-        break;
     case 6:
         reactor++;
         money -= .02;
         return reactor1;
-        break;
     default:
         live++;
         money -=.01;
         return pop1;
-		break;
 	}
 }
 
@@ -172,15 +159,15 @@ function BuildingSize(model){
 	return temp;
 }
 function buildResource(){
-	 moneyInc = 0;
-	 foodInc = 0;
-	 waterInc = 0;
-	 energyInc = 0;
-	 mineralInc = 0;
-	 happyInc = 0;
-	 popInc = 0;
-	 airInc = 0;
-	 resInc = 0;
+	moneyInc = 0;
+	foodInc = 0;
+	waterInc = 0;
+	energyInc = 0;
+	mineralInc = 0;
+	happyInc = 0;
+	popInc = 0;
+	airInc = 0;
+	resInc = 0;
 	updateBuild();
 	updateResource();
 	console.log("food:",food);
@@ -229,13 +216,14 @@ function resetVariables(){
 	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
 	solar = 0;
 	turbine = 0;
-	reactor = 0;
 	hydro = 0;
 	photosyn = 0;
 	mine = 0;
 	green = 0;
 	comms = 0;
 	live = 0;
+	days = 0;
+	firstBuilding = true;
 }
 function checkOccupied(model, xOff, yOff){
 	for(var i = 0; i < BuildingSize(model).sy; i++){
