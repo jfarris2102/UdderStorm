@@ -77,10 +77,13 @@ function displayHUDtext(){
 			textArr[i].padTop = 30*(i+1);
 			world.addChild(textArr[i]);
 		}
-	}else{
+	}else if(solarActive){
 		//Solar System text
+	}else if(techActive){
+		updateTechInfo();
+	}else if(storeActive){
+		//updateStoreInfo();
 	}
-	
 }
 
 function redrawHUD(){
@@ -237,9 +240,11 @@ manager.onMouseUp = function () {
 				}
 			}
 		}
-		var tmpChk = checkTechScroll(gInput.mouse.x, gInput.mouse.y);
-		if (techActive && tmpChk != -1){
+		var tmpChk = checkTechMenu(gInput.mouse.x, gInput.mouse.y); //Button clicks in tech menu
+		if (techActive && tmpChk < 4){
 			moveTechScreen(tmpChk);
+		} else if (techActive && tmpChk != -1){
+			unlockTech(tmpChk);
 		} else if (storeActive && tmpChk != -1){
 			//moveStoreScreen(tmpChk);
 		}
