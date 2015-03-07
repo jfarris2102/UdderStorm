@@ -48,7 +48,7 @@ wind1.id = "wind1";
 wind1.sx = 1;
 wind1.sy = 1;
 wind1.isNode = 0;
-wind1.image = Textures.load("images/3.png");
+wind1.image = Textures.load("images/5.png");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
