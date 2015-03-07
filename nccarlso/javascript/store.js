@@ -1,4 +1,8 @@
-
+/*
+store.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program manages navigating to the store
+*/
 var storeActive = false;
 function startStore(){
 	for(var i = 1; i <= buildingTypes; i++){

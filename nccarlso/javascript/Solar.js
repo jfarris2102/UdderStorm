@@ -1,3 +1,12 @@
+/*
+Solar.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program governs the Solar system view of the game
+and controls the sprites for all of the associated planets and rockets
+It also does the complicated operations necessary for launching a 
+rocket along a trajectory to Mars.
+*/
+
 var days = 0;
 var mult = 360;
 var RocketOffset = 0;
@@ -5,6 +14,7 @@ var Launched = false;
 var LaunchQueued = false;
 var solarActive = false;
 var firstSolar = true;
+var doomsDay = 2165;
 
 function getYears(){
 	return 2015 + Math.floor(days/365.25);

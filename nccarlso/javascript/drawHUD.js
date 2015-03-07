@@ -1,3 +1,12 @@
+/*
+drawHUD.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program provides a graphical heads up display 
+for all parts of the game.
+It should draw different values and images in the appropriate
+places based on which stage of the game is active
+and what is currently happening in the game
+*/
 var HUD = new Sprite();
 HUD.width = 160;
 HUD.height = 640;
@@ -14,10 +23,14 @@ function clearText(){
 	textArr = [];
 }
 
+//draws all of these values on the HUD, should be called every time 
+//the world updates or whenever the display values change
 function displayHUDtext(){
-
+	
+	//Check if time is up
+	if(doomsDay-getYears() < 1) gameOverMan();
+	
 	clearText();
-
 	if(marsActive || solarActive){
 		//Mars text
 		moneyRound = Math.ceil(money*10)/10;
@@ -52,12 +65,22 @@ function displayHUDtext(){
 		//Earth text
 		moneyRound = Math.ceil(money*10)/10;
 		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays()%31;
+		var days = Math.floor(getDays()%30.4375) + 1;
 		var moneyD="MONEY:  "+moneyRound+"mil";
 		var foodD="FOOD:  "+food;
 		var energyD="ENERGY:  "+energyRound + "mil BTU";
 		var popEarthD="POPULATION:  "+popEarth;
 		var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
+		var yearsAppend = "";
+		var monthsAppend = "";
+		var daysAppend = "";
+		if(doomsDay-(getYears()+1) < 10) yearsAppend = "00";
+		else if(doomsDay-getYears() < 100) yearsAppend = "0";
+		if(12-getMonths() < 10) monthsAppend = "0";
+		if(31-days < 10) daysAppend = "0";
+		
+		//Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
+		Countdown.text = yearsAppend+(doomsDay-(getYears()+1))+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
 		
 		var text1 = new TextBox(moneyD);
 		var text2 = new TextBox(foodD);
@@ -77,10 +100,13 @@ function displayHUDtext(){
 			textArr[i].padTop = 30*(i+1);
 			world.addChild(textArr[i]);
 		}
-	}else{
+	}else if(solarActive){
 		//Solar System text
+	}else if(techActive){
+		updateTechInfo();
+	}else if(storeActive){
+		//updateStoreInfo();
 	}
-	
 }
 
 function redrawHUD(){
@@ -111,15 +137,16 @@ function startHUD(){
 	timer = setInterval(displayHUDtext, 200);
 }
 
+//stops whatever part of the game is active, effectively a pause
 function stopActive(){
 	if (earthActive) stopEarth();
 	else if (marsActive) stopMars();
 	else if (solarActive) stopSolar();
-	else if(tutorialActive){
-		world.removeChild(TutorialPage);
-		tutorialActive = false;
-	} else if(techActive) stopTech();
+	else if(tutorialActive) stopTutorial();
+	else if(techActive) stopTech();
 	else if(storeActive) stopStore();
+	else if (gameOverActive) stopGameOver();
+	//else stop();
 }
 
 //Mouse Click code below
@@ -237,9 +264,11 @@ manager.onMouseUp = function () {
 				}
 			}
 		}
-		var tmpChk = checkTechScroll(gInput.mouse.x, gInput.mouse.y);
-		if (techActive && tmpChk != -1){
+		var tmpChk = checkTechMenu(gInput.mouse.x, gInput.mouse.y); //Button clicks in tech menu
+		if (techActive && tmpChk < 4){
 			moveTechScreen(tmpChk);
+		} else if (techActive && tmpChk != -1){
+			unlockTech(tmpChk);
 		} else if (storeActive && tmpChk != -1){
 			//moveStoreScreen(tmpChk);
 		}

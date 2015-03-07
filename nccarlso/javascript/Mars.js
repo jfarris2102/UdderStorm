@@ -1,5 +1,12 @@
-//This  program creates a tile engine
-//use2D = true;
+/*
+Mars.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program creates a tile engine to represent the surface of mars,
+and then interfaces with the building system in Building.js to 
+populate it with buildings throughout the game
+-the initial state of the surface is a barren landscape consisting 
+of sandy soil and rocky soil, with scattered larger rocks. 
+*/
 var marsActive = false;
 var firstBuilding = true;
 document.oncontextmenu=function (){ return false;}
@@ -183,10 +190,12 @@ gInput.addBool(27, "escape");
 window.onkeydown = function(event) {
 	if(marsActive){
 		if(gInput.left && placeBuildingMode){
-			selection = Math.max(1, --selection);
+			selection--;
+			if (selection < 1) selection = buildingTypes;
 			flip = true;
 		}else if(gInput.right && placeBuildingMode){
-			selection = Math.min(buildingTypes, ++selection);
+			selection++;
+			if (selection > buildingTypes) selection = 1;
 			flip = true;
 		}else if(gInput.down){
 			if(placeBuildingMode){

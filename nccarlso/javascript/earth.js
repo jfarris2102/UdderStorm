@@ -1,5 +1,14 @@
+/*
+earth.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program manages what can be seen on the earth screen, 
+including the background and the numerous buttons.
+It also manages the life of the earth, which contains
+important information for several end conditions
+*/
 
 //Sprites
+
 var bg=new Sprite(); {
     bg.width=960;
     bg.height=640;
@@ -29,6 +38,16 @@ shopHighlight.width = 172;
 shopHighlight.height = 65;
 shopHighlight.image = Textures.load("images/highlight.png");
 shopHighlight.alpha = 0;
+//Countdown text
+var Countdown = new TextBox("150:00:00");
+Countdown.x = 70;
+Countdown.y = 111;
+Countdown.fontSize = '60';
+Countdown.font = 'BebasNeue';
+Countdown.color = '#FFFFFF';
+Countdown.dropShadow = true;
+Countdown.shadowBlurCustom = 4;
+Countdown.alpha = 0.75;
 
 var earthActive = false;
 
@@ -39,6 +58,7 @@ function startEarth(){
 	world.addChild(techHighlight);
 	world.addChild(shopHighlight);
 	world.addChild(bg2);
+	world.addChild(Countdown);
 	redrawHUD();
 	if(firstSolar){
 		setInterval(solarTime, 1000 / 30);
@@ -56,6 +76,7 @@ function stopEarth(){
 	shopHighlight.alpha = 0;
 	world.removeChild(shopHighlight);
 	world.removeChild(bg2);
+	world.removeChild(Countdown);
 	canvas.removeEventListener("mousemove", earthHover)
 }
 
