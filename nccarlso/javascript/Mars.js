@@ -1,5 +1,5 @@
 /*
-drawHUD.js by Team UdderStorm
+Mars.js by Team UdderStorm
 A component of Get Your Ass to Mars
 This program creates a tile engine to represent the surface of mars,
 and then interfaces with the building system in Building.js to 

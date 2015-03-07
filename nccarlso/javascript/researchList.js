@@ -1,7 +1,7 @@
 /*
-drawHUD.js by Team UdderStorm
+researchList.js by Team UdderStorm
 A component of Get Your Ass to Mars
-This document contains information about all of the technologies currently
+This document contains information about all of the research options currently
 present in the game, and creates an array to represent them
 The technologies are researchable from the Earth view, and affect
 building stats and other important aspects of the game

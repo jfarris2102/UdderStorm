@@ -1,5 +1,5 @@
 /*
-drawHUD.js by Team UdderStorm
+earth.js by Team UdderStorm
 A component of Get Your Ass to Mars
 This program manages what can be seen on the earth screen, 
 including the background and the numerous buttons.

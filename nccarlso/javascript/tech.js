@@ -1,4 +1,10 @@
-
+/*
+tech.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program manages the store's technology options, and 
+also draws the interior of the store and makes it possible 
+to interact with the options
+*/
 var techActive = false;
 function startTech(){
 	techActive = true;

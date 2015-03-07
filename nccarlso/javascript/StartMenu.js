@@ -1,4 +1,13 @@
-//Start Menu Code
+/*
+StartMenu.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program creates and governs the main menu
+of the game, and allows the player to navigate from it 
+to the tutorial or a game.
+It also manages end conditions and the different stages of the game
+*/
+
+//sets several important variables
 use2D=true;
 var first = true;
 var canLoad = false;
