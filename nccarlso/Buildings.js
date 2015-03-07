@@ -50,6 +50,16 @@ wind1.sy = 1;
 wind1.isNode = 0;
 wind1.image = Textures.load("images/5.png");
 
+var 1  = new Sprite();
+wind1.width = 40;
+wind1.height = 40;
+wind1.visible = false;
+wind1.id = "wind1";
+wind1.sx = 1;
+wind1.sy = 1;
+wind1.isNode = 0;
+wind1.image = Textures.load("images/5.png");
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];
@@ -211,6 +221,7 @@ function resetVariables(){
 	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
 	solar = 0;
 	turbine = 0;
+	reactor = 
 	hydro = 0;
 	photosyn = 0;
 	mine = 0;
