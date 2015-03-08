@@ -21,6 +21,7 @@ function startStore(){
 	world.removeChild(HUD);
 	if(!LaunchQueued) rocketStatus.text = "Inactive";
 	world.addChild(rocketStatus);
+	world.addChild(cashStatus);
 	clearText();
 	generateStoreText();
 	updateStoreText();
@@ -30,6 +31,7 @@ function stopStore(){
 	storeActive = false;
 	world.removeChild(shopbg);
 	world.removeChild(rocketStatus);
+	world.removeChild(cashStatus);
 	for(var i = 0; i < buildingTypes; i++){
 		world.removeChild(costTexts[i]);
 		world.removeChild(ownedTexts[i]);
@@ -38,6 +40,11 @@ function stopStore(){
 	ownedTexts = [];
 	startHUD();
 }
+
+function updateStoreInfo(){
+	cashStatus.text = "Funds: " + money + " MIL";//   |   Next launch in " + getTimeToNextLaunch() + " days.";
+}
+
 var rocketType = 1;
 function checkStoreClicks(x, y) {
 	if(storeActive){
@@ -117,7 +124,7 @@ function purchaseBuilding(x){
 		if(money >= getModel(x).cost){
 			money -= (getModel(x).cost);
 			launchCargo[x]++;
-		}else if(money < getModel(x).cost) alert("broke ass nigga");
+		}else if(money < getModel(x).cost) alert("Insufficient funds.");
 	}
 }
 
@@ -159,3 +166,13 @@ rocketStatus.color = '#CCFFCC';
 rocketStatus.dropShadow = true;
 rocketStatus.shadowColorCustom = '#91E8BC';
 rocketStatus.shadowBlurCustom = 4;
+
+var cashStatus = new TextBox("Funds: 0 MIL");
+cashStatus.x = 650;
+cashStatus.y = 95;
+cashStatus.fontSize = '16';
+cashStatus.font = 'bitwise';
+cashStatus.color = '#CCFFCC';
+cashStatus.dropShadow = true;
+cashStatus.shadowColorCustom = '#91E8BC';
+cashStatus.shadowBlurCustom = 4;

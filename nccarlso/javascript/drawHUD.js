@@ -26,8 +26,8 @@ function clearText(){
 //draws all of these values on the HUD, should be called every time 
 //the world updates or whenever the display values change
 function displayHUDtext(){
-    
-    //Check if time is up
+	
+	//Check if time is up
     if(doomsDay-getYears() < 1) gameOverMan();
     
     clearText();
@@ -122,7 +122,7 @@ function displayHUDtext(){
     }else if(techActive){
         updateTechInfo();
     }else if(storeActive){
-        //updateStoreInfo();
+        updateStoreInfo();
     }
 }
 
@@ -190,7 +190,7 @@ manager.onMouseDown = function () {
 			}
 		}
 	}
-};
+}
 
 //When button MouseUp
 manager.onMouseUp = function () {
@@ -293,4 +293,4 @@ manager.onMouseUp = function () {
 			updateStoreText();
 		}
 	}
-};
+}
