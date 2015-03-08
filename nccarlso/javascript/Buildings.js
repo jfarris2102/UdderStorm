@@ -157,7 +157,11 @@ for(var i = 1; i <= buildingTypes; i++){
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
 
-level[12] = 0;
+level[7] = 0;
+level[8] = 0;
+level[9] = 0;
+level[10] = 0;
+level[11] = 0;
 
 function emptyLaunchCargo(){
 	for(var i = 1; i <= buildingTypes; i++){
@@ -286,7 +290,7 @@ function buildResource(){
 	resInc = 0;
 	updateBuild();
 	updateResource();
-	/*console.log("food:",food);
+	console.log("food:",food);
 	console.log("money:",money);
 	console.log("energy:",energy);
 	console.log("water:",water);
@@ -294,7 +298,7 @@ function buildResource(){
 	console.log("air:",air);
 	console.log("popEarth:",popEarth);
 	console.log("popMars:",popMars);
-	console.log("happiness:",happiness);*/
+	console.log("happiness:",happiness);
 }
 
 //sets the variables that should be used to increment our overall resource list
@@ -345,7 +349,7 @@ function resetVariables(){
 	air = 0.04;
 	minerals=1000; //Displayed in thousand tons
     energy=100; //Displayed in million BTU's
-	money=100; //Displayed in millions
+	money=1000; //Displayed in millions
 	popEarth=8; //Displayed in billions
 	popMars=10; //Displayed in ones
 	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
