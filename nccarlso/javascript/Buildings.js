@@ -156,13 +156,16 @@ for(var i = 1; i <= buildingTypes; i++){
 	level[i] = 0;   //sets the level of each building to 0
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
-
-level[7] = 0;
+console.log(photosyn);
+console.log(numberOf[photosyn]);
+console.log(photosyn);
+console.log(getNumberOf(photosyn));
+/*level[7] = 0;
 level[8] = 0;
 level[9] = 0;
 level[10] = 0;
 level[11] = 0;
-level[12] = 0;
+level[12] = 0;*/
 
 function emptyLaunchCargo(){
 	for(var i = 1; i <= buildingTypes; i++){
@@ -259,6 +262,8 @@ function makeModel(model){
 }
 
 function getNumberOf(model){
+	if(model == 9)
+	console.log(numberOf[model]);
 	return numberOf[model];
 }
 function getLevel(model){
@@ -335,7 +340,9 @@ function updateResource(){
 	food += foodInc;
 	water += waterInc;
 	minerals += mineralInc;
+	console.log(energy);
 	energy += energyInc;
+	console.log(energy);
 	happiness += happyInc;
 	popMars += popInc;
 	air += airInc;
