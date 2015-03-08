@@ -27,6 +27,7 @@ pop1.sx = 1;
 pop1.sy = 1;
 pop1.isNode = 1;
 pop1.image = Textures.load("images/1.png");
+pop1.cost= 100;
 
 var green1  = new Sprite();
 green1.width = 120;
@@ -37,6 +38,7 @@ green1.sx = 3;
 green1.sy = 4;
 green1.isNode = 2;
 green1.image = Textures.load("images/2.png");
+green1.cost= 300;
 
 var solar1  = new Sprite();
 solar1.width = 40;
@@ -47,6 +49,7 @@ solar1.sx = 1;
 solar1.sy = 1;
 solar1.isNode = 0;
 solar1.image = Textures.load("images/3.png");
+solar1.cost= 50;
 
 var comms1  = new Sprite();
 comms1.width = 40;
@@ -57,7 +60,7 @@ comms1.sx = 1;
 comms1.sy = 1;
 comms1.isNode = 0;
 comms1.image = Textures.load("images/4.png");
-
+comms1.cost= 150;
 
 var wind1  = new Sprite();
 wind1.width = 40;
@@ -68,6 +71,7 @@ wind1.sx = 1;
 wind1.sy = 1;
 wind1.isNode = 0;
 wind1.image = Textures.load("images/5.png");
+wind1.cost= 100;
 
 var reactor1  = new Sprite();
 reactor1.width = 40;
@@ -78,6 +82,7 @@ reactor1.sx = 1;
 reactor1.sy = 1;
 reactor1.isNode = 0;
 reactor1.image = Textures.load("images/6.png");
+reactor1.cost= 250;
 
 var photo1  = new Sprite();
 photo1.width = 40;
@@ -88,6 +93,7 @@ photo1.sx = 1;
 photo1.sy = 1;
 photo1.isNode = 0;
 photo1.image = Textures.load("images/7.png");
+photo1.cost= 100;
 
 var grav1  = new Sprite();
 grav1.width = 40;
@@ -98,6 +104,7 @@ grav1.sx = 1;
 grav1.sy = 1;
 grav1.isNode = 0;
 grav1.image = Textures.load("images/8.png");
+grav1.cost= 100;
 
 var mine1  = new Sprite();
 mine1.width = 40;
@@ -108,6 +115,7 @@ mine1.sx = 1;
 mine1.sy = 1;
 mine1.isNode = 0;
 mine1.image = Textures.load("images/9.png");
+mine1.cost= 100;
 
 var lab1  = new Sprite();
 lab1.width = 40;
@@ -118,6 +126,7 @@ lab1.sx = 1;
 lab1.sy = 1;
 lab1.isNode = 0;
 lab1.image = Textures.load("images/10.png");
+lab1.cost= 100;
 
 var factory1  = new Sprite();
 factory1.width = 40;
@@ -128,7 +137,7 @@ factory1.sx = 1;
 factory1.sy = 1;
 factory1.isNode = 0;
 factory1.image = Textures.load("images/11.png");
-
+factory1.cost= 100;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];//creates an array to hold all of the placed buildings
@@ -139,17 +148,27 @@ var buildingTypes = 11; //# of different types of buildings that can be placed
 var buidlingsAvailable = []; //Array of building counts
 var numberOf = [];
 var level = [];
+var launchCargo = [];
+emptyLaunchCargo();
+
 for(var i = 1; i <= buildingTypes; i++){
 	numberOf[i] = 0; //sets the number of each building to 0
 	level[i] = 0;   //sets the level of each building to 0
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
+
 level[7] = 0;
 level[8] = 0;
 level[9] = 0;
 level[10] = 0;
 level[11] = 0;
-level[12] = 0;
+
+function emptyLaunchCargo(){
+	for(var i = 1; i <= buildingTypes; i++){
+		launchCargo[i] = 0;//sets the number of each building that is available to 0
+	}
+}
+
 //starts the building process
 function initBuildings(){
 	for(var i = 0; i < maxBuildings; i++){
@@ -195,7 +214,7 @@ function getModel(model){
         return wind1;
 	case 6:
         return reactor1;
-    case 7:
+	case 7:
         return photo1;
     case 8: 
         return grav1;
@@ -212,9 +231,9 @@ function getModel(model){
 
 //sets the building model to the correct one based on the number provided
 function makeModel(model){
-	numberOf[model]++;
+	number[model]++;
 	switch(model) {
-    case 1: 
+    case 1:
         money -= .01;
         return pop1;
     case 2:
@@ -232,21 +251,6 @@ function makeModel(model){
     case 6:
         money -= .05;
         return reactor1;
-    case 7:
-        money -= .03;
-        return photo1;
-    case 8: 
-        money -= .02;
-        return grav1;
-    case 9: 
-        money -= .01;
-        return mine1;
-    case 10:
-        money -= .02;
-        return lab1;
-    case 11:
-        money -= .04;
-        return factory1;
     default:
         money -=.01;
         return pop1;
