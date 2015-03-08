@@ -11,7 +11,7 @@ function greenResources(){
 		foodInc += getNumberOf[green]*5;
 		waterInc -= getNumberOf[green]*3;
 		airInc += getNumberOf[green]*.01;
-		energyInc -= getNumberOf[green]*1
+		energyInc -= getNumberOf[green]*1;
 		break;
 		case 1:
 		foodInc += getNumberOf[green]*7;
@@ -32,9 +32,6 @@ function greenResources(){
 		energyInc -= getNumberOf[green]*.1;
 		break;
 	}
-}
-function (){
-	var total = 0;
 }
 function solarResources(){
 	switch(getLevel[solar]){
@@ -117,15 +114,24 @@ function commsResources(){
 	}
 }
 function liveResources(){
-/*	switch(getLevel[live]){
+	switch(getLevel[live]){
 		case 0:
-		if()
+		if(getNumberOf[live] < popMars/3){
+			happyInc -= 3;
+		}
+		energyInc -= getNumberOf[live]*.3;
+		case 1:
+		if(getNumberOf[live] < popMars/10){
+			happyInc -= 3;
+		}
+		energyInc -= energyInc -= getNumberOf[comms]*.5;
 	}
-}*/
+}
 function photoResources(){
-	var total = 0;
+	airInc += getNumberOf[photosyn]*.01;
+	energyInc += getNumberOf[photosyn]*1;
 }
 function gravityResources(){
-	
+	energyInc -= getNumberOf[gravity]*5;
 }
 

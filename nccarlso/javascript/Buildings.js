@@ -282,7 +282,7 @@ function buildResource(){
 function updateBuild(){ //Every 6 months game time
 	//1=living, 2=food prod. 3=solar, 4=comm. 5=turbine 6=reactor
 //7=mine, 8=lab, 9=photosyn. 10=gravity 11=factory
-	energyInc += numberOf[turbine] + 3*numberOf[solar];
+/*	energyInc += numberOf[turbine] + 3*numberOf[solar];
 	foodInc += 2*numberOf[green];
 	if (popMars/5>numberOf[live])
 	    happyInc--;
@@ -291,7 +291,16 @@ function updateBuild(){ //Every 6 months game time
 	resInc += .1*numberOf[comms];
 	
 	energyInc -= numberOf[live] + numberOf[mine] + numberOf[green] + numberOf[comms];
-	waterInc -= .5*numberOf[green] + .5*numberOf[live];
+	waterInc -= .5*numberOf[green] + .5*numberOf[live];*/
+	greenResources();
+	solarResources();
+	turbineResources();
+	reactorResources();
+	liveResources();
+	photoResources();
+	gravityResources();
+	mineResources();
+	commsResources();
 }
 
 //increases all resource variables by a predetermined amount
