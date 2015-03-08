@@ -26,87 +26,104 @@ function clearText(){
 //draws all of these values on the HUD, should be called every time 
 //the world updates or whenever the display values change
 function displayHUDtext(){
-	
-	//Check if time is up
-	if(doomsDay-getYears() < 1) gameOverMan();
-	
-	clearText();
-	if(marsActive || solarActive){
-		//Mars text
-		moneyRound = Math.ceil(money*10)/10;
-		energyRound = Math.ceil(energy*10)/10;
-		var days = getDays()%31;
-		var moneyD="MONEY:  "+moneyRound+"mil";
-		var foodD="FOOD:  "+food;
-		var energyD="ENERGY:  "+energyRound + "mil BTU";
-		var popMarsD="POPULATION:  "+popMars;
-		var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
-		
-		var text1 = new TextBox(moneyD);
-		var text2 = new TextBox(foodD);
-		var text3 = new TextBox(energyD);
-		var text4 = new TextBox(popMarsD);
-		var text5 = new TextBox(timeD);
-		
-		textArr.push(text1);
-		textArr.push(text2);
-		textArr.push(text3);
-		textArr.push(text4);
-		textArr.push(text5);
-		
-		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = 'BebasNeue';
-			textArr[i].fontSize = '20';
-			textArr[i].padLeft = canvas.width - 150;
-			textArr[i].padTop = 30*(i+1);
-			world.addChild(textArr[i]);
-		}
-	}else if(earthActive){
-		//Earth text
-		moneyRound = Math.ceil(money*10)/10;
-		energyRound = Math.ceil(energy*10)/10;
-		var days = Math.floor(getDays()%30.4375) + 1;
-		var moneyD="MONEY:  "+moneyRound+"mil";
-		var foodD="FOOD:  "+food;
-		var energyD="ENERGY:  "+energyRound + "mil BTU";
-		var popEarthD="POPULATION:  "+popEarth;
-		var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
-		var yearsAppend = "";
-		var monthsAppend = "";
-		var daysAppend = "";
-		if(doomsDay-(getYears()+1) < 10) yearsAppend = "00";
-		else if(doomsDay-getYears() < 100) yearsAppend = "0";
-		if(12-getMonths() < 10) monthsAppend = "0";
-		if(31-days < 10) daysAppend = "0";
-		
-		//Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
-		Countdown.text = yearsAppend+(doomsDay-(getYears()+1))+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
-		
-		var text1 = new TextBox(moneyD);
-		var text2 = new TextBox(foodD);
-		var text3 = new TextBox(energyD);
-		var text4 = new TextBox(popEarthD);
-		var text5 = new TextBox(timeD);
-
-		textArr.push(text1);
-		textArr.push(text2);
-		textArr.push(text3);
-		textArr.push(text4);
-		textArr.push(text5);
-		for(var i = 0; i < textArr.length; i++){
-			textArr[i].font = 'BebasNeue';
-			textArr[i].fontSize = '20';
-			textArr[i].padLeft = canvas.width - 150;
-			textArr[i].padTop = 30*(i+1);
-			world.addChild(textArr[i]);
-		}
-	}else if(solarActive){
-		//Solar System text
-	}else if(techActive){
-		updateTechInfo();
-	}else if(storeActive){
-		//updateStoreInfo();
-	}
+    
+    //Check if time is up
+    if(doomsDay-getYears() < 1) gameOverMan();
+    
+    clearText();
+    
+    moneyRound = Math.ceil(money*10)/10;
+    energyRound = Math.ceil(energy*10)/10;
+    var days = getDays()%31;
+    var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
+    var moneyD="MONEY:  "+moneyRound+"mil";
+    var energyD="ENERGY:  "+energyRound+"mil BTU";
+    var mineralsD="MINERALS:  "+minerals;
+    var researchD="REASEARCH:  "+research;
+    var popMarsD="POPULATION:  "+popMars;
+    var popEarthD="POPULATION:  "+popEarth;
+    var airD="AIR:  "+air+"%";
+    var foodD="FOOD:  "+food;
+    var waterD="WATER:  "+water;
+    var atmosphereD="ATMOSPHERE:  "+atmosphere;
+    var temperatureD="TEMPERATURE:  "+temperature;
+    var happinessD="HAPPINESS:  "+happiness+"%";
+    var diplomacyD="DIPLOMACY:  "+diplomacy;
+    var economyD="ECONOMY:  "+economy;
+    
+    var text1  = new TextBox(timeD);
+    var text2  = new TextBox(moneyD);
+    var text3  = new TextBox(energyD);
+    var text4  = new TextBox(mineralsD);
+    var text5  = new TextBox(researchD);
+    if (marsActive){
+        var text6  = new TextBox(popMarsD);
+    }else if (earthActive){
+        var text6  = new TextBox(popEarthD);
+    }
+    var text7  = new TextBox(airD);
+    var text8  = new TextBox(foodD);
+    var text9  = new TextBox(waterD);
+    var text10 = new TextBox(atmosphereD);
+    var text11 = new TextBox(temperatureD);
+    var text12 = new TextBox(happinessD);
+    var text13 = new TextBox(diplomacyD);
+    var text14 = new TextBox(economyD);
+    
+    textArr.push(text1);
+    textArr.push(text2);
+    textArr.push(text3);
+    textArr.push(text4);
+    textArr.push(text5);
+    if (marsActive || earthActive){
+        textArr.push(text6);
+    }
+    textArr.push(text7);
+    textArr.push(text8);
+    textArr.push(text9);
+    textArr.push(text10);
+    textArr.push(text11);
+    textArr.push(text12);
+    textArr.push(text13);
+    textArr.push(text14);
+    
+    if(marsActive || solarActive){
+        //Mars/solar activate
+        for(var i = 0; i < textArr.length; i++){
+            textArr[i].font = 'BebasNeue';
+            textArr[i].fontSize = '20';
+            textArr[i].padLeft = canvas.width - 150;
+            textArr[i].padTop = 30*(i+1);
+            world.addChild(textArr[i]);
+        }
+    }else if(earthActive){
+        //Doomsday stuff
+        var yearsAppend = "";
+        var monthsAppend = "";
+        var daysAppend = "";
+        if(doomsDay-(getYears()+1) < 10) yearsAppend = "00";
+        else if(doomsDay-getYears() < 100) yearsAppend = "0";
+        if(12-getMonths() < 10) monthsAppend = "0";
+        if(31-days < 10) daysAppend = "0";
+        
+        //Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
+        Countdown.text = yearsAppend+(doomsDay-(getYears()+1))+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
+        
+        //Earth activate
+        for(var i = 0; i < textArr.length; i++){
+            textArr[i].font = 'BebasNeue';
+            textArr[i].fontSize = '20';
+            textArr[i].padLeft = canvas.width - 150;
+            textArr[i].padTop = 30*(i+1);
+            world.addChild(textArr[i]);
+        }
+    }else if(solarActive){
+        //Solar System text
+    }else if(techActive){
+        updateTechInfo();
+    }else if(storeActive){
+        //updateStoreInfo();
+    }
 }
 
 function redrawHUD(){
@@ -173,7 +190,7 @@ manager.onMouseDown = function () {
 			}
 		}
 	}
-}
+};
 
 //When button MouseUp
 manager.onMouseUp = function () {
@@ -276,4 +293,4 @@ manager.onMouseUp = function () {
 			updateStoreText();
 		}
 	}
-}
+};
