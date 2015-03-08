@@ -245,35 +245,22 @@ function checkTechOver(x, y) {
 }
 
 function checkTechMenu(x, y) {
-	if (x > 426 && x < 527 && y > 103 && y < 126) {
-		return 0;
-	}else if (x > 426 && x < 527 && y > 510 && y < 533) {
-		return 1;
-	}else if (x > 150 && x < 268 && y > 107 && y < 130) {
-		return 2;
-	}else if (x > 290 && x < 355 && y > 107 && y < 130) {
-		return 3;
-	}else if (x > 150 && x < 430 && y > 200 && y < 224) {
-		return 4;
-	}else if (x > 150 && x < 430 && y > 250 && y < 274) {
-		return 5;
-	}else if (x > 150 && x < 430 && y > 300 && y < 324) {
-		return 6;
-	}else if (x > 150 && x < 430 && y > 350 && y < 374) {
-		return 7;
-	}else if (x > 150 && x < 430 && y > 400 && y < 424) {
-		return 8;
-	}else if (x > 150 && x < 430 && y > 450 && y < 474) {
-		return 9;
-	}
+	if (x > 426 && x < 527 && y > 103 && y < 126) return 0;
+	if (x > 426 && x < 527 && y > 510 && y < 533) return 1;
+	if (x > 150 && x < 268 && y > 107 && y < 130) return 2;
+	if (x > 290 && x < 355 && y > 107 && y < 130)	return 3;
+	if (x > 150 && x < 430 && y > 200 && y < 224)	return 4;
+	if (x > 150 && x < 430 && y > 250 && y < 274)	return 5;
+	if (x > 150 && x < 430 && y > 300 && y < 324)	return 6;
+	if (x > 150 && x < 430 && y > 350 && y < 374)	return 7;
+	if (x > 150 && x < 430 && y > 400 && y < 424)	return 8;
+	if (x > 150 && x < 430 && y > 450 && y < 474)	return 9;
     return -1;
 }
 
-var techBG="images/terminal.png";
-var techbg=new Sprite(); {
-    techbg.width=960;
-    techbg.height=640;
-    techbg.x=0;
-    techbg.y=0;
-    techbg.image=Textures.load(techBG);
-}
+var techbg=new Sprite();
+techbg.width=960;
+techbg.height=640;
+techbg.x=0;
+techbg.y=0;
+techbg.image=Textures.load("images/terminal.png");

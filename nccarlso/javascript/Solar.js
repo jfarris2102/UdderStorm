@@ -26,7 +26,7 @@ function getDays(){
 	return days%365 + 1;
 }
 function getTimeToNextLaunch(){
-	return 707 - (days%783.23); //Synodic period for Mars/Earth
+	return 707 - Math.floor((days%783.23)); //Synodic period for Mars/Earth
 }
 
 var SolarSystem = new Sprite();
@@ -166,7 +166,6 @@ function stopSolar() {
 		solarSprites[i].visible = false;
 }
 ///////////////////////////////////////////////////////
-	
 function solarTime(){
 	if(solarActive || marsActive || earthActive){
 		rotate88.rotation -= DTR(mult/88);
@@ -185,6 +184,12 @@ function solarTime(){
 			Rocket.visible = false;
 			RocketOffset = 0;
 			Launched = false;
+			for(var i = 0; i < launchCargo.length; i++){
+				buidlingsAvailable[i] += launchCargo[i];
+			}
+			rocketStatus.text = "Inactive";
+			if(marsActive) buildingOnscreenCount.text = buidlingsAvailable[selection];
+			emptyLaunchCargo();
 		}else if(Launched){ //Rocket flight trajectory
 			Rocket.y = RocketOffset*3.5;
 			Rocket.x = 20+(((41*RocketOffset)/26)-((RocketOffset*RocketOffset)/26));
