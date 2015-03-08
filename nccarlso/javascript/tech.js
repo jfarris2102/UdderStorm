@@ -181,6 +181,9 @@ function updateUnlockTree(x){
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
 			curr[i].unlocked = true;
+			if(typeof curr[i].categ !== 'undefined'){
+				levelUp(curr[i].categ);
+			}
 			researchPoints -= curr[i].cost;
 		}
 	}

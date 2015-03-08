@@ -149,6 +149,7 @@ level[8] = 0;
 level[9] = 0;
 level[10] = 0;
 level[11] = 0;
+level[12] = 0;
 //starts the building process
 function initBuildings(){
 	for(var i = 0; i < maxBuildings; i++){
@@ -257,6 +258,9 @@ function getNumberOf(model){
 }
 function getLevel(model){
 	return level[model];
+}
+function levelUp(model){
+	level[model]++;
 }
 //returns the dimensions that the building "model" has while placed
 function BuildingSize(model){
