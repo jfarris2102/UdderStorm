@@ -153,36 +153,36 @@ tech102.pre = ["Chemical Propulsion"];
 tech102.cost = 100;
 
 var tech103 = {};
-tech14.name = new TextBox("Liquid Hydrogen fuel");
-tech14.desc = new TextBox("cost: 250 Research points.");
-tech14.avail = false;
-tech14.unlocked = false;
-tech14.pre = ["Plasma Propulsion"];
-tech14.cost = 250;
+tech103.name = new TextBox("Liquid Hydrogen fuel");
+tech103.desc = new TextBox("cost: 250 Research points.");
+tech103.avail = false;
+tech103.unlocked = false;
+tech103.pre = ["Plasma Propulsion"];
+tech103.cost = 250;
 
 var tech104 = {};
-tech14.name = new TextBox("Space Shuttle");
-tech14.desc = new TextBox("cost: 100 Research points.");
-tech14.avail = true;
-tech14.unlocked = false;
-tech14.pre = ["Chemical Propulsion"];
-tech14.cost = 100;
+tech104.name = new TextBox("Space Shuttle");
+tech104.desc = new TextBox("cost: 100 Research points.");
+tech104.avail = true;
+tech104.unlocked = false;
+tech104.pre = ["Chemical Propulsion"];
+tech104.cost = 100;
 
 var tech105 = {};
-tech14.name = new TextBox("VASMIR rocket");
-tech14.desc = new TextBox("cost: 250 Research points.");
-tech14.avail = false;
-tech14.unlocked = false;
-tech14.pre = ["Plasma Propulsion"];
-tech14.cost = 250;
+tech105.name = new TextBox("VASMIR rocket");
+tech105.desc = new TextBox("cost: 250 Research points.");
+tech105.avail = false;
+tech105.unlocked = false;
+tech105.pre = ["Plasma Propulsion"];
+tech105.cost = 250;
 
 var tech106 = {};
-tech14.name = new TextBox("VTVL rocket");
-tech14.desc = new TextBox("cost: 500 Research points.");
-tech14.avail = false;
-tech14.unlocked = false;
-tech14.pre = ["VASMIR rocket"];
-tech14.cost = 500;
+tech106.name = new TextBox("VTVL rocket");
+tech106.desc = new TextBox("cost: 500 Research points.");
+tech106.avail = false;
+tech106.unlocked = false;
+tech106.pre = ["VASMIR rocket"];
+tech106.cost = 500;
 //End Space Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Sustainability Tech
