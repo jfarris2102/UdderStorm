@@ -79,6 +79,56 @@ reactor1.sy = 1;
 reactor1.isNode = 0;
 reactor1.image = Textures.load("images/6.png");
 
+var photo1  = new Sprite();
+photo1.width = 40;
+photo1.height = 40;
+photo1.visible = false;
+photo1.id = "photo1";
+photo1.sx = 1;
+photo1.sy = 1;
+photo1.isNode = 0;
+photo1.image = Textures.load("images/7.png");
+
+var grav1  = new Sprite();
+grav1.width = 40;
+grav1.height = 80;
+grav1.visible = false;
+grav1.id = "grav1";
+grav1.sx = 1;
+grav1.sy = 1;
+grav1.isNode = 0;
+grav1.image = Textures.load("images/8.png");
+
+var mine1  = new Sprite();
+mine1.width = 40;
+mine1.height = 80;
+mine1.visible = false;
+mine1.id = "mine1";
+mine1.sx = 1;
+mine1.sy = 1;
+mine1.isNode = 0;
+mine1.image = Textures.load("images/9.png");
+
+var lab1  = new Sprite();
+lab1.width = 40;
+lab1.height = 40;
+lab1.visible = false;
+lab1.id = "lab1";
+lab1.sx = 1;
+lab1.sy = 1;
+lab1.isNode = 0;
+lab1.image = Textures.load("images/10.png");
+
+var factory1  = new Sprite();
+factory1.width = 40;
+factory1.height = 40;
+factory1.visible = false;
+factory1.id = "factory1";
+factory1.sx = 1;
+factory1.sy = 1;
+factory1.isNode = 0;
+factory1.image = Textures.load("images/11.png");
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];//creates an array to hold all of the placed buildings
@@ -135,6 +185,16 @@ function getModel(model){
         return wind1;
 	case 6:
         return reactor1;
+    case 7:
+        return photo1;
+    case 8: 
+        return grav1;
+    case 9: 
+        return mine1;
+    case 10:
+        return lab1;
+    case 11:
+        return factory1;
     default:
         return pop1;
 	}
