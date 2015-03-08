@@ -162,6 +162,7 @@ level[8] = 0;
 level[9] = 0;
 level[10] = 0;
 level[11] = 0;
+level[12] = 0;
 
 function emptyLaunchCargo(){
 	for(var i = 1; i <= buildingTypes; i++){
@@ -231,7 +232,7 @@ function getModel(model){
 
 //sets the building model to the correct one based on the number provided
 function makeModel(model){
-	number[model]++;
+	numberOf[model]++;
 	switch(model) {
     case 1:
         money -= .01;
