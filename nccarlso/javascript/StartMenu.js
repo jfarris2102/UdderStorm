@@ -1,3 +1,4 @@
+
 /*
 StartMenu.js by Team UdderStorm
 A component of Get Your Ass to Mars

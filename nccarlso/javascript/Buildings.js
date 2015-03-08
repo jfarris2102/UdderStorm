@@ -227,7 +227,7 @@ function getModel(model){
 
 //sets the building model to the correct one based on the number provided
 function makeModel(model){
-	number[model]++;
+	numberOf[model]++;
 	switch(model) {
     case 1:
         money -= .01;
@@ -320,6 +320,7 @@ function updateBuild(){ //Every 6 months game time
 	gravityResources();
 	mineResources();
 	commsResources();
+	console.log(energy);
 }
 
 //increases all resource variables by a predetermined amount
