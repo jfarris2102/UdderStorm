@@ -264,13 +264,16 @@ manager.onMouseUp = function () {
 				}
 			}
 		}
-		var tmpChk = checkTechMenu(gInput.mouse.x, gInput.mouse.y); //Button clicks in tech menu
-		if (techActive && tmpChk < 4){
-			moveTechScreen(tmpChk);
-		} else if (techActive && tmpChk != -1){
-			unlockTech(tmpChk);
-		} else if (storeActive && tmpChk != -1){
-			//moveStoreScreen(tmpChk);
+		if(techActive){
+			var tmpChk = checkTechMenu(gInput.mouse.x, gInput.mouse.y); //Button clicks in tech menu
+			if (tmpChk < 4){
+				moveTechScreen(tmpChk);
+			}else if (tmpChk != -1){
+				unlockTech(tmpChk);
+			}
+		} else if (storeActive){
+			purchaseBuilding(checkStoreClicks(gInput.mouse.x, gInput.mouse.y));
+			updateStoreText();
 		}
 	}
 }
