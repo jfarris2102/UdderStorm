@@ -101,7 +101,7 @@ grav1.image = Textures.load("images/8.png");
 
 var mine1  = new Sprite();
 mine1.width = 40;
-mine1.height = 80;
+mine1.height = 40;
 mine1.visible = false;
 mine1.id = "mine1";
 mine1.sx = 1;
@@ -135,7 +135,7 @@ var buildings = [];//creates an array to hold all of the placed buildings
 var beingBuilt = false;
 var buildingCount = 0;//the total number of placed buildings
 var maxBuildings = 250;//sets a cap for the number of buildings that can be placed
-var buildingTypes = 6; //# of different types of buildings that can be placed
+var buildingTypes = 11; //# of different types of buildings that can be placed
 var buidlingsAvailable = []; //Array of building counts
 var numberOf = [];
 var level = [];
@@ -229,8 +229,23 @@ function makeModel(model){
         money -= .01;
         return wind1;
     case 6:
-        money -= .02;
+        money -= .05;
         return reactor1;
+    case 7:
+        money -= .03;
+        return photo1;
+    case 8: 
+        money -= .02;
+        return grav1;
+    case 9: 
+        money -= .01;
+        return mine1;
+    case 10:
+        money -= .02;
+        return lab1;
+    case 11:
+        money -= .04;
+        return factory1;
     default:
         money -=.01;
         return pop1;
