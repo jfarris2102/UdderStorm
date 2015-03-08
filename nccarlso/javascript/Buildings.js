@@ -212,7 +212,7 @@ function getModel(model){
 
 //sets the building model to the correct one based on the number provided
 function makeModel(model){
-	number[model]++;
+	numberOf[model]++;
 	switch(model) {
     case 1: 
         money -= .01;
