@@ -6,9 +6,22 @@ present in the game, and creates an array to represent them
 The technologies are researchable from the Earth view, and affect
 building stats and other important aspects of the game
 */
+var activeTech = [];
+/*
+copy-able code
 
+var tech = {};
+tech.name = new TextBox("");
+tech.desc = new TextBox("cost:  Research points.");
+tech.avail = false;
+tech.unlocked = false;
+tech.pre = [""];
+tech.cost = ;
+
+*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Energy Tech
+
 var tech1 = {};
 tech1.name = new TextBox("Thermal-neutron Reactor");
 tech1.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default.");
@@ -120,11 +133,158 @@ tech14.avail = false;
 tech14.unlocked = false;
 tech14.pre = ["Concentrated photovoltaics"];
 tech14.cost = 1000;
+//End Energy Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-var activeTech = [];//
-/////////////////////////
+//Space Tech
+var tech101 = {};
+tech101.name = new TextBox("Chemical Propulsion");
+tech101.desc = new TextBox("unlocked by default");
+tech101.avail = true;
+tech101.unlocked = true;
+tech101.pre = [""];
+tech101.cost = 0;
 
-var SpaceTree = [];
+var tech102 = {};
+tech102.name = new TextBox("Plasma Propulsion");
+tech102.desc = new TextBox("cost: 100 Research points.");
+tech102.avail = true;
+tech102.unlocked = false;
+tech102.pre = ["Chemical Propulsion"];
+tech102.cost = 100;
+
+var tech103 = {};
+tech103.name = new TextBox("Liquid Hydrogen fuel");
+tech103.desc = new TextBox("cost: 250 Research points.");
+tech103.avail = false;
+tech103.unlocked = false;
+tech103.pre = ["Plasma Propulsion"];
+tech103.cost = 250;
+
+var tech104 = {};
+tech104.name = new TextBox("Space Shuttle");
+tech104.desc = new TextBox("cost: 100 Research points.");
+tech104.avail = true;
+tech104.unlocked = false;
+tech104.pre = ["Chemical Propulsion"];
+tech104.cost = 100;
+
+var tech105 = {};
+tech105.name = new TextBox("VASMIR rocket");
+tech105.desc = new TextBox("cost: 250 Research points.");
+tech105.avail = false;
+tech105.unlocked = false;
+tech105.pre = ["Plasma Propulsion"];
+tech105.cost = 250;
+
+var tech106 = {};
+tech106.name = new TextBox("VTVL rocket");
+tech106.desc = new TextBox("cost: 500 Research points.");
+tech106.avail = false;
+tech106.unlocked = false;
+tech106.pre = ["VASMIR rocket"];
+tech106.cost = 500;
+//End Space Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Sustainability Tech
+var tech201 = {};
+tech201.name = new TextBox("Gov't sponsored sust. campaigns");
+tech201.desc = new TextBox("unlocked by default");
+tech201.avail = true;
+tech201.unlocked = true;
+tech201.pre = [""];
+tech201.cost = ;
+
+var tech202 = {};
+tech202.name = new TextBox("LEED Building Standards");
+tech202.desc = new TextBox("cost: 100 Research points.");
+tech202.avail = true;
+tech202.unlocked = false;
+tech202.pre = ["Gov't sponsored sust. campaigns"];
+tech202.cost = 100;
+
+var tech203 = {};
+tech203.name = new TextBox("Subsidize sustainable innovations");
+tech203.desc = new TextBox("cost: 100 Research points.");
+tech203.avail = true;
+tech203.unlocked = false;
+tech203.pre = ["Gov't sponsored sust. campaigns"];
+tech203.cost = 100;
+
+var tech204 = {};
+tech204.name = new TextBox("Mandated Sustainability Education");
+tech204.desc = new TextBox("cost: 100 Research points.");
+tech204.avail = true;
+tech204.unlocked = false;
+tech204.pre = ["Gov't sponsored sust. campaigns"];
+tech204.cost = 100;
+
+var tech205 = {};
+tech205.name = new TextBox("Fully-efficient/clean electrical vehicles");
+tech205.desc = new TextBox("cost: 250 Research points.");
+tech205.avail = false;
+tech205.unlocked = false;
+tech205.pre = ["Subsidize sustainable innovations"];
+tech205.cost = 250;
+
+var tech206 = {};
+tech206.name = new TextBox("International Sustainability Council");
+tech206.desc = new TextBox("cost: 250 Research points.");
+tech206.avail = false;
+tech206.unlocked = false;
+tech206.pre = ["Mandated Sustainability Education\nForeign Relations Campaigns"];
+tech206.cost = 250;
+
+var tech207 = {};
+tech207.name = new TextBox("Autonomous vehicles");
+tech207.desc = new TextBox("cost: 500 Research points.");
+tech207.avail = false;
+tech207.unlocked = false;
+tech207.pre = ["Fully-efficient/clean electrical vehicles"];
+tech207.cost = 500;
+
+var tech208 = {};
+tech208.name = new TextBox("Ability to Mandate and un-Mandate Replacement Rate");
+tech208.desc = new TextBox("cost: 500 Research points.");
+tech208.avail = false;
+tech208.unlocked = false;
+tech208.pre = ["International Sustainability Council"];
+tech208.cost = 500;
+
+var tech209 = {};
+tech209.name = new TextBox("Net-Zero Energy Home standards");
+tech209.desc = new TextBox("cost: 250 Research points.");
+tech209.avail = false;
+tech209.unlocked = false;
+tech209.pre = ["LEED Building Standards"];
+tech209.cost = 250;
+
+var tech210 = {};
+tech210.name = new TextBox("Smart Homes");
+tech210.desc = new TextBox("cost: 250 Research points.");
+tech210.avail = false;
+tech210.unlocked = false;
+tech210.pre = ["LEED Building Standards"];
+tech210.cost = 250;
+
+var tech211 = {};
+tech211.name = new TextBox("Public Autonomous transportation network");
+tech211.desc = new TextBox("cost: 1000 Research points.");
+tech211.avail = false;
+tech211.unlocked = false;
+tech211.pre = ["Autonomous vehicles"];
+tech211.cost = 1000;
+
+var tech212 = {};
+tech212.name = new TextBox("Net Zero Cities");
+tech212.desc = new TextBox("cost: 1000 Research points.");
+tech212.avail = false;
+tech212.unlocked = false;
+tech212.pre = ["Net-Zero Energy Home standards\nSmart Homes\nOrganic photovoltaic cells\nNuclear Fusion Reactor"];
+tech212.cost = 1000;
+
+//End Sustainability Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 var EnergyTree = [];
 EnergyTree.push(tech1);
@@ -142,7 +302,26 @@ EnergyTree.push(tech12);
 EnergyTree.push(tech13);
 EnergyTree.push(tech14);
 
+var SpaceTree = [];
+SpaceTree.push(tech101);
+SpaceTree.push(tech102);
+SpaceTree.push(tech103);
+SpaceTree.push(tech104);
+SpaceTree.push(tech105);
+SpaceTree.push(tech106);
+
 var SustTree = [];
+SustTree.push(tech201);
+SustTree.push(tech202);
+SustTree.push(tech204);
+SustTree.push(tech205);
+SustTree.push(tech206);
+SustTree.push(tech207);
+SustTree.push(tech208);
+SustTree.push(tech209);
+SustTree.push(tech210);
+SustTree.push(tech211);
+SustTree.push(tech212);
 
 var EconTree = [];
 
