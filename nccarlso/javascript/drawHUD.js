@@ -37,12 +37,12 @@ function displayHUDtext(){
     var days = getDays()%31;
     var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
     var moneyD="MONEY:  "+moneyRound+"mil";
-    var energyD="ENERGY:  "+energyRound + "mil BTU";
+    var energyD="ENERGY:  "+energyRound+"mil BTU";
     var mineralsD="MINERALS:  "+minerals;
     var researchD="REASEARCH:  "+research;
     var popMarsD="POPULATION:  "+popMars;
     var popEarthD="POPULATION:  "+popEarth;
-    var airD="AIR:  "+air;
+    var airD="AIR:  "+air+"%";
     var foodD="FOOD:  "+food;
     var waterD="WATER:  "+water;
     var atmosphereD="ATMOSPHERE:  "+atmosphere;
