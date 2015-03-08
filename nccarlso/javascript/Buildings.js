@@ -82,14 +82,23 @@ reactor1.image = Textures.load("images/6.png");
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];//creates an array to hold all of the placed buildings
+var beingBuilt = false;
 var buildingCount = 0;//the total number of placed buildings
 var maxBuildings = 250;//sets a cap for the number of buildings that can be placed
 var buildingTypes = 6; //# of different types of buildings that can be placed
 var buidlingsAvailable = []; //Array of building counts
+var numberOf = [];
+var level = [];
 for(var i = 1; i <= buildingTypes; i++){
+	numberOf[i] = 0; //sets the number of each building to 0
+	level[i] = 0;   //sets the level of each building to 0
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
-
+level[7] = 0;
+level[8] = 0;
+level[9] = 0;
+level[10] = 0;
+level[11] = 0;
 //starts the building process
 function initBuildings(){
 	for(var i = 0; i < maxBuildings; i++){
@@ -142,38 +151,38 @@ function getModel(model){
 
 //sets the building model to the correct one based on the number provided
 function makeModel(model){
+	number[model]++;
 	switch(model) {
-    case 1:
-        live++; 
+    case 1: 
         money -= .01;
         return pop1;
     case 2:
-        green++;
         money -= .05;
         return green1;
     case 3:
-        solar++;
         money -= .01;
         return solar1;
     case 4:
-        comms++;
         money -= .02;
         return comms1;
 	case 5:
-        turbine++;
         money -= .01;
         return wind1;
     case 6:
-        reactor++;
         money -= .02;
         return reactor1;
     default:
-        live++;
         money -=.01;
         return pop1;
 	}
 }
 
+function getNumberOf(model){
+	return numberOf[model];
+}
+function getLevel(model){
+	return level[model];
+}
 //returns the dimensions that the building "model" has while placed
 function BuildingSize(model){
 	var building = getModel(model);
@@ -211,16 +220,18 @@ function buildResource(){
 
 //sets the variables that should be used to increment our overall resource list
 function updateBuild(){ //Every 6 months game time
-	energyInc += turbine + 3*solar;
-	foodInc += 2*green + 2*hydro;
-	if (popMars/5>live)
+	//1=living, 2=food prod. 3=solar, 4=comm. 5=turbine 6=reactor
+//7=mine, 8=lab, 9=photosyn. 10=gravity 11=factory
+	energyInc += numberOf[turbine] + 3*numberOf[solar];
+	foodInc += 2*numberOf[green];
+	if (popMars/5>numberOf[live])
 	    happyInc--;
-	airInc += photosyn*.01;
-	mineralInc += mine;
-	resInc += .1*comms;
+	airInc += numberOf[photosyn]*.01;
+	mineralInc += numberOf[mine];
+	resInc += .1*numberOf[comms];
 	
-	energyInc -= live + mine + green + hydro + comms;
-	waterInc -= 2*hydro + .5*green + .5*live;
+	energyInc -= numberOf[live] + numberOf[mine] + numberOf[green] + numberOf[comms];
+	waterInc -= .5*numberOf[green] + .5*numberOf[live];
 }
 
 //increases all resource variables by a predetermined amount
@@ -249,15 +260,14 @@ function resetVariables(){
 	popEarth=8; //Displayed in billions
 	popMars=10; //Displayed in ones
 	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
-	solar = 0;
-	turbine = 0;
-	hydro = 0;
-	photosyn = 0;
-	mine = 0;
-	green = 0;
-	comms = 0;
-	live = 0;
-	days = 0;
+	numberOf[solar] = 0;
+	numberOf[turbine] = 0;
+	numberOf[photosyn] = 0;
+	numberOf[mine] = 0;
+	numberOf[green] = 0;
+	numberOf[comms] = 0;
+	numberOf[live] = 0;
+	numberOf[days] = 0;
 	firstBuilding = true;
 }
 
