@@ -31,6 +31,8 @@ function greenResources(){
 		airInc += getNumberOf[green]*.03;
 		energyInc -= getNumberOf[green]*.1;
 		break;
+		default:
+		break;
 	}
 }
 function solarResources(){
@@ -50,6 +52,8 @@ function solarResources(){
         case 4:
         energyInc += getNumberOf[solar]*5;
         break;
+        default:
+		break;
 	}
 }
 function turbineResources(){
@@ -66,6 +70,8 @@ function turbineResources(){
 		case 4:
 		energyInc += getNumberOf[turbine]*3.5;
 		break;
+		default:
+		break;
 	}
 }
 function reactorResources(){
@@ -81,6 +87,8 @@ function reactorResources(){
 		break;
 		case 3:
 		energyInc += getNumberOf[reactor]*15;
+		break;
+		default:
 		break;
 	}
 }
@@ -101,6 +109,9 @@ function mineResources(){
 		case 3:
 		mineInc += getNumberOf[mine]*2;
 		energyInc -= getNumberOf[mine]*3;
+		break;
+		default:
+		break;
 	}
 }
 function commsResources(){
@@ -111,6 +122,8 @@ function commsResources(){
 		case 1:
 		energyInc -= getNumberOf[comms]*1;
 		break;
+		default:
+		break;
 	}
 }
 function liveResources(){
@@ -120,11 +133,14 @@ function liveResources(){
 			happyInc -= 3;
 		}
 		energyInc -= getNumberOf[live]*.3;
+		break;
 		case 1:
 		if(getNumberOf[live] < popMars/10){
 			happyInc -= 3;
 		}
 		energyInc -= energyInc -= getNumberOf[comms]*.5;
+		default:
+		break;
 	}
 }
 function photoResources(){

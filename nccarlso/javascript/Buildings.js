@@ -157,11 +157,7 @@ for(var i = 1; i <= buildingTypes; i++){
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
 
-level[7] = 0;
-level[8] = 0;
-level[9] = 0;
-level[10] = 0;
-level[11] = 0;
+level[12] = 0;
 
 function emptyLaunchCargo(){
 	for(var i = 1; i <= buildingTypes; i++){
