@@ -328,6 +328,7 @@ var moneyMult = 1;
 
 function buildResource(){
 	moneyInc = 1 * moneyMult;
+	researchPoints++;
 	foodInc = 0;
 	waterInc = 0;
 	energyInc = 0;
