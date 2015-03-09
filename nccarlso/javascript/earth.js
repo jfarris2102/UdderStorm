@@ -99,6 +99,8 @@ function getLifetime(){
 	//of the solar system (for humans)
 	if(lifetime > 500000000)
 	   lifetime = 500000000;
+	if(lifetime <= 0)
+	   lifetime = 0;
 	console.log(lifetime);
 	return lifetime;
 }

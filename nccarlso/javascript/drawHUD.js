@@ -85,6 +85,7 @@ function displayHUDtext(){
     
     moneyRound = Math.ceil(money*10)/10;
     energyRound = Math.ceil(energy*10)/10;
+    popRound = Math.ceil(popEarth*10)/10;
     var days = getDays()%31;
     var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
     var moneyD="MONEY:  "+moneyRound+"mil";
@@ -92,7 +93,7 @@ function displayHUDtext(){
     var mineralsD="MINERALS:  "+minerals;
     var researchD="REASEARCH:  "+research;
     var popMarsD="POPULATION:  "+popMars;
-    var popEarthD="POPULATION:  "+popEarth+"bil";
+    var popEarthD="POPULATION:  "+popRound+"bil";
     var airD="AIR:  "+air+"%";
     var foodD="FOOD:  "+food;
     var waterD="WATER:  "+water;
