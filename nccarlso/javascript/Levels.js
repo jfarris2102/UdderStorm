@@ -160,6 +160,7 @@ function photoResources(){
 function gravityResources(){
 	energyInc -= getNumberOf(gravity)*5;
 	console.log("gravity: ",energyInc);
+	atmosInc += getNumberOf(gravity)*.1;
 }
 function energyConsum(){
 	energyFactor = 1 - (0.05*getLevel(sust1) + 0.05*getLevel(sust2) + 0.05*getLevel(sust3));
@@ -179,4 +180,5 @@ function energyConsum(){
 		break;
 	}*/
 }
+function 
 

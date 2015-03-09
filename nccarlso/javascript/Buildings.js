@@ -349,6 +349,8 @@ function buildResource(){
 	popInc = 0;
 	airInc = 0;
 	resInc = 0;
+	atmosInc = 0;
+	tempInc = 0;
 	updateBuild();
 	updateResource();
 	/*console.log("food:",food);
@@ -403,6 +405,8 @@ function updateResource(){
 	popMars += popInc;
 	popEarth += popEarth*growthRate;
 	air += airInc;
+	atmosphere += atmosInc;
+	temperature += tempInc;
 }
 
 //resets all of the stored variables to their default values
@@ -410,12 +414,14 @@ function updateResource(){
 function resetVariables(){
 	food = 50;
 	water = 50;
-	air = 0.04;
+	air = 0.14;
 	minerals=1000; //Displayed in thousand tons
     energy=100; //Displayed in million BTU's
 	money=250; //Displayed in millions
-	popEarth=8; //Displayed in billions
-	popMars=10; //Displayed in ones
+	popEarth=7.3; //Displayed in billions
+	atmosphere = 0.6;
+	temperature = -67;
+	popMars=0; //Displayed in ones
 	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
 	numberOf[solar] = 0;
 	numberOf[turbine] = 0;
@@ -429,6 +435,12 @@ function resetVariables(){
 	researchPoints = 250;
 	moneyMult = 1;
 	rocketType = 0;
+	damageFactor = 1;
+	energyFactor = 1;
+	growthRate = .012;
+	years = 2015;
+	months = 0;
+	days = 0;
 }
 
 //checks if any component of the building model will hit an occupied grid

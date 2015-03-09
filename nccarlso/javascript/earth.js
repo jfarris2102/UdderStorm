@@ -91,7 +91,7 @@ function getLifetime(){
 	popEarth = 7.3;
 	//Impact on environment = Population * Energy Consumption per capita * Environ.Damage from E.C.
 	console.log(popEarth);
-	var impact = (popEarth * ePerCapita * envDamage)/1000;
+	var impact = (7.3 * ePerCapita * envDamage)/1000;
 	console.log(impact);
 	var lifetime = Math.log(maxImpact/impact) / Math.log(1+growthRate) - 3;
 	lifetime = Math.floor(lifetime);
