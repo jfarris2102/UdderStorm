@@ -455,7 +455,7 @@ tech603.categ = green;
 
 var tech604 = {};
 tech604.name = new TextBox("Pinkhouses");
-tech604.desc = new TextBox("cost: 100 Research points.");
+tech604.desc = new TextBox("More efficient than Greenhouses,\nPinkhouses use blue and red LEDs\nto decreese prodcution costs.");
 tech604.avail = true;
 tech604.unlocked = false;
 tech604.pre = ["Greenhouses"];
@@ -464,7 +464,7 @@ tech604.categ = green;
 
 var tech605 = {};
 tech605.name = new TextBox("Hydroponics");
-tech605.desc = new TextBox("cost: 100 Research points.");
+tech605.desc = new TextBox("Technology to grow plants\nwithout need for soil.");
 tech605.avail = true;
 tech605.unlocked = false;
 tech605.pre = ["Pinkhouses"];
@@ -473,7 +473,7 @@ tech605.categ = green;
 
 var tech606 = {};
 tech606.name = new TextBox("Aquaponic Permaculture");
-tech606.desc = new TextBox("cost: 100 Research points.");
+tech606.desc = new TextBox("Growth of fish alongside\nplant production.");
 tech606.avail = true;
 tech606.unlocked = false;
 tech606.pre = ["Hydroponics"];
