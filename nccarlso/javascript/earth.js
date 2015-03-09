@@ -84,15 +84,22 @@ function stopEarth(){
 function getLifetime(){
 	var ePerCapita = 2000*energyFactor; //2,000 kg of oil equivalent per capita at 2015
 	var envDamage = 2*damageFactor;
+	console.log(ePerCapita , envDamage);
 	//At this environmental impact, human civilization collapses
 	var maxImpact = 55;
+	if(popEarth == 8)
+	popEarth = 7.3;
 	//Impact on environment = Population * Energy Consumption per capita * Environ.Damage from E.C.
-	var impact = (popEarth * ePerCapita * envDamage)/1000000000000;
-	var lifetime = Math.log(maxImpact/impact) / Math.log(1+growthRate);
+	console.log(popEarth);
+	var impact = (popEarth * ePerCapita * envDamage)/1000;
+	console.log(impact);
+	var lifetime = Math.log(maxImpact/impact) / Math.log(1+growthRate) - 3;
+	lifetime = Math.floor(lifetime);
 	//After about 500 million years Earth will no longer be in habitable zone 
 	//of the solar system (for humans)
-	if(lifetime > 500000000);
+	if(lifetime > 500000000)
 	   lifetime = 500000000;
+	console.log(lifetime);
 	return lifetime;
 }
 

@@ -92,7 +92,7 @@ function displayHUDtext(){
     var mineralsD="MINERALS:  "+minerals;
     var researchD="REASEARCH:  "+research;
     var popMarsD="POPULATION:  "+popMars;
-    var popEarthD="POPULATION:  "+popEarth;
+    var popEarthD="POPULATION:  "+popEarth+"bil";
     var airD="AIR:  "+air+"%";
     var foodD="FOOD:  "+food;
     var waterD="WATER:  "+water;
@@ -149,6 +149,7 @@ function displayHUDtext(){
      //   }
     }else if(earthActive){
         //Doomsday stuff
+        doomsDay = getLifetime()+getYears();
         var yearsAppend = "";
         var monthsAppend = "";
         var daysAppend = "";
