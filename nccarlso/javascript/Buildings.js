@@ -351,7 +351,7 @@ function buildResource(){
 	resInc = 0;
 	updateBuild();
 	updateResource();
-	console.log("food:",food);
+	/*console.log("food:",food);
 	console.log("money:",money);
 	console.log("energy:",energy);
 	console.log("water:",water);
@@ -359,7 +359,7 @@ function buildResource(){
 	console.log("air:",air);
 	console.log("popEarth:",popEarth);
 	console.log("popMars:",popMars);
-	console.log("happiness:",happiness);
+	console.log("happiness:",happiness);*/
 }
 
 //sets the variables that should be used to increment our overall resource list

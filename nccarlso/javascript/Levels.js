@@ -144,7 +144,7 @@ function liveResources(){
 		if(getNumberOf(live) < popMars/10){
 			happyInc -= 3;
 		}
-		energyInc -= getNumberOf(comms)*.5;
+		energyInc -= getNumberOf(live)*.5;
 		break;
 		default:
 		break;
