@@ -428,7 +428,7 @@ tech502.cost = 0;
 //Start Infrastructure
 var tech601 = {};
 tech601.name = new TextBox("Communications Array");
-tech601.desc = new TextBox("cost: 100 Research points.");
+tech601.desc = new TextBox("An on the ground communications array\nused to contact Earth.");
 tech601.avail = true;
 tech601.unlocked = true;
 tech601.pre = [""];
@@ -437,20 +437,20 @@ tech601.categ = comms;
 
 var tech602 = {};
 tech602.name = new TextBox("Satellite Dish Communications");
-tech602.desc = new TextBox("cost: 100 Research points.");
+tech602.desc = new TextBox("Satellite Communication Dishes\npositioned in space to\nspeed up contact with Earth.");
 tech602.avail = true;
 tech602.unlocked = false;
-tech602.pre = [""];
-tech602.cost = 100;
+tech602.pre = ["Communications Array"];
+tech602.cost = 250;
 tech602.categ = comms;
 
 var tech603 = {};
 tech603.name = new TextBox("Greenhouses");
-tech603.desc = new TextBox("cost: 100 Research points.");
+tech603.desc = new TextBox("Glass roofed buildings used\nto produce food and a\nsmall amount of oxeygen.");
 tech603.avail = true;
 tech603.unlocked = false;
-tech603.pre = [""];
-tech603.cost = 100;
+tech603.pre = ["Food Supply"];
+tech603.cost = 200;
 tech603.categ = green;
 
 var tech604 = {};
@@ -458,8 +458,8 @@ tech604.name = new TextBox("Pinkhouses");
 tech604.desc = new TextBox("cost: 100 Research points.");
 tech604.avail = true;
 tech604.unlocked = false;
-tech604.pre = [""];
-tech604.cost = 100;
+tech604.pre = ["Greenhouses"];
+tech604.cost = 400;
 tech604.categ = green;
 
 var tech605 = {};
@@ -467,8 +467,8 @@ tech605.name = new TextBox("Hydroponics");
 tech605.desc = new TextBox("cost: 100 Research points.");
 tech605.avail = true;
 tech605.unlocked = false;
-tech605.pre = [""];
-tech605.cost = 100;
+tech605.pre = ["Pinkhouses"];
+tech605.cost = 600;
 tech605.categ = green;
 
 var tech606 = {};
@@ -476,13 +476,13 @@ tech606.name = new TextBox("Aquaponic Permaculture");
 tech606.desc = new TextBox("cost: 100 Research points.");
 tech606.avail = true;
 tech606.unlocked = false;
-tech606.pre = [""];
-tech606.cost = 100;
+tech606.pre = ["Hydroponics"];
+tech606.cost = 800;
 tech606.categ = green;
 
 var tech607 = {};
 tech607.name = new TextBox("Living Quarters");
-tech607.desc = new TextBox("cost: 100 Research points.");
+tech607.desc = new TextBox("Basic crew Living Quarters.");
 tech607.avail = true;
 tech607.unlocked = true;
 tech607.pre = [""];
@@ -490,19 +490,19 @@ tech607.cost = 100;
 tech607.categ = live;
 
 var tech608 = {};
-tech608.name = new TextBox("Pinkhouses");
-tech608.desc = new TextBox("cost: 100 Research points.");
+tech608.name = new TextBox("Living Centers");
+tech608.desc = new TextBox("Upgraded Living Quarters.");
 tech608.avail = true;
 tech608.unlocked = false;
-tech608.pre = [""];
-tech608.cost = 100;
+tech608.pre = ["Living Quarters"];
+tech608.cost = 250;
 tech608.categ = live;
 
 var tech609 = {};
 tech609.name = new TextBox("Rovers");
-tech609.desc = new TextBox("cost: 100 Research points.");
+tech609.desc = new TextBox("Mars side rover that\nperform surface tasks.");
 tech609.avail = true;
-tech609.unlocked = false;
+tech609.unlocked = true;
 tech609.pre = [""];
 tech609.cost = 100;
 
@@ -511,8 +511,16 @@ tech610.name = new TextBox("Life Support Units");
 tech610.desc = new TextBox("Extracts water from the soil (automatic)");
 tech610.avail = true;
 tech610.unlocked = false;
-tech610.pre = [""];
-tech610.cost = 100;
+tech610.pre = ["Rovers"];
+tech610.cost = 1000;
+
+var tech611 = {};
+tech611.name = new TextBox("Food Supply");
+tech611.desc = new TextBox("The food supply brought\nover on initial launch.");
+tech611.avail = true;
+tech611.unlocked = true;
+tech611.pre = [""];
+tech611.cost = 100;
 //End Infrastructure
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
