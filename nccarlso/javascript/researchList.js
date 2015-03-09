@@ -275,7 +275,7 @@ tech208.avail = false;
 tech208.unlocked = false;
 tech208.pre = ["International Sustainability Council"];
 tech208.cost = 500;
-tech209.categ = sust3;
+tech208.categ = sust3;
 
 var tech209 = {};
 tech209.name = new TextBox("Net-Zero Energy Home standards");

@@ -162,11 +162,15 @@ function gravityResources(){
 	console.log("gravity: ",energyInc);
 }
 function energyConsum(){
-	switch(getLevel(sust1)){
+	energyFactor -= 0.1*getLevel(sust1) + 0.1*getLevel(sust2) + 0.05*getLevel(sust3);
+	/*switch(getLevel(sust1)){
 		case 0:
+		energyFactor = 1;
 		break;
+		case 1:
+		energyFactor -= 
 		default:
 		break;
-	}
+	}*/
 }
 
