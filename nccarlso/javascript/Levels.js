@@ -162,7 +162,13 @@ function gravityResources(){
 	console.log("gravity: ",energyInc);
 }
 function energyConsum(){
-	energyFactor -= 0.1*getLevel(sust1) + 0.1*getLevel(sust2) + 0.05*getLevel(sust3);
+	energyFactor = 1 - (0.05*getLevel(sust1) + 0.05*getLevel(sust2) + 0.05*getLevel(sust3));
+	damageFactor = 1 - (.05*getLevel(sust1) + 0.05*getLevel(sust2) + 0.025*getLevel(sust3));
+	if(getLevel(sust3) == 3){
+	growthRate -= 0.02;
+	if(growthRate < -.012)
+	growthRate = -.012;
+	}
 	/*switch(getLevel(sust1)){
 		case 0:
 		energyFactor = 1;
