@@ -355,6 +355,58 @@ tech3.categ = reactor;
 //End Econ Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Terraforming Tech
+
+var tech401 = {};
+tech401.name = new TextBox("Nanochips");
+tech401.desc = new TextBox("unlocked by default");
+tech401.avail = true;
+tech401.unlocked = false;
+tech401.pre = [""];
+tech401.cost = ;
+
+var tech402 = {};
+tech402.name = new TextBox("Magnetic field generation");
+tech402.desc = new TextBox("unlocked by default");
+tech402.avail = true;
+tech402.unlocked = false;
+tech402.pre = [""];
+tech402.cost = ;
+
+var tech403 = {};
+tech403.name = new TextBox("Photoelectrochemical cells");
+tech403.desc = new TextBox("unlocked by default");
+tech403.avail = true;
+tech403.unlocked = false;
+tech403.pre = [""];
+tech403.cost = ;
+
+var tech404 = {};
+tech404.name = new TextBox("Aluminized PET film");
+tech404.desc = new TextBox("unlocked by default");
+tech404.avail = true;
+tech404.unlocked = false;
+tech404.pre = [""];
+tech404.cost = ;
+
+var tech405 = {};
+tech405.name = new TextBox("Aluminized PET film");
+tech405.desc = new TextBox("unlocked by default");
+tech405.avail = true;
+tech405.unlocked = false;
+tech405.pre = [""];
+tech405.cost = ;
+//End Terraforming Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 var EnergyTree = [];
 EnergyTree.push(tech1);
 EnergyTree.push(tech2);
