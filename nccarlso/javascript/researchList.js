@@ -160,30 +160,30 @@ tech101.cost = 0;
 tech101.categ = space;
 
 var tech102 = {};
-tech102.name = new TextBox("Plasma Propulsion");
-tech102.desc = new TextBox("cost: 100 Research points.");
+tech102.name = new TextBox("Space Shuttle");
+tech102.desc = new TextBox("Unlocked by default");
 tech102.avail = true;
-tech102.unlocked = false;
-tech102.pre = ["Chemical Propulsion"];
-tech102.cost = 100;
+tech102.unlocked = true;
+tech102.pre = [""];
+tech102.cost = 0;
 tech102.categ = space;
 
 var tech103 = {};
-tech103.name = new TextBox("Liquid Hydrogen fuel");
-tech103.desc = new TextBox("cost: 250 Research points.");
-tech103.avail = false;
+tech103.name = new TextBox("Plasma Propulsion");
+tech103.desc = new TextBox("cost: 100 Research points.");
+tech103.avail = true;
 tech103.unlocked = false;
-tech103.pre = ["Plasma Propulsion"];
-tech103.cost = 250;
+tech103.pre = ["Chemical Propulsion"];
+tech103.cost = 100;
 tech103.categ = space;
 
 var tech104 = {};
-tech104.name = new TextBox("Space Shuttle");
-tech104.desc = new TextBox("Unlocked by default");
-tech104.avail = true;
-tech104.unlocked = true;
-tech104.pre = [""];
-tech104.cost = 0;
+tech104.name = new TextBox("Liquid Hydrogen fuel");
+tech104.desc = new TextBox("cost: 250 Research points.");
+tech104.avail = false;
+tech104.unlocked = false;
+tech104.pre = ["Plasma Propulsion"];
+tech104.cost = 250;
 tech104.categ = space;
 
 var tech105 = {};
@@ -192,7 +192,7 @@ tech105.desc = new TextBox("cost: 250 Research points.");
 tech105.avail = false;
 tech105.unlocked = false;
 tech105.pre = ["Plasma Propulsion"];
-tech105.cost = 250;
+tech105.cost = 300;
 tech105.categ = space;
 
 var tech106 = {};

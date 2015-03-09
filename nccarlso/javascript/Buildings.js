@@ -426,6 +426,7 @@ function resetVariables(){
 	firstBuilding = true;
 	researchPoints = 250;
 	moneyMult = 1;
+	rocketType = 0;
 }
 
 //checks if any component of the building model will hit an occupied grid
