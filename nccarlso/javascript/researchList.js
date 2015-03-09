@@ -121,7 +121,7 @@ tech11.cost = 100;
 tech11.categ = solar;
 
 var tech12 = {};
-tech12.name = new TextBox("Galnp2 Semiconductors");
+tech12.name = new TextBox("GaInp2 Semiconductors");
 tech12.desc = new TextBox("cost: 250 Research points.");
 tech12.avail = false;
 tech12.unlocked = false;
@@ -134,7 +134,7 @@ tech13.name = new TextBox("Concentrated photovoltaics");
 tech13.desc = new TextBox("cost: 500 Research points.");
 tech13.avail = false;
 tech13.unlocked = false;
-tech13.pre = ["Galnp2 Semiconductors"];
+tech13.pre = ["GaInp2 Semiconductors"];
 tech13.cost = 500;
 tech13.categ = solar;
 
@@ -221,6 +221,7 @@ tech202.avail = true;
 tech202.unlocked = false;
 tech202.pre = ["Gov't sponsored sust. campaigns"];
 tech202.cost = 100;
+tech202.categ = sust1;
 
 var tech203 = {};
 tech203.name = new TextBox("Subsidize sustainable innovations");
@@ -229,6 +230,7 @@ tech203.avail = true;
 tech203.unlocked = false;
 tech203.pre = ["Gov't sponsored sust. campaigns"];
 tech203.cost = 100;
+tech203.categ = sust2;
 
 var tech204 = {};
 tech204.name = new TextBox("Mandated Sustainability Education");
@@ -237,6 +239,7 @@ tech204.avail = true;
 tech204.unlocked = false;
 tech204.pre = ["Gov't sponsored sust. campaigns"];
 tech204.cost = 100;
+tech204.categ = sust3;
 
 var tech205 = {};
 tech205.name = new TextBox("Fully-efficient/clean electrical vehicles");
@@ -245,6 +248,7 @@ tech205.avail = false;
 tech205.unlocked = false;
 tech205.pre = ["Subsidize sustainable innovations"];
 tech205.cost = 250;
+tech205.categ = sust2;
 
 var tech206 = {};
 tech206.name = new TextBox("International Sustainability Council");
@@ -253,6 +257,7 @@ tech206.avail = false;
 tech206.unlocked = false;
 tech206.pre = ["Mandated Sustainability Education\nForeign Relations Campaigns"];
 tech206.cost = 250;
+tech206.categ = sust3;
 
 var tech207 = {};
 tech207.name = new TextBox("Autonomous vehicles");
@@ -261,6 +266,7 @@ tech207.avail = false;
 tech207.unlocked = false;
 tech207.pre = ["Fully-efficient/clean electrical vehicles"];
 tech207.cost = 500;
+tech207.categ = sust2;
 
 var tech208 = {};
 tech208.name = new TextBox("Ability to Mandate and un-Mandate Replacement Rate");
@@ -269,6 +275,7 @@ tech208.avail = false;
 tech208.unlocked = false;
 tech208.pre = ["International Sustainability Council"];
 tech208.cost = 500;
+tech209.categ = sust3;
 
 var tech209 = {};
 tech209.name = new TextBox("Net-Zero Energy Home standards");
@@ -277,6 +284,7 @@ tech209.avail = false;
 tech209.unlocked = false;
 tech209.pre = ["LEED Building Standards"];
 tech209.cost = 250;
+tech209.categ = sust1;
 
 var tech210 = {};
 tech210.name = new TextBox("Smart Homes");
@@ -285,6 +293,7 @@ tech210.avail = false;
 tech210.unlocked = false;
 tech210.pre = ["LEED Building Standards"];
 tech210.cost = 250;
+tech210.categ = sust1;
 
 var tech211 = {};
 tech211.name = new TextBox("Public Autonomous transportation network");
@@ -293,6 +302,7 @@ tech211.avail = false;
 tech211.unlocked = false;
 tech211.pre = ["Autonomous vehicles"];
 tech211.cost = 1000;
+tech211.categ = sust3;
 
 var tech212 = {};
 tech212.name = new TextBox("Net Zero Cities");
@@ -301,6 +311,7 @@ tech212.avail = false;
 tech212.unlocked = false;
 tech212.pre = ["Net-Zero Energy Home standards","Smart Homes","Organic photovoltaic cells","Nuclear Fusion Reactor"];
 tech212.cost = 1000;
+tech212.categ = sust1;
 
 //End Sustainability Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

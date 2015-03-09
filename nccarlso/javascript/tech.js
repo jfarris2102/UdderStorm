@@ -180,6 +180,8 @@ function updateUnlockTree(x){
 	var curr = getCurrentTechTree();
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
+			if (typeof curr[i].categ !== undefined)
+			    levelUp(curr[i].categ);
 			curr[i].unlocked = true;
 			researchPoints -= curr[i].cost;
 		}

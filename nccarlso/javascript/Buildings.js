@@ -175,13 +175,12 @@ emptyLaunchCargo();
 
 for(var i = 1; i <= buildingTypes; i++){
 	numberOf[i] = 0; //sets the number of each building to 0
-	level[i] = 0;   //sets the level of each building to 0
+	//level[i] = 0;   //sets the level of each building to 0
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
 }
-console.log(photosyn);
-console.log(numberOf[photosyn]);
-console.log(photosyn);
-console.log(getNumberOf(photosyn));
+for(var i = 1; i<=15; i++){
+	level[i] = 0;
+}
 /*level[7] = 0;
 level[8] = 0;
 level[9] = 0;

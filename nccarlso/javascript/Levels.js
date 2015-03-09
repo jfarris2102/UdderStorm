@@ -161,4 +161,12 @@ function gravityResources(){
 	energyInc -= getNumberOf(gravity)*5;
 	console.log("gravity: ",energyInc);
 }
+function energyConsum(){
+	switch(getLevel(sust1)){
+		case 0:
+		break;
+		default:
+		break;
+	}
+}
 
