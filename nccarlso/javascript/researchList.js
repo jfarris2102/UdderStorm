@@ -365,46 +365,66 @@ tech304.categ = econ;
 
 var tech401 = {};
 tech401.name = new TextBox("Nanochips");
-tech401.desc = new TextBox("unlocked by default");
+tech401.desc = new TextBox("cost: 100 Research points.");
 tech401.avail = true;
 tech401.unlocked = false;
 tech401.pre = [""];
-tech401.cost = ;
+tech401.cost = 100;
 
 var tech402 = {};
 tech402.name = new TextBox("Magnetic field generation");
-tech402.desc = new TextBox("unlocked by default");
+tech402.desc = new TextBox("cost: 100 Research points.");
 tech402.avail = true;
 tech402.unlocked = false;
 tech402.pre = [""];
-tech402.cost = ;
+tech402.cost = 100;
 
 var tech403 = {};
 tech403.name = new TextBox("Photoelectrochemical cells");
-tech403.desc = new TextBox("unlocked by default");
+tech403.desc = new TextBox("cost: 100 Research points.");
 tech403.avail = true;
 tech403.unlocked = false;
 tech403.pre = [""];
-tech403.cost = ;
+tech403.cost = 100;
 
 var tech404 = {};
 tech404.name = new TextBox("Aluminized PET film");
-tech404.desc = new TextBox("unlocked by default");
+tech404.desc = new TextBox("cost: 100 Research points.");
 tech404.avail = true;
 tech404.unlocked = false;
 tech404.pre = [""];
-tech404.cost = ;
+tech404.cost = 100;
 
 var tech405 = {};
 tech405.name = new TextBox("Aluminized PET film");
-tech405.desc = new TextBox("unlocked by default");
+tech405.desc = new TextBox("cost: 100 Research points.");
 tech405.avail = true;
 tech405.unlocked = false;
 tech405.pre = [""];
-tech405.cost = ;
+tech405.cost = 100;
 //End Terraforming Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Mineral Tech
 
+var tech501 = {};
+tech501.name = new TextBox("");
+tech501.desc = new TextBox("unlocked by default");
+tech501.avail = true;
+tech501.unlocked = true;
+tech501.pre = [""];
+tech501.cost = 0;
+
+var tech502 = {};
+tech502.name = new TextBox("");
+tech502.desc = new TextBox("unlocked by default");
+tech502.avail = true;
+tech502.unlocked = true;
+tech502.pre = [""];
+tech502.cost = 0;
+
+
+//End Mineral Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 var EnergyTree = [];
