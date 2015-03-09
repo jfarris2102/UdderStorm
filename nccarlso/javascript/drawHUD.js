@@ -20,8 +20,59 @@ function clearText(){
 	for(var i = 0; i < textArr.length; i++){
 		world.removeChild(textArr[i]);
 	}
-	textArr = [];
+	//textArr = [];
 }
+moneyRound = Math.ceil(money*10)/10;
+energyRound = Math.ceil(energy*10)/10;
+var days = getDays()%31;
+var timeD = "DATE:  "+ getYears() + "."+ getMonths()+"."+ days;
+var moneyD="MONEY:  "+moneyRound+"mil";
+var energyD="ENERGY:  "+energyRound+"mil BTU";
+var mineralsD="MINERALS:  "+minerals;
+var researchD="REASEARCH:  "+research;
+var popMarsD="POPULATION:  "+popMars;
+var popEarthD="POPULATION:  "+popEarth;
+var airD="AIR:  "+air+"%";
+var foodD="FOOD:  "+food;
+var waterD="WATER:  "+water;
+var atmosphereD="ATMOSPHERE:  "+atmosphere;
+var temperatureD="TEMPERATURE:  "+temperature;
+var happinessD="HAPPINESS:  "+happiness+"%";
+var diplomacyD="DIPLOMACY:  "+diplomacy;
+var economyD="ECONOMY:  "+economy;
+    
+var text1  = new TextBox(timeD);
+var text2  = new TextBox(moneyD);
+var text3  = new TextBox(energyD);
+var text4  = new TextBox(mineralsD);
+var text5  = new TextBox(researchD);
+var text6  = new TextBox(popEarthD);
+
+var text7  = new TextBox(airD);
+var text8  = new TextBox(foodD);
+var text9  = new TextBox(waterD);
+var text10 = new TextBox(atmosphereD);
+var text11 = new TextBox(temperatureD);
+var text12 = new TextBox(happinessD);
+var text13 = new TextBox(diplomacyD);
+var text14 = new TextBox(economyD);
+   
+textArr.push(text1);
+textArr.push(text2);
+textArr.push(text3);
+textArr.push(text4);
+textArr.push(text5);
+textArr.push(text6);
+
+textArr.push(text7);
+textArr.push(text8);
+textArr.push(text9);
+textArr.push(text10);
+textArr.push(text11);
+textArr.push(text12);
+textArr.push(text13);
+textArr.push(text14);
+
 
 //draws all of these values on the HUD, should be called every time 
 //the world updates or whenever the display values change
@@ -30,7 +81,7 @@ function displayHUDtext(){
 	//Check if time is up
     if(doomsDay-getYears() < 1) gameOverMan();
     
-    clearText();
+    //clearText();
     
     moneyRound = Math.ceil(money*10)/10;
     energyRound = Math.ceil(energy*10)/10;
@@ -51,26 +102,26 @@ function displayHUDtext(){
     var diplomacyD="DIPLOMACY:  "+diplomacy;
     var economyD="ECONOMY:  "+economy;
     
-    var text1  = new TextBox(timeD);
-    var text2  = new TextBox(moneyD);
-    var text3  = new TextBox(energyD);
-    var text4  = new TextBox(mineralsD);
-    var text5  = new TextBox(researchD);
+    text1.text = timeD;
+    text2.text = moneyD;
+    text3.text = energyD;
+    text4.text = mineralsD;
+    text5.text = researchD;
     if (marsActive){
-        var text6  = new TextBox(popMarsD);
+        text6.text  = popMarsD;
     }else if (earthActive){
-        var text6  = new TextBox(popEarthD);
+        text6.text = popEarthD;
     }
-    var text7  = new TextBox(airD);
-    var text8  = new TextBox(foodD);
-    var text9  = new TextBox(waterD);
-    var text10 = new TextBox(atmosphereD);
-    var text11 = new TextBox(temperatureD);
-    var text12 = new TextBox(happinessD);
-    var text13 = new TextBox(diplomacyD);
-    var text14 = new TextBox(economyD);
+    text7.text = airD;
+    text8.text = foodD;
+    text9.text = waterD;
+    text10.text = atmosphereD;
+    text11.text = temperatureD;
+    text12.text = happinessD;
+    text13.text = diplomacyD;
+    text14.text = economyD;
     
-    textArr.push(text1);
+  /*  textArr.push(text1);
     textArr.push(text2);
     textArr.push(text3);
     textArr.push(text4);
@@ -85,17 +136,17 @@ function displayHUDtext(){
     textArr.push(text11);
     textArr.push(text12);
     textArr.push(text13);
-    textArr.push(text14);
+    textArr.push(text14);*/
     
     if(marsActive || solarActive){
         //Mars/solar activate
-        for(var i = 0; i < textArr.length; i++){
-            textArr[i].font = 'BebasNeue';
+      //  for(var i = 0; i < textArr.length; i++){
+           /* textArr[i].font = 'BebasNeue';
             textArr[i].fontSize = '20';
             textArr[i].padLeft = canvas.width - 150;
-            textArr[i].padTop = 30*(i+1);
-            world.addChild(textArr[i]);
-        }
+            textArr[i].padTop = 30*(i+1);*/
+        //    world.addChild(textArr[i]);
+     //   }
     }else if(earthActive){
         //Doomsday stuff
         var yearsAppend = "";
@@ -110,13 +161,13 @@ function displayHUDtext(){
         Countdown.text = yearsAppend+(doomsDay-(getYears()+1))+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
         
         //Earth activate
-        for(var i = 0; i < textArr.length; i++){
-            textArr[i].font = 'BebasNeue';
+       // for(var i = 0; i < textArr.length; i++){
+            /*textArr[i].font = 'BebasNeue';
             textArr[i].fontSize = '20';
             textArr[i].padLeft = canvas.width - 150;
-            textArr[i].padTop = 30*(i+1);
-            world.addChild(textArr[i]);
-        }
+            textArr[i].padTop = 30*(i+1);*/
+      //      world.addChild(textArr[i]);
+       // }
     }else if(solarActive){
         //Solar System text
     }else if(techActive){
@@ -129,7 +180,14 @@ function displayHUDtext(){
 function redrawHUD(){
 	world.removeChild(HUD);
     world.addChild(HUD);
-	displayHUDtext();
+    for(var i = 0; i < textArr.length; i++){
+        textArr[i].font = 'BebasNeue';
+        textArr[i].fontSize = '20';
+        textArr[i].padLeft = canvas.width - 150;
+        textArr[i].padTop = 30*(i+1);
+        world.addChild(textArr[i]);
+    }
+	//displayHUDtext();
 	redrawButtons();
 }
 

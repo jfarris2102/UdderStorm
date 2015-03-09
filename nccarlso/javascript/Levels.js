@@ -6,7 +6,7 @@
  */
 
 function greenResources(){
-	switch(getLevel[green]){
+	switch(getLevel(green)){
 		case 0:
 		foodInc += getNumberOf(green)*5;
 		waterInc -= getNumberOf(green)*3;
@@ -37,7 +37,7 @@ function greenResources(){
 	console.log("green: ",energyInc);
 }
 function solarResources(){
-	switch(getLevel[solar]){
+	switch(getLevel(solar)){
 		case 0:
 		energyInc += getNumberOf(solar)*1;
 		break;
@@ -59,7 +59,7 @@ function solarResources(){
 	console.log("solar: ",energyInc);
 }
 function turbineResources(){
-	switch(getLevel[turbine]){
+	switch(getLevel(turbine)){
 		case 0:
 		energyInc += getNumberOf(turbine)*1;
 		break;
@@ -78,7 +78,7 @@ function turbineResources(){
 	console.log("turbine: ",energyInc);
 }
 function reactorResources(){
-	switch(getLevel[reactor]){
+	switch(getLevel(reactor)){
 		case 0:
 		energyInc += getNumberOf(reactor)*5;
 		break;
@@ -97,21 +97,21 @@ function reactorResources(){
 	console.log("reactor: ",energyInc);
 }
 function mineResources(){
-	switch(getLevel[mine]){
+	switch(getLevel(mine)){
 		case 0:
-		mineInc += getNumberOf(mine)*.25;
+		mineralInc += getNumberOf(mine)*.25;
 		energyInc -= getNumberOf(mine)*.5;
 		break;
 		case 1:
-		mineInc += getNumberOf(mine)*.5;
+		mineralInc += getNumberOf(mine)*.5;
 		energyInc -= getNumberOf(mine)*.75;
 		break;
 		case 2:
-		mineInc += getNumberOf(mine)*.5;
+		mineralInc += getNumberOf(mine)*.5;
 		energyInc -= getNumberOf(mine)*.75;
 		break;
 		case 3:
-		mineInc += getNumberOf(mine)*2;
+		mineralInc += getNumberOf(mine)*2;
 		energyInc -= getNumberOf(mine)*3;
 		break;
 		default:
@@ -120,7 +120,7 @@ function mineResources(){
 	console.log("mine: ",energyInc);
 }
 function commsResources(){
-	switch(getLevel[comms]){
+	switch(getLevel(comms)){
 		case 0:
 		energyInc -= getNumberOf(comms)*.5;
 		break;
@@ -133,7 +133,7 @@ function commsResources(){
 	console.log("comms: ",energyInc);
 }
 function liveResources(){
-	switch(getLevel[live]){
+	switch(getLevel(live)){
 		case 0:
 		if(getNumberOf(live) < popMars/3){
 			happyInc -= 3;
