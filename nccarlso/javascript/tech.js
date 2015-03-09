@@ -269,12 +269,17 @@ techbg.x=0;
 techbg.y=0;
 techbg.image=Textures.load("images/terminal.png");
 
-function upgradeMults(x){
+function upgradeMults(x,y){
 	if(x == "Budget reforms") moneyMult++;
 	else if(x == "Increase international trade") moneyMult++;
 	else if(x == "Space exploring budgeting") moneyMult++;
 	else if(x == "Increase space trade") moneyMult++;
-	else if(x == "") moneyMult++;
-	else if(x == "") moneyMult++;
-	else if(x == "") moneyMult++;
+	else if(x == "Bladeless technology") buidlingUnlocked[9]=true;
+	else if(x == "Fast-neutron Reactor") buidlingUnlocked[18]=true;
+	else if(x == "Liquid Flouride Thorium Reactor") buidlingUnlocked[19]=true;
+	else if(x == "Nuclear Fusion Reactor") buidlingUnlocked[20]=true;
+	else if(x == "Plasma Propulsion") rocketType++;
+	else if(x == "Liquid Hydrogen fuel") rocketType++;
+	else if(x == "VASMIR rocket") rocketType++;
+	else if(x == "VTVL rocket") rocketType++;
 }
