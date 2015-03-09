@@ -149,7 +149,7 @@ function displayHUDtext(){
      //   }
     }else if(earthActive){
         //Doomsday stuff
-        doomsDay = getLifetime()+getYears();
+        doomsDay = getLifetime()+2015;
         var yearsAppend = "";
         var monthsAppend = "";
         var daysAppend = "";
