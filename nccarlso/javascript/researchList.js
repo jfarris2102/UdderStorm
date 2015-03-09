@@ -317,7 +317,7 @@ tech212.categ = sust1;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Start Econ/Diplomacy
 var tech301 = {};
-tech301.name = new TextBox("Budget Reforms");
+tech301.name = new TextBox("Budget reforms");
 tech301.desc = new TextBox("Funding increase. cost 100 Research points.");
 tech301.avail = true;
 tech301.unlocked = false;
@@ -330,7 +330,7 @@ tech302.name = new TextBox("Increase international trade");
 tech302.desc = new TextBox("International trade is good for business,\nfunding increased. cost: 150 Research points.");
 tech302.avail = false;
 tech302.unlocked = false;
-tech302.pre = ["Budget Reforms"]; //Need to add another
+tech302.pre = ["Budget reforms"]; //Need to add another
 tech302.cost = 150;
 tech302.categ = econ;
 
@@ -339,7 +339,7 @@ tech303.name = new TextBox("Space exploring budgeting");
 tech303.desc = new TextBox("Constant lobbying has payed off leeding to\nincreased space exploration funding.\ncost: 150 Research points.");
 tech303.avail = false;
 tech303.unlocked = false;
-tech303.pre = ["Budget Reforms"];
+tech303.pre = ["Budget reforms"];
 tech303.cost = 150;
 tech303.categ = econ;
 
@@ -455,7 +455,7 @@ tech603.categ = green;
 
 var tech604 = {};
 tech604.name = new TextBox("Pinkhouses");
-tech604.desc = new TextBox("cost: 100 Research points.");
+tech604.desc = new TextBox("More efficient than Greenhouses,\nPinkhouses use blue and red LEDs\nto decreese prodcution costs.");
 tech604.avail = true;
 tech604.unlocked = false;
 tech604.pre = ["Greenhouses"];
@@ -464,7 +464,7 @@ tech604.categ = green;
 
 var tech605 = {};
 tech605.name = new TextBox("Hydroponics");
-tech605.desc = new TextBox("cost: 100 Research points.");
+tech605.desc = new TextBox("Technology to grow plants\nwithout need for soil.");
 tech605.avail = true;
 tech605.unlocked = false;
 tech605.pre = ["Pinkhouses"];
@@ -473,7 +473,7 @@ tech605.categ = green;
 
 var tech606 = {};
 tech606.name = new TextBox("Aquaponic Permaculture");
-tech606.desc = new TextBox("cost: 100 Research points.");
+tech606.desc = new TextBox("Growth of fish alongside\nplant production.");
 tech606.avail = true;
 tech606.unlocked = false;
 tech606.pre = ["Hydroponics"];
