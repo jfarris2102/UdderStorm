@@ -385,6 +385,7 @@ function updateBuild(){ //Every 6 months game time
 	gravityResources();
 	mineResources();
 	commsResources();
+	energyConsum();
 	console.log(energy);
 }
 
@@ -400,6 +401,7 @@ function updateResource(){
 	console.log(energy);
 	happiness += happyInc;
 	popMars += popInc;
+	popEarth += popEarth*growthRate;
 	air += airInc;
 }
 
