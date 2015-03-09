@@ -317,7 +317,7 @@ tech212.categ = sust1;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Start Econ/Diplomacy
 var tech301 = {};
-tech301.name = new TextBox("Budget Reforms");
+tech301.name = new TextBox("Budget reforms");
 tech301.desc = new TextBox("Funding increase. cost 100 Research points.");
 tech301.avail = true;
 tech301.unlocked = false;
@@ -330,7 +330,7 @@ tech302.name = new TextBox("Increase international trade");
 tech302.desc = new TextBox("International trade is good for business,\nfunding increased. cost: 150 Research points.");
 tech302.avail = false;
 tech302.unlocked = false;
-tech302.pre = ["Budget Reforms"]; //Need to add another
+tech302.pre = ["Budget reforms"]; //Need to add another
 tech302.cost = 150;
 tech302.categ = econ;
 
@@ -339,7 +339,7 @@ tech303.name = new TextBox("Space exploring budgeting");
 tech303.desc = new TextBox("Constant lobbying has payed off leeding to\nincreased space exploration funding.\ncost: 150 Research points.");
 tech303.avail = false;
 tech303.unlocked = false;
-tech303.pre = ["Budget Reforms"];
+tech303.pre = ["Budget reforms"];
 tech303.cost = 150;
 tech303.categ = econ;
 

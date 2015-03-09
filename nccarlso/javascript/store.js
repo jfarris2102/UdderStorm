@@ -50,17 +50,17 @@ var rocketType = 0;
 function checkStoreClicks(x, y) {
 	if(storeActive){
 		if (x >= 724 && x <= 828 && y >= 420 && y <= 501){
-			if(money >= (250 - (50*(rocketType+1))) || LaunchQueued){ //Checks cash for launch
+			if(money >= (250 - (50*rocketType)) || LaunchQueued){ //Checks cash for launch
 				if(!LaunchQueued) {
 					rocketStatus.text = "Launch\n" + "queued.";
 					LaunchQueued = true;
-					money -= (100 + (50*(rocketType+1)));
+					money -= (250 - (50*(rocketType)));
 				}else{
 					rocketStatus.text = "Launch\ncancelled.";
 					LaunchQueued = false;
-					money += (100 + (50*(rocketType+1)));
+					money += (250 - (50*rocketType));
 				}
-			}else (alert((100 + (50*(rocketType+1))) + "MIL required for launch."));
+			}else (alert((250 - (50*rocketType)) + "MIL required for launch."));
 			return 0; //Launch clicked
 		}
 		var xoffset = 0;
