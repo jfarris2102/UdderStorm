@@ -465,6 +465,10 @@ SustTree.push(tech211);
 SustTree.push(tech212);
 
 var EconTree = [];
+SpaceTree.push(tech301);
+SpaceTree.push(tech302);
+SpaceTree.push(tech303);
+SpaceTree.push(tech304);
 
 var TerraTree = [];
 
