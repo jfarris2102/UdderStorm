@@ -113,6 +113,7 @@ function generateTech(){
 }
 
 function swapTech(){
+	scrollOffset = 0;
 	for(var i = 0; i < 6 && i < activeTech.length; i++){
 		world.removeChild(activeTech[i].name);
 		world.removeChild(activeTech[i].desc);
@@ -183,6 +184,7 @@ function updateUnlockTree(x){
 			if (typeof curr[i].categ !== undefined)
 			    levelUp(curr[i].categ);
 			curr[i].unlocked = true;
+			upgradeMults(curr[i].name.text);
 			researchPoints -= curr[i].cost;
 		}
 	}
@@ -266,3 +268,13 @@ techbg.height=640;
 techbg.x=0;
 techbg.y=0;
 techbg.image=Textures.load("images/terminal.png");
+
+function upgradeMults(x){
+	if(x == "Budget reforms") moneyMult++;
+	else if(x == "Increase international trade") moneyMult++;
+	else if(x == "Space exploring budgeting") moneyMult++;
+	else if(x == "Increase space trade") moneyMult++;
+	else if(x == "") moneyMult++;
+	else if(x == "") moneyMult++;
+	else if(x == "") moneyMult++;
+}

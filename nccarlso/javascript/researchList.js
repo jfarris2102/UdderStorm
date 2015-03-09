@@ -315,7 +315,45 @@ tech212.categ = sust1;
 
 //End Sustainability Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Start Econ/Diplomacy
+var tech301 = {};
+tech301.name = new TextBox("Budget Reforms");
+tech301.desc = new TextBox("Cost");
+tech301.avail = true;
+tech301.unlocked = true;
+tech301.pre = ["Budget Reforms"];
+tech301.cost = 100;
+tech301.categ = reactor;
 
+var tech301 = {};
+tech301.name = new TextBox("Thermal-neutron Reactor");
+tech301.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default.");
+tech301.avail = true;
+tech301.unlocked = true;
+tech301.pre = ["Increase international trade"];
+tech301.cost = 100;
+tech301.categ = reactor;
+
+var tech302 = {};
+tech302.name = new TextBox("Fast-neutron Reactor");
+tech302.desc = new TextBox("A slightly upgraded nuclear reactor utilizing\nnew technology, cost: 100 Research points.");
+tech302.avail = true;
+tech302.unlocked = false;
+tech302.pre = ["Space exploring budgeting"];
+tech302.cost = 100;
+tech302.categ = reactor;
+
+var tech303 = {};
+tech3.name = new TextBox("Liquid Flouride Thorium Reactor");
+tech3.desc = new TextBox("A nuclear reactor that utilizes thorium and is\nmore efficient than traditional uranium based\nreactors, cost: 250 Research points.");
+tech3.avail = false;
+tech3.unlocked = false;
+tech3.pre = ["Increase space trade"];
+tech3.cost = 100;
+tech3.categ = reactor;
+
+//End Econ Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var EnergyTree = [];
 EnergyTree.push(tech1);
