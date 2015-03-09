@@ -122,7 +122,8 @@ function updateStoreText(){
 
 function purchaseBuilding(x){
 	if(x >= 1 && x<= buildingTypes){
-		if(money >= getModel(x).cost){
+		if(!buidlingUnlocked[x]) alert("Building not unlocked, try purchasing some researches to unlock it.");
+		else if(money >= getModel(x).cost){
 			money -= (getModel(x).cost);
 			launchCargo[x]++;
 		}else if(money < getModel(x).cost) alert("Insufficient funds.");

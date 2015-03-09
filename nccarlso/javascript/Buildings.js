@@ -171,13 +171,16 @@ var buidlingsAvailable = []; //Array of building counts
 var numberOf = [];
 var level = [];
 var launchCargo = [];
+var buidlingUnlocked = [];
 emptyLaunchCargo();
 
 for(var i = 1; i <= buildingTypes; i++){
 	numberOf[i] = 0; //sets the number of each building to 0
 	//level[i] = 0;   //sets the level of each building to 0
 	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
+	buidlingUnlocked[i] = false;
 }
+
 for(var i = 1; i<=15; i++){
 	level[i] = 0;
 }
@@ -224,6 +227,15 @@ function makeGhost(model){
 	placing.width = temp.width;
 	placing.height = temp.height;
 }
+
+//Starter buildings
+buidlingUnlocked[1] = true;
+buidlingUnlocked[3] = true;
+buidlingUnlocked[5] = true;
+buidlingUnlocked[8] = true;
+buidlingUnlocked[10] = true;
+buidlingUnlocked[15] = true;
+buidlingUnlocked[17] = true;
 
 //returns a building sprite based on the current model id
 function getModel(model){
