@@ -45,7 +45,7 @@ function updateStoreInfo(){
 	cashStatus.text = "Funds: " + money + " MIL";//   |   Next launch in " + getTimeToNextLaunch() + " days.";
 }
 
-var rocketType = 1;
+var rocketType = 0;
 
 function checkStoreClicks(x, y) {
 	if(storeActive){

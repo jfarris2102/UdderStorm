@@ -227,7 +227,9 @@ function stopActive(){
 //Mouse Click code below
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Check if sprite clicked
+var storeClickable = false;
 manager.onMouseDown = function () {
+	if(!storeActive) storeClickable = false;
 	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
 		dragging = true;
 	}
@@ -346,9 +348,9 @@ manager.onMouseUp = function () {
 			}else if (tmpChk != -1){
 				unlockTech(tmpChk);
 			}
-		} else if (storeActive){
+		} else if (storeActive && storeClickable){
 			purchaseBuilding(checkStoreClicks(gInput.mouse.x, gInput.mouse.y));
 			updateStoreText();
-		}
+		} else if (storeActive) storeClickable = true;
 	}
 }

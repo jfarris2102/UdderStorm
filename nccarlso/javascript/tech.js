@@ -278,4 +278,8 @@ function upgradeMults(x,y){
 	else if(x == "Fast-neutron Reactor") buidlingUnlocked[18]=true;
 	else if(x == "Liquid Flouride Thorium Reactor") buidlingUnlocked[19]=true;
 	else if(x == "Nuclear Fusion Reactor") buidlingUnlocked[20]=true;
+	else if(x == "Plasma Propulsion") rocketType++;
+	else if(x == "Liquid Hydrogen fuel") rocketType++;
+	else if(x == "VASMIR rocket") rocketType++;
+	else if(x == "VTVL rocket") rocketType++;
 }
