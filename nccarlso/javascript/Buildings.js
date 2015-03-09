@@ -38,7 +38,7 @@ green1.sx = 3;
 green1.sy = 4;
 green1.isNode = 2;
 green1.image = Textures.load("images/2.png");
-green1.cost= 300;
+green1.cost= 200;
 
 var solar1  = new Sprite();
 solar1.width = 40;
@@ -53,34 +53,34 @@ solar1.cost= 50;
 
 var comms1  = new Sprite();
 comms1.width = 40;
-comms1.height = 83;
+comms1.height = 64;
 comms1.visible = false;
 comms1.id = "comms1";
 comms1.sx = 1;
 comms1.sy = 1;
 comms1.isNode = 0;
-comms1.image = Textures.load("images/4.png");
-comms1.cost= 150;
+comms1.image = Textures.load("images/12.png");
+comms1.cost= 50;
 
 var wind1  = new Sprite();
 wind1.width = 40;
-wind1.height = 40;
+wind1.height = 90;
 wind1.visible = false;
 wind1.id = "wind1";
 wind1.sx = 1;
 wind1.sy = 1;
 wind1.isNode = 0;
 wind1.image = Textures.load("images/5.png");
-wind1.cost= 100;
+wind1.cost= 75;
 
 var reactor1  = new Sprite();
-reactor1.width = 40;
-reactor1.height = 40;
+reactor1.width = 160;
+reactor1.height = 165;
 reactor1.visible = false;
 reactor1.id = "wind1";
-reactor1.sx = 1;
-reactor1.sy = 1;
-reactor1.isNode = 0;
+reactor1.sx = 4;
+reactor1.sy = 3;
+reactor1.isNode = 3;
 reactor1.image = Textures.load("images/6.png");
 reactor1.cost= 250;
 
@@ -93,7 +93,7 @@ photo1.sx = 1;
 photo1.sy = 1;
 photo1.isNode = 0;
 photo1.image = Textures.load("images/7.png");
-photo1.cost= 100;
+photo1.cost= 75;
 
 var grav1  = new Sprite();
 grav1.width = 40;
@@ -104,7 +104,7 @@ grav1.sx = 1;
 grav1.sy = 1;
 grav1.isNode = 0;
 grav1.image = Textures.load("images/8.png");
-grav1.cost= 100;
+grav1.cost= 750;
 
 var mine1  = new Sprite();
 mine1.width = 40;
@@ -115,7 +115,7 @@ mine1.sx = 1;
 mine1.sy = 1;
 mine1.isNode = 0;
 mine1.image = Textures.load("images/9.png");
-mine1.cost= 100;
+mine1.cost= 150;
 
 var lab1  = new Sprite();
 lab1.width = 40;
@@ -137,14 +137,36 @@ factory1.sx = 1;
 factory1.sy = 1;
 factory1.isNode = 0;
 factory1.image = Textures.load("images/11.png");
-factory1.cost= 100;
+factory1.cost= 350;
+
+var comms2  = new Sprite();
+comms2.width = 40;
+comms2.height = 83;
+comms2.visible = false;
+comms2.id = "comms2";
+comms2.sx = 1;
+comms2.sy = 1;
+comms2.isNode = 0;
+comms2.image = Textures.load("images/4.png");
+comms2.cost= 100;
+
+var wind2  = new Sprite();
+wind2.width = 40;
+wind2.height = 103;
+wind2.visible = false;
+wind2.id = "factory1";
+wind2.sx = 1;
+wind2.sy = 1;
+wind2.isNode = 0;
+wind2.image = Textures.load("images/13.png");
+wind2.cost= 125;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];//creates an array to hold all of the placed buildings
 var beingBuilt = false;
 var buildingCount = 0;//the total number of placed buildings
 var maxBuildings = 250;//sets a cap for the number of buildings that can be placed
-var buildingTypes = 11; //# of different types of buildings that can be placed
+var buildingTypes = 20; //# of different types of buildings that can be placed
 var buidlingsAvailable = []; //Array of building counts
 var numberOf = [];
 var level = [];
@@ -186,7 +208,8 @@ function initBuildings(){
 
 //adds a new building to the surface of mars
 function makeBuilding(model){
-	var temp = makeModel(model);
+	var temp = getModel(model);
+	numberOf[model]++;
 	buildings[buildingCount].image = temp.image;
 	buildings[buildingCount].width = temp.width;
 	buildings[buildingCount].height = temp.height;
@@ -209,32 +232,50 @@ function getModel(model){
     case 1:
         return pop1;
     case 2:
-        return green1;
+        return pop1; //later pop2
     case 3:
         return solar1;
     case 4:
-        return comms1;
-	case 5:
-        return wind1;
-	case 6:
-        return reactor1;
-	case 7:
         return photo1;
-    case 8: 
-        return grav1;
+	case 5:
+	    return green1;
+	case 6:
+        return green1; //later green2
+	case 7:
+	   return mine1;
+	case 8:
+        return wind1;
     case 9: 
-        return mine1;
-    case 10:
+        return wind2;
+    case 10: 
         return lab1;
     case 11:
+        return lab1; //later lab2
+    case 12:
+        return lab1; //later lab3
+	case 13:
         return factory1;
+	case 14:
+        return grav1;
+	case 15:
+        return comms1;
+	case 16:
+        return comms2;
+	case 17:
+        return reactor1;
+	case 18:
+        return reactor1; //later reactor2
+	case 19:
+        return reactor1; //later reactor3
+	case 20:
+        return reactor1; //later reactor4
     default:
         return pop1;
 	}
 }
 
 //sets the building model to the correct one based on the number provided
-function makeModel(model){
+function makeModel(model){ //currently unused, will use later for mars factory based construction?
 	numberOf[model]++;
 	switch(model) {
     case 1:
@@ -390,6 +431,9 @@ function checkNode(model, xOff, yOff){
 	var right = BuildingSize(model).sx;
 	if(getModel(model).isNode == 2){
 		if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
+		else return false;
+	} else if(getModel(model).isNode == 3){
+		if(tileGrid[xOff+1][yOff+top].node == true) return true;
 		else return false;
 	}
 	if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;

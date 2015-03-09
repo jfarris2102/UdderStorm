@@ -46,6 +46,7 @@ function updateStoreInfo(){
 }
 
 var rocketType = 1;
+
 function checkStoreClicks(x, y) {
 	if(storeActive){
 		if (x >= 724 && x <= 828 && y >= 420 && y <= 501){
@@ -67,7 +68,7 @@ function checkStoreClicks(x, y) {
 		var xtemp = 0;
 		var ytemp = 0;
 		for(var i = 0; i < buildingTypes; i++){
-			if(xtemp > 5){xtemp = 0; ytemp++};
+			if(xtemp > 6){xtemp = 0; ytemp++};
 			xoffset = 170+(xtemp*91);
 			yoffset = 135+(ytemp*146);
 			xtemp++;
@@ -106,7 +107,7 @@ function updateStoreText(){
 	var xtemp = 0;
 	var ytemp = 0;
 	for(var i = 0; i < buildingTypes; i++){
-			if(xtemp > 5){xtemp = 0; ytemp++};
+			if(xtemp > 6){xtemp = 0; ytemp++};
 			xoffset = 170+(xtemp*91);
 			yoffset = 135+(ytemp*146);
 			xtemp++;
