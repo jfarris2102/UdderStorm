@@ -61,7 +61,7 @@ function pickColor(x){
 	x.desc.shadowBlurCustom = 6;
 }
 
-var researchPoints = 1000;
+var researchPoints = 250;
 function updateTechInfo(){
 	researchPointsTextbox.text = "Points: " + researchPoints;
 }

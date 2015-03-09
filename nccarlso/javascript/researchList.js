@@ -318,42 +318,114 @@ tech212.categ = sust1;
 //Start Econ/Diplomacy
 var tech301 = {};
 tech301.name = new TextBox("Budget Reforms");
-tech301.desc = new TextBox("Cost");
+tech301.desc = new TextBox("Funding increase. cost 100 Research points.");
 tech301.avail = true;
-tech301.unlocked = true;
-tech301.pre = ["Budget Reforms"];
+tech301.unlocked = false;
+tech301.pre = [""];
 tech301.cost = 100;
-tech301.categ = reactor;
-
-var tech301 = {};
-tech301.name = new TextBox("Thermal-neutron Reactor");
-tech301.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default.");
-tech301.avail = true;
-tech301.unlocked = true;
-tech301.pre = ["Increase international trade"];
-tech301.cost = 100;
-tech301.categ = reactor;
+tech301.categ = econ;
 
 var tech302 = {};
-tech302.name = new TextBox("Fast-neutron Reactor");
-tech302.desc = new TextBox("A slightly upgraded nuclear reactor utilizing\nnew technology, cost: 100 Research points.");
-tech302.avail = true;
+tech302.name = new TextBox("Increase international trade");
+tech302.desc = new TextBox("International trade is good for business,\nfunding increased. cost: 150 Research points.");
+tech302.avail = false;
 tech302.unlocked = false;
-tech302.pre = ["Space exploring budgeting"];
-tech302.cost = 100;
-tech302.categ = reactor;
+tech302.pre = ["Budget Reforms"]; //Need to add another
+tech302.cost = 150;
+tech302.categ = econ;
 
 var tech303 = {};
-tech3.name = new TextBox("Liquid Flouride Thorium Reactor");
-tech3.desc = new TextBox("A nuclear reactor that utilizes thorium and is\nmore efficient than traditional uranium based\nreactors, cost: 250 Research points.");
-tech3.avail = false;
-tech3.unlocked = false;
-tech3.pre = ["Increase space trade"];
-tech3.cost = 100;
-tech3.categ = reactor;
+tech303.name = new TextBox("Space exploring budgeting");
+tech303.desc = new TextBox("Constant lobbying has payed off leeding to\nincreased space exploration funding.\ncost: 150 Research points.");
+tech303.avail = false;
+tech303.unlocked = false;
+tech303.pre = ["Budget Reforms"];
+tech303.cost = 150;
+tech303.categ = econ;
+
+var tech304 = {};
+tech304.name = new TextBox("Increase space trade");
+tech304.desc = new TextBox("Stimulation in the space materials/technology\nmarket had led to an increase in allocated spending.\ncost: 250 Research points.");
+tech304.avail = false;
+tech304.unlocked = false;
+tech304.pre = ["Increase international trade", "Space exploring budgeting"];
+tech304.cost = 250;
+tech304.categ = econ;
 
 //End Econ Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Terraforming Tech
+
+var tech401 = {};
+tech401.name = new TextBox("Nanochips");
+tech401.desc = new TextBox("cost: 100 Research points.");
+tech401.avail = true;
+tech401.unlocked = false;
+tech401.pre = [""];
+tech401.cost = 100;
+
+var tech402 = {};
+tech402.name = new TextBox("Magnetic field generation");
+tech402.desc = new TextBox("cost: 100 Research points.");
+tech402.avail = true;
+tech402.unlocked = false;
+tech402.pre = [""];
+tech402.cost = 100;
+
+var tech403 = {};
+tech403.name = new TextBox("Photoelectrochemical cells");
+tech403.desc = new TextBox("cost: 100 Research points.");
+tech403.avail = true;
+tech403.unlocked = false;
+tech403.pre = [""];
+tech403.cost = 100;
+
+var tech404 = {};
+tech404.name = new TextBox("Aluminized PET film");
+tech404.desc = new TextBox("cost: 100 Research points.");
+tech404.avail = true;
+tech404.unlocked = false;
+tech404.pre = [""];
+tech404.cost = 100;
+
+var tech405 = {};
+tech405.name = new TextBox("Aluminized PET film");
+tech405.desc = new TextBox("cost: 100 Research points.");
+tech405.avail = true;
+tech405.unlocked = false;
+tech405.pre = [""];
+tech405.cost = 100;
+//End Terraforming Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Mineral Tech
+
+var tech501 = {};
+tech501.name = new TextBox("");
+tech501.desc = new TextBox("unlocked by default");
+tech501.avail = true;
+tech501.unlocked = true;
+tech501.pre = [""];
+tech501.cost = 0;
+
+var tech502 = {};
+tech502.name = new TextBox("");
+tech502.desc = new TextBox("unlocked by default");
+tech502.avail = true;
+tech502.unlocked = true;
+tech502.pre = [""];
+tech502.cost = 0;
+
+
+//End Mineral Tech
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 var EnergyTree = [];
 EnergyTree.push(tech1);
