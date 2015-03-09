@@ -339,8 +339,8 @@ function BuildingSize(model){
 var moneyMult = 1;
 
 function buildResource(){
-	moneyInc = 1 * moneyMult;
-	researchPoints++;
+	moneyInc = 5 * moneyMult;
+	researchPoints += 10;
 	foodInc = 0;
 	waterInc = 0;
 	energyInc = 0;
@@ -406,13 +406,12 @@ function updateResource(){
 //resets all of the stored variables to their default values
 //useful for starting a new game
 function resetVariables(){
-	money = 100;
 	food = 50;
 	water = 50;
 	air = 0.04;
 	minerals=1000; //Displayed in thousand tons
     energy=100; //Displayed in million BTU's
-	money=1000; //Displayed in millions
+	money=250; //Displayed in millions
 	popEarth=8; //Displayed in billions
 	popMars=10; //Displayed in ones
 	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
@@ -425,6 +424,8 @@ function resetVariables(){
 	numberOf[live] = 0;
 	numberOf[days] = 0;
 	firstBuilding = true;
+	researchPoints = 250;
+	moneyMult = 1;
 }
 
 //checks if any component of the building model will hit an occupied grid
