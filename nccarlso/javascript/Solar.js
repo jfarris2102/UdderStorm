@@ -199,6 +199,7 @@ function solarTime(){
 }
 
 function Launch(){
+	popMars+=10;
 	RocketOffset = 0;
 	Rocket.y = 0;
 	Rocket.x = 20;

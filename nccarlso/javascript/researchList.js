@@ -407,7 +407,7 @@ tech405.cost = 100;
 //Mineral Tech
 
 var tech501 = {};
-tech501.name = new TextBox("");
+tech501.name = new TextBox("Mining drills");
 tech501.desc = new TextBox("unlocked by default");
 tech501.avail = true;
 tech501.unlocked = true;
@@ -415,7 +415,7 @@ tech501.pre = [""];
 tech501.cost = 0;
 
 var tech502 = {};
-tech502.name = new TextBox("");
+tech502.name = new TextBox("Research 'Tent'");
 tech502.desc = new TextBox("unlocked by default");
 tech502.avail = true;
 tech502.unlocked = true;
@@ -568,10 +568,27 @@ EconTree.push(tech303);
 EconTree.push(tech304);
 
 var TerraTree = [];
+TerraTree.push(tech401);
+TerraTree.push(tech402);
+TerraTree.push(tech403);
+TerraTree.push(tech404);
+TerraTree.push(tech405);
 
 var MineralTree = [];
+MineralTree.push(tech501);
+MineralTree.push(tech502);
 
 var InfasTree = [];
+InfasTree.push(tech601);
+InfasTree.push(tech602);
+InfasTree.push(tech604);
+InfasTree.push(tech605);
+InfasTree.push(tech606);
+InfasTree.push(tech607);
+InfasTree.push(tech608);
+InfasTree.push(tech609);
+InfasTree.push(tech610);
+InfasTree.push(tech611);
 
 ///////////////////////////////
 setFonts(SpaceTree);
