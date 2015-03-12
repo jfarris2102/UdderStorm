@@ -181,9 +181,14 @@ function updateUnlockTree(x){
 	var curr = getCurrentTechTree();
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
-			if(curr[i].name.text == "Budget reforms" || curr[i].name.text == "Gov't sponsored sust. campaigns" || curr[i].name.text == "Foreign Relations Campaigns"){
-				
-				
+			if(curr[i].name.text == "Budget reforms"){
+				economyPoints += curr[i].cost;
+			}
+			else if (curr[i].name.text == "Gov't sponsored sust. campaigns"){
+				sustainabilityPoints += curr[i].cost;
+			}
+			else if(curr[i].name.text == "Foreign Relations Campaigns"){
+				diplomacyPoints += curr[i].cost;
 			}else{
 				if (typeof curr[i].categ !== undefined)
 					levelUp(curr[i].categ);
@@ -191,6 +196,9 @@ function updateUnlockTree(x){
 				upgradeMults(curr[i].name.text);
 			}
 			researchPoints -= curr[i].cost;
+			if(typeof(x.dcost) != "undefined") diplomacyPoints -= curr[i].cost;
+			if(typeof(x.ecost) != "undefined") economyPoints -= curr[i].cost;
+			if(typeof(x.scost) != "undefined") sustainabilityPoints -= curr[i].cost;
 		}
 	}
 }
@@ -226,11 +234,20 @@ function updateAvailTech(x){
 }
 
 function unlockTech(x){
+	var chkCost = true;
 	var indx = x-4;
 	if(indx < activeTech.length){
 		if(activeTech[indx].avail == true && activeTech[indx].unlocked == false && activeTech[indx].cost <= researchPoints){
-			updateUnlockTree(activeTech[indx]);
-			updateAvailTech(activeTech[indx]);
+			if(typeof(activeTech[indx].dcost) != "undefined")
+				if(activeTech[indx].dcost > diplomacyPoints) chkCost = false;
+			if(typeof(activeTech[indx].ecost) != "undefined")
+				if(activeTech[indx].ecost > economyPoints) chkCost = false;
+			if(typeof(activeTech[indx].scost) != "undefined")
+				if(activeTech[indx].scost > sustainabilityPoints) chkCost = false;
+			if(chkCost){
+				updateUnlockTree(activeTech[indx]);
+				updateAvailTech(activeTech[indx]);
+			}
 		}
 	}
 }
