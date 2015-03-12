@@ -181,13 +181,6 @@ function updateUnlockTree(x){
 	var curr = getCurrentTechTree();
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
-<<<<<<< HEAD
-			if(curr[i].name.text == "Budget reforms" 
-			|| curr[i].name.text == "Gov't sponsored sust. campaigns" 
-			|| curr[i].name.text == "Foreign Relations Campaigns"){
-				
-				
-=======
 			if(curr[i].name.text == "Budget reforms"){
 				economyPoints += curr[i].cost;
 			}
@@ -196,7 +189,6 @@ function updateUnlockTree(x){
 			}
 			else if(curr[i].name.text == "Foreign Relations Campaigns"){
 				diplomacyPoints += curr[i].cost;
->>>>>>> 46ecd9659ed9b1e3b8bc24f74dc4744030221c53
 			}else{
 				if (typeof curr[i].categ !== undefined)
 					levelUp(curr[i].categ);
