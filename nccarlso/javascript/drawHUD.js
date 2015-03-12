@@ -185,6 +185,7 @@ function redrawHUD(){
 	world.removeChild(HUD);
     world.addChild(HUD);
     for(var i = 0; i < textArr.length; i++){
+		world.removeChild(textArr[i]);
         textArr[i].font = 'BebasNeue';
         textArr[i].fontSize = '20';
         textArr[i].padLeft = canvas.width - 150;

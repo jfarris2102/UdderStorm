@@ -7,6 +7,10 @@ It also manages the life of the earth, which contains
 important information for several end conditions
 */
 
+var diplomacyPoints = 0;
+var economyPoints = 0;
+var sustainabilityPoints = 0;
+
 //Sprites
 
 var bg=new Sprite(); {

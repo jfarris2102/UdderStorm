@@ -166,7 +166,9 @@ var buildings = [];//creates an array to hold all of the placed buildings
 var beingBuilt = false;
 var buildingCount = 0;//the total number of placed buildings
 var maxBuildings = 250;//sets a cap for the number of buildings that can be placed
-var buildingTypes = 20; //# of different types of buildings that can be placed
+var buildingTypes = 17; //# of different types of buildings that can be placed
+var storeBuildings = 15;
+var factoryBuildings = 20;
 var buidlingsAvailable = []; //Array of building counts
 var numberOf = [];
 var level = [];
@@ -274,12 +276,6 @@ function getModel(model){
         return comms2;
 	case 17:
         return reactor1;
-	case 18:
-        return reactor1; //later reactor2
-	case 19:
-        return reactor1; //later reactor3
-	case 20:
-        return reactor1; //later reactor4
     default:
         return pop1;
 	}
@@ -443,6 +439,9 @@ function resetVariables(){
 	years = 2015;
 	months = 0;
 	days = 0;
+	diplomacyPoints = 0;
+	economyPoints = 0;
+	sustainabilityPoints = 0;
 }
 
 //checks if any component of the building model will hit an occupied grid
