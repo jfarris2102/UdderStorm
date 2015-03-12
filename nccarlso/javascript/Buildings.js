@@ -177,7 +177,7 @@ emptyLaunchCargo();
 for(var i = 1; i <= buildingTypes; i++){
 	numberOf[i] = 0; //sets the number of each building to 0
 	//level[i] = 0;   //sets the level of each building to 0
-	buidlingsAvailable[i] = 0;//sets the number of each building that is available to 0
+	buidlingsAvailable[i] = 0; //sets the number of each building that is available to 0
 	buidlingUnlocked[i] = false;
 }
 

@@ -22,6 +22,7 @@ function clearText(){
 	}
 	//textArr = [];
 }
+
 moneyRound = Math.ceil(money*10)/10;
 energyRound = Math.ceil(energy*10)/10;
 var days = getDays()%31;
