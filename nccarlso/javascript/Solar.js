@@ -195,6 +195,8 @@ function solarTime(){
 			RocketOffset+=(mult)/1000;
 		}
 		days += 1;
+		if(days%182.5 == 0)
+		   buildResource();
 	}
 }
 

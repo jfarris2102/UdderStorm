@@ -79,7 +79,8 @@ textArr.push(text14);
 function displayHUDtext(){
 	
 	//Check if time is up
-    if(doomsDay-getYears() < 1) gameOverMan();
+   // if(doomsDay-getYears() < 1) 
+    if(doomsDay + (12-getMonths()) + (31-getDays()%31) == 0) gameOverMan();
     
     //clearText();
     
@@ -150,7 +151,7 @@ function displayHUDtext(){
      //   }
     }else if(earthActive){
         //Doomsday stuff
-        doomsDay = getLifetime()+2015;
+        doomsDay = getLifetime();
         var yearsAppend = "";
         var monthsAppend = "";
         var daysAppend = "";
@@ -158,10 +159,10 @@ function displayHUDtext(){
         else if(doomsDay-getYears() < 100) yearsAppend = "0";
         if(12-getMonths() < 10) monthsAppend = "0";
         if(31-days < 10) daysAppend = "0";
-        
+        console.log(doomsDay);
         //Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
-        Countdown.text = yearsAppend+(doomsDay-(getYears()+1))+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
-        
+        Countdown.text = yearsAppend+(doomsDay/*-(getYears()+1)*/)+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
+        console.log(Countdown.text);
         //Earth activate
        // for(var i = 0; i < textArr.length; i++){
             /*textArr[i].font = 'BebasNeue';

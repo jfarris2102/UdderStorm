@@ -209,7 +209,7 @@ function stop(){
 		world.removeChild(spritesHover[i]);
 		world.removeChild(MainMenu);
 	}
-	resourceTimer = setInterval(buildResource,6000);
+	//resourceTimer = setInterval(buildResource,6000);
 }
 
 function startTutorial(){

@@ -87,11 +87,11 @@ function getLifetime(){
 	console.log(ePerCapita , envDamage);
 	//At this environmental impact, human civilization collapses
 	var maxImpact = 55;
-	if(popEarth == 8)
-	popEarth = 7.3;
+	//if(popEarth == 8)
+	//popEarth = 7.3;
 	//Impact on environment = Population * Energy Consumption per capita * Environ.Damage from E.C.
 	console.log(popEarth);
-	var impact = (7.3 * ePerCapita * envDamage)/1000;
+	var impact = (popEarth * ePerCapita * envDamage)/1000;
 	console.log(impact);
 	var lifetime = Math.log(maxImpact/impact) / Math.log(1+growthRate) - 3;
 	lifetime = Math.floor(lifetime);
