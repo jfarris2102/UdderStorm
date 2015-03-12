@@ -183,6 +183,7 @@ function solarTime(){
 			Rocket.visible = false;
 			RocketOffset = 0;
 			Launched = false;
+			popMars+=10;
 			for(var i = 0; i < launchCargo.length; i++){
 				buidlingsAvailable[i] += launchCargo[i];
 			}
@@ -201,7 +202,6 @@ function solarTime(){
 }
 
 function Launch(){
-	popMars+=10;
 	RocketOffset = 0;
 	Rocket.y = 0;
 	Rocket.x = 20;
