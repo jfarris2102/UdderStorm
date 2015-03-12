@@ -413,7 +413,7 @@ function resetVariables(){
 	air = 0.14;
 	minerals=1000; //Displayed in thousand tons
     energy=100; //Displayed in million BTU's
-	money=250; //Displayed in millions
+	money=800; //Displayed in millions
 	popEarth=7.3; //Displayed in billions
 	atmosphere = 0.6;
 	temperature = -67;
