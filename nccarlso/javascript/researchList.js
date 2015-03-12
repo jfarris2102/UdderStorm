@@ -361,6 +361,33 @@ tech305.pre = [""];
 tech305.cost = 50;
 tech305.categ = econ;
 
+var tech306 = {};
+tech306.name = new TextBox("Global Economy Manipulation");
+tech306.desc = new TextBox("cost: 100 Research points.");
+tech306.avail = false;
+tech306.unlocked = false;
+tech306.pre = ["Increase international trade"];
+tech306.cost = 100;
+tech306.categ = econ;
+
+var tech307 = {};
+tech307.name = new TextBox("Multinational Treaties");
+tech307.desc = new TextBox("cost: 100 Research points.");
+tech307.avail = false;
+tech307.unlocked = false;
+tech307.pre = ["Increase international trade"];
+tech307.cost = 100;
+tech307.categ = econ;
+
+var tech308 = {};
+tech308.name = new TextBox("Third-World Country Reform");
+tech308.desc = new TextBox("cost: 100 Research points.");
+tech308.avail = false;
+tech308.unlocked = false;
+tech308.pre = ["Multinational Treaties","International Sustainability Council"];
+tech308.cost = 100;
+tech308.categ = econ;
+
 //End Econ Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -575,6 +602,10 @@ EconTree.push(tech301);
 EconTree.push(tech302);
 EconTree.push(tech303);
 EconTree.push(tech304);
+EconTree.push(tech305);
+EconTree.push(tech306);
+EconTree.push(tech307);
+EconTree.push(tech308);
 
 var TerraTree = [];
 TerraTree.push(tech401);

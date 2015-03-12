@@ -46,6 +46,7 @@ function updateStoreInfo(){
 }
 
 var rocketType = 0;
+var popLaunch = 0;
 
 function checkStoreClicks(x, y) {
 	if(storeActive){
@@ -53,6 +54,7 @@ function checkStoreClicks(x, y) {
 			if(money >= (250 - (50*rocketType)) || LaunchQueued){ //Checks cash for launch
 				if(!LaunchQueued) {
 					rocketStatus.text = "Launch\n" + "queued.";
+					popLaunch = 5*(rocketType+1);
 					LaunchQueued = true;
 					money -= (250 - (50*(rocketType)));
 				}else{
