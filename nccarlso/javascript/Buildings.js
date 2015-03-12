@@ -414,7 +414,7 @@ function resetVariables(){
 	air = 0.14;
 	minerals=1000; //Displayed in thousand tons
     energy=100; //Displayed in million BTU's
-	money=250; //Displayed in millions
+	money=750; //Displayed in millions
 	popEarth=7.3; //Displayed in billions
 	atmosphere = 0.6;
 	temperature = -67;
@@ -429,7 +429,7 @@ function resetVariables(){
 	numberOf[live] = 0;
 	numberOf[days] = 0;
 	firstBuilding = true;
-	researchPoints = 250;
+	researchPoints = 500;
 	moneyMult = 1;
 	rocketType = 0;
 	damageFactor = 1;
