@@ -4,6 +4,23 @@
  * Used to assess the output/usage of resources by any
  * building, based on its current upgrade level
  */
+var live = 1;
+var live2 = 2;
+var solar = 3;
+var photosyn = 4;
+var green = 5;
+var pink = 6;
+var mine = 7;
+var turbine = 8;
+var turbine2 = 9;
+var lab = 10;
+var lab2 = 11;
+var lab3 = 12;
+var factory = 13;
+var gravity = 14;
+var comms = 15;
+var comms2 = 16;
+var reactor = 17;
 
 function greenResources(){
 	switch(getLevel(green)){
@@ -25,15 +42,30 @@ function greenResources(){
 		airInc += getNumberOf(green)*.02;
 		energyInc -= getNumberOf(green)*.2;
 		break;
-		case 3:
-		foodInc += getNumberOf(green)*10;
-		waterInc -= getNumberOf(green)*.5;
-		airInc += getNumberOf(green)*.03;
-		energyInc -= getNumberOf(green)*.1;
-		break;
 		default:
 		break;
 	}
+	switch(getLevel(pink)){
+		case 0:
+		foodInc += getNumberOf(pink)*6;
+		waterInc -= getNumberOf(pink)*2;
+		airInc += getNumberOf(pink)*.02;
+		energyInc -= getNumberOf(pink)*.5;
+		break;
+		case 1:
+		foodInc += getNumberOf(pink)*9;
+		waterInc -= getNumberOf(pink)*1;
+		airInc += getNumberOf(pink)*.03;
+		energyInc -= getNumberOf(pink)*.2;
+		case 2:
+		foodInc += getNumberOf(pink)*11;
+		waterInc -= getNumberOf(pink)*.5;
+		airInc += getNumberOf(pink)*.03;
+		energyInc -= getNumberOf(pink)*.1;
+	}
+	foodInc -= popMars*.5;
+	waterInc -= popMars*.5;
+	airInc -= popMars*.001;
 	console.log("green: ",energyInc);
 }
 function solarResources(){
@@ -66,15 +98,13 @@ function turbineResources(){
 		case 1:
 		energyInc += getNumberOf(turbine)*1.5;
 		break;
-		case 3:
-		energyInc += getNumberOf(turbine)*1.75;
-		break;
-		case 4:
-		energyInc += getNumberOf(turbine)*3.5;
+		case 2:
+		energyInc += getNumberOf(turbine)*1.5;
 		break;
 		default:
 		break;
 	}
+	energyInc += getNumberOf(turbine2)*2.5;
 	console.log("turbine: ",energyInc);
 }
 function reactorResources(){
@@ -120,36 +150,17 @@ function mineResources(){
 	console.log("mine: ",energyInc);
 }
 function commsResources(){
-	switch(getLevel(comms)){
-		case 0:
-		energyInc -= getNumberOf(comms)*.5;
-		break;
-		case 1:
-		energyInc -= getNumberOf(comms)*1;
-		break;
-		default:
-		break;
-	}
+    energyInc -= getNumberOf(comms)*.5;
+	energyInc -= getNumberOf(comms2)*1;
+
 	console.log("comms: ",energyInc);
 }
 function liveResources(){
-	switch(getLevel(live)){
-		case 0:
-		if(getNumberOf(live) < popMars/3){
-			happyInc -= 3;
-		}
-		energyInc -= getNumberOf(live)*.3;
-		break;
-		case 1:
-		if(getNumberOf(live) < popMars/10){
-			happyInc -= 3;
-		}
-		energyInc -= getNumberOf(live)*.5;
-		break;
-		default:
-		break;
+	if(getNumberOf(live)+3*getNumberOf(live2) < popMars/5){
+		happyInc -= 2;
 	}
-	console.log("live: ",energyInc);
+	energyInc -= getNumberOf(live)*.3;
+	energyInc -= getNumberOf(live2)*.5;
 }
 function photoResources(){
 	airInc += getNumberOf(photosyn)*.01;
@@ -163,22 +174,53 @@ function gravityResources(){
 	atmosInc += getNumberOf(gravity)*.1;
 }
 function energyConsum(){
-	energyFactor = 1 - (0.05*getLevel(sust1) + 0.05*getLevel(sust2) + 0.05*getLevel(sust3));
-	damageFactor = 1 - (.05*getLevel(sust1) + 0.05*getLevel(sust2) + 0.025*getLevel(sust3));
-	if(getLevel(sust3) == 3){
-	growthRate -= 0.02;
-	if(growthRate < -.012)
-	growthRate = -.012;
-	}
-	/*switch(getLevel(sust1)){
+	var eFactorInc = 0;
+	var dFactorInc = 0;
+	switch(getLevel(sust1)){
 		case 0:
-		energyFactor = 1;
 		break;
+		case 4:
+		eFactorInc -= .1;
+		case 3:
+		eFactorInc -= .1;
+		case 2:
+		eFactorInc -= .1;
 		case 1:
-		energyFactor -= 
+		eFactorInc -= .1;
 		default:
 		break;
-	}*/
+	}
+	switch(getLevel(sust2)){
+		case 0:
+		break;
+		case 4:
+		dFactorInc -= .1;
+		eFactorInc -= .05;
+		case 3:
+		dFactorInc -= .05;
+		eFactorInc -= .05;
+		case 2:
+		dFactorInc -= .1;
+		case 1:
+		dFactorInc -= .1;
+		default:
+		break;
+	}
+	switch(getLevel(sust3)){
+		case 0:
+		break;
+		case 3:
+		growthRate -= 0.001;
+	    if(growthRate < .001)
+	        growthRate = .001;
+		case 2:
+		eFactorInc -= .05;
+		dFactorInc -= .05;
+		case 1:
+		eFactorInc -= .05;
+		default:
+		break;
+	}
 }
  
 

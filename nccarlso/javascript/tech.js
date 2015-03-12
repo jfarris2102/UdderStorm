@@ -181,7 +181,9 @@ function updateUnlockTree(x){
 	var curr = getCurrentTechTree();
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
-			if(curr[i].name.text == "Budget reforms" || curr[i].name.text == "Gov't sponsored sust. campaigns" || curr[i].name.text == "Foreign Relations Campaigns"){
+			if(curr[i].name.text == "Budget reforms" 
+			|| curr[i].name.text == "Gov't sponsored sust. campaigns" 
+			|| curr[i].name.text == "Foreign Relations Campaigns"){
 				
 				
 			}else{
