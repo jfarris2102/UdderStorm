@@ -332,12 +332,8 @@ function BuildingSize(model){
 //sets all of our increment variables to 0,
 //updates them to their proper values, increments our resource values,
 //and finally prints the resource variables to the console
-var moneyMult = 1;
-var researchMult = 0;
 
 function buildResource(){
-	moneyInc = 5 * moneyMult;
-	researchPoints += (10+researchMult);
 	foodInc = 0;
 	waterInc = 0;
 	energyInc = 0;
@@ -391,7 +387,6 @@ function updateBuild(){ //Every 6 months game time
 //increases all resource variables by a predetermined amount
 //should be called regularly by a loop to run the game
 function updateResource(){
-	money += moneyInc;
 	food += foodInc;
 	water += waterInc;
 	minerals += mineralInc;
