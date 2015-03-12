@@ -74,6 +74,12 @@ textArr.push(text12);
 textArr.push(text13);
 textArr.push(text14);
 
+for(var i = 0; i < textArr.length; i++){
+	textArr[i].font = 'BebasNeue';
+	textArr[i].fontSize = '20';
+	textArr[i].padLeft = 960 - 150;
+	textArr[i].padTop = 30*(i+1);
+}
 
 //draws all of these values on the HUD, should be called every time 
 //the world updates or whenever the display values change
@@ -185,10 +191,11 @@ function redrawHUD(){
 	world.removeChild(HUD);
     world.addChild(HUD);
     for(var i = 0; i < textArr.length; i++){
-        textArr[i].font = 'BebasNeue';
-        textArr[i].fontSize = '20';
-        textArr[i].padLeft = canvas.width - 150;
-        textArr[i].padTop = 30*(i+1);
+		world.removeChild(textArr[i]);
+        //textArr[i].font = 'BebasNeue';
+        //textArr[i].fontSize = '20';
+        //textArr[i].padLeft = canvas.width - 150;
+        //textArr[i].padTop = 30*(i+1);
         world.addChild(textArr[i]);
     }
 	//displayHUDtext();

@@ -181,10 +181,15 @@ function updateUnlockTree(x){
 	var curr = getCurrentTechTree();
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
-			if (typeof curr[i].categ !== undefined)
-			    levelUp(curr[i].categ);
-			curr[i].unlocked = true;
-			upgradeMults(curr[i].name.text);
+			if(curr[i].name.text == "Budget reforms" || curr[i].name.text == "Gov't sponsored sust. campaigns" || curr[i].name.text == "Foreign Relations Campaigns"){
+				
+				
+			}else{
+				if (typeof curr[i].categ !== undefined)
+					levelUp(curr[i].categ);
+				curr[i].unlocked = true;
+				upgradeMults(curr[i].name.text);
+			}
 			researchPoints -= curr[i].cost;
 		}
 	}
@@ -204,16 +209,19 @@ function updateAvailTree(x, y){
 }
 
 function updateAvailTech(x){
-	updateAvailTree(x, SpaceTree);
-	updateAvailTree(x, EnergyTree);
-	updateAvailTree(x, SustTree);
-	updateAvailTree(x, EconTree);
-	updateAvailTree(x, TerraTree);
-	updateAvailTree(x, MineralTree);
-	updateAvailTree(x, InfasTree);
 	var curr = getCurrentTechTree();
-	for(var i = 0; i < 6 && i < curr.length; i++){
-		pickColor(activeTech[i]);
+	if(curr[i].name.text != "Budget reforms" && curr[i].name.text != "Gov't sponsored sust. campaigns" && curr[i].name.text != "Foreign Relations Campaigns"){
+		updateAvailTree(x, SpaceTree);
+		updateAvailTree(x, EnergyTree);
+		updateAvailTree(x, SustTree);
+		updateAvailTree(x, EconTree);
+		updateAvailTree(x, TerraTree);
+		updateAvailTree(x, MineralTree);
+		updateAvailTree(x, InfasTree);
+		var curr = getCurrentTechTree();
+		for(var i = 0; i < 6 && i < curr.length; i++){
+			pickColor(activeTech[i]);
+		}
 	}
 }
 

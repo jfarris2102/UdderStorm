@@ -208,11 +208,11 @@ tech106.categ = space;
 //Sustainability Tech
 var tech201 = {};
 tech201.name = new TextBox("Gov't sponsored sust. campaigns");
-tech201.desc = new TextBox("unlocked by default");
+tech201.desc = new TextBox("Generates 50 Sustainability Awareness, cost 50 Research points.");
 tech201.avail = true;
-tech201.unlocked = true;
+tech201.unlocked = false;
 tech201.pre = [""];
-tech201.cost = 0;
+tech201.cost = 50;
 
 var tech202 = {};
 tech202.name = new TextBox("LEED Building Standards");
@@ -318,26 +318,26 @@ tech212.categ = sust1;
 //Start Econ/Diplomacy
 var tech301 = {};
 tech301.name = new TextBox("Budget reforms");
-tech301.desc = new TextBox("Funding increase. cost 100 Research points.");
+tech301.desc = new TextBox("Generates 50 Economy points increase. cost 50 Research points.");
 tech301.avail = true;
 tech301.unlocked = false;
 tech301.pre = [""];
-tech301.cost = 100;
+tech301.cost = 50;
 tech301.categ = econ;
 
 var tech302 = {};
 tech302.name = new TextBox("Increase international trade");
 tech302.desc = new TextBox("International trade is good for business,\nfunding increased. cost: 150 Research points.");
-tech302.avail = false;
+tech302.avail = true;
 tech302.unlocked = false;
-tech302.pre = ["Budget reforms"]; //Need to add another
+tech302.pre = ["Budget reforms", "Foreign Relations Campaigns"]; //Need to add another
 tech302.cost = 150;
 tech302.categ = econ;
 
 var tech303 = {};
 tech303.name = new TextBox("Space exploring budgeting");
 tech303.desc = new TextBox("Constant lobbying has payed off leeding to\nincreased space exploration funding.\ncost: 150 Research points.");
-tech303.avail = false;
+tech303.avail = true;
 tech303.unlocked = false;
 tech303.pre = ["Budget reforms"];
 tech303.cost = 150;
@@ -351,6 +351,15 @@ tech304.unlocked = false;
 tech304.pre = ["Increase international trade", "Space exploring budgeting"];
 tech304.cost = 250;
 tech304.categ = econ;
+
+var tech305 = {};
+tech305.name = new TextBox("Foreign Relations Campaigns");
+tech305.desc = new TextBox("Generates 50 Diplomacy points.\ncost: 50 Research points.");
+tech305.avail = true;
+tech305.unlocked = false;
+tech305.pre = [""];
+tech305.cost = 50;
+tech305.categ = econ;
 
 //End Econ Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
