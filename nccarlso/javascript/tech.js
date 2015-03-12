@@ -210,7 +210,7 @@ function updateAvailTree(x, y){
 
 function updateAvailTech(x){
 	var curr = getCurrentTechTree();
-	if(curr[i].name.text != "Budget reforms" && curr[i].name.text != "Gov't sponsored sust. campaigns" && curr[i].name.text != "Foreign Relations Campaigns"){
+	if(x.name.text != "Budget reforms" && x.name.text != "Gov't sponsored sust. campaigns" && x.name.text != "Foreign Relations Campaigns"){
 		updateAvailTree(x, SpaceTree);
 		updateAvailTree(x, EnergyTree);
 		updateAvailTree(x, SustTree);
@@ -218,7 +218,7 @@ function updateAvailTech(x){
 		updateAvailTree(x, TerraTree);
 		updateAvailTree(x, MineralTree);
 		updateAvailTree(x, InfasTree);
-		var curr = getCurrentTechTree();
+		//var curr = getCurrentTechTree();
 		for(var i = 0; i < 6 && i < curr.length; i++){
 			pickColor(activeTech[i]);
 		}
