@@ -162,8 +162,8 @@ function displayHUDtext(){
         var yearsAppend = "";
         var monthsAppend = "";
         var daysAppend = "";
-        if(doomsDay-(getYears()+1) < 10) yearsAppend = "00";
-        else if(doomsDay-getYears() < 100) yearsAppend = "0";
+        if(doomsDay < 10) yearsAppend = "00";
+        else if(doomsDay < 100) yearsAppend = "0";
         if(12-getMonths() < 10) monthsAppend = "0";
         if(31-days < 10) daysAppend = "0";
         console.log(doomsDay);
