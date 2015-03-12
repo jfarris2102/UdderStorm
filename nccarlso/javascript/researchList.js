@@ -388,6 +388,42 @@ tech308.pre = ["Multinational Treaties","International Sustainability Council"];
 tech308.cost = 100;
 tech308.categ = econ;
 
+var tech309 = {};
+tech309.name = new TextBox("Eradicate Terrorism");
+tech309.desc = new TextBox("cost: 100 Research points.");
+tech309.avail = false;
+tech309.unlocked = false;
+tech309.pre = ["Multinational Treaties"];
+tech309.cost = 100;
+tech309.categ = econ;
+
+var tech310 = {};
+tech310.name = new TextBox("Universal currency");
+tech310.desc = new TextBox("cost: 100 Research points.");
+tech310.avail = false;
+tech310.unlocked = false;
+tech310.pre = ["Global Economy Manipulation"];
+tech310.cost = 100;
+tech310.categ = econ;
+
+var tech311 = {};
+tech311.name = new TextBox("Universal language");
+tech311.desc = new TextBox("cost: 100 Research points.");
+tech311.avail = false;
+tech311.unlocked = false;
+tech311.pre = ["Eradicate Terrorism","Third-World Country Reform", "Universal currency"];
+tech311.cost = 100;
+tech311.categ = econ;
+
+var tech312 = {};
+tech312.name = new TextBox("World Peace");
+tech312.desc = new TextBox("cost: 100 Research points.");
+tech312.avail = false;
+tech312.unlocked = false;
+tech312.pre = ["Universal language"];
+tech312.cost = 100;
+tech312.categ = econ;
+
 //End Econ Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -587,6 +623,7 @@ SpaceTree.push(tech106);
 var SustTree = [];
 SustTree.push(tech201);
 SustTree.push(tech202);
+SustTree.push(tech203);
 SustTree.push(tech204);
 SustTree.push(tech205);
 SustTree.push(tech206);
@@ -606,6 +643,10 @@ EconTree.push(tech305);
 EconTree.push(tech306);
 EconTree.push(tech307);
 EconTree.push(tech308);
+EconTree.push(tech309);
+EconTree.push(tech310);
+EconTree.push(tech311);
+EconTree.push(tech312);
 
 var TerraTree = [];
 TerraTree.push(tech401);
