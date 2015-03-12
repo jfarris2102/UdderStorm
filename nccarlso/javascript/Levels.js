@@ -180,5 +180,5 @@ function energyConsum(){
 		break;
 	}*/
 }
-function 
+ 
 
