@@ -337,7 +337,7 @@ function BuildingSize(model){
 //updates them to their proper values, increments our resource values,
 //and finally prints the resource variables to the console
 var moneyMult = 1;
-var up=0;
+
 function buildResource(){
 	moneyInc = 5 * moneyMult;
 	researchPoints += 10;
@@ -403,9 +403,7 @@ function updateResource(){
 	console.log(energy);
 	happiness += happyInc;
 	popMars += popInc;
-	//if(up%2==0)
 	popEarth += popEarth*growthRate;
-	up++;
 	air += airInc;
 	atmosphere += atmosInc;
 	temperature += tempInc;
