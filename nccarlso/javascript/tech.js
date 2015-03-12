@@ -295,10 +295,16 @@ techbg.y=0;
 techbg.image=Textures.load("images/terminal.png");
 
 function upgradeMults(x,y){
-	if(x == "Budget reforms") moneyMult++;
-	else if(x == "Increase international trade") moneyMult++;
+	if(x == "Increase international trade") moneyMult++;
 	else if(x == "Space exploring budgeting") moneyMult++;
 	else if(x == "Increase space trade") moneyMult++;
+	else if(x == "Global Economy Manipulation") moneyMult++;
+	else if(x == "Universal currency") moneyMult++;
+	else if(x == "Multinational Treaties") moneyMult++;
+	else if(x == "Third-World Country Reform") moneyMult++;
+	else if(x == "Eradicate Terrorism") moneyMult++;
+	else if(x == "Universal language") moneyMult++;
+	else if(x == "World Peace") moneyMult++;
 	else if(x == "Bladeless technology") buidlingUnlocked[9]=true;
 	else if(x == "Fast-neutron Reactor") buidlingUnlocked[18]=true;
 	else if(x == "Liquid Flouride Thorium Reactor") buidlingUnlocked[19]=true;

@@ -333,10 +333,11 @@ function BuildingSize(model){
 //updates them to their proper values, increments our resource values,
 //and finally prints the resource variables to the console
 var moneyMult = 1;
+var researchMult = 0;
 
 function buildResource(){
 	moneyInc = 5 * moneyMult;
-	researchPoints += 10;
+	researchPoints += (10+researchMult);
 	foodInc = 0;
 	waterInc = 0;
 	energyInc = 0;
