@@ -332,11 +332,8 @@ function BuildingSize(model){
 //sets all of our increment variables to 0,
 //updates them to their proper values, increments our resource values,
 //and finally prints the resource variables to the console
-var moneyMult = 1;
 
 function buildResource(){
-	moneyInc = 5 * moneyMult;
-	researchPoints += 10;
 	foodInc = 0;
 	waterInc = 0;
 	energyInc = 0;
@@ -390,7 +387,6 @@ function updateBuild(){ //Every 6 months game time
 //increases all resource variables by a predetermined amount
 //should be called regularly by a loop to run the game
 function updateResource(){
-	money += moneyInc;
 	food += foodInc;
 	water += waterInc;
 	minerals += mineralInc;
@@ -413,7 +409,11 @@ function resetVariables(){
 	air = 0.14;
 	minerals=1000; //Displayed in thousand tons
     energy=100; //Displayed in million BTU's
+<<<<<<< HEAD
 	money=800; //Displayed in millions
+=======
+	money=750; //Displayed in millions
+>>>>>>> 46ecd9659ed9b1e3b8bc24f74dc4744030221c53
 	popEarth=7.3; //Displayed in billions
 	atmosphere = 0.6;
 	temperature = -67;
@@ -428,7 +428,7 @@ function resetVariables(){
 	numberOf[live] = 0;
 	numberOf[days] = 0;
 	firstBuilding = true;
-	researchPoints = 250;
+	researchPoints = 500;
 	moneyMult = 1;
 	rocketType = 0;
 	damageFactor = 1;

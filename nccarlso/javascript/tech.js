@@ -181,11 +181,22 @@ function updateUnlockTree(x){
 	var curr = getCurrentTechTree();
 	for(var i = 0; i < curr.length; i++){
 		if(x.name.text.localeCompare(curr[i].name.text) == 0){
+<<<<<<< HEAD
 			if(curr[i].name.text == "Budget reforms" 
 			|| curr[i].name.text == "Gov't sponsored sust. campaigns" 
 			|| curr[i].name.text == "Foreign Relations Campaigns"){
 				
 				
+=======
+			if(curr[i].name.text == "Budget reforms"){
+				economyPoints += curr[i].cost;
+			}
+			else if (curr[i].name.text == "Gov't sponsored sust. campaigns"){
+				sustainabilityPoints += curr[i].cost;
+			}
+			else if(curr[i].name.text == "Foreign Relations Campaigns"){
+				diplomacyPoints += curr[i].cost;
+>>>>>>> 46ecd9659ed9b1e3b8bc24f74dc4744030221c53
 			}else{
 				if (typeof curr[i].categ !== undefined)
 					levelUp(curr[i].categ);
@@ -193,6 +204,9 @@ function updateUnlockTree(x){
 				upgradeMults(curr[i].name.text);
 			}
 			researchPoints -= curr[i].cost;
+			if(typeof(x.dcost) != "undefined") diplomacyPoints -= curr[i].cost;
+			if(typeof(x.ecost) != "undefined") economyPoints -= curr[i].cost;
+			if(typeof(x.scost) != "undefined") sustainabilityPoints -= curr[i].cost;
 		}
 	}
 }
@@ -228,11 +242,20 @@ function updateAvailTech(x){
 }
 
 function unlockTech(x){
+	var chkCost = true;
 	var indx = x-4;
 	if(indx < activeTech.length){
 		if(activeTech[indx].avail == true && activeTech[indx].unlocked == false && activeTech[indx].cost <= researchPoints){
-			updateUnlockTree(activeTech[indx]);
-			updateAvailTech(activeTech[indx]);
+			if(typeof(activeTech[indx].dcost) != "undefined")
+				if(activeTech[indx].dcost > diplomacyPoints) chkCost = false;
+			if(typeof(activeTech[indx].ecost) != "undefined")
+				if(activeTech[indx].ecost > economyPoints) chkCost = false;
+			if(typeof(activeTech[indx].scost) != "undefined")
+				if(activeTech[indx].scost > sustainabilityPoints) chkCost = false;
+			if(chkCost){
+				updateUnlockTree(activeTech[indx]);
+				updateAvailTech(activeTech[indx]);
+			}
 		}
 	}
 }
@@ -280,10 +303,16 @@ techbg.y=0;
 techbg.image=Textures.load("images/terminal.png");
 
 function upgradeMults(x,y){
-	if(x == "Budget reforms") moneyMult++;
-	else if(x == "Increase international trade") moneyMult++;
+	if(x == "Increase international trade") moneyMult++;
 	else if(x == "Space exploring budgeting") moneyMult++;
 	else if(x == "Increase space trade") moneyMult++;
+	else if(x == "Global Economy Manipulation") moneyMult++;
+	else if(x == "Universal currency") moneyMult++;
+	else if(x == "Multinational Treaties") moneyMult++;
+	else if(x == "Third-World Country Reform") moneyMult++;
+	else if(x == "Eradicate Terrorism") moneyMult++;
+	else if(x == "Universal language") moneyMult++;
+	else if(x == "World Peace") moneyMult++;
 	else if(x == "Bladeless technology") buidlingUnlocked[9]=true;
 	else if(x == "Fast-neutron Reactor") buidlingUnlocked[18]=true;
 	else if(x == "Liquid Flouride Thorium Reactor") buidlingUnlocked[19]=true;

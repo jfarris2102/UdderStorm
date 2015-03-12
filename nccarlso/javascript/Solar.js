@@ -6,6 +6,8 @@ and controls the sprites for all of the associated planets and rockets
 It also does the complicated operations necessary for launching a 
 rocket along a trajectory to Mars.
 */
+var moneyMult = 1;
+var researchMult = 0;
 
 var days = 0;
 var mult = 360;
@@ -196,6 +198,10 @@ function solarTime(){
 			RocketOffset+=(mult)/1000;
 		}
 		days += 1;
+		if (days%30 == 0){
+			money += 5 * moneyMult;
+			researchPoints += (10+researchMult);
+		}
 		if(days%182.5 == 0)
 		   buildResource();
 	}
