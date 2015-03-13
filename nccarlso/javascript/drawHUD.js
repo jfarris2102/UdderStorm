@@ -149,8 +149,8 @@ titleArr.push(climateText);
 function displayHUDtext(){
 	
 	//HUD bars
-	meter.x = 810 + Math.min(135, (1.35*TerraFormed));
-	hmeter.x = 810 + Math.min(135, (1.35*happiness));
+	//meter.x = 810 + Math.min(135, (1.35*TerraFormed));
+	//hmeter.x = 810 + Math.min(135, (1.35*happiness));
 	
 	//Check if time is up
     // if(doomsDay-getYears() < 1) 
