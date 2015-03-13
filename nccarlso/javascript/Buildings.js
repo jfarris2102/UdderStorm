@@ -183,7 +183,7 @@ for(var i = 1; i <= buildingTypes; i++){
 	buidlingUnlocked[i] = false;
 }
 
-for(var i = 1; i<=15; i++){
+for(var i = 1; i<=21; i++){
 	level[i] = 0;
 }
 /*level[7] = 0;

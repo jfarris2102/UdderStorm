@@ -92,7 +92,7 @@ tech8.avail = false;
 tech8.unlocked = false;
 tech8.pre = ["Space Frame turbine towers"];
 tech8.cost = 500;
-tech8.categ = turbine;
+//tech8.categ = turbine2;
 
 var tech9 = {};
 tech9.name = new TextBox("Bladeless Turbines");
@@ -302,7 +302,7 @@ tech211.avail = false;
 tech211.unlocked = false;
 tech211.pre = ["Autonomous vehicles"];
 tech211.cost = 1000;
-tech211.categ = sust3;
+tech211.categ = sust2;
 
 var tech212 = {};
 tech212.name = new TextBox("Net Zero Cities");
@@ -505,7 +505,6 @@ tech601.avail = true;
 tech601.unlocked = true;
 tech601.pre = [""];
 tech601.cost = 100;
-tech601.categ = comms;
 
 var tech602 = {};
 tech602.name = new TextBox("Satellite Dish Communications");
@@ -514,11 +513,10 @@ tech602.avail = true;
 tech602.unlocked = false;
 tech602.pre = ["Communications Array"];
 tech602.cost = 250;
-tech602.categ = comms;
 
 var tech603 = {};
 tech603.name = new TextBox("Greenhouses");
-tech603.desc = new TextBox("Glass roofed buildings used\nto produce food and a\nsmall amount of oxeygen.");
+tech603.desc = new TextBox("Glass roofed buildings used\nto produce food and a\nsmall amount of oxygen.");
 tech603.avail = true;
 tech603.unlocked = false;
 tech603.pre = ["Food Supply"];
@@ -559,7 +557,6 @@ tech607.avail = true;
 tech607.unlocked = true;
 tech607.pre = [""];
 tech607.cost = 100;
-tech607.categ = live;
 
 var tech608 = {};
 tech608.name = new TextBox("Living Centers");
@@ -568,7 +565,6 @@ tech608.avail = true;
 tech608.unlocked = false;
 tech608.pre = ["Living Quarters"];
 tech608.cost = 250;
-tech608.categ = live;
 
 var tech609 = {};
 tech609.name = new TextBox("Rovers");

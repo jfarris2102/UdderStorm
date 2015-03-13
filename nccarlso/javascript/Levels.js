@@ -6,12 +6,12 @@
  */
 var live = 1;
 var live2 = 2;
-var solar = 3;
+//var solar = 3;
 var photosyn = 4;
-var green = 5;
+//var green = 5;
 var pink = 6;
-var mine = 7;
-var turbine = 8;
+//var mine = 7;
+//var turbine = 8;
 var turbine2 = 9;
 var lab = 10;
 var lab2 = 11;
@@ -20,7 +20,10 @@ var factory = 13;
 var gravity = 14;
 var comms = 15;
 var comms2 = 16;
-var reactor = 17;
+//var reactor = 17;
+//var sust1 = 18;
+//var sust2 = 19;
+//var sust3 = 20;
 
 function greenResources(){
 	switch(getLevel(green)){
