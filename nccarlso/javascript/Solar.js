@@ -17,6 +17,9 @@ var LaunchQueued = false;
 var solarActive = false;
 var firstSolar = true;
 var doomsDay = 2065;
+
+var sfx=new Audio('sound/Rocket_Launch.mp3');
+
 function getYears(){
 	return 2015 + Math.floor(days/365.25);
 }
@@ -227,6 +230,7 @@ function Launch(){
 	Rocket.visible = true;
 	Launched = true;
 	LaunchQueued = false;
+    sfx.play();
 }
 
 
