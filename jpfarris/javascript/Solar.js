@@ -1,3 +1,14 @@
+/*
+Solar.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program governs the Solar system view of the game
+and controls the sprites for all of the associated planets and rockets
+It also does the complicated operations necessary for launching a 
+rocket along a trajectory to Mars.
+*/
+var moneyMult = 1;
+var researchMult = 0;
+
 var days = 0;
 var mult = 360;
 var RocketOffset = 0;
@@ -5,19 +16,18 @@ var Launched = false;
 var LaunchQueued = false;
 var solarActive = false;
 var firstSolar = true;
-
+var doomsDay = 2065;
 function getYears(){
-	return 2015 + Math.floor(days / 365);
+	return 2015 + Math.floor(days/365.25);
 }
 function getMonths(){
-	return Math.floor((days%365) / 31)%getDays() + 1;
+	return Math.floor(getDays()/30.4375) + 1;
 }
 function getDays(){
 	return days%365 + 1;
 }
 function getTimeToNextLaunch(){
-	console.log(getYears())
-	return 780-((days+77)%780); //Synodic period for Mars/Earth
+	return 707 - Math.floor((days%783.23)); //Synodic period for Mars/Earth
 }
 
 var SolarSystem = new Sprite();
@@ -157,31 +167,43 @@ function stopSolar() {
 		solarSprites[i].visible = false;
 }
 ///////////////////////////////////////////////////////
-	
 function solarTime(){
 	if(solarActive || marsActive || earthActive){
 		rotate88.rotation -= DTR(mult/88);
 		rotate225.rotation -= DTR(mult/225);
-		rotate365.rotation -= DTR(mult/365);
+		rotate365.rotation -= DTR(mult/365.25);
 		rotate27.rotation -= DTR(mult/27);
-		rotate687.rotation -= DTR(mult/687);
+		rotate687.rotation -= DTR(mult/686.98);
 		if (rotate88.rotation < -2*Math.PI) rotate88.rotation = 0;
 		if (rotate225.rotation < -2*Math.PI) rotate225.rotation = 0;
 		if (rotate365.rotation < -2*Math.PI) rotate365.rotation = 0;
 		if (rotate27.rotation < -2*Math.PI) rotate27.rotation = 0;
 		if (rotate687.rotation < -2*Math.PI) rotate687.rotation = 0;
-		if(getTimeToNextLaunch()<=1 && !Launched && !LaunchQueued)
+		if(getTimeToNextLaunch()<1 && !Launched && LaunchQueued)
 			Launch();
 		else if(Launched && RocketOffset > 80){
 			Rocket.visible = false;
 			RocketOffset = 0;
 			Launched = false;
+			popMars += popLaunch;
+			for(var i = 0; i < launchCargo.length; i++){
+				buidlingsAvailable[i] += launchCargo[i];
+			}
+			rocketStatus.text = "Inactive";
+			if(marsActive) buildingOnscreenCount.text = buidlingsAvailable[selection];
+			emptyLaunchCargo();
 		}else if(Launched){ //Rocket flight trajectory
 			Rocket.y = RocketOffset*3.5;
 			Rocket.x = 20+(((41*RocketOffset)/26)-((RocketOffset*RocketOffset)/26));
 			RocketOffset+=(mult)/1000;
 		}
-		days++;
+		days += 1;
+		if (days%30 == 0){
+			money += 5 * moneyMult;
+			researchPoints += (10+researchMult);
+		}
+		if(days%182.5 == 0)
+		   buildResource();
 	}
 }
 

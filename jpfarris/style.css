@@ -21,3 +21,21 @@ p {
     -1px 1px 0 #000,
     1px 1px 0 #000; 
 } 
+
+@font-face{
+    font-family: 'terminator';
+    src: url('fonts/terminator.ttf'),
+    url('fonts/terminator.eot'); /* IE */
+}
+
+@font-face{
+    font-family: 'BebasNeue';
+    src: url('fonts/BebasNeue.ttf'),
+    url('fonts/BebasNeue.eot'); /* IE */
+}
+
+@font-face{
+    font-family: 'bitwise';
+    src: url('fonts/bitwise.ttf'),
+    url('fonts/bitwise.eot'); /* IE */
+}

@@ -1,7 +1,20 @@
-//Start Menu Code
+
+/*
+StartMenu.js by Team UdderStorm
+A component of Get Your Ass to Mars
+This program creates and governs the main menu
+of the game, and allows the player to navigate from it 
+to the tutorial or a game.
+It also manages end conditions and the different stages of the game
+*/
+
+//sets several important variables
 use2D=true;
 var first = true;
+var canLoad = false;
 var tutorialActive = false;
+var startActive = true;
+var gameOverActive = false;
 
 var MainMenu = new Sprite();
 MainMenu.width = 960;
@@ -16,6 +29,13 @@ TutorialPage.height = 640;
 TutorialPage.x = 0;
 TutorialPage.y = 0;
 TutorialPage.image = Textures.load("images/Tutorial.jpg");
+
+var gameOver = new Sprite();
+gameOver.width = 960;
+gameOver.height = 640;
+gameOver.x = 0;
+gameOver.y = 0;
+gameOver.image = Textures.load("images/gameOver.jpg");
 
 //////////////////////////////////////////////////////////////////
 //Sprite Textures
@@ -159,17 +179,18 @@ function mouseHover(){
 }
 
 function start(){
+	startActive = true;
 	if(first){
 		initGame("canvas");
 		first = false;
+		world.addChild(manager);
+		gInput.addMouseDownListener(manager);
+		gInput.addMouseUpListener(manager);
 	} else {
 		world.removeChild(HUD);
 	}
 	world.addChild(MainMenu);
 	initSprites();
-	world.addChild(manager);
-	gInput.addMouseDownListener(manager);
-	gInput.addMouseUpListener(manager);
 	canvas.addEventListener("mousemove", mouseHover, false);
 	if(typeof timer != "undefined") {
 		clearInterval(timer);
@@ -180,6 +201,7 @@ function start(){
 }
 
 function stop(){
+	startActive = false;
 	canvas.removeEventListener("mousemove", mouseHover);
 	for(var i = 0; i < spritesMenu.length; i++){
 		world.removeChild(spritesMenu[i]);
@@ -187,10 +209,32 @@ function stop(){
 		world.removeChild(spritesHover[i]);
 		world.removeChild(MainMenu);
 	}
-	resourceTimer = setInterval(buildResource,6000);
+	//resourceTimer = setInterval(buildResource,6000);
 }
 
 function startTutorial(){
 	tutorialActive = true;
 	world.addChild(TutorialPage);
+}
+
+function stopTutorial(){
+	tutorialActive = false;
+	world.removeChild(TutorialPage);
+}
+
+function stopGameOver(){
+	gameOverActive = false;
+	world.removeChild(gameOver);
+}
+
+function gameOverMan(){
+	stopActive();
+	world.removeChild(HUD);
+	if(typeof timer != "undefined")
+		clearInterval(timer);
+	if(typeof resourceTimer != "undefined")
+		clearInterval(resourceTimer);
+	world.addChild(gameOver);
+	gameOverActive = true;
+	canLoad = false;
 }

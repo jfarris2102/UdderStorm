@@ -2654,6 +2654,8 @@ TextBox.prototype.borderDrawColor = "#000000";
 TextBox.prototype.borderFocusColor = "#ff0000";
 TextBox.prototype.drawBG = false;
 TextBox.prototype.border = 0;
+TextBox.prototype.shadowBlurCustom = 3;
+TextBox.prototype.shadowColorCustom = "#000000";
 //TextBox.prototype.dropShadow = false;
 //TextBox.prototype.center = false;
 TextBox.prototype.padTop = 2;
@@ -2792,8 +2794,8 @@ TextBox.prototype.redraw = function(dims){
 		bctx.lineWidth = 1;
 	}
 	if(this.dropShadow){
-		bctx.shadowBlur = 3;
-		bctx.shadowColor = "#000000";
+		bctx.shadowBlur = this.shadowBlurCustom;
+		bctx.shadowColor = this.shadowColorCustom;
 	}
 	bctx.fillStyle = this.color;
 	//bctx.fillText(this.text, this.padLeft, this.padTop-this.fontSize*(0.094-(this.fontSize/(this.fontSize*this.fontSize))));
