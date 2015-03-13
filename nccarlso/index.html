@@ -21,7 +21,7 @@
 			var popEarth= 7.3; //Displayed in billions
 			var money= 750; //Displayed in millions\
 			var popMars=0; //Displayed in ones
-			var happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+			var health=80; //Displayed as % (50 is content, <50 upset, >50 happy)
 			var research = 100;
 			var diplomacy = 100;
 			var economy = 100;
@@ -29,42 +29,37 @@
 			var damageFactor = 1;
 			var energyFactor = 1;
 			var growthRate = .012;
+			var gravForce = 3.7;
 			var years = 2015;
 			var months = 0;
 			var days = 0;
-	//Buildings
-	        //Energy
+	//Buildings for levels
 			var solar = 3;
+			var green = 5;
 			var turbine = 8;
 			var reactor = 17;
-			//Infrastructure
-			var green = 5;
-			var mine = 7;
-			//var comms = 4;
-			//var live = 1;
-		//	var lab = 8;
-			//Terraform
-		//	var photosyn = 9;
-		//	var gravity = 10;
-		//	var factory = 11;
-			//Space
-			var space = 12;
+			var sust1 = 18;
+			var sust2 = 19;
+			var sust3 = 20;
+			var terra1 = 21;
+			var terra2 = 22;
+			var terra3 = 23;
+			var terra4 = 24;
+			var terra5 = 25;
+			var mine = 26;
+			var space = 27;
+			var econ = 28;
 			//Resource incrementers
 	        var foodInc = 0;
 	        var waterInc = 0;
 	        var energyInc = 0;
 	        var mineralInc = 0;
-	        var happyInc = 0;
+	        var healthInc = 0;
 	        var popInc = 0;
 	        var airInc = 0;
 	        var resInc = 0;
 	        var atmosInc = 0;
 	        var tempInc = 0;
-	//Tech tree
-	        var sust1 = 18;
-	        var sust2 = 19;
-	        var sust3 = 20;
-	        var econ = 21;
 		</script>
 		<script src="javascript/Brine.js"></script>
 		<script src="javascript/Solar.js"></script>

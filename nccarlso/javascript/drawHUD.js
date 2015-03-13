@@ -66,7 +66,7 @@ var foodD="FOOD:  "+food;
 var waterD="WATER:  "+water;
 var atmosphereD= pad+atmosphere+" kPa";
 var temperatureD=temperature+" F";
-var happinessD="HAPPINESS:  "+happiness+"%";
+//var happinessD="HAPPINESS:  "+happiness+"%";
 
 var tText = new TextBox("TERRAFORM PROGRESS");
 var eText = new TextBox("EARTH");
@@ -177,7 +177,7 @@ function displayHUDtext(){
     else if(atmosphere<100) pad = "0";
     var atmosphereD= pad+atmosphere+" kPa";
     var temperatureD=temperature+" F";
-    var happinessD="HAPPINESS:  "+happiness+"%";
+   // var happinessD="HAPPINESS:  "+happiness+"%";
     
     text1.text = timeD;
     text2.text = moneyD;
@@ -197,6 +197,9 @@ function displayHUDtext(){
     text12.text = atmosphereD;
     text13.text = temperatureD;
     //text14.text = happinessD;
+    
+   meter.x = 810+getProgress()*140/100;
+   hmeter.x = 810+getHealth()*140/100;
     
   /*  textArr.push(text1);
     textArr.push(text2);

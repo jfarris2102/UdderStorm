@@ -183,7 +183,7 @@ for(var i = 1; i <= buildingTypes; i++){
 	buidlingUnlocked[i] = false;
 }
 
-for(var i = 1; i<=21; i++){
+for(var i = 1; i<=28; i++){
 	level[i] = 0;
 }
 /*level[7] = 0;
@@ -338,7 +338,7 @@ function buildResource(){
 	waterInc = 0;
 	energyInc = 0;
 	mineralInc = 0;
-	happyInc = 0;
+	healthInc = 0;
 	popInc = 0;
 	airInc = 0;
 	resInc = 0;
@@ -381,6 +381,9 @@ function updateBuild(){ //Every 6 months game time
 	mineResources();
 	commsResources();
 	energyConsum();
+	incPressure();
+	incTemperature();
+	getHealth();
 	console.log(energy);
 }
 
@@ -393,7 +396,7 @@ function updateResource(){
 	console.log(energy);
 	energy += energyInc;
 	console.log(energy);
-	happiness += happyInc;
+	health += healthInc;
 	popMars += popInc;
 	popEarth += popEarth*growthRate;
 	air += airInc;
@@ -414,7 +417,7 @@ function resetVariables(){
 	atmosphere = 0.6;
 	temperature = -67;
 	popMars=0; //Displayed in ones
-	happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+	health=80; //Displayed as % (50 is content, <50 upset, >50 happy)
 	numberOf[solar] = 0;
 	numberOf[turbine] = 0;
 	numberOf[photosyn] = 0;

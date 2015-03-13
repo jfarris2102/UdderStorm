@@ -442,38 +442,143 @@ tech401.avail = true;
 tech401.unlocked = false;
 tech401.pre = [""];
 tech401.cost = 100;
+tech401.categ = terra1;
 
 var tech402 = {};
-tech402.name = new TextBox("Magnetic field generation");
+tech402.name = new TextBox("Quantum Mechanics");
 tech402.desc = new TextBox("cost: 100 Research points.");
 tech402.avail = true;
 tech402.unlocked = false;
-tech402.pre = [""];
+tech402.pre = ["Nanochips"];
 tech402.cost = 100;
+tech402.categ = terra1;
 
 var tech403 = {};
-tech403.name = new TextBox("Photoelectrochemical cells");
+tech403.name = new TextBox("Force Field Generation");
 tech403.desc = new TextBox("cost: 100 Research points.");
 tech403.avail = true;
 tech403.unlocked = false;
-tech403.pre = [""];
+tech403.pre = ["Quantum Mechanics"];
 tech403.cost = 100;
+tech403.categ = terra1;
 
 var tech404 = {};
-tech404.name = new TextBox("Aluminized PET film");
+tech404.name = new TextBox("Artificial Gravity");
 tech404.desc = new TextBox("cost: 100 Research points.");
 tech404.avail = true;
 tech404.unlocked = false;
-tech404.pre = [""];
+tech404.pre = ["Force Field Generation"];
 tech404.cost = 100;
+tech404.categ = terra1;
 
 var tech405 = {};
-tech405.name = new TextBox("Aluminized PET film");
+tech405.name = new TextBox("Magnetic field generation");
 tech405.desc = new TextBox("cost: 100 Research points.");
 tech405.avail = true;
 tech405.unlocked = false;
 tech405.pre = [""];
 tech405.cost = 100;
+tech405.categ = terra2;
+
+var tech406 = {};
+tech406.name = new TextBox("Electromagnetic Grids");
+tech406.desc = new TextBox("cost: 100 Research points.");
+tech406.avail = true;
+tech406.unlocked = false;
+tech406.pre = ["Magnetic field generation"];
+tech406.cost = 100;
+tech406.categ = terra2;
+
+var tech407 = {};
+tech407.name = new TextBox("Planetary Magnetic Field");
+tech407.desc = new TextBox("cost: 100 Research points.");
+tech407.avail = true;
+tech407.unlocked = false;
+tech407.pre = ["Electromagnetic Grids","Liquid Flouride Thorium Reactor"];
+tech407.cost = 100;
+tech407.categ = terra2;
+
+var tech408 = {};
+tech408.name = new TextBox("Photoelectrochemical cells");
+tech408.desc = new TextBox("cost: 100 Research points.");
+tech408.avail = true;
+tech408.unlocked = false;
+tech408.pre = [""];
+tech408.cost = 100;
+tech408.categ = terra3;
+
+var tech409 = {};
+tech409.name = new TextBox("Photocatalytic water splitting");
+tech409.desc = new TextBox("cost: 100 Research points.");
+tech409.avail = true;
+tech409.unlocked = false;
+tech409.pre = ["Photoelectrochemical cells"];
+tech409.cost = 100;
+tech409.categ = terra3;
+
+var tech410 = {};
+tech410.name = new TextBox("Artifical Photosynthesis");
+tech410.desc = new TextBox("cost: 100 Research points.");
+tech410.avail = true;
+tech410.unlocked = false;
+tech410.pre = ["Photocatalytic water splitting"];
+tech410.cost = 100;
+tech410.categ = terra3;
+
+var tech411 = {};
+tech411.name = new TextBox("Aluminized PET film");
+tech411.desc = new TextBox("cost: 100 Research points.");
+tech411.avail = true;
+tech411.unlocked = false;
+tech411.pre = [""];
+tech411.cost = 100;
+//tech411.categ = terra4;
+
+var tech412 = {};
+tech412.name = new TextBox("Solar Sails");
+tech412.desc = new TextBox("cost: 100 Research points.");
+tech412.avail = true;
+tech412.unlocked = false;
+tech412.pre = ["Aluminized PET film"];
+tech412.cost = 100;
+//tech412.categ = terra4;
+
+var tech413 = {};
+tech413.name = new TextBox("Statites");
+tech413.desc = new TextBox("cost: 100 Research points.");
+tech413.avail = true;
+tech413.unlocked = false;
+tech413.pre = ["Solar Sails"];
+tech413.cost = 100;
+//tech413.categ = terra4;
+
+var tech414 = {};
+tech414.name = new TextBox("Orbital mirrors");
+tech414.desc = new TextBox("cost: 100 Research points.");
+tech414.avail = true;
+tech414.unlocked = false;
+tech414.pre = ["Statites"];
+tech414.cost = 100;
+tech414.categ = terra4;
+
+var tech415 = {};
+tech415.name = new TextBox("Chloroflourocarbon Production");
+tech415.desc = new TextBox("cost: 100 Research points.");
+tech415.avail = true;
+tech415.unlocked = false;
+tech415.pre = [""];
+tech415.cost = 100;
+//tech415.categ = terra5;
+
+var tech416 = {};
+tech416.name = new TextBox("CFC Rockets");
+tech416.desc = new TextBox("cost: 100 Research points.");
+tech416.avail = true;
+tech416.unlocked = false;
+tech416.pre = ["Chloroflourocarbon Production"];
+tech416.cost = 100;
+tech416.categ = terra5;
+
 //End Terraforming Tech
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Mineral Tech
@@ -521,7 +626,7 @@ tech603.avail = true;
 tech603.unlocked = false;
 tech603.pre = ["Food Supply"];
 tech603.cost = 200;
-tech603.categ = green;
+//tech603.categ = green;
 
 var tech604 = {};
 tech604.name = new TextBox("Pinkhouses");
@@ -530,7 +635,7 @@ tech604.avail = true;
 tech604.unlocked = false;
 tech604.pre = ["Greenhouses"];
 tech604.cost = 400;
-tech604.categ = green;
+//tech604.categ = green;
 
 var tech605 = {};
 tech605.name = new TextBox("Hydroponics");
@@ -650,6 +755,17 @@ TerraTree.push(tech402);
 TerraTree.push(tech403);
 TerraTree.push(tech404);
 TerraTree.push(tech405);
+TerraTree.push(tech406);
+TerraTree.push(tech407);
+TerraTree.push(tech408);
+TerraTree.push(tech409);
+TerraTree.push(tech410);
+TerraTree.push(tech411);
+TerraTree.push(tech412);
+TerraTree.push(tech413);
+TerraTree.push(tech414);
+TerraTree.push(tech415);
+TerraTree.push(tech416);
 
 var MineralTree = [];
 MineralTree.push(tech501);

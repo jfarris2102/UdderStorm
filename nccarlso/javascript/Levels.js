@@ -20,6 +20,7 @@ var factory = 13;
 var gravity = 14;
 var comms = 15;
 var comms2 = 16;
+var area = 144800000 //sq. m. area of Mars
 //var reactor = 17;
 //var sust1 = 18;
 //var sust2 = 19;
@@ -28,47 +29,27 @@ var comms2 = 16;
 function greenResources(){
 	switch(getLevel(green)){
 		case 0:
-		foodInc += getNumberOf(green)*5;
-		waterInc -= getNumberOf(green)*3;
-		airInc += getNumberOf(green)*.01;
-		energyInc -= getNumberOf(green)*1;
+		foodInc += getNumberOf(green)*5 + getNumberOf(pink)*6;
+		waterInc -= (getNumberOf(green)*3 + getNumberOf(pink)*2);
+		airInc += getNumberOf(green)*.01 + getNumberOf(pink)*.02;
+		energyInc -= (getNumberOf(green)*1 + getNumberOf(pink)*.5);
 		break;
 		case 1:
-		foodInc += getNumberOf(green)*7;
-		waterInc -= getNumberOf(green)*2;
-		airInc += getNumberOf(green)*.02;
-		energyInc -= getNumberOf(green)*.5;
+		foodInc += getNumberOf(green)*7 + getNumberOf(pink)*9;
+		waterInc -= (getNumberOf(green)*2 + getNumberOf(pink)*1);
+		airInc += getNumberOf(green)*.02 + getNumberOf(pink)*.03;
+		energyInc -= (getNumberOf(green)*.5 + getNumberOf(pink)*.2);
 		break;
 		case 2:
-		foodInc += getNumberOf(green)*9;
-		waterInc -= getNumberOf(green)*1;
-		airInc += getNumberOf(green)*.02;
-		energyInc -= getNumberOf(green)*.2;
+		foodInc += getNumberOf(green)*9 + getNumberOf(pink)*11;
+		waterInc -= (getNumberOf(green)*1 + getNumberOf(pink)*.5);
+		airInc += getNumberOf(green)*.02 + getNumberOf(pink)*.03;
+		energyInc -= (getNumberOf(green)*.2 + getNumberOf(pink)*.1);
 		break;
 		default:
 		break;
 	}
-	switch(getLevel(pink)){
-		case 0:
-		foodInc += getNumberOf(pink)*6;
-		waterInc -= getNumberOf(pink)*2;
-		airInc += getNumberOf(pink)*.02;
-		energyInc -= getNumberOf(pink)*.5;
-		break;
-		case 1:
-		foodInc += getNumberOf(pink)*9;
-		waterInc -= getNumberOf(pink)*1;
-		airInc += getNumberOf(pink)*.03;
-		energyInc -= getNumberOf(pink)*.2;
-		case 2:
-		foodInc += getNumberOf(pink)*11;
-		waterInc -= getNumberOf(pink)*.5;
-		airInc += getNumberOf(pink)*.03;
-		energyInc -= getNumberOf(pink)*.1;
-	}
-	foodInc -= popMars*.5;
-	waterInc -= popMars*.5;
-	airInc -= popMars*.001;
+	
 	console.log("green: ",energyInc);
 }
 function solarResources(){
@@ -129,7 +110,7 @@ function reactorResources(){
 	}
 	console.log("reactor: ",energyInc);
 }
-function mineResources(){
+function mineResources(){//needs adjusting
 	switch(getLevel(mine)){
 		case 0:
 		mineralInc += getNumberOf(mine)*.25;
@@ -159,9 +140,6 @@ function commsResources(){
 	console.log("comms: ",energyInc);
 }
 function liveResources(){
-	if(getNumberOf(live)+3*getNumberOf(live2) < popMars/5){
-		happyInc -= 2;
-	}
 	energyInc -= getNumberOf(live)*.3;
 	energyInc -= getNumberOf(live2)*.5;
 }
@@ -174,7 +152,7 @@ function photoResources(){
 function gravityResources(){
 	energyInc -= getNumberOf(gravity)*5;
 	console.log("gravity: ",energyInc);
-	atmosInc += getNumberOf(gravity)*.1;
+	gravForce = 3.7 + getNumberOf(gravity);
 }
 function energyConsum(){
 	var eFactorInc = 0;
@@ -225,5 +203,46 @@ function energyConsum(){
 		break;
 	}
 }
- 
 
+function incPressure(){
+	atmosInc += getNumberOf(factory)*200000*gravForce / area;
+	atmosInc += getNumberOf(reactor)*100000*gravForce / area;
+	atmosInc += getLevel(terra4)*400000*gravForce / area;
+	atmosInc += getLevel(terra5)*800000*gravForce / area;
+	if(getLevel(terra2)<3)
+	    atmosInc -= .04;
+}
+ 
+function incTemperature(){
+	if(atmosphere < 1) return;
+	tempInc += atmosphere/100;
+	tempInc += atmosphere/100*getLevel(terra4)*.1;
+}
+
+function getProgress(){
+	return (atmosphere/100 + air/20 + (temperature+68)/128)*100/3;
+}
+function getHealth(){
+	airInc -= popMars*.001;
+	
+	if (getLevel(terra2)<1) healthInc -= 2.5;
+	healthInc -= gravForce/9.8 - 1;
+	if(getNumberOf(live)+3*getNumberOf(live2) < popMars/5){
+		healthInc -= 2;
+	}
+	if (food < popMars*5){
+		foodInc -= popMars*.25;
+		healthInc -= 1;
+	}else foodInc -= popMars*.5;
+	if (water < popMars*5){
+		waterInc -= popMars*.25;
+		healthInc -= 1;
+	}else waterInc -= popMars*.5;
+	
+	if(healthInc == 0) healthInc = 1;
+	health += healthInc;
+	if(health < 0) health=0;
+	if(health > 100) health = 100;
+	
+	return health;
+}
