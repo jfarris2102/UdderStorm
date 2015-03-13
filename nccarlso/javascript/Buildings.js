@@ -62,6 +62,17 @@ comms1.isNode = 0;
 comms1.image = Textures.load("images/12.png");
 comms1.cost= 50;
 
+var comms2  = new Sprite();
+comms2.width = 40;
+comms2.height = 83;
+comms2.visible = false;
+comms2.id = "comms2";
+comms2.sx = 1;
+comms2.sy = 1;
+comms2.isNode = 0;
+comms2.image = Textures.load("images/4.png");
+comms2.cost= 100;
+
 var wind1  = new Sprite();
 wind1.width = 40;
 wind1.height = 90;
@@ -139,17 +150,6 @@ factory1.isNode = 0;
 factory1.image = Textures.load("images/11.png");
 factory1.cost= 350;
 
-var comms2  = new Sprite();
-comms2.width = 40;
-comms2.height = 83;
-comms2.visible = false;
-comms2.id = "comms2";
-comms2.sx = 1;
-comms2.sy = 1;
-comms2.isNode = 0;
-comms2.image = Textures.load("images/4.png");
-comms2.cost= 100;
-
 var wind2  = new Sprite();
 wind2.width = 40;
 wind2.height = 103;
@@ -166,7 +166,7 @@ var buildings = [];//creates an array to hold all of the placed buildings
 var beingBuilt = false;
 var buildingCount = 0;//the total number of placed buildings
 var maxBuildings = 250;//sets a cap for the number of buildings that can be placed
-var buildingTypes = 17; //# of different types of buildings that can be placed
+var buildingTypes = 19; //# of different types of buildings that can be placed
 var storeBuildings = 15;
 var factoryBuildings = 20;
 var buidlingsAvailable = []; //Array of building counts
@@ -236,8 +236,8 @@ buidlingUnlocked[3] = true;
 buidlingUnlocked[5] = true;
 buidlingUnlocked[8] = true;
 buidlingUnlocked[10] = true;
+buidlingUnlocked[14] = true;
 buidlingUnlocked[15] = true;
-buidlingUnlocked[17] = true;
 
 //returns a building sprite based on the current model id
 function getModel(model){
@@ -269,13 +269,17 @@ function getModel(model){
 	case 13:
         return factory1;
 	case 14:
-        return grav1;
-	case 15:
         return comms1;
-	case 16:
+	case 15:
         return comms2;
-	case 17:
+	case 16:
         return reactor1;
+	case 17:
+        return grav1;
+	case 18:
+        return grav1; //later Air exchanger
+	case 19:
+        return grav1; //later Magnetic field Generator
     default:
         return pop1;
 	}
@@ -382,6 +386,8 @@ function updateBuild(){ //Every 6 months game time
 	commsResources();
 	energyConsum();
 	console.log(energy);
+	increaseTerra(); //increases terra values
+	checkTerra(); //Check terraforming progress
 }
 
 //increases all resource variables by a predetermined amount

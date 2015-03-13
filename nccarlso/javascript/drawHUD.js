@@ -148,6 +148,10 @@ titleArr.push(climateText);
 //the world updates or whenever the display values change
 function displayHUDtext(){
 	
+	//HUD bars
+	meter.x = 810 + Math.min(135, (1.35*TerraFormed));
+	hmeter.x = 810 + Math.min(135, (1.35*happiness));
+	
 	//Check if time is up
     // if(doomsDay-getYears() < 1) 
     if(doomsDay + (12-getMonths()) + (31-getDays()%31) == 0) gameOverMan();
@@ -301,6 +305,7 @@ function stopActive(){
 	else if(techActive) stopTech();
 	else if(storeActive) stopStore();
 	else if (gameOverActive) stopGameOver();
+	else if (winActive) stopWin();
 	//else stop();
 }
 

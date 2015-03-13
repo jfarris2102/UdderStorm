@@ -15,6 +15,7 @@ var canLoad = false;
 var tutorialActive = false;
 var startActive = true;
 var gameOverActive = false;
+var win = false;
 
 var MainMenu = new Sprite();
 MainMenu.width = 960;
@@ -36,6 +37,13 @@ gameOver.height = 640;
 gameOver.x = 0;
 gameOver.y = 0;
 gameOver.image = Textures.load("images/gameOver.jpg");
+
+var win = new Sprite();
+win.width = 960;
+win.height = 640;
+win.x = 0;
+win.y = 0;
+win.image = Textures.load("images/win.jpg");
 
 //////////////////////////////////////////////////////////////////
 //Sprite Textures
@@ -236,5 +244,22 @@ function gameOverMan(){
 		clearInterval(resourceTimer);
 	world.addChild(gameOver);
 	gameOverActive = true;
+	canLoad = false;
+}
+
+function stopWin(){
+	winActive = false;
+	world.removeChild(win);
+}
+
+function Win(){
+	stopActive();
+	world.removeChild(HUD);
+	if(typeof timer != "undefined")
+		clearInterval(timer);
+	if(typeof resourceTimer != "undefined")
+		clearInterval(resourceTimer);
+	world.addChild(win);
+	winActive = true;
 	canLoad = false;
 }

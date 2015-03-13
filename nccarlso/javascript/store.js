@@ -14,9 +14,13 @@ shopbg.image=Textures.load("images/terminalShop.png");
 var storeActive = false;
 var costTexts = [];
 var ownedTexts = [];
+var buildingsStore = 15;
+var factoryStart = false;
 
 function startStore(){
 	storeActive = true;
+	if(factoryStart) buildingsStore = 19;
+	else buildingsStore = 15;
 	world.addChild(shopbg);
 	world.removeChild(HUD);
 	if(!LaunchQueued) rocketStatus.text = "Inactive";
@@ -29,10 +33,11 @@ function startStore(){
 
 function stopStore(){
 	storeActive = false;
+	factoryStart = false;
 	world.removeChild(shopbg);
 	world.removeChild(rocketStatus);
 	world.removeChild(cashStatus);
-	for(var i = 0; i < buildingTypes; i++){
+	for(var i = 0; i < buildingsStore; i++){
 		world.removeChild(costTexts[i]);
 		world.removeChild(ownedTexts[i]);
 	}
@@ -42,7 +47,7 @@ function stopStore(){
 }
 
 function updateStoreInfo(){
-	cashStatus.text = "Funds: " + money + " MIL";//   |   Next launch in " + getTimeToNextLaunch() + " days.";
+	cashStatus.text = "Funds:\n" + money + " mil\n\nLaunch in:\n" + (76+getTimeToNextLaunch()) + " days";
 }
 
 var rocketType = 0;
@@ -69,7 +74,7 @@ function checkStoreClicks(x, y) {
 		var yoffset = 0;
 		var xtemp = 0;
 		var ytemp = 0;
-		for(var i = 0; i < buildingTypes; i++){
+		for(var i = 0; i < buildingsStore; i++){
 			if(xtemp > 6){xtemp = 0; ytemp++};
 			xoffset = 170+(xtemp*91);
 			yoffset = 135+(ytemp*146);
@@ -81,7 +86,7 @@ function checkStoreClicks(x, y) {
 }
 
 function generateStoreText(){
-	for(var i = 0; i < buildingTypes; i++){ //Make a new array of textboxes
+	for(var i = 0; i < buildingsStore; i++){ //Make a new array of textboxes
 		var temp = new TextBox("");
 		temp.fontSize = costTextGeneric.fontSize;
 		temp.font = costTextGeneric.font;
@@ -108,11 +113,12 @@ function updateStoreText(){
 	var yoffset = 0;
 	var xtemp = 0;
 	var ytemp = 0;
-	for(var i = 0; i < buildingTypes; i++){
+	for(var i = 0; i < buildingsStore; i++){
 			if(xtemp > 6){xtemp = 0; ytemp++};
 			xoffset = 170+(xtemp*91);
 			yoffset = 135+(ytemp*146);
 			xtemp++;
+			console.log((i+1));
 			costTexts[i].text = (getModel(i+1).cost) +" mil";
 			ownedTexts[i].text = launchCargo[i+1];
 			costTexts[i].x = xoffset+40;
@@ -123,7 +129,7 @@ function updateStoreText(){
 }
 
 function purchaseBuilding(x){
-	if(x >= 1 && x<= buildingTypes){
+	if(x >= 1 && x <= buildingsStore){
 		if(!buidlingUnlocked[x]) alert("Building not unlocked, try purchasing some researches to unlock it.");
 		else if(money >= getModel(x).cost){
 			money -= (getModel(x).cost);
@@ -171,10 +177,10 @@ rocketStatus.dropShadow = true;
 rocketStatus.shadowColorCustom = '#91E8BC';
 rocketStatus.shadowBlurCustom = 4;
 
-var cashStatus = new TextBox("Funds: 0 MIL");
-cashStatus.x = 650;
-cashStatus.y = 95;
-cashStatus.fontSize = '16';
+var cashStatus = new TextBox("Funds:\n750 mil\n\nLaunch in:\n780 days");
+cashStatus.x = 630;
+cashStatus.y = 430;
+cashStatus.fontSize = '13';
 cashStatus.font = 'bitwise';
 cashStatus.color = '#CCFFCC';
 cashStatus.dropShadow = true;

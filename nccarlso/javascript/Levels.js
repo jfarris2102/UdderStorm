@@ -14,12 +14,12 @@ var pink = 6;
 //var turbine = 8;
 var turbine2 = 9;
 var lab = 10;
-var lab2 = 11;
-var lab3 = 12;
+var lab_2 = 11;
+var lab_3 = 12;
 var factory = 13;
 var gravity = 14;
 var comms = 15;
-var comms2 = 16;
+var comms_2 = 16;
 //var reactor = 17;
 //var sust1 = 18;
 //var sust2 = 19;
@@ -154,7 +154,7 @@ function mineResources(){
 }
 function commsResources(){
     energyInc -= getNumberOf(comms)*.5;
-	energyInc -= getNumberOf(comms2)*1;
+	energyInc -= getNumberOf(comms_2)*1;
 
 	console.log("comms: ",energyInc);
 }

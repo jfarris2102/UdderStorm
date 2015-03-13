@@ -329,7 +329,6 @@ function drawTileEngine() {
 	if(!checkOccupied(model, leftTile+HighlightX, topTile+HighlightY) && (checkNode(model, leftTile+HighlightX, topTile+HighlightY) || firstBuilding)){
 		if(placeBuilding && placeBuildingMode && buildingCount < maxBuildings && MouseCurrX < 800 && buidlingsAvailable[model] > 0){ //Places a building if possible
 			makeBuilding(model); //in Building.js
-			firstBuilding = false;
 			buildingCount++;
 			buidlingsAvailable[model]--;
 			buildingOnscreenCount.text = buidlingsAvailable[model];
@@ -340,6 +339,7 @@ function drawTileEngine() {
 					if(getModel(model).isNode == 1) tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].node = true;
 				}
 			}
+			if(numberOf[1] != 0)firstBuilding = false;
 			highlight.image =  Textures.load("images/highlight2.png");
 		}else highlight.image =  Textures.load("images/highlight.png");
 	}else highlight.image =  Textures.load("images/highlight2.png");
