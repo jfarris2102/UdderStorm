@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!--UdderStorm-->
+<!--A Certain HTML Index-->
 <!--Main Section-->
 <html>
 	<head>
@@ -7,27 +8,19 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<!--script src="http://code.jquery.com/jquery-1.7.1.min.js"></script-->
-		<script src="Brine.js"></script>
-		<script src="Solar.js"></script>
-		<script src="earth.js"></script>
-		<script src="tech.js"></script>
-		<script src="StartMenu.js"></script>
-		<script src="Buildings.js"></script>
-		<script src="drawHUD.js"></script>
-		<script src="Mars.js"></script>
 		<script type='text/javascript'>
 //Global Variables
 	//Resources
 			var food=50; //Displayed in food units (1 unit feeds a human for a year)
 			var water=50; //Displayed in water units (1 unit quenches a human for a year)
-			var air=.04; //Displayed as % of oxygen in atmosphere
-			var atmosphere = 20;
-			var temperature = 38;
+			var air=.14; //Displayed as % of oxygen in atmosphere
+			var atmosphere = 0.6;
+			var temperature = -67;
 			var minerals=1000; //Displayed in thousand tons
 			var energy=100; //Displayed in million BTU's
-			var money=100; //Displayed in millions
-			var popEarth=8; //Displayed in billions
-			var popMars=10; //Displayed in ones
+			var popEarth= 7.3; //Displayed in billions
+			var money= 750; //Displayed in millions\
+			var popMars=0; //Displayed in ones
 			var happiness=80; //Displayed as % (50 is content, <50 upset, >50 happy)
 			var research = 100;
 			var diplomacy = 100;
@@ -35,26 +28,28 @@
 	//Lifetime and gametime
 			var damageFactor = 1;
 			var energyFactor = 1;
+			var growthRate = .012;
 			var years = 2015;
 			var months = 0;
 			var days = 0;
 	//Buildings
 	        //Energy
-			var solar = 0;
-			var turbine = 0;
-			var reactor = 0;
+			var solar = 3;
+			var turbine = 5;
+			var reactor = 6;
 			//Infrastructure
-			var green = 0;
-			var mine = 0;
-			var comms = 0;
-			var live = 0;
-			var lab = 0;
+			var green = 2;
+			var mine = 7;
+			var comms = 4;
+			var live = 1;
+			var lab = 8;
 			//Terraform
-			var photosyn = 0;
-			var gravity = 0;
-			var magnet = 0;
-			/*Resource incrementers
-		    var moneyInc = 0;
+			var photosyn = 9;
+			var gravity = 10;
+			var factory = 11;
+			//Space
+			var space = 12;
+			//Resource incrementers
 	        var foodInc = 0;
 	        var waterInc = 0;
 	        var energyInc = 0;
@@ -62,8 +57,26 @@
 	        var happyInc = 0;
 	        var popInc = 0;
 	        var airInc = 0;
-	        var resInc = 0;*/
+	        var resInc = 0;
+	        var atmosInc = 0;
+	        var tempInc = 0;
+	//Tech tree
+	        var sust1 = 13;
+	        var sust2 = 14;
+	        var sust3 = 15;
+	        var econ = 16;
 		</script>
+		<script src="javascript/Brine.js"></script>
+		<script src="javascript/Solar.js"></script>
+		<script src="javascript/earth.js"></script>
+		<script src="javascript/researchList.js"></script>
+		<script src="javascript/tech.js"></script>
+		<script src="javascript/store.js"></script>
+		<script src="javascript/Buildings.js"></script>
+		<script src="javascript/StartMenu.js"></script>
+		<script src="javascript/Levels.js"></script>
+		<script src="javascript/drawHUD.js"></script>
+		<script src="javascript/Mars.js"></script>
 	</head>
 	<body onload="initGame('canvas'); start(); initSolar();">
 		<!--Main Game Canvas-->
