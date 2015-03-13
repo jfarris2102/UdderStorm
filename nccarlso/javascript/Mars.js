@@ -9,11 +9,12 @@ of sandy soil and rocky soil, with scattered larger rocks.
 */
 var marsActive = false;
 var firstBuilding = true;
-document.oncontextmenu=function (){ return false;}
+document.oncontextmenu=function (){return false;}
 function startMars(){
 	marsActive = true;
 	drawTileEngine();
 	canvas.addEventListener("mousemove", drawTileEngine, false);
+	dustStorm.visible = true;
 	redrawHUD();
 }
 
@@ -25,6 +26,7 @@ function stopMars(){
 	highlight.alpha = 0;
 	placing.alpha = 0;
 	highlightM.alpha = 0;
+	dustStorm.visible = false;
 	canvas.removeEventListener("mousemove", drawTileEngine);
 }
 
@@ -59,7 +61,7 @@ var tileSize=40;
 //variable holds the # of tiles per line
 var tilesPerLine= Math.floor(worldSize/tileSize);
 //Variables for the display functions
-//should be how big the canvas is
+//should be how big the canvas is -160 for HUD
 var drawHeight=640;
 var drawWidth=800;
 //holds the displayed number visual tiles
@@ -67,6 +69,18 @@ var drawTileWidth = Math.floor(drawWidth/tileSize);
 var drawTileHeight = Math.floor(drawHeight/tileSize);
 
 //Sprite stuff
+var dustStorm  = new Sprite();
+dustStorm.width = 1920;
+dustStorm.height = 1280;
+dustStorm.x = -960;
+dustStorm.y = -640;
+dustStorm.x = 0;
+dustStorm.visible = false;
+dustStorm.image = Textures.load("images/dustStorm.png");
+world.addChild(dustStorm);
+var dustPosX = -960;
+var dustPosY = -640;
+
 var sandSprite  = new Sprite();
 sandSprite.width = tileSize;
 sandSprite.height = tileSize;
@@ -332,6 +346,8 @@ function drawTileEngine() {
 	if(dragging){
 		myX -= MouseCurrX-MousePrevX;
 		myY -= MouseCurrY-MousePrevY;
+		dustPosX += MouseCurrX-MousePrevX;
+		dustPosY += MouseCurrY-MousePrevY;
 		//edge of screen
 		if(myX < drawWidth/2) myX = drawWidth/2;
 		else if(myX > worldSize-(drawWidth)-tileSize*2) myX = worldSize-(drawWidth)-tileSize*2;

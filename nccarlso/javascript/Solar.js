@@ -204,6 +204,19 @@ function solarTime(){
 		}
 		if(days%182.5 == 0)
 		   buildResource();
+		if(marsActive){
+			dustPosX+=5;
+			if(dustPosX >= 0)
+				dustPosX -= 960;
+			else if(dustPosX < -960)
+				dustPosX += 960;
+			if(dustPosY >= 0)
+				dustPosY -= 640;
+			else if(dustPosY < -640)
+				dustPosY += 640;
+			dustStorm.x=dustPosX;
+			dustStorm.y=dustPosY;
+		}
 	}
 }
 

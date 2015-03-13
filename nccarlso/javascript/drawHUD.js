@@ -149,7 +149,7 @@ titleArr.push(climateText);
 function displayHUDtext(){
 	
 	//Check if time is up
-   // if(doomsDay-getYears() < 1) 
+    // if(doomsDay-getYears() < 1) 
     if(doomsDay + (12-getMonths()) + (31-getDays()%31) == 0) gameOverMan();
     
     //clearText();
@@ -215,16 +215,7 @@ function displayHUDtext(){
     textArr.push(text13);
     textArr.push(text14);*/
     
-    if(marsActive || solarActive){
-        //Mars/solar activate
-      //  for(var i = 0; i < textArr.length; i++){
-           /* textArr[i].font = 'BebasNeue';
-            textArr[i].fontSize = '20';
-            textArr[i].padLeft = canvas.width - 150;
-            textArr[i].padTop = 30*(i+1);*/
-        //    world.addChild(textArr[i]);
-     //   }
-    }else if(earthActive){
+	if(earthActive){
         //Doomsday stuff
         doomsDay = getLifetime();
         var yearsAppend = "";
@@ -238,16 +229,6 @@ function displayHUDtext(){
         //Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
         Countdown.text = yearsAppend+(doomsDay/*-(getYears()+1)*/)+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
         console.log(Countdown.text);
-        //Earth activate
-       // for(var i = 0; i < textArr.length; i++){
-            /*textArr[i].font = 'BebasNeue';
-            textArr[i].fontSize = '20';
-            textArr[i].padLeft = canvas.width - 150;
-            textArr[i].padTop = 30*(i+1);*/
-      //      world.addChild(textArr[i]);
-       // }
-    }else if(solarActive){
-        //Solar System text
     }else if(techActive){
         updateTechInfo();
     }else if(storeActive){
@@ -256,6 +237,10 @@ function displayHUDtext(){
 }
 
 function redrawHUD(){
+	if(marsActive){ //dust effect
+		world.removeChild(dustStorm);
+		world.addChild(dustStorm);
+	}
 	world.removeChild(HUD);
 	world.removeChild(terrBar);
 	world.removeChild(healthBar);
