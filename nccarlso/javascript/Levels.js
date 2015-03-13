@@ -19,12 +19,8 @@ var lab_3 = 12;
 var factory = 13;
 var gravity = 14;
 var comms = 15;
-<<<<<<< HEAD
 var comms2 = 16;
 var area = 144800000 //sq. m. area of Mars
-=======
-var comms_2 = 16;
->>>>>>> 22210a66149ae42928917d440302fdea0a1d3b5e
 //var reactor = 17;
 //var sust1 = 18;
 //var sust2 = 19;
