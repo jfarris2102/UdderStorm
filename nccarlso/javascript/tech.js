@@ -46,7 +46,10 @@ researchPointsTextbox.shadowBlurCustom = 4;
 ////////////////////////////////////////////////////////////
 
 function pickColor(x){
-	if (x.unlocked == true){
+	if(x.name.text == "Budget reforms" || x.name.text == "Gov't sponsored sust. campaigns" || x.name.text == "Foreign Relations Campaigns"){
+		x.name.color = '#66FFFF';
+	}
+	else if (x.unlocked == true){
 		x.name.color = '#00FF00';
 	}
 	else if (x.avail == true){
