@@ -188,6 +188,7 @@ function mouseHover(){
 }
 
 function start(){
+    pause_song();
 	startActive = true;
 	if (tut==false) {
 	    sfx_theme.load();
