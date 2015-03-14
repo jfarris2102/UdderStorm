@@ -127,7 +127,7 @@ __________________________________________________________________________
 Justin Farris 2/20-2/27
 
 Established global variables for resources and buildings and determined each 
-building�s functions.
+building's functions.
 
 Developed resource generation algorithms based on building types and amounts, according to our game 
 time - real time relationshipIntegrated javascript files in order to properly generate resources based 
@@ -141,6 +141,8 @@ Fully solidified a tech tree
 Completed the algorithm to calculate the remaining lifetime of earth
 Completed resource updates based on current levels of all buildings
 Recorded some music to be edited and eventually added to the game
+
+Justin Farris - 3/7 - 
 
 __________________________________________________________________________
 
