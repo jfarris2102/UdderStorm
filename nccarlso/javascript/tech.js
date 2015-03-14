@@ -233,9 +233,9 @@ function updateUnlockTree(x){
 				upgradeMults(curr[i].name.text, curr[i]);
 			}
 			researchPoints -= curr[i].cost;
-			if(typeof(x.dcost) != "undefined") diplomacyPoints -= curr[i].cost;
-			if(typeof(x.ecost) != "undefined") economyPoints -= curr[i].cost;
-			if(typeof(x.scost) != "undefined") sustainabilityPoints -= curr[i].cost;
+			if(typeof(x.dcost) != "undefined") diplomacyPoints -= curr[i].dcost;
+			if(typeof(x.ecost) != "undefined") economyPoints -= curr[i].ecost;
+			if(typeof(x.scost) != "undefined") sustainabilityPoints -= curr[i].scost;
 		}
 	}
 }
