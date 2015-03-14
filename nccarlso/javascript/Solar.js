@@ -20,6 +20,7 @@ var doomsDay = 50;
 
 var sfx_launch=new Audio('sound/Rocket_Launch.mp3');
 var sfx_amb=new Audio('sound/space.mp3');
+sfx_amb.loop=true;
 
 function getYears(){
 	return 2015 + Math.floor(days/365.25);

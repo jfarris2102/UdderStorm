@@ -35,7 +35,6 @@ function stopMars(){
 	dustStorm.visible = false;
 	canvas.removeEventListener("mousemove", drawTileEngine);
 	sfx.pause();
-	sfx.load();
 }
 
 function newGameMars(){
