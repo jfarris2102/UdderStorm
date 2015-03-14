@@ -345,9 +345,10 @@ function drawTileEngine() {
 				for(var j = 0; j < BuildingSize(model).sx; j++){
 					tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].occupied = true;
 					if(getModel(model).isNode == 1) tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].node = true;
+					else if(getModel(model).isNode == 2) tileGrid[xOff-Math.floor((right/2))][yOff-top].node = true;
 				}
 			}
-			if(numberOf[1] != 0)firstBuilding = false;
+			if(numberOf[1] != 0 || numberOf[2] != 0) firstBuilding = false;
 			highlight.image =  Textures.load("images/highlight2.png");
 		}else highlight.image =  Textures.load("images/highlight.png");
 	}else highlight.image =  Textures.load("images/highlight2.png");
