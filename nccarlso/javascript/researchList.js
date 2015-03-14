@@ -590,7 +590,7 @@ tech416.categ = terra5;
 //Mineral Tech
 
 var tech501 = {};
-tech501.name = new TextBox("Mining drills");
+tech501.name = new TextBox("Mining Drills");
 tech501.desc = new TextBox("unlocked by default");
 tech501.avail = true;
 tech501.unlocked = true;
@@ -604,6 +604,54 @@ tech502.avail = true;
 tech502.unlocked = true;
 tech502.pre = [""];
 tech502.cost = 0;
+
+var tech503 = {};
+tech503.name = new TextBox("Mining Rovers");
+tech503.desc = new TextBox("cost: 250 Research points.");
+tech503.avail = true;
+tech503.unlocked = false;
+tech503.pre = ["Mining Drills"];
+tech503.cost = 250;
+
+var tech504 = {};
+tech504.name = new TextBox("Laboratory");
+tech504.desc = new TextBox("cost: 250 Research points.");
+tech504.avail = true;
+tech504.unlocked = false;
+tech504.pre = ["Research 'Tent'"];
+tech504.cost = 250;
+
+var tech505 = {};
+tech505.name = new TextBox("Subterranean Drill Rigs");
+tech505.desc = new TextBox("cost: 450 Research points.");
+tech505.avail = false;
+tech505.unlocked = false;
+tech505.pre = ["Mining Rovers"];
+tech505.cost = 450;
+
+var tech506 = {};
+tech506.name = new TextBox("Research Center");
+tech506.desc = new TextBox("cost: 450 Research points.");
+tech506.avail = false;
+tech506.unlocked = false;
+tech506.pre = ["Laboratory"];
+tech506.cost = 450;
+
+var tech507 = {};
+tech507.name = new TextBox("Drilling Stations");
+tech507.desc = new TextBox("cost: 750 Research points.");
+tech507.avail = false;
+tech507.unlocked = false;
+tech507.pre = ["Subterranean Drill Rigs"];
+tech507.cost = 750;
+
+var tech508 = {};
+tech508.name = new TextBox("Factory");
+tech508.desc = new TextBox("cost: 1200 Research points.");
+tech508.avail = false;
+tech508.unlocked = false;
+tech508.pre = ["Drilling Stations","Research Center"];
+tech508.cost = 1200;
 
 
 //End Mineral Tech
@@ -776,6 +824,12 @@ TerraTree.push(tech416);
 var MineralTree = [];
 MineralTree.push(tech501);
 MineralTree.push(tech502);
+MineralTree.push(tech503);
+MineralTree.push(tech504);
+MineralTree.push(tech505);
+MineralTree.push(tech506);
+MineralTree.push(tech507);
+MineralTree.push(tech508);
 
 var InfasTree = [];
 InfasTree.push(tech601);
