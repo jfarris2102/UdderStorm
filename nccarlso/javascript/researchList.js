@@ -323,7 +323,7 @@ tech212.categ = sust1;
 //Start Econ/Diplomacy
 var tech301 = {};
 tech301.name = new TextBox("Budget reforms");
-tech301.desc = new TextBox("Generates 50 Economy points increase. \ncost 50 Research points.");
+tech301.desc = new TextBox("Generates 50 Economy points. Can be done \nmore than once. cost 50 Research points.");
 tech301.avail = true;
 tech301.unlocked = false;
 tech301.pre = [""];
