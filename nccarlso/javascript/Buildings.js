@@ -474,13 +474,13 @@ function updateBuild(){ //Every 6 months game time
 //increases all resource variables by a predetermined amount
 //should be called regularly by a loop to run the game
 function updateResource(){
+	health += healthInc;
 	food += foodInc;
 	water += waterInc;
 	minerals += mineralInc;
 	console.log(energy);
 	energy += energyInc;
 	console.log(energy);
-	health += healthInc;
 	popMars += popInc;
 	popEarth += popEarth*growthRate;
 	air += airInc;

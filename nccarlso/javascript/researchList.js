@@ -332,48 +332,54 @@ tech301.categ = econ;
 
 var tech302 = {};
 tech302.name = new TextBox("Increase international trade");
-tech302.desc = new TextBox("International trade is good for business,\nfunding increased. cost: 150 Research points.");
+tech302.desc = new TextBox("International trade is good for business,\nfunding increased. cost: 150 Economy points and\n150 Diplomacy points");
 tech302.avail = true;
 tech302.unlocked = false;
 tech302.pre = ["Budget reforms", "Foreign Relations Campaigns"]; //Need to add another
-tech302.cost = 150;
+tech302.cost = 0;
+tech302.dcost = 150;
+tech302.ecost = 150;
 tech302.categ = econ;
 
 var tech303 = {};
 tech303.name = new TextBox("Space exploring budgeting");
-tech303.desc = new TextBox("Constant lobbying has payed off leading to\nincreased space exploration funding.\ncost: 150 Diplomacy points.");
+tech303.desc = new TextBox("Constant lobbying has payed off leading to\nincreased space exploration funding.\ncost: 150 Economy points");
 tech303.avail = true;
 tech303.unlocked = false;
 tech303.pre = ["Budget reforms"];
-tech303.cost = 150;
+tech303.cost = 0;
+tech303.ecost = 150;
 tech303.categ = econ;
 
 var tech304 = {};
 tech304.name = new TextBox("Increase space trade");
-tech304.desc = new TextBox("Stimulation in the space materials/technology\nmarket, leads to an increase in funding.\ncost: 250 Diplomacy points.");
+tech304.desc = new TextBox("Stimulation in the space materials/technology\nmarket, leads to an increase in funding.\ncost: 200 Diplomacy points and 200 Economy points.");
 tech304.avail = false;
 tech304.unlocked = false;
 tech304.pre = ["Increase international trade", "Space exploring budgeting"];
-tech304.cost = 250;
+tech304.cost = 0;
+tech304.ecost = 200;
+tech304.dcost = 200;
 tech304.categ = econ;
 
 var tech305 = {};
 tech305.name = new TextBox("Foreign Relations Campaigns");
-tech305.desc = new TextBox("Generates 50 Diplomacy points.\ncost: 50 Research points and $5 mil.");
+tech305.desc = new TextBox("Generates 50 Diplomacy points.\ncost: 50 Research points.");
 tech305.avail = true;
 tech305.unlocked = false;
 tech305.pre = [""];
 tech305.cost = 50;
-//tech305.mcost = 5;
 tech305.categ = econ;
 
 var tech306 = {};
 tech306.name = new TextBox("Global Economy Manipulation");
-tech306.desc = new TextBox("Use your diplomatic relations to your advantage,\nreforming the global economy and\nincreasing cash flow. cost: 250 Diplomacy points.");
+tech306.desc = new TextBox("Use diplomatic ties to reform the global\neconomy and increase cash flow.\n cost: 250 Diplomacy points and 250 Economy points");
 tech306.avail = false;
 tech306.unlocked = false;
 tech306.pre = ["Increase international trade"];
-tech306.cost = 250;
+tech306.dcost = 250;
+tech306.ecost = 250;
+tech306.cost = 0;
 tech306.categ = econ;
 
 var tech307 = {};

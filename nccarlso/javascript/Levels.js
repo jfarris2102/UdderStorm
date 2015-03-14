@@ -25,6 +25,7 @@ var area = 144800000 //sq. m. area of Mars
 //var sust1 = 18;
 //var sust2 = 19;
 //var sust3 = 20;
+var researchCap;
 
 function greenResources(){
 	switch(getLevel(green)){
@@ -133,15 +134,17 @@ function mineResources(){//needs adjusting
 	}
 	console.log("mine: ",energyInc);
 }
-function commsResources(){
+function researchResources(){
     energyInc -= getNumberOf(comms)*.5;
 	energyInc -= getNumberOf(comms_2)*1;
-
+    researchCap = 5*getNumberOf(comms) + 10*getNumberOf(comms2);
+    resInc += 5*getNumberOf(lab) + 10*getNumberOf(lab_2) + 20*getNumberOf(lab_3);
+    if(resInc > researchCap) resInc = researchCap;
 	console.log("comms: ",energyInc);
 }
 function liveResources(){
-	energyInc -= getNumberOf(live)*.3;
-	energyInc -= getNumberOf(live2)*.5;
+	energyInc -= getNumberOf(live)*.1;
+	energyInc -= getNumberOf(live2)*.2;
 }
 function photoResources(){
 	airInc += getNumberOf(photosyn)*.01;
@@ -219,9 +222,6 @@ function incTemperature(){
 	tempInc += atmosphere/100*getLevel(terra4)*.1;
 }
 
-function getProgress(){
-	return (atmosphere/100 + air/20 + (temperature+68)/128)*100/3;
-}
 function getHealth(){
 	airInc -= popMars*.001;
 	
