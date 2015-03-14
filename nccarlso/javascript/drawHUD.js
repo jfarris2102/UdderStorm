@@ -360,6 +360,11 @@ manager.onMouseDown = function () {
 
 //When button MouseUp
 manager.onMouseUp = function () {
+	if (tutorialEActive){
+		return;
+	} else if (tutorialMActive) {
+		return;
+	}
 	if(marsActive){
 		placeBuilding = true;
 		dragging = false;
