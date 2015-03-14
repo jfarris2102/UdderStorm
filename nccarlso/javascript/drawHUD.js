@@ -477,13 +477,11 @@ manager.onMouseUp = function () {
 //Music
 var sfx_arr=[];
 var curr=0;
-var end=false;
-var temp=new Audio('sound/Rocket_launch.mp3');
+var end=false;;
 var song_1=new Audio('sound/1.mp3');
 var song_2=new Audio('sound/2.mp3');
 var song_3=new Audio('sound/3.mp3');
 var song_4=new Audio('sound/4.mp3');
-sfx_arr.push(temp);
 sfx_arr.push(song_1);
 sfx_arr.push(song_2);
 sfx_arr.push(song_3);
