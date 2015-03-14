@@ -421,7 +421,7 @@ function updateBuild(){ //Every 6 months game time
 	photoResources();
 	gravityResources();
 	mineResources();
-	commsResources();
+	researchResources();
 	energyConsum();
 	incPressure();
 	incTemperature();
@@ -434,7 +434,7 @@ function updateBuild(){ //Every 6 months game time
 //increases all resource variables by a predetermined amount
 //should be called regularly by a loop to run the game
 function updateResource(){
-	health += healthInc;
+	//health += healthInc;
 	food += foodInc;
 	water += waterInc;
 	minerals += mineralInc;
@@ -445,6 +445,7 @@ function updateResource(){
 	popEarth += popEarth*growthRate;
 	air += airInc;
 	atmosphere += atmosInc;
+	if(atmosphere>100) atmosphere = 100;
 	temperature += tempInc;
 }
 

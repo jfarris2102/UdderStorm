@@ -388,7 +388,8 @@ tech307.desc = new TextBox("Push towards world peace and establish better \nfore
 tech307.avail = false;
 tech307.unlocked = false;
 tech307.pre = ["Increase international trade"];
-tech307.cost = 100;
+tech307.dcost = 100;
+tech307.cost = 0;
 tech307.categ = econ;
 
 var tech308 = {};
@@ -397,7 +398,8 @@ tech308.desc = new TextBox("Work towards building a better world by supporting\n
 tech308.avail = false;
 tech308.unlocked = false;
 tech308.pre = ["Multinational Treaties","International Sustainability Council"];
-tech308.cost = 500;
+tech308.dcost = 500;
+tech308.cost = 0;
 tech308.categ = econ;
 
 var tech309 = {};
@@ -406,7 +408,8 @@ tech309.desc = new TextBox("Use your growing global relations to eradicate \nter
 tech309.avail = false;
 tech309.unlocked = false;
 tech309.pre = ["Multinational Treaties"];
-tech309.cost = 1000;
+tech309.dcost = 1000;
+tech309.cost = 0;
 tech309.categ = econ;
 
 var tech310 = {};
@@ -415,7 +418,8 @@ tech310.desc = new TextBox("Solidify the global economy and global\ncommunity by
 tech310.avail = false;
 tech310.unlocked = false;
 tech310.pre = ["Global Economy Manipulation"];
-tech310.cost = 200;
+tech310.dcost = 200;
+tech310.cost = 0;
 tech310.categ = econ;
 
 var tech311 = {};
@@ -424,7 +428,8 @@ tech311.desc = new TextBox("Get one step closer to world peace and cooperation\n
 tech311.avail = false;
 tech311.unlocked = false;
 tech311.pre = ["Eradicate Terrorism","Third-World Country Reform", "Universal currency"];
-tech311.cost = 200;
+tech311.cost = 0;
+tech311.dcost = 200;
 tech311.categ = econ;
 
 var tech312 = {};
@@ -433,7 +438,8 @@ tech312.desc = new TextBox("Achieve total world peace. Human civilization\n is n
 tech312.avail = false;
 tech312.unlocked = false;
 tech312.pre = ["Universal language"];
-tech312.cost = 500;
+tech312.dcost = 500;
+tech312.cost = 0;
 tech312.categ = econ;
 
 //End Econ Tech
@@ -613,7 +619,7 @@ tech502.cost = 0;
 
 var tech503 = {};
 tech503.name = new TextBox("Mining Rovers");
-tech503.desc = new TextBox("cost: 250 Research points.");
+tech503.desc = new TextBox("These gathercost: 250 Research points.");
 tech503.avail = true;
 tech503.unlocked = false;
 tech503.pre = ["Mining Drills"];
