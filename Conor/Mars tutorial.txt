@@ -1,0 +1,19 @@
+Welcome to the Martian Surface!
+Here you can build your colony using 
+buildings that you have purchased and 
+sent over via rocket.
+
+To navigate, click and drag the mouse on 
+the screen. Take care not to get lost.
+
+To begin building, press "S." Then,
+cycle between different building types
+by pressing "A" and "D." Pressing S again
+will end the building process. 
+Note that certain buildings can't be constructed
+unless they're adjacent to a population center.
+
+When you've finished building, use the buttons 
+in the bottom right to navigate back to the
+Control Room to research new technologies and
+launch more buildings. 
