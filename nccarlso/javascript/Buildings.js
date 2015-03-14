@@ -312,12 +312,10 @@ function makeGhost(model){
 
 //Starter buildings
 buidlingUnlocked[1] = true;
-buidlingUnlocked[3] = true;
 buidlingUnlocked[5] = true;
 buidlingUnlocked[8] = true;
 buidlingUnlocked[10] = true;
 buidlingUnlocked[14] = true;
-buidlingUnlocked[15] = true;
 
 //returns a building sprite based on the current model id
 function getModel(model){
