@@ -1,0 +1,41 @@
+//this might be a bit much for one pop-up, so you might consider splitting 
+//it into 2-5 different windows.
+
+Welcome to the Control Room!
+This will be where you handle the 
+logistics of your Mars mission.
+
+The most obvious feature of the Control Room is 
+the massive "Doomsday Clock" in the upper left,
+which counts down the time you have left until
+the inevitable death of the earth. Hopefully 
+you can successfully colonize Mars before it
+reaches zero.
+
+If you click on the technology section at the top 
+of the screen, you can use "Research Points" to 
+research upgrades for your buildings or the overall
+mission. These upgrades should make your job a 
+little easier, and have a variety of effects, such 
+as unlocking upgraded buildings or increasing your income.
+
+In the Shop menu, you can use your money to purchase 
+buildings such as population centers and solar panels to 
+send to Mars. When you've selected all the buildings you want, 
+you can queue a rocket to launch all of your buildings to 
+Mars.Once it's launched, you can view its progress in space,
+and when it arrives on Mars you can construct the buildings
+you purchased. Money and Research Points both renew over time
+when you are not in a purchase menu.
+
+
+In the bottom right of the screen there are three buttons:
+To view the solar system and any recently-launched rockets,
+click on the purple button.
+The brown button will show you an overview of your Mars colony,
+where you can place your buildings,
+and the green button returns you to the Control Room.
+
+
+
+
