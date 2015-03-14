@@ -205,6 +205,8 @@ gInput.addBool(68, "right");
 gInput.addBool(83, "down");
 //Esc
 gInput.addBool(27, "escape");
+//HAAAAAX
+gInput.addBool(27, "escape");
 
 ////////////////////////////////////////////////// Functions /////////////////////////////////////////////////////////////
 
