@@ -56,7 +56,8 @@ Countdown.alpha = 0.75;
 var earthActive = false;
 
 //sound effects
-var sfx_earth=new Audio('sound/space_center.wav');
+var sfx_earth=new Audio('sound/office.wav');
+sfx_earth.volume=.1;
 sfx_earth.loop=true;
 //Functions
 function startEarth(){
