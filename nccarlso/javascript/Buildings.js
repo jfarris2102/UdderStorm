@@ -444,9 +444,11 @@ function updateResource(){
 	popMars += popInc;
 	popEarth += popEarth*growthRate;
 	air += airInc;
+	if(air > 20) air = 20;
 	atmosphere += atmosInc;
 	if(atmosphere>100) atmosphere = 100;
 	temperature += tempInc;
+	if(temperature>60) temperature = 60;
 }
 
 //resets all of the stored variables to their default values
