@@ -14,6 +14,9 @@ use2D=true;
 var first = true;
 var canLoad = false;
 var tutorialActive = false;
+var tutorialEActive = false;
+var tutorialMActive = false;
+var winActive = false;
 var startActive = true;
 var gameOverActive = false;
 var win = false;
@@ -31,6 +34,20 @@ TutorialPage.height = 640;
 TutorialPage.x = 0;
 TutorialPage.y = 0;
 TutorialPage.image = Textures.load("images/Tutorial.jpg");
+
+var TutorialPageE = new Sprite();
+TutorialPageE.width = 960;
+TutorialPageE.height = 640;
+TutorialPageE.x = 0;
+TutorialPageE.y = 0;
+TutorialPageE.image = Textures.load("images/TutorialE.png");
+
+var TutorialPageM = new Sprite();
+TutorialPageM.width = 960;
+TutorialPageM.height = 640;
+TutorialPageM.x = 0;
+TutorialPageM.y = 0;
+TutorialPageM.image = Textures.load("images/TutorialM.png");
 
 var gameOver = new Sprite();
 gameOver.width = 960;
@@ -271,4 +288,28 @@ function Win(){
 	world.addChild(win);
 	winActive = true;
 	canLoad = false;
+}
+
+function startTutorialE(){
+	stopActive();
+	world.addChild(TutorialPageE);
+	tutorialEActive = true;
+}
+
+function stopTutorialE(){
+	tutorialEActive = false;
+	world.removeChild(TutorialPageE);
+	startEarth();
+}
+
+function startTutorialM(){
+	stopActive();
+	world.addChild(TutorialPageM);
+	tutorialMActive = true;
+}
+
+function stopTutorialM(){
+	tutorialMActive = false;
+	world.removeChild(TutorialPageM);
+	startMars();
 }

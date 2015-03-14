@@ -40,7 +40,7 @@ function checkTerra(){
 	}
 }
 
-function increaseTerra(){
+function increaseTerra(){ //Not in use
 	if(energy >= 1){ //Requires some energy
 		terraGrav += getNumberOf(17);
 		if(terraGrav > 33) terraGrav = 33;
