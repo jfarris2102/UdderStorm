@@ -1,4 +1,4 @@
-Final Contributions document for Team UdderStorm
+﻿Final Contributions document for Team UdderStorm
 Developing  "Get Your Ass to Mars."
 __________________________________________________________________________
 
@@ -122,6 +122,10 @@ Finished mosts tasks, implemented tech, shop, terminal sprites, earth sprites,
 doomsday graphics, text displays, mars code updates, various tweaks, and bugfixes. 
 Also added solar view and orbital timeframe as well as improved menu navigation.
 
+Niklas Carlson - 3/7-3/14
+Added remainder of sprites, Implemented factory building system, Finalized various tech changes, Implemented tile 
+change when terraforming, Added support for building connections in relation to new sprites. Added seamless dust effect for Mars view. Modified store to incorporate new changes, Added support for new point system to tech tree(economy points, diplomacy points, etc.).
+Added various tech to the Research list as well as updated some text displays, Tutorial screens incorporated, other various bugfixes and performance tweaks.
 
 
 __________________________________________________________________________
