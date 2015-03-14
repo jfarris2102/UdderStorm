@@ -31,12 +31,23 @@ I created all of our temporary sprites this week.
 I also was the one to fix and implement the rest of the resources into the HUD sidebar.  
 Finally just general help around on the program and idea building stuff.
 
+Dawson Kelly- 3/7-3/14
+
+A lot of time was spent polishing and adding finishing touches to our game this week.  
+For our place test it was not balanced as well as we hoped reasorce wise.  
+A lot of time was spent working on the resource tree.  I specifically did 
+a lot of heavy playtesting to identify all manor of errors.  I also compiled
+and edited most of our audio files along with their sources and respective
+individual creators.  I did a decent amount of editing with audacity to most
+of these files.  It was a very hectic last few days with a big push to get things
+done.  I think its a great looking game in the end and am proud of our work.
+
 __________________________________________________________________________
 
 Conor Mahoney- 2/20-2/27
 
 2/21: Meeting at Redwood Grove to discuss deadlines and revise and finish the 
-design process. Spent 3 hours creating pseudo-code for the playable game’s tile 
+design process. Spent 3 hours creating pseudo-code for the playable gameï¿½s tile 
 engine. Additionally, we distributed various tasks to each group member.
 
 2/22-2/25: Created a simple tile engine for the game that allows for drawing each visible 
@@ -60,7 +71,7 @@ player different options and information
 3/5: Worked on the Martian surface, to change terrain spawn rates and create harsher terrain tiles,
 defined as blockedTiles, upon which building was impossible.
  
-3/6: Made several last minute changes to the game’s organization and documentation, 
+3/6: Made several last minute changes to the gameï¿½s organization and documentation, 
 including program comments and progress documentation.
 
 Conor Mahoney- 3/7-3/13
@@ -98,7 +109,7 @@ interface it with resource management and building systems. Worked with Conor to
 convert the tile engine to a brine-based system and combat the huge latency initially 
 produced by that change.
 
-2/26-2/27: Modified Conor’s tile engine to implement/modify features such as building 
+2/26-2/27: Modified Conorï¿½s tile engine to implement/modify features such as building 
 placement, view dragging, and various other tweaks and optimizations.
 
 2/27: Worked for several hours to finalize the playable prototype for submission. 
@@ -116,7 +127,7 @@ __________________________________________________________________________
 Justin Farris 2/20-2/27
 
 Established global variables for resources and buildings and determined each 
-building’s functions.
+buildingï¿½s functions.
 
 Developed resource generation algorithms based on building types and amounts, according to our game 
 time - real time relationshipIntegrated javascript files in order to properly generate resources based 
