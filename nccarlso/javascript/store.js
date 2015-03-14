@@ -151,10 +151,10 @@ function purchaseBuilding(x){
 			}else if(money < getModel(x).cost) alert("Insufficient funds.");
 		} else {
 			if(!buidlingUnlocked[x]) alert("Building not unlocked, try purchasing some researches to unlock it.");
-			else if(money >= Math.floor(getModel(x).cost/10)){
-				money -= (Math.floor(getModel(x).cost/10));
+			else if(minerals >= Math.floor(getModel(x).cost/10)){
+				minerals -= (Math.floor(getModel(x).cost/10));
 				buidlingsAvailable[x]++;
-			}else if(money < Math.floor(getModel(x).cost/10)) alert("Insufficient Resources.");
+			}else if(minerals < Math.floor(getModel(x).cost/10)) alert("Insufficient Resources.");
 		}
 	}
 }

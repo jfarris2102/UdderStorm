@@ -217,6 +217,7 @@ window.onkeydown = function(event) {
 			buidlingsAvailable[i] += 10;
 		}
 		money += 1000;
+		minerals += 1000;
 		researchPoints += 1000;
 		haxMult += 10;
 	}
