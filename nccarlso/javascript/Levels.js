@@ -19,7 +19,7 @@ var lab_3 = 12;
 var factory = 13;
 var gravity = 14;
 var comms = 15;
-var comms2 = 16;
+var comms_2 = 16;
 var area = 144800000 //sq. m. area of Mars
 //var reactor = 17;
 //var sust1 = 18;
@@ -209,7 +209,7 @@ function incPressure(){
 	atmosInc += getNumberOf(reactor)*100000*gravForce / area;
 	atmosInc += getLevel(terra4)*400000*gravForce / area;
 	atmosInc += getLevel(terra5)*800000*gravForce / area;
-	if(getLevel(terra2)<3)
+	if(getLevel(terra2)<3 && atmosInc!=0)
 	    atmosInc -= .04;
 }
  

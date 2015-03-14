@@ -214,6 +214,8 @@ function initBuildings(){
 function makeBuilding(model){
 	var temp = getModel(model);
 	numberOf[model]++;
+	if(model==1 && numberOf[model]==1)
+	    health = 80;
 	buildings[buildingCount].image = temp.image;
 	buildings[buildingCount].width = temp.width;
 	buildings[buildingCount].height = temp.height;
@@ -423,7 +425,7 @@ function resetVariables(){
 	atmosphere = 0.6;
 	temperature = -67;
 	popMars=0; //Displayed in ones
-	health=80; //Displayed as % (50 is content, <50 upset, >50 happy)
+	health=0; //Displayed as % (50 is content, <50 upset, >50 happy)
 	numberOf[solar] = 0;
 	numberOf[turbine] = 0;
 	numberOf[photosyn] = 0;

@@ -203,7 +203,7 @@ function displayHUDtext(){
     //text14.text = happinessD;
     
    meter.x = 810+getProgress()*140/100;
-   hmeter.x = 810+getHealth()*140/100;
+   hmeter.x = 810+health*140/100;
     
   /*  textArr.push(text1);
     textArr.push(text2);

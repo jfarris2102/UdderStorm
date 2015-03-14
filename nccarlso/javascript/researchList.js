@@ -24,7 +24,7 @@ tech.cost = ;
 
 var tech1 = {};
 tech1.name = new TextBox("Thermal-neutron Reactor");
-tech1.desc = new TextBox("Your standard run of the mill nuclear reactor,\nunlocked by default.");
+tech1.desc = new TextBox("Your standard run of the mill nuclear reactor,\noutputs energy. Unlocked by default.");
 tech1.avail = true;
 tech1.unlocked = true;
 tech1.pre = [""];
@@ -33,7 +33,7 @@ tech1.categ = reactor;
 
 var tech2 = {};
 tech2.name = new TextBox("Fast-neutron Reactor");
-tech2.desc = new TextBox("A slightly upgraded nuclear reactor utilizing\nnew technology, cost: 100 Research points.");
+tech2.desc = new TextBox("A nuclear reactor utilizing new technology,\noutputs substantial energy. cost: 100 Research points.");
 tech2.avail = true;
 tech2.unlocked = false;
 tech2.pre = ["Thermal-neutron Reactor"];
@@ -60,7 +60,7 @@ tech4.categ = reactor;
 
 var tech5 = {};
 tech5.name = new TextBox("Wind Turbines");
-tech5.desc = new TextBox("unlocked by default.");
+tech5.desc = new TextBox("Standard wind turbines, generates some energy. \nUnlocked by default.");
 tech5.avail = true;
 tech5.unlocked = true;
 tech5.pre = [""];
@@ -69,7 +69,7 @@ tech5.categ = turbine;
 
 var tech6 = {};
 tech6.name = new TextBox("Increased storage capacity");
-tech6.desc = new TextBox("cost: 100 Research points.");
+tech6.desc = new TextBox("Increase your turbines' battery storage. 50% \nhigher energy output. cost: 100 Research points.");
 tech6.avail = true;
 tech6.unlocked = false;
 tech6.pre = ["Wind Turbines"];
@@ -78,7 +78,7 @@ tech6.categ = turbine;
 
 var tech7 = {};
 tech7.name = new TextBox("Space Frame turbine towers");
-tech7.desc = new TextBox("cost: 250 Research points.");
+tech7.desc = new TextBox("Much lighter construction of turbines with less\nmaterials. Reduces their cost and increases\nefficiency. cost: 250 Research points.");
 tech7.avail = false;
 tech7.unlocked = false;
 tech7.pre = ["Increased storage capacity"];
@@ -87,24 +87,24 @@ tech7.categ = turbine;
 
 var tech8 = {};
 tech8.name = new TextBox("Bladeless technology");
-tech8.desc = new TextBox("cost: 500 Resource points.");
+tech8.desc = new TextBox("Unlocks bladeless wind turbines, which output\nmuch more energy. cost: 500 Resource points.");
 tech8.avail = false;
 tech8.unlocked = false;
 tech8.pre = ["Space Frame turbine towers"];
 tech8.cost = 500;
 //tech8.categ = turbine2;
 
-var tech9 = {};
+/*var tech9 = {};
 tech9.name = new TextBox("Bladeless Turbines");
 tech9.desc = new TextBox("cost: 1000 Resource points.");
 tech9.avail = false;
 tech9.unlocked = false;
 tech9.pre = ["Bladeless technology"];
-tech9.cost = 1000;
+tech9.cost = 1000;*/
 
 var tech10 = {};
 tech10.name = new TextBox("Solar Panels");
-tech10.desc = new TextBox("Basic energy generating solar panels,\nunlocked by default.");
+tech10.desc = new TextBox("Basic energy generating solar panels, which\nrun at 20% efficiency. Unlocked by default.");
 tech10.avail = true;
 tech10.unlocked = true;
 tech10.pre = [""];
@@ -113,7 +113,7 @@ tech10.categ = solar;
 
 var tech11 = {};
 tech11.name = new TextBox("Single-crystal silicon");
-tech11.desc = new TextBox("cost: 100 Research points.");
+tech11.desc = new TextBox("Upgraded material which boosts solar panel\nefficiency to 30%. cost: 100 Research points.");
 tech11.avail = true;
 tech11.unlocked = false;
 tech11.pre = ["Solar Panels"];
@@ -122,7 +122,7 @@ tech11.categ = solar;
 
 var tech12 = {};
 tech12.name = new TextBox("GaInp2 Semiconductors");
-tech12.desc = new TextBox("cost: 250 Research points.");
+tech12.desc = new TextBox("Even more powerful material, boosting panel\nefficiency to 50%. cost: 250 Research points.");
 tech12.avail = false;
 tech12.unlocked = false;
 tech12.pre = ["Single-crystal silicon"];
@@ -131,7 +131,7 @@ tech12.categ = solar;
 
 var tech13 = {};
 tech13.name = new TextBox("Concentrated photovoltaics");
-tech13.desc = new TextBox("cost: 500 Research points.");
+tech13.desc = new TextBox("Concetrates sunlight into a smaller area,\nallowing for 100% efficient panels.\ncost: 500 Research points.");
 tech13.avail = false;
 tech13.unlocked = false;
 tech13.pre = ["GaInp2 Semiconductors"];
@@ -140,7 +140,7 @@ tech13.categ = solar;
 
 var tech14 = {};
 tech14.name = new TextBox("Organic photovoltaic cells");
-tech14.desc = new TextBox("cost: 1000 Research points.");
+tech14.desc = new TextBox("Solar panels created with organic materials, \nreducing cost per panel. cost: 1000 Research points.");
 tech14.avail = false;
 tech14.unlocked = false;
 tech14.pre = ["Concentrated photovoltaics"];
@@ -152,7 +152,7 @@ tech14.categ = solar;
 //Space Tech
 var tech101 = {};
 tech101.name = new TextBox("Chemical Propulsion");
-tech101.desc = new TextBox("unlocked by default");
+tech101.desc = new TextBox("Basic rocket propulsion technology\nunlocked by default");
 tech101.avail = true;
 tech101.unlocked = true;
 tech101.pre = [""];
@@ -161,7 +161,7 @@ tech101.categ = space;
 
 var tech102 = {};
 tech102.name = new TextBox("Space Shuttle");
-tech102.desc = new TextBox("Unlocked by default");
+tech102.desc = new TextBox("Basic rocket ship. Unlocked by default");
 tech102.avail = true;
 tech102.unlocked = true;
 tech102.pre = [""];
@@ -170,7 +170,7 @@ tech102.categ = space;
 
 var tech103 = {};
 tech103.name = new TextBox("Plasma Propulsion");
-tech103.desc = new TextBox("cost: 100 Research points.");
+tech103.desc = new TextBox("More advanced propulsion system, reducing cost \nto launch. Unlocks advanced rocket types. \ncost: 100 Research points.");
 tech103.avail = true;
 tech103.unlocked = false;
 tech103.pre = ["Chemical Propulsion"];
@@ -179,7 +179,7 @@ tech103.categ = space;
 
 var tech104 = {};
 tech104.name = new TextBox("Liquid Hydrogen fuel");
-tech104.desc = new TextBox("cost: 250 Research points.");
+tech104.desc = new TextBox("More powerful and cheaper fuel, reducing cost \n to launch. cost: 250 Research points.");
 tech104.avail = false;
 tech104.unlocked = false;
 tech104.pre = ["Plasma Propulsion"];
@@ -188,7 +188,7 @@ tech104.categ = space;
 
 var tech105 = {};
 tech105.name = new TextBox("VASMIR rocket");
-tech105.desc = new TextBox("cost: 250 Research points.");
+tech105.desc = new TextBox("Variable Specific Impulse Magnetoplasma Rocket\nAdvanced engine with cheaper launch. \ncost: 250 Research points.");
 tech105.avail = false;
 tech105.unlocked = false;
 tech105.pre = ["Plasma Propulsion"];
@@ -197,7 +197,7 @@ tech105.categ = space;
 
 var tech106 = {};
 tech106.name = new TextBox("VTVL rocket");
-tech106.desc = new TextBox("cost: 500 Research points.");
+tech106.desc = new TextBox("Vertical Take-off Vertical Landing. Reusable\nrocket that allows for return missions and\nMars space trade. cost: 500 Research points.");
 tech106.avail = false;
 tech106.unlocked = false;
 tech106.pre = ["VASMIR rocket"];
@@ -208,42 +208,46 @@ tech106.categ = space;
 //Sustainability Tech
 var tech201 = {};
 tech201.name = new TextBox("Gov't sponsored sust. campaigns");
-tech201.desc = new TextBox("Generates 50 Sustainability Awareness, cost 50 Research points.");
+tech201.desc = new TextBox("Generates 50 Sustainability Awareness Points, \n cost: 25 Research points and $5 mil.");
 tech201.avail = true;
 tech201.unlocked = false;
 tech201.pre = [""];
-tech201.cost = 50;
+tech201.cost = 25;
+//tech201.mcost = 5;
 
 var tech202 = {};
 tech202.name = new TextBox("LEED Building Standards");
-tech202.desc = new TextBox("cost: 100 Research points.");
+tech202.desc = new TextBox("LEED is a green building certification program. Makes\nthis a requirement for all buildings, reducing energy\nuse. cost: 100 Sustainabilty Awareness points.");
 tech202.avail = true;
 tech202.unlocked = false;
 tech202.pre = ["Gov't sponsored sust. campaigns"];
-tech202.cost = 100;
+//tech202.cost = 100;
+tech202.scost = 100;
 tech202.categ = sust1;
 
 var tech203 = {};
 tech203.name = new TextBox("Subsidize sustainable innovations");
-tech203.desc = new TextBox("cost: 100 Research points.");
+tech203.desc = new TextBox("Apply government subsidies towards technologies \nthat reduce our environmental impact. \ncost: 100 Sustainability Awareness points.");
 tech203.avail = true;
 tech203.unlocked = false;
 tech203.pre = ["Gov't sponsored sust. campaigns"];
 tech203.cost = 100;
+//tech203.scost = 100;
 tech203.categ = sust2;
 
 var tech204 = {};
 tech204.name = new TextBox("Mandated Sustainability Education");
-tech204.desc = new TextBox("cost: 100 Research points.");
+tech204.desc = new TextBox("Make eduction on sustainability issues a core\ncurriculum requirement, reducing environmental impact.\ncost: 100 Sustainability Awareness points.");
 tech204.avail = true;
 tech204.unlocked = false;
 tech204.pre = ["Gov't sponsored sust. campaigns"];
 tech204.cost = 100;
+//tech204.scost = 100;
 tech204.categ = sust3;
 
 var tech205 = {};
-tech205.name = new TextBox("Fully-efficient/clean electrical vehicles");
-tech205.desc = new TextBox("cost: 250 Research points.");
+tech205.name = new TextBox("Perfected electric vehicles");
+tech205.desc = new TextBox("Revolutionize the electric vehicle industry, making \nthem affordable, clean, and the new standard. \ncost: 250 Sustainability Awareness points.");
 tech205.avail = false;
 tech205.unlocked = false;
 tech205.pre = ["Subsidize sustainable innovations"];
@@ -252,16 +256,17 @@ tech205.categ = sust2;
 
 var tech206 = {};
 tech206.name = new TextBox("International Sustainability Council");
-tech206.desc = new TextBox("cost: 250 Research points.");
+tech206.desc = new TextBox("Form an international council that will regulate the\nglobal environmental impact. cost: 250 Sustainability \nAwareness points and 250 Diplomacy Points");
 tech206.avail = false;
 tech206.unlocked = false;
 tech206.pre = ["Mandated Sustainability Education\nForeign Relations Campaigns"];
 tech206.cost = 250;
+//tech206.dcost = 250;
 tech206.categ = sust3;
 
 var tech207 = {};
 tech207.name = new TextBox("Autonomous vehicles");
-tech207.desc = new TextBox("cost: 500 Research points.");
+tech207.desc = new TextBox("Perfected autonomous vehicle technology, paving\nthe way for a sustainable transportation system\ncost: 500 Sustainability Awareness points.");
 tech207.avail = false;
 tech207.unlocked = false;
 tech207.pre = ["Fully-efficient/clean electrical vehicles"];
@@ -269,8 +274,8 @@ tech207.cost = 500;
 tech207.categ = sust2;
 
 var tech208 = {};
-tech208.name = new TextBox("Ability to Mandate and un-Mandate Replacement Rate");
-tech208.desc = new TextBox("cost: 500 Research points.");
+tech208.name = new TextBox("Replacement Rate");
+tech208.desc = new TextBox("Curb the growing population rate and reduce\ncivilization's environmental impact.\ncost: 500 Sustainability Awareness points.");
 tech208.avail = false;
 tech208.unlocked = false;
 tech208.pre = ["International Sustainability Council"];
@@ -279,7 +284,7 @@ tech208.categ = sust3;
 
 var tech209 = {};
 tech209.name = new TextBox("Net-Zero Energy Home standards");
-tech209.desc = new TextBox("cost: 250 Research points.");
+tech209.desc = new TextBox("Require homes to produce all their own energy\nrenewably and on-site. \ncost: 250 Sustainability Awareness points.");
 tech209.avail = false;
 tech209.unlocked = false;
 tech209.pre = ["LEED Building Standards"];
@@ -288,7 +293,7 @@ tech209.categ = sust1;
 
 var tech210 = {};
 tech210.name = new TextBox("Smart Homes");
-tech210.desc = new TextBox("cost: 250 Research points.");
+tech210.desc = new TextBox("Advanced energy metering and remote control,\nreducing energy usage. \ncost: 250 Sustainability Awareness points.");
 tech210.avail = false;
 tech210.unlocked = false;
 tech210.pre = ["LEED Building Standards"];
@@ -296,8 +301,8 @@ tech210.cost = 250;
 tech210.categ = sust1;
 
 var tech211 = {};
-tech211.name = new TextBox("Public Autonomous transportation network");
-tech211.desc = new TextBox("cost: 1000 Research points.");
+tech211.name = new TextBox("Autonomous transportation network");
+tech211.desc = new TextBox("Advanced public transport network that reduces\nenergy use and environmental impact\ncost: 1000 Sustainability Awareness points.");
 tech211.avail = false;
 tech211.unlocked = false;
 tech211.pre = ["Autonomous vehicles"];
@@ -306,7 +311,7 @@ tech211.categ = sust2;
 
 var tech212 = {};
 tech212.name = new TextBox("Net Zero Cities");
-tech212.desc = new TextBox("cost: 1000 Research points.");
+tech212.desc = new TextBox("Integrated infrastructure with shared systems\nand total reliance on clean renewable energy.\ncost: 1000 Sustainability Awareness points.");
 tech212.avail = false;
 tech212.unlocked = false;
 tech212.pre = ["Net-Zero Energy Home standards","Smart Homes","Organic photovoltaic cells","Nuclear Fusion Reactor"];
@@ -318,7 +323,7 @@ tech212.categ = sust1;
 //Start Econ/Diplomacy
 var tech301 = {};
 tech301.name = new TextBox("Budget reforms");
-tech301.desc = new TextBox("Generates 50 Economy points increase. cost 50 Research points.");
+tech301.desc = new TextBox("Generates 50 Economy points increase. \ncost 50 Research points.");
 tech301.avail = true;
 tech301.unlocked = false;
 tech301.pre = [""];
@@ -336,7 +341,7 @@ tech302.categ = econ;
 
 var tech303 = {};
 tech303.name = new TextBox("Space exploring budgeting");
-tech303.desc = new TextBox("Constant lobbying has payed off leeding to\nincreased space exploration funding.\ncost: 150 Research points.");
+tech303.desc = new TextBox("Constant lobbying has payed off leading to\nincreased space exploration funding.\ncost: 150 Diplomacy points.");
 tech303.avail = true;
 tech303.unlocked = false;
 tech303.pre = ["Budget reforms"];
@@ -345,7 +350,7 @@ tech303.categ = econ;
 
 var tech304 = {};
 tech304.name = new TextBox("Increase space trade");
-tech304.desc = new TextBox("Stimulation in the space materials/technology\nmarket had led to an increase in allocated spending.\ncost: 250 Research points.");
+tech304.desc = new TextBox("Stimulation in the space materials/technology\nmarket, leads to an increase in funding.\ncost: 250 Diplomacy points.");
 tech304.avail = false;
 tech304.unlocked = false;
 tech304.pre = ["Increase international trade", "Space exploring budgeting"];
@@ -354,25 +359,26 @@ tech304.categ = econ;
 
 var tech305 = {};
 tech305.name = new TextBox("Foreign Relations Campaigns");
-tech305.desc = new TextBox("Generates 50 Diplomacy points.\ncost: 50 Research points.");
+tech305.desc = new TextBox("Generates 50 Diplomacy points.\ncost: 50 Research points and $5 mil.");
 tech305.avail = true;
 tech305.unlocked = false;
 tech305.pre = [""];
 tech305.cost = 50;
+//tech305.mcost = 5;
 tech305.categ = econ;
 
 var tech306 = {};
 tech306.name = new TextBox("Global Economy Manipulation");
-tech306.desc = new TextBox("cost: 100 Research points.");
+tech306.desc = new TextBox("Use your diplomatic relations to your advantage,\nreforming the global economy and\nincreasing cash flow. cost: 250 Diplomacy points.");
 tech306.avail = false;
 tech306.unlocked = false;
 tech306.pre = ["Increase international trade"];
-tech306.cost = 100;
+tech306.cost = 250;
 tech306.categ = econ;
 
 var tech307 = {};
 tech307.name = new TextBox("Multinational Treaties");
-tech307.desc = new TextBox("cost: 100 Research points.");
+tech307.desc = new TextBox("Push towards world peace and establish better \nforeign relations. Increases cash flow\ncost: 100 Diplomacy points.");
 tech307.avail = false;
 tech307.unlocked = false;
 tech307.pre = ["Increase international trade"];
@@ -381,47 +387,47 @@ tech307.categ = econ;
 
 var tech308 = {};
 tech308.name = new TextBox("Third-World Country Reform");
-tech308.desc = new TextBox("cost: 100 Research points.");
+tech308.desc = new TextBox("Work towards building a better world by supporting\npoor countries, boosting the global market.\nIncreases cash flow. cost: 500 Diplomacy points.");
 tech308.avail = false;
 tech308.unlocked = false;
 tech308.pre = ["Multinational Treaties","International Sustainability Council"];
-tech308.cost = 100;
+tech308.cost = 500;
 tech308.categ = econ;
 
 var tech309 = {};
 tech309.name = new TextBox("Eradicate Terrorism");
-tech309.desc = new TextBox("cost: 100 Research points.");
+tech309.desc = new TextBox("Use your growing global relations to eradicate \nterrorism, diverting military spending and \nincreasing cash flow. cost: 1000 Diplomacy points.");
 tech309.avail = false;
 tech309.unlocked = false;
 tech309.pre = ["Multinational Treaties"];
-tech309.cost = 100;
+tech309.cost = 1000;
 tech309.categ = econ;
 
 var tech310 = {};
 tech310.name = new TextBox("Universal currency");
-tech310.desc = new TextBox("cost: 100 Research points.");
+tech310.desc = new TextBox("Solidify the global economy and global\ncommunity by implementing a universal currency\nIncreases cash flow. cost: 200 Diplomacy points.");
 tech310.avail = false;
 tech310.unlocked = false;
 tech310.pre = ["Global Economy Manipulation"];
-tech310.cost = 100;
+tech310.cost = 200;
 tech310.categ = econ;
 
 var tech311 = {};
 tech311.name = new TextBox("Universal language");
-tech311.desc = new TextBox("cost: 100 Research points.");
+tech311.desc = new TextBox("Get one step closer to world peace and cooperation\nwith a universal language. Increases cash \nflow. cost: 200 Diplomacy points.");
 tech311.avail = false;
 tech311.unlocked = false;
 tech311.pre = ["Eradicate Terrorism","Third-World Country Reform", "Universal currency"];
-tech311.cost = 100;
+tech311.cost = 200;
 tech311.categ = econ;
 
 var tech312 = {};
 tech312.name = new TextBox("World Peace");
-tech312.desc = new TextBox("cost: 100 Research points.");
+tech312.desc = new TextBox("Achieve total world peace. Human civilization\n is now a force to be reckoned with. Increases\nall resource generation. cost: 500 Diplomacy points.");
 tech312.avail = false;
 tech312.unlocked = false;
 tech312.pre = ["Universal language"];
-tech312.cost = 100;
+tech312.cost = 500;
 tech312.categ = econ;
 
 //End Econ Tech
@@ -437,7 +443,7 @@ tech312.categ = econ;
 
 var tech401 = {};
 tech401.name = new TextBox("Nanochips");
-tech401.desc = new TextBox("cost: 100 Research points.");
+tech401.desc = new TextBox("Preliminary technology in developing artificial\ngravity. cost: 100 Research points.");
 tech401.avail = true;
 tech401.unlocked = false;
 tech401.pre = [""];
@@ -446,52 +452,52 @@ tech401.categ = terra1;
 
 var tech402 = {};
 tech402.name = new TextBox("Quantum Mechanics");
-tech402.desc = new TextBox("cost: 100 Research points.");
-tech402.avail = true;
+tech402.desc = new TextBox("Invest in quantum mechanics research, to perfect\nthe manipulation of subatomic particles\ncost: 200 Research points.");
+tech402.avail = false;
 tech402.unlocked = false;
 tech402.pre = ["Nanochips"];
-tech402.cost = 100;
+tech402.cost = 200;
 tech402.categ = terra1;
 
 var tech403 = {};
 tech403.name = new TextBox("Force Field Generation");
-tech403.desc = new TextBox("cost: 100 Research points.");
-tech403.avail = true;
+tech403.desc = new TextBox("Develop the ability to generate very large force\nfields cost: 300 Research points.");
+tech403.avail = false;
 tech403.unlocked = false;
 tech403.pre = ["Quantum Mechanics"];
-tech403.cost = 100;
+tech403.cost = 300;
 tech403.categ = terra1;
 
 var tech404 = {};
 tech404.name = new TextBox("Artificial Gravity");
-tech404.desc = new TextBox("cost: 100 Research points.");
+tech404.desc = new TextBox("Use the latest research in force field generation\nto replicate the force of gravity. Unlocks\ngravity generators. cost: 400 Research points.");
 tech404.avail = true;
 tech404.unlocked = false;
 tech404.pre = ["Force Field Generation"];
-tech404.cost = 100;
+tech404.cost = 400;
 tech404.categ = terra1;
 
 var tech405 = {};
 tech405.name = new TextBox("Magnetic field generation");
-tech405.desc = new TextBox("cost: 100 Research points.");
+tech405.desc = new TextBox("Technology to maintain sizeable magnetic fields to\nprotect buildings, spacecraft, and colonists\nfrom solar radiation. cost: 200 Research points.");
 tech405.avail = true;
 tech405.unlocked = false;
 tech405.pre = [""];
-tech405.cost = 100;
+tech405.cost = 200;
 tech405.categ = terra2;
 
 var tech406 = {};
 tech406.name = new TextBox("Electromagnetic Grids");
-tech406.desc = new TextBox("cost: 100 Research points.");
+tech406.desc = new TextBox("Develop extremely powerful E.M. grids capable of\nproducing a planet-sized magnetic field\n cost: 300 Research points.");
 tech406.avail = true;
 tech406.unlocked = false;
 tech406.pre = ["Magnetic field generation"];
-tech406.cost = 100;
+tech406.cost = 300;
 tech406.categ = terra2;
 
 var tech407 = {};
 tech407.name = new TextBox("Planetary Magnetic Field");
-tech407.desc = new TextBox("cost: 100 Research points.");
+tech407.desc = new TextBox("Install E.M grids on Mars to protect the atmosphere \nfrom solar wind. Also requires Liquid Thorium \nReactor technology. cost: 500 Research points.");
 tech407.avail = true;
 tech407.unlocked = false;
 tech407.pre = ["Electromagnetic Grids","Liquid Flouride Thorium Reactor"];
@@ -500,7 +506,7 @@ tech407.categ = terra2;
 
 var tech408 = {};
 tech408.name = new TextBox("Photoelectrochemical cells");
-tech408.desc = new TextBox("cost: 100 Research points.");
+tech408.desc = new TextBox("Preliminary technology in developing artificial\nphotosynthesis. cost: 100 Research points.");
 tech408.avail = true;
 tech408.unlocked = false;
 tech408.pre = [""];
@@ -509,25 +515,25 @@ tech408.categ = terra3;
 
 var tech409 = {};
 tech409.name = new TextBox("Photocatalytic water splitting");
-tech409.desc = new TextBox("cost: 100 Research points.");
+tech409.desc = new TextBox("Develop advanced technology that uses light to \nseperate hydrogen and oxygen. cost: 200 Research points.");
 tech409.avail = true;
 tech409.unlocked = false;
 tech409.pre = ["Photoelectrochemical cells"];
-tech409.cost = 100;
+tech409.cost = 200;
 tech409.categ = terra3;
 
 var tech410 = {};
 tech410.name = new TextBox("Artifical Photosynthesis");
-tech410.desc = new TextBox("cost: 100 Research points.");
+tech410.desc = new TextBox("Use water splitting technology to mimic photosynthesis\nUnlocks photosynthesizers, which produce oxygen\nand energy. cost: 300 Research points.");
 tech410.avail = true;
 tech410.unlocked = false;
 tech410.pre = ["Photocatalytic water splitting"];
-tech410.cost = 100;
+tech410.cost = 300;
 tech410.categ = terra3;
 
 var tech411 = {};
 tech411.name = new TextBox("Aluminized PET film");
-tech411.desc = new TextBox("cost: 100 Research points.");
+tech411.desc = new TextBox("Advanced reflective material that can withstand\nspace weather. cost: 100 Research points.");
 tech411.avail = true;
 tech411.unlocked = false;
 tech411.pre = [""];
@@ -536,34 +542,34 @@ tech411.cost = 100;
 
 var tech412 = {};
 tech412.name = new TextBox("Solar Sails");
-tech412.desc = new TextBox("cost: 100 Research points.");
+tech412.desc = new TextBox("Advanced orbiting technology that utilizes\nsolar wind. cost: 200 Research points.");
 tech412.avail = true;
 tech412.unlocked = false;
 tech412.pre = ["Aluminized PET film"];
-tech412.cost = 100;
+tech412.cost = 200;
 //tech412.categ = terra4;
 
 var tech413 = {};
 tech413.name = new TextBox("Statites");
-tech413.desc = new TextBox("cost: 100 Research points.");
+tech413.desc = new TextBox("Satellites that maintain a position in orbit\nrather than rotating around a planet\ncost: 200 Research points.");
 tech413.avail = true;
 tech413.unlocked = false;
 tech413.pre = ["Solar Sails"];
-tech413.cost = 100;
+tech413.cost = 200;
 //tech413.categ = terra4;
 
 var tech414 = {};
 tech414.name = new TextBox("Orbital mirrors");
-tech414.desc = new TextBox("cost: 100 Research points.");
+tech414.desc = new TextBox("Statites fixed with PET film that reflect\nsunlight, sublimating frozen C02 and \nwarming the atmosphere. cost: 300 Research points.");
 tech414.avail = true;
 tech414.unlocked = false;
 tech414.pre = ["Statites"];
-tech414.cost = 100;
+tech414.cost = 300;
 tech414.categ = terra4;
 
 var tech415 = {};
 tech415.name = new TextBox("Chloroflourocarbon Production");
-tech415.desc = new TextBox("cost: 100 Research points.");
+tech415.desc = new TextBox("Produce chloroflourocarbon, a powerful greenhouse\ngas that could be used to increase\natmospheric pressure. cost: 100 Research points.");
 tech415.avail = true;
 tech415.unlocked = false;
 tech415.pre = [""];
@@ -572,11 +578,11 @@ tech415.cost = 100;
 
 var tech416 = {};
 tech416.name = new TextBox("CFC Rockets");
-tech416.desc = new TextBox("cost: 100 Research points.");
+tech416.desc = new TextBox("Periodically launch rockets packed with\ncholorflourocarbon at Mars to build up its atmosphere\ncost: 400 Research points.");
 tech416.avail = true;
 tech416.unlocked = false;
 tech416.pre = ["Chloroflourocarbon Production"];
-tech416.cost = 100;
+tech416.cost = 400;
 tech416.categ = terra5;
 
 //End Terraforming Tech
@@ -706,7 +712,7 @@ EnergyTree.push(tech5);
 EnergyTree.push(tech6);
 EnergyTree.push(tech7);
 EnergyTree.push(tech8);
-EnergyTree.push(tech9);
+//EnergyTree.push(tech9);
 EnergyTree.push(tech10);
 EnergyTree.push(tech11);
 EnergyTree.push(tech12);

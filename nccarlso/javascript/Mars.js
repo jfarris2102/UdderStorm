@@ -343,6 +343,7 @@ function drawTileEngine() {
 			highlight.image =  Textures.load("images/highlight2.png");
 		}else highlight.image =  Textures.load("images/highlight.png");
 	}else highlight.image =  Textures.load("images/highlight2.png");
+	
 	if(dragging){
 		myX -= MouseCurrX-MousePrevX;
 		myY -= MouseCurrY-MousePrevY;
