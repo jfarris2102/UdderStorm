@@ -150,7 +150,13 @@ titleArr.push(climateText);
 //draws all of these values on the HUD, should be called every time 
 //the world updates or whenever the display values change
 function displayHUDtext(){
-	
+    
+    if (sfx_arr[curr].ended==true) {
+        end=true;
+    }
+    if (end=true) {
+        start_song();
+    }
 	//HUD bars
 	//meter.x = 810 + Math.min(135, (1.35*TerraFormed));
 	//hmeter.x = 810 + Math.min(135, (1.35*happiness));
@@ -290,6 +296,7 @@ function redrawButtons(){
 }
 
 function startHUD(){
+    start_song();
 	world.addChild(HUD);
 	world.addChild(terrBar);
 	world.addChild(healthBar);
@@ -315,6 +322,8 @@ function stopActive(){
 	else if(storeActive) stopStore();
 	else if (gameOverActive) stopGameOver();
 	else if (winActive) stopWin();
+	else if (tutorialEActive) stopTutorialE();
+	else if (tutorialMActive) stopTutorialM();
 	//else stop();
 }
 
@@ -324,6 +333,13 @@ function stopActive(){
 var storeClickable = false;
 var factoryMDown = false;
 manager.onMouseDown = function () {
+	if (tutorialEActive){
+		stopTutorialE();
+		return;
+	} else if (tutorialMActive) {
+		stopTutorialM();
+		return;
+	}
 	if(!storeActive) storeClickable = false;
 	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
 		factoryMDown = checkFactoryOver();
@@ -465,3 +481,36 @@ manager.onMouseUp = function () {
 		} else if (storeActive) storeClickable = true;
 	}
 };
+//Code for Looping Music
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Music
+var sfx_arr=[];
+var curr=0;
+var end=false;;
+var song_1=new Audio('sound/1.mp3');
+var song_2=new Audio('sound/2.mp3');
+var song_3=new Audio('sound/3.mp3');
+var song_4=new Audio('sound/4.mp3');
+sfx_arr.push(song_1);
+sfx_arr.push(song_2);
+sfx_arr.push(song_3);
+sfx_arr.push(song_4);
+//volume ajust
+for (var i=0;i<sfx_arr.length;i++) {
+    sfx_arr[i].volume=.7;
+}
+//looping function
+function start_song() {
+    if (sfx_arr[curr].ended==true) {
+        if (curr<sfx_arr.length) {
+            curr++;
+        } else {curr=0;}
+    }
+    sfx_arr[curr].play();
+    end=false;
+}
+function pause_song() {
+    sfx_arr[curr].pause();
+}
+
+

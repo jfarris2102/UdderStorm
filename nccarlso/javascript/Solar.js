@@ -174,6 +174,8 @@ function stopSolar() {
 		solarSprites[i].visible = false;
 }
 ///////////////////////////////////////////////////////
+var firstTutorialE = true;
+var firstTutorialM = true;
 function solarTime(){
 	if(solarActive || marsActive || earthActive){
 		rotate88.rotation -= DTR(mult/88);
@@ -206,6 +208,14 @@ function solarTime(){
 		}
 		days += 1;
 		if (days%30 == 0){
+			if(firstTutorialE && earthActive){
+				firstTutorialE = false;
+				startTutorialE();
+			}
+			if(firstTutorialM && marsActive){
+				firstTutorialM = false;
+				startTutorialM();
+			}
 			money += 5 * moneyMult;
 			researchPoints += (10+researchMult);
 		}
