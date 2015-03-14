@@ -51,7 +51,6 @@ function greenResources(){
 		break;
 	}
 	
-	console.log("green: ",energyInc);
 }
 function solarResources(){
 	switch(getLevel(solar)){
@@ -90,7 +89,6 @@ function turbineResources(){
 		break;
 	}
 	energyInc += getNumberOf(turbine2)*2.5;
-	console.log("turbine: ",energyInc);
 }
 function reactorResources(){
 	switch(getLevel(reactor)){
@@ -132,7 +130,6 @@ function mineResources(){//needs adjusting
 		default:
 		break;
 	}
-	console.log("mine: ",energyInc);
 }
 function researchResources(){
     energyInc -= getNumberOf(comms)*.5;
@@ -140,7 +137,6 @@ function researchResources(){
     researchCap = 5*getNumberOf(comms) + 10*getNumberOf(comms2);
     resInc += 5*getNumberOf(lab) + 10*getNumberOf(lab_2) + 20*getNumberOf(lab_3);
     if(resInc > researchCap) resInc = researchCap;
-	console.log("comms: ",energyInc);
 }
 function liveResources(){
 	energyInc -= getNumberOf(live)*.1;
@@ -150,11 +146,9 @@ function photoResources(){
 	airInc += getNumberOf(photosyn)*.01;
 	energyInc += getNumberOf(photosyn)*1;
 	console.log(getNumberOf(photosyn));
-	console.log("photo: ",energyInc);
 }
 function gravityResources(){
 	energyInc -= getNumberOf(gravity)*5;
-	console.log("gravity: ",energyInc);
 	gravForce = 3.7 + getNumberOf(gravity);
 }
 function energyConsum(){

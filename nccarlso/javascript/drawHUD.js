@@ -244,10 +244,9 @@ function displayHUDtext(){
         else if(doomsDay < 100) yearsAppend = "0";
         if(12-getMonths() < 10) monthsAppend = "0";
         if(31-days < 10) daysAppend = "0";
-        console.log(doomsDay);
         //Adjust doomsDay variable to set year Earth dies (located at the top of Solar.js)
         Countdown.text = yearsAppend+(doomsDay/*-(getYears()+1)*/)+":"+monthsAppend+(12-getMonths())+":"+daysAppend+(31-days);
-        console.log(Countdown.text);
+
     }else if(techActive){
         updateTechInfo();
     }else if(storeActive){
@@ -272,17 +271,12 @@ function redrawHUD(){
     world.addChild(hmeter);
     for(var i = 0; i < textArr.length; i++){
 		world.removeChild(textArr[i]);
-        //textArr[i].font = 'BebasNeue';
-        //textArr[i].fontSize = '20';
-        //textArr[i].padLeft = canvas.width - 150;
-        //textArr[i].padTop = 30*(i+1);
         world.addChild(textArr[i]);
     }
     for(var i = 0; i < titleArr.length; i++){
 	    world.removeChild(titleArr[i]);
 	    world.addChild(titleArr[i]);
     }
-	//displayHUDtext();
 	redrawButtons();
 }
 
