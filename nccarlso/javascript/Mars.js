@@ -9,13 +9,18 @@ of sandy soil and rocky soil, with scattered larger rocks.
 */
 var marsActive = false;
 var firstBuilding = true;
+
+var sfx=new Audio('sound/Wind.mp3');
+
 document.oncontextmenu=function (){return false;}
+
 function startMars(){
 	marsActive = true;
 	drawTileEngine();
 	canvas.addEventListener("mousemove", drawTileEngine, false);
 	dustStorm.visible = true;
 	redrawHUD();
+	sfx.play();
 }
 
 function stopMars(){
@@ -28,6 +33,8 @@ function stopMars(){
 	highlightM.alpha = 0;
 	dustStorm.visible = false;
 	canvas.removeEventListener("mousemove", drawTileEngine);
+	sfx.pause();
+	sfx.load();
 }
 
 function newGameMars(){
