@@ -55,9 +55,13 @@ Countdown.alpha = 0.75;
 
 var earthActive = false;
 
+//sound effects
+var sfx_earth=new Audio('sound/space_center.wav');
+sfx_earth.loop=true;
 //Functions
 function startEarth(){
 	earthActive = true;
+	sfx_earth.play();
 	world.addChild(bg);
 	world.addChild(techHighlight);
 	world.addChild(shopHighlight);
@@ -74,6 +78,7 @@ function startEarth(){
 
 function stopEarth(){
 	earthActive = false;
+	sfx_earth.pause();
 	world.removeChild(bg);
 	techHighlight.alpha = 0;
 	world.removeChild(techHighlight);
