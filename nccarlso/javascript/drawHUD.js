@@ -329,9 +329,11 @@ function stopActive(){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Check if sprite clicked
 var storeClickable = false;
+var factoryMDown = false;
 manager.onMouseDown = function () {
 	if(!storeActive) storeClickable = false;
 	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
+		factoryMDown = checkFactoryOver();
 		dragging = true;
 	}
 	if (startActive){ //If Menu
@@ -360,6 +362,12 @@ manager.onMouseUp = function () {
 		dragging = false;
 		MouseOverFirst = true;
 		drawTileEngine();
+		if(factoryMDown && checkFactoryOver()){
+			stopActive();
+			factoryMode = true;
+			startStore();
+			redrawButtons();
+		}
 	}
 	if (startActive){ //If Menu
 		for(i = 0; i < spritesDown.length; i++){
@@ -441,8 +449,13 @@ manager.onMouseUp = function () {
 					startStore();
 					redrawButtons();
 				}else if(storeActive){
-					stopActive();
-					startEarth();
+					if(!factoryMode){
+						stopActive();
+						startEarth();
+					} else {
+						stopActive();
+						startMars();
+					}
 				}
 			}
 		}
