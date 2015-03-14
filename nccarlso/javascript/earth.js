@@ -43,7 +43,7 @@ shopHighlight.height = 65;
 shopHighlight.image = Textures.load("images/highlight.png");
 shopHighlight.alpha = 0;
 //Countdown text
-var Countdown = new TextBox("150:00:00");
+var Countdown = new TextBox("050:00:00");
 Countdown.x = 70;
 Countdown.y = 111;
 Countdown.fontSize = '60';
@@ -97,7 +97,7 @@ function getLifetime(){
 	console.log(popEarth);
 	var impact = (popEarth * ePerCapita * envDamage)/1000;
 	console.log(impact);
-	var lifetime = Math.log(maxImpact/impact) / Math.log(1+growthRate) - 3;
+	var lifetime = Math.log(maxImpact/impact) / Math.log(1+growthRate) - 4;
 	lifetime = Math.floor(lifetime);
 	//After about 500 million years Earth will no longer be in habitable zone 
 	//of the solar system (for humans)

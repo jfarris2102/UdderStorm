@@ -418,8 +418,8 @@ function resetVariables(){
 	food = 50;
 	water = 50;
 	air = 0.14;
-	minerals=1000; //Displayed in thousand tons
-    energy=100; //Displayed in million BTU's
+	minerals = 0; //Displayed in thousand tons
+    energy = 100; //Displayed in million BTU's
 	money=750; //Displayed in millions
 	popEarth=7.3; //Displayed in billions
 	atmosphere = 0.6;
