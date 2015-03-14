@@ -430,7 +430,6 @@ function updateBuild(){ //Every 6 months game time
 	if (popMars<0) gameOverMan();
 	console.log(energy);
 	//increaseTerra(); //increases terra values
-	checkTerra(); //Check terraforming progress
 }
 
 //increases all resource variables by a predetermined amount
