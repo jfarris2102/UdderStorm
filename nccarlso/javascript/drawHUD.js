@@ -495,7 +495,7 @@ sfx_arr.push(song_3);
 sfx_arr.push(song_4);
 //volume ajust
 for (var i=0;i<sfx_arr.length;i++) {
-    sfx_arr[i].volume=.4;
+    sfx_arr[i].volume=.2;
 }
 //looping function
 function start_song() {
