@@ -36,7 +36,9 @@ Dawson Kelly- 3/7-3/14
 A lot of time was spent polishing and adding finishing touches to our game this week.  
 For our place test it was not balanced as well as we hoped reasorce wise.  
 A lot of time was spent working on the resource tree.  I specifically did 
-a lot of heavy playtesting to identify all manor of errors.  I also compiled
+a lot of heavy playtesting to identify all manor of errors as well as helping 
+to impliment the tech tree by implimenting the infustructure tab as well as
+helping out at a few other points along the way.  I also compiled
 and edited most of our audio files along with their sources and respective
 individual creators.  I did a decent amount of editing with audacity to most
 of these files.  It was a very hectic last few days with a big push to get things
