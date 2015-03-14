@@ -428,7 +428,6 @@ function updateBuild(){ //Every 6 months game time
 	getHealth();
 	console.log(energy);
 	//increaseTerra(); //increases terra values
-	checkTerra(); //Check terraforming progress
 }
 
 //increases all resource variables by a predetermined amount

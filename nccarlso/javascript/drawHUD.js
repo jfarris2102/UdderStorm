@@ -214,8 +214,8 @@ function displayHUDtext(){
     text13.text = temperatureD;
     //text14.text = happinessD;
     
-   meter.x = 810+getProgress()*140/100;
-   hmeter.x = 810+health*140/100;
+   meter.x = 810+getProgress()*135/100;
+   hmeter.x = 810+health*135/100;
     
   /*  textArr.push(text1);
     textArr.push(text2);
