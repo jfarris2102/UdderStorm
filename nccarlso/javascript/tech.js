@@ -190,10 +190,8 @@ function updateUnlockTree(x){
 			else if(curr[i].name.text == "Foreign Relations Campaigns"){
 				diplomacyPoints += curr[i].cost;
 			}else{
-				if (typeof curr[i].categ !== undefined)
-					levelUp(curr[i].categ);
 				curr[i].unlocked = true;
-				upgradeMults(curr[i].name.text);
+				upgradeMults(curr[i].name.text, curr[i]);
 			}
 			researchPoints -= curr[i].cost;
 			if(typeof(x.dcost) != "undefined") diplomacyPoints -= curr[i].cost;
@@ -322,4 +320,7 @@ function upgradeMults(x,y){
 	else if(x == "Liquid Hydrogen fuel") rocketType++;
 	else if(x == "VASMIR rocket") rocketType++;
 	else if(x == "VTVL rocket") rocketType++;
+	else if (typeof y.categ !== undefined)
+		levelUp(y.categ);
+
 }
