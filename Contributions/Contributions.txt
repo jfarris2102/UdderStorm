@@ -1,0 +1,119 @@
+Final Contributions document for Team UdderStorm
+Developing  "Get Your Ass to Mars."
+__________________________________________________________________________
+
+Dawson Kelly- 2/20-2/27
+
+2/21: We met at the Redwood Grove lounge and planned out our following weeks 
+and the deadlines to come.  We also coded a few things, I created the basis 
+for the earth view section of the game.  
+
+2/22-2/24: Finished as much of the earth view as possible with the current state 
+of the game.  
+
+2/26: We met for 4 hours in the 109 Jack Baskin lounge and I was able to update 
+my earth view section to accommodate other parts of code.  I also created a bottom menu. 
+
+2/27: We worked on putting our game together and bringing all of our different .js 
+files together. I scrapped my bottom menu and used part of the code to create a side 
+menu that was not on a separate canvas. Our tile engine, main menu, side menu, 
+earthview etc. were all put together and work somewhat as imagined. 
+
+Dawson Kelly- 2/28-3/6
+
+We have a lot of our game done and it is mostly finished.  
+There are a few specific points that need to be fleshed out.  
+These include linking our dooooomsday algorithm and fixing a few basic errors.  
+These will be fixed by monday for certain.  We also are using lots of temporary 
+sprites that will be polished by the game showing date. 
+
+I created all of our temporary sprites this week.
+I also was the one to fix and implement the rest of the resources into the HUD sidebar.  
+Finally just general help around on the program and idea building stuff.
+
+__________________________________________________________________________
+
+Conor Mahoney- 2/20-2/27
+
+2/21: Meeting at Redwood Grove to discuss deadlines and revise and finish the 
+design process. Spent 3 hours creating pseudo-code for the playable game’s tile 
+engine. Additionally, we distributed various tasks to each group member.
+
+2/22-2/25: Created a simple tile engine for the game that allows for drawing each visible 
+grid in the engine. Implements mouse-based click and drag movement for the game.
+
+2/26: Met for 3 hours in JBaskin 109 to finish programming the tile engine and interface 
+it with resource management and building systems. Worked with Niklas to convert the tile engine 
+to a brine-based system and combat the huge latency initially produced by that change.
+
+2/27: Worked for two hours to finish the playable prototype for submission, including 
+combining the tile engine with 
+ 
+Conor Mahoney- 2/28-3/6
+Overall, we worked to finalize our game by patching together our different view windows and 
+adding content to the building system and the overall game mechanics.
+ 
+While the majority of the game takes part in the mars view, we followed the original plan of 
+having three separate views, which each represent a different part of the mission, and allow the 
+player different options and information
+ 
+3/5: Worked on the Martian surface, to change terrain spawn rates and create harsher terrain tiles,
+defined as blockedTiles, upon which building was impossible.
+ 
+3/6: Made several last minute changes to the game’s organization and documentation, 
+including program comments and progress documentation.
+
+__________________________________________________________________________
+
+
+Niklas Carlson- 2/20-2/27
+
+2/21: Group met at Redwood Grove to discuss deadlines and revise and finish the 
+design process. Later on designed and implemented the main menu using photoshop.
+
+2/22-2/25:  Designed some sprites to be used in the 2/27 prototype.
+
+2/26: Met for 3 hours in JBaskin 109 to finish programming the tile engine and 
+interface it with resource management and building systems. Worked with Conor to 
+convert the tile engine to a brine-based system and combat the huge latency initially 
+produced by that change.
+
+2/26-2/27: Modified Conor’s tile engine to implement/modify features such as building 
+placement, view dragging, and various other tweaks and optimizations.
+
+2/27: Worked for several hours to finalize the playable prototype for submission. 
+Specifically linking all game states and menus together.
+
+Niklas Carlson - 2/28-3/6
+Finished mosts tasks, implemented tech, shop, terminal sprites, earth sprites, 
+doomsday graphics, text displays, mars code updates, various tweaks, and bugfixes. 
+Also added solar view and orbital timeframe as well as improved menu navigation.
+
+
+
+__________________________________________________________________________
+
+Justin Farris 2/20-2/27
+
+Established global variables for resources and buildings and determined each 
+building’s functions.
+
+Developed resource generation algorithms based on building types and amounts, according to our game 
+time - real time relationshipIntegrated javascript files in order to properly generate resources based 
+on building placement, and to properly update the resource display accordingly
+
+General finalization of the prototype
+
+Justin Farris - 2/28 -3/6
+
+Fully solidified a tech tree 
+Completed the algorithm to calculate the remaining lifetime of earth
+Completed resource updates based on current levels of all buildings
+Recorded some music to be edited and eventually added to the game
+
+__________________________________________________________________________
+
+
+
+
+
