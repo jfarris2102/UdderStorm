@@ -49,7 +49,7 @@ function clearText(){
 }
 
 //Sound
-var sfx_off=new Audio("sound/liftoff.wav");
+//var sfx_off=new Audio("sound/liftoff.wav");
 //////////////shit
 moneyRound = Math.ceil(money*10)/10;
 energyRound = Math.ceil(energy*10)/10;
@@ -386,9 +386,7 @@ manager.onMouseUp = function () {
 					spritesHover[i].visible = true;
 					if(i == 0) { //StartGame;
 						stop();
-						//sound
-						sfx_off.play();
-						//end sound
+						//sfx_off.play();
 						newGameMars();
 						resetVariables();
 						startEarth();
@@ -497,7 +495,7 @@ sfx_arr.push(song_3);
 sfx_arr.push(song_4);
 //volume ajust
 for (var i=0;i<sfx_arr.length;i++) {
-    sfx_arr[i].volume=.7;
+    sfx_arr[i].volume=.4;
 }
 //looping function
 function start_song() {
