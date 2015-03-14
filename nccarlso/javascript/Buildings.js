@@ -426,9 +426,10 @@ function updateBuild(){ //Every 6 months game time
 	incPressure();
 	incTemperature();
 	getHealth();
+	if(health==0) popMars -=6;
+	if (popMars<0) gameOverMan();
 	console.log(energy);
 	//increaseTerra(); //increases terra values
-	checkTerra(); //Check terraforming progress
 }
 
 //increases all resource variables by a predetermined amount
@@ -436,10 +437,13 @@ function updateBuild(){ //Every 6 months game time
 function updateResource(){
 	//health += healthInc;
 	food += foodInc;
+	if (food<0) food = 0;
 	water += waterInc;
+	if(water<0) water = 0;
 	minerals += mineralInc;
 	console.log(energy);
 	energy += energyInc;
+	if(energy<0) energy = 0;
 	console.log(energy);
 	popMars += popInc;
 	popEarth += popEarth*growthRate;

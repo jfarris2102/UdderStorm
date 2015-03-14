@@ -214,11 +214,11 @@ window.onkeydown = function(event) {
 	if(gInput.HAAAAAX) {
 		for(var i = 1; i <= buildingTypes; i++){
 			buidlingUnlocked[i] = true;
-			buidlingsAvailable[i] += 25;
+			buidlingsAvailable[i] += 10;
 		}
-		money += 2500;
-		researchPoints += 2500;
-		haxMult += 20;
+		money += 1000;
+		researchPoints += 1000;
+		haxMult += 10;
 	}
 	if(marsActive){
 		if(gInput.left && placeBuildingMode){

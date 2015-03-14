@@ -233,6 +233,7 @@ function solarTime(){
 				dustPosY += 640;
 			dustStorm.x=dustPosX;
 			dustStorm.y=dustPosY;
+			checkTerra();
 		}
 	}
 }
