@@ -11,6 +11,7 @@ var marsActive = false;
 var firstBuilding = true;
 
 var sfx=new Audio('sound/Wind.mp3');
+sfx.loop=true;
 
 document.oncontextmenu=function (){return false;}
 
