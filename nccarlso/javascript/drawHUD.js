@@ -322,6 +322,8 @@ function stopActive(){
 	else if(storeActive) stopStore();
 	else if (gameOverActive) stopGameOver();
 	else if (winActive) stopWin();
+	else if (tutorialEActive) stopTutorialE();
+	else if (tutorialMActive) stopTutorialM();
 	//else stop();
 }
 
@@ -331,6 +333,13 @@ function stopActive(){
 var storeClickable = false;
 var factoryMDown = false;
 manager.onMouseDown = function () {
+	if (tutorialEActive){
+		stopTutorialE();
+		return;
+	} else if (tutorialMActive) {
+		stopTutorialM();
+		return;
+	}
 	if(!storeActive) storeClickable = false;
 	if(marsActive && gInput.mouse.x < (canvas.width-160)){ //Mars
 		factoryMDown = checkFactoryOver();

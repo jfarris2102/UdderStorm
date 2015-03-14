@@ -363,34 +363,6 @@ function getModel(model){
 	}
 }
 
-//sets the building model to the correct one based on the number provided
-function makeModel(model){ //currently unused, will use later for mars factory based construction?
-	numberOf[model]++;
-	switch(model) {
-    case 1:
-        money -= .01;
-        return pop1;
-    case 2:
-        money -= .05;
-        return green1;
-    case 3:
-        money -= .01;
-        return solar1;
-    case 4:
-        money -= .02;
-        return comms1;
-	case 5:
-        money -= .01;
-        return wind1;
-    case 6:
-        money -= .05;
-        return reactor1;
-    default:
-        money -=.01;
-        return pop1;
-	}
-}
-
 function getNumberOf(model){
 	if(model == 9)
 	console.log(numberOf[model]);
@@ -441,18 +413,6 @@ function buildResource(){
 
 //sets the variables that should be used to increment our overall resource list
 function updateBuild(){ //Every 6 months game time
-	//1=living, 2=food prod. 3=solar, 4=comm. 5=turbine 6=reactor
-//7=mine, 8=lab, 9=photosyn. 10=gravity 11=factory
-/*	energyInc += numberOf[turbine] + 3*numberOf[solar];
-	foodInc += 2*numberOf[green];
-	if (popMars/5>numberOf[live])
-	    happyInc--;
-	airInc += numberOf[photosyn]*.01;
-	mineralInc += numberOf[mine];
-	resInc += .1*numberOf[comms];
-	
-	energyInc -= numberOf[live] + numberOf[mine] + numberOf[green] + numberOf[comms];
-	waterInc -= .5*numberOf[green] + .5*numberOf[live];*/
 	greenResources();
 	solarResources();
 	turbineResources();
@@ -467,7 +427,7 @@ function updateBuild(){ //Every 6 months game time
 	incTemperature();
 	getHealth();
 	console.log(energy);
-	increaseTerra(); //increases terra values
+	//increaseTerra(); //increases terra values
 	checkTerra(); //Check terraforming progress
 }
 
