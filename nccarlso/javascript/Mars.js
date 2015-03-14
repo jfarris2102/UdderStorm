@@ -344,7 +344,7 @@ function drawTileEngine() {
 				for(var j = 0; j < BuildingSize(model).sx; j++){
 					tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].occupied = true;
 					if(getModel(model).isNode == 1) tileGrid[leftTile+HighlightX-j][topTile+HighlightY-i].node = true;
-					else if(getModel(model).isNode == 2) tileGrid[xOff-Math.floor((right/2))][yOff-top].node = true;
+					else if(getModel(model).isNode == 2) tileGrid[leftTile+HighlightX-Math.floor((right/2))][topTile+HighlightY-top].node = true;
 				}
 			}
 			if(numberOf[1] != 0 || numberOf[2] != 0) firstBuilding = false;
@@ -368,6 +368,17 @@ function drawTileEngine() {
 	MousePrevX = MouseCurrX;
 	MousePrevY = MouseCurrY;
 }//end of drawTileEngine()
+
+function checkFactoryOver(){
+	if (numberOf[13] <= 0) return false;
+	for(var i = 0; i < buildingCount; i++) {
+		if(buildings[i].id == "factory1") {
+			if(MouseCurrX >= buildings[i].x && MouseCurrX < (buildings[i].x+160) && MouseCurrY >= buildings[i].y && MouseCurrY < (buildings[i].y+74))
+				return true;
+		}
+	}
+	return false;
+}
 
 
 

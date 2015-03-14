@@ -550,10 +550,10 @@ function checkNode(model, xOff, yOff){
 		if(tileGrid[xOff+1][yOff+top].node == true) return true;
 		else return false;
 	} else if(getModel(model).isNode == 4){ //factory
-		if(tileGrid[xOff-4][yOff+top].node == true) return true;
+		if(tileGrid[xOff-4][yOff+top+1].node == true) return true;
 		else return false;
 	} else if(getModel(model).isNode == 5){ //research
-		if(tileGrid[xOff+1][yOff+top].node == true) return true;
+		if(tileGrid[xOff+1][yOff+top+1].node == true) return true;
 		else return false;
 	} else if(getModel(model).isNode == 6){ //lab
 		if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;
