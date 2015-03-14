@@ -7,7 +7,8 @@ of the game, and allows the player to navigate from it
 to the tutorial or a game.
 It also manages end conditions and the different stages of the game
 */
-
+var sfx_theme=new Audio("sound/Mars 2.mp3");
+sfx_theme.loop=true;
 //sets several important variables
 use2D=true;
 var first = true;
@@ -188,6 +189,10 @@ function mouseHover(){
 
 function start(){
 	startActive = true;
+	if (tut==false) {
+	    sfx_theme.load();
+	    sfx_theme.play();
+	} else {tut=false;}
 	if(first){
 		initGame("canvas");
 		first = false;
@@ -210,6 +215,9 @@ function start(){
 
 function stop(){
 	startActive = false;
+	if (tut==false) {
+	   sfx_theme.pause();
+	}
 	canvas.removeEventListener("mousemove", mouseHover);
 	for(var i = 0; i < spritesMenu.length; i++){
 		world.removeChild(spritesMenu[i]);

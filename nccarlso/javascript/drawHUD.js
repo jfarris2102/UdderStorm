@@ -373,6 +373,7 @@ manager.onMouseUp = function () {
 						startHUD();
 					}
 					else if (i == 2) { //Tutorial
+					    tut=true;
 						stop();
 						startTutorial();
 					}
