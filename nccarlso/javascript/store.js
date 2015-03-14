@@ -15,15 +15,22 @@ var storeActive = false;
 var costTexts = [];
 var ownedTexts = [];
 var buildingsStore = 15;
-var factoryStart = false;
+var factoryMode = false;
 
 function startStore(){
 	storeActive = true;
-	if(factoryStart) buildingsStore = 19;
-	else buildingsStore = 15;
+	if(factoryMode){
+		buildingsStore = 19;
+		shopbg.image=Textures.load("images/terminalShopF.png");
+	}
+	else{
+		buildingsStore = 15;
+		shopbg.image=Textures.load("images/terminalShop.png");
+	}
 	world.addChild(shopbg);
 	world.removeChild(HUD);
-	if(!LaunchQueued) rocketStatus.text = "Inactive";
+	if(!LaunchQueued && !factoryMode) rocketStatus.text = "Inactive";
+	else if(factoryMode) rocketStatus.text = "";
 	world.addChild(rocketStatus);
 	world.addChild(cashStatus);
 	clearText();
@@ -33,7 +40,7 @@ function startStore(){
 
 function stopStore(){
 	storeActive = false;
-	factoryStart = false;
+	factoryMode = false;
 	world.removeChild(shopbg);
 	world.removeChild(rocketStatus);
 	world.removeChild(cashStatus);
@@ -47,7 +54,8 @@ function stopStore(){
 }
 
 function updateStoreInfo(){
-	cashStatus.text = "Funds:\n" + money + " mil\n\nLaunch in:\n" + (76+getTimeToNextLaunch()) + " days";
+	if (factoryMode) cashStatus.text = "Quantity\nminerals\nowned:\n  " + minerals + "\n  metric tons";
+	else cashStatus.text = "Funds:\n" + money + " mil\n\nLaunch in:\n" + (76+getTimeToNextLaunch()) + " days";
 }
 
 var rocketType = 0;
@@ -55,7 +63,7 @@ var popLaunch = 0;
 
 function checkStoreClicks(x, y) {
 	if(storeActive){
-		if (x >= 724 && x <= 828 && y >= 420 && y <= 501){
+		if (x >= 724 && x <= 828 && y >= 420 && y <= 501 && !factoryMode){
 			if(money >= (250 - (50*rocketType)) || LaunchQueued){ //Checks cash for launch
 				if(!LaunchQueued) {
 					rocketStatus.text = "Launch\n" + "queued.";
@@ -67,7 +75,7 @@ function checkStoreClicks(x, y) {
 					LaunchQueued = false;
 					money += (250 - (50*rocketType));
 				}
-			}else (alert((250 - (50*rocketType)) + "MIL required for launch."));
+			}else if(!factoryMode)(alert((250 - (50*rocketType)) + "MIL required for launch."));
 			return 0; //Launch clicked
 		}
 		var xoffset = 0;
@@ -119,8 +127,13 @@ function updateStoreText(){
 			yoffset = 135+(ytemp*146);
 			xtemp++;
 			console.log((i+1));
-			costTexts[i].text = (getModel(i+1).cost) +" mil";
-			ownedTexts[i].text = launchCargo[i+1];
+			if(!factoryMode){
+				costTexts[i].text = (getModel(i+1).cost) +" mil";
+				ownedTexts[i].text = launchCargo[i+1];
+			} else {
+				costTexts[i].text = (getModel(i+1).cost/10) +" MT";
+				ownedTexts[i].text = buidlingsAvailable[i+1];
+			}
 			costTexts[i].x = xoffset+40;
 			ownedTexts[i].x = xoffset+40;
 			costTexts[i].y = yoffset+68;
@@ -130,11 +143,19 @@ function updateStoreText(){
 
 function purchaseBuilding(x){
 	if(x >= 1 && x <= buildingsStore){
-		if(!buidlingUnlocked[x]) alert("Building not unlocked, try purchasing some researches to unlock it.");
-		else if(money >= getModel(x).cost){
-			money -= (getModel(x).cost);
-			launchCargo[x]++;
-		}else if(money < getModel(x).cost) alert("Insufficient funds.");
+		if(!factoryMode){
+			if(!buidlingUnlocked[x]) alert("Building not unlocked, try purchasing some researches to unlock it.");
+			else if(money >= getModel(x).cost){
+				money -= (getModel(x).cost);
+				launchCargo[x]++;
+			}else if(money < getModel(x).cost) alert("Insufficient funds.");
+		} else {
+			if(!buidlingUnlocked[x]) alert("Building not unlocked, try purchasing some researches to unlock it.");
+			else if(money >= Math.floor(getModel(x).cost/10)){
+				money -= (Math.floor(getModel(x).cost/10));
+				buidlingsAvailable[x]++;
+			}else if(money < Math.floor(getModel(x).cost/10)) alert("Insufficient Resources.");
+		}
 	}
 }
 
@@ -167,7 +188,7 @@ ownedTextGeneric.dropShadow = true;
 ownedTextGeneric.shadowColorCustom = '#91E8BC';
 ownedTextGeneric.shadowBlurCustom = 4;
 
-var rocketStatus = new TextBox("Inactive");
+var rocketStatus = new TextBox("");
 rocketStatus.x = 769;
 rocketStatus.y = 490;
 rocketStatus.fontSize = '14';

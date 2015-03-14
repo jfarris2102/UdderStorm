@@ -312,12 +312,10 @@ function makeGhost(model){
 
 //Starter buildings
 buidlingUnlocked[1] = true;
-buidlingUnlocked[3] = true;
 buidlingUnlocked[5] = true;
 buidlingUnlocked[8] = true;
 buidlingUnlocked[10] = true;
 buidlingUnlocked[14] = true;
-buidlingUnlocked[15] = true;
 
 //returns a building sprite based on the current model id
 function getModel(model){
@@ -550,10 +548,10 @@ function checkNode(model, xOff, yOff){
 		if(tileGrid[xOff+1][yOff+top].node == true) return true;
 		else return false;
 	} else if(getModel(model).isNode == 4){ //factory
-		if(tileGrid[xOff-4][yOff+top].node == true) return true;
+		if(tileGrid[xOff-4][yOff+top+1].node == true) return true;
 		else return false;
 	} else if(getModel(model).isNode == 5){ //research
-		if(tileGrid[xOff+1][yOff+top].node == true) return true;
+		if(tileGrid[xOff+1][yOff+top+1].node == true) return true;
 		else return false;
 	} else if(getModel(model).isNode == 6){ //lab
 		if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;

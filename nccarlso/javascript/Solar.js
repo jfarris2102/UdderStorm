@@ -18,7 +18,9 @@ var solarActive = false;
 var firstSolar = true;
 var doomsDay = 50;
 
-var sfx=new Audio('sound/Rocket_Launch.mp3');
+var sfx_launch=new Audio('sound/Rocket_Launch.mp3');
+var sfx_amb=new Audio('sound/space.mp3');
+sfx_amb.loop=true;
 
 function getYears(){
 	return 2015 + Math.floor(days/365.25);
@@ -157,6 +159,7 @@ function initSolar(){
 
 function startSolar() {
 	solarActive = true;
+	sfx_amb.play();
 	world.addChild(SolarSystem);
 	for (var i = 0; i < solarSprites.length; i++)
 		solarSprites[i].visible = true;
@@ -165,6 +168,7 @@ function startSolar() {
 
 function stopSolar() {
 	solarActive = false;
+	sfx_amb.pause();
 	world.removeChild(SolarSystem);
 	for (var i = 0; i < solarSprites.length; i++)
 		solarSprites[i].visible = false;
@@ -230,7 +234,7 @@ function Launch(){
 	Rocket.visible = true;
 	Launched = true;
 	LaunchQueued = false;
-    sfx.play();
+    sfx_launch.play();
 }
 
 

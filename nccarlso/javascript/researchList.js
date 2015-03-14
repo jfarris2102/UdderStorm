@@ -497,7 +497,7 @@ tech406.categ = terra2;
 
 var tech407 = {};
 tech407.name = new TextBox("Planetary Magnetic Field");
-tech407.desc = new TextBox("Install E.M grids on Mars to protect the atmosphere \nfrom solar wind. Also requires Liquid Thorium \nReactor technology. cost: 500 Research points.");
+tech407.desc = new TextBox("Unlocks Mag-field generator to protect the atmosphere \nfrom solar wind. Also requires Liquid Thorium \nReactor technology. cost: 500 Research points.");
 tech407.avail = true;
 tech407.unlocked = false;
 tech407.pre = ["Electromagnetic Grids","Liquid Flouride Thorium Reactor"];
@@ -515,7 +515,7 @@ tech408.categ = terra3;
 
 var tech409 = {};
 tech409.name = new TextBox("Photocatalytic water splitting");
-tech409.desc = new TextBox("Develop advanced technology that uses light to \nseperate hydrogen and oxygen. cost: 200 Research points.");
+tech409.desc = new TextBox("Develop advanced technology that uses light to \nseperate H and O2.Unlocks Photosynthesizers,\ngenerates energy, O2. cost: 200 Research points.");
 tech409.avail = true;
 tech409.unlocked = false;
 tech409.pre = ["Photoelectrochemical cells"];
@@ -524,7 +524,7 @@ tech409.categ = terra3;
 
 var tech410 = {};
 tech410.name = new TextBox("Artifical Photosynthesis");
-tech410.desc = new TextBox("Use water splitting technology to mimic photosynthesis\nUnlocks photosynthesizers, which produce oxygen\nand energy. cost: 300 Research points.");
+tech410.desc = new TextBox("Use water splitting technology to mimic photosynthesis\nUnlocks Air Exchanger, which produces oxygen\nfor the atmosphere. cost: 300 Research points.");
 tech410.avail = true;
 tech410.unlocked = false;
 tech410.pre = ["Photocatalytic water splitting"];

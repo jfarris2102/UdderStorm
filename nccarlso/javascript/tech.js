@@ -46,7 +46,10 @@ researchPointsTextbox.shadowBlurCustom = 4;
 ////////////////////////////////////////////////////////////
 
 function pickColor(x){
-	if (x.unlocked == true){
+	if(x.name.text == "Budget reforms" || x.name.text == "Gov't sponsored sust. campaigns" || x.name.text == "Foreign Relations Campaigns"){
+		x.name.color = '#66FFFF';
+	}
+	else if (x.unlocked == true){
 		x.name.color = '#00FF00';
 	}
 	else if (x.avail == true){
@@ -190,10 +193,8 @@ function updateUnlockTree(x){
 			else if(curr[i].name.text == "Foreign Relations Campaigns"){
 				diplomacyPoints += curr[i].cost;
 			}else{
-				if (typeof curr[i].categ !== undefined)
-					levelUp(curr[i].categ);
 				curr[i].unlocked = true;
-				upgradeMults(curr[i].name.text);
+				upgradeMults(curr[i].name.text, curr[i]);
 			}
 			researchPoints -= curr[i].cost;
 			if(typeof(x.dcost) != "undefined") diplomacyPoints -= curr[i].cost;
@@ -305,12 +306,24 @@ function upgradeMults(x,y){
 	else if(x == "Eradicate Terrorism") moneyMult++;
 	else if(x == "Universal language") moneyMult++;
 	else if(x == "World Peace") moneyMult++;
+	else if(x == "Living Centers") buidlingUnlocked[2]=true;
+	else if(x == "Photocatalytic water splitting") buidlingUnlocked[4]=true;
+	else if(x == "Greenhouses") buidlingUnlocked[5]=true;
+	else if(x == "Pinkhouses") buidlingUnlocked[6]=true;
+	else if(x == "Drilling Stations") buidlingUnlocked[7]=true;
 	else if(x == "Bladeless technology") buidlingUnlocked[9]=true;
-	else if(x == "Fast-neutron Reactor") buidlingUnlocked[18]=true;
-	else if(x == "Liquid Flouride Thorium Reactor") buidlingUnlocked[19]=true;
-	else if(x == "Nuclear Fusion Reactor") buidlingUnlocked[20]=true;
+	else if(x == "Laboratory") buidlingUnlocked[11]=true;
+	else if(x == "Research Center") buidlingUnlocked[12]=true;
+	else if(x == "Factory") buidlingUnlocked[13]=true;
+	else if(x == "Satellite Dish Communications") buidlingUnlocked[15]=true;
+	else if(x == "Artificial Gravity") buidlingUnlocked[17]=true;
+	else if(x == "Artifical Photosynthesis") buidlingUnlocked[18]=true;
+	else if(x == "Planetary Magnetic Field") buidlingUnlocked[19]=true;
 	else if(x == "Plasma Propulsion") rocketType++;
 	else if(x == "Liquid Hydrogen fuel") rocketType++;
 	else if(x == "VASMIR rocket") rocketType++;
 	else if(x == "VTVL rocket") rocketType++;
+	else if (typeof y.categ !== undefined)
+		levelUp(y.categ);
+
 }
