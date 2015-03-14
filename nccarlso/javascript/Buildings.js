@@ -40,6 +40,17 @@ green1.isNode = 2;
 green1.image = Textures.load("images/2.png");
 green1.cost= 200;
 
+var green2  = new Sprite();
+green2.width = 120;
+green2.height = 170;
+green2.visible = false;
+green2.id = "green2";
+green2.sx = 3;
+green2.sy = 4;
+green2.isNode = 2;
+green2.image = Textures.load("images/pink.png");
+green2.cost= 200;
+
 var solar1  = new Sprite();
 solar1.width = 40;
 solar1.height = 40;
@@ -107,14 +118,14 @@ photo1.image = Textures.load("images/7.png");
 photo1.cost= 75;
 
 var grav1  = new Sprite();
-grav1.width = 40;
-grav1.height = 80;
+grav1.width = 120;
+grav1.height = 120;
 grav1.visible = false;
 grav1.id = "grav1";
-grav1.sx = 1;
-grav1.sy = 1;
+grav1.sx = 3;
+grav1.sy = 3;
 grav1.isNode = 0;
-grav1.image = Textures.load("images/8.png");
+grav1.image = Textures.load("images/grav.png");
 grav1.cost= 750;
 
 var mine1  = new Sprite();
@@ -125,30 +136,52 @@ mine1.id = "mine1";
 mine1.sx = 1;
 mine1.sy = 1;
 mine1.isNode = 0;
-mine1.image = Textures.load("images/9.png");
+mine1.image = Textures.load("images/drill.png");
 mine1.cost= 150;
 
 var lab1  = new Sprite();
-lab1.width = 40;
-lab1.height = 40;
+lab1.width = 120;
+lab1.height = 90;
 lab1.visible = false;
 lab1.id = "lab1";
-lab1.sx = 1;
-lab1.sy = 1;
-lab1.isNode = 0;
-lab1.image = Textures.load("images/10.png");
-lab1.cost= 100;
+lab1.sx = 3;
+lab1.sy = 2;
+lab1.isNode = 2;
+lab1.image = Textures.load("images/tent.png");
+lab1.cost= 125;
+
+var lab2  = new Sprite();
+lab2.width = 40;
+lab2.height = 51;
+lab2.visible = false;
+lab2.id = "lab2";
+lab2.sx = 1;
+lab2.sy = 1;
+lab2.isNode = 6;
+lab2.image = Textures.load("images/lab.png");
+lab2.cost= 150;
+
+var lab3  = new Sprite();
+lab3.width = 120;
+lab3.height = 61;
+lab3.visible = false;
+lab3.id = "lab3";
+lab3.sx = 3;
+lab3.sy = 1;
+lab3.isNode = 5;
+lab3.image = Textures.load("images/research.png");
+lab3.cost= 225;
 
 var factory1  = new Sprite();
-factory1.width = 40;
-factory1.height = 40;
+factory1.width = 160;
+factory1.height = 74;
 factory1.visible = false;
 factory1.id = "factory1";
-factory1.sx = 1;
+factory1.sx = 4;
 factory1.sy = 1;
-factory1.isNode = 0;
-factory1.image = Textures.load("images/11.png");
-factory1.cost= 350;
+factory1.isNode = 4;
+factory1.image = Textures.load("images/factory.png");
+factory1.cost= 500;
 
 var wind2  = new Sprite();
 wind2.width = 40;
@@ -160,6 +193,51 @@ wind2.sy = 1;
 wind2.isNode = 0;
 wind2.image = Textures.load("images/13.png");
 wind2.cost= 125;
+
+var airExchanger  = new Sprite();
+airExchanger.width = 80;
+airExchanger.height = 107;
+airExchanger.visible = false;
+airExchanger.id = "airExchanger";
+airExchanger.sx = 2;
+airExchanger.sy = 1;
+airExchanger.isNode = 0;
+airExchanger.image = Textures.load("images/air.png");
+airExchanger.cost= 750;
+
+var magGen  = new Sprite();
+magGen.width = 160;
+magGen.height = 53;
+magGen.visible = false;
+magGen.id = "magGen";
+magGen.sx = 4;
+magGen.sy = 1;
+magGen.isNode = 0;
+magGen.image = Textures.load("images/mag.png");
+magGen.cost= 750;
+
+var pop2  = new Sprite();
+pop2.width = 160;
+pop2.height = 132;
+pop2.visible = false;
+pop2.id = "pop2";
+pop2.sx = 4;
+pop2.sy = 3;
+pop2.isNode = 0;
+pop2.image = Textures.load("images/center.png");
+pop2.cost= 300;
+
+var drill  = new Sprite();
+drill.width = 40;
+drill.height = 48;
+drill.visible = false;
+drill.id = "drill";
+drill.sx = 1;
+drill.sy = 1;
+drill.isNode = 0;
+drill.image = Textures.load("images/drill.png");
+drill.cost= 100;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var buildings = [];//creates an array to hold all of the placed buildings
@@ -247,7 +325,7 @@ function getModel(model){
     case 1:
         return pop1;
     case 2:
-        return pop1; //later pop2
+        return pop2;
     case 3:
         return solar1;
     case 4:
@@ -255,7 +333,7 @@ function getModel(model){
 	case 5:
 	    return green1;
 	case 6:
-        return green1; //later green2
+        return green2;
 	case 7:
 	   return mine1;
 	case 8:
@@ -265,9 +343,9 @@ function getModel(model){
     case 10: 
         return lab1;
     case 11:
-        return lab1; //later lab2
+        return lab2;
     case 12:
-        return lab1; //later lab3
+        return lab3;
 	case 13:
         return factory1;
 	case 14:
@@ -279,9 +357,9 @@ function getModel(model){
 	case 17:
         return grav1;
 	case 18:
-        return grav1; //later Air exchanger
+        return airExchanger;
 	case 19:
-        return grav1; //later Magnetic field Generator
+        return magGen;
     default:
         return pop1;
 	}
@@ -465,16 +543,27 @@ function checkNode(model, xOff, yOff){
 	var bot = BuildingSize(model).sy;
 	var left = -1;
 	var right = BuildingSize(model).sx;
-	if(getModel(model).isNode == 2){
+	if(getModel(model).isNode == 2){ //greenhouse
 		if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
 		else return false;
-	} else if(getModel(model).isNode == 3){
+	} else if(getModel(model).isNode == 3){ //reactor
 		if(tileGrid[xOff+1][yOff+top].node == true) return true;
 		else return false;
+	} else if(getModel(model).isNode == 4){ //factory
+		if(tileGrid[xOff-4][yOff+top].node == true) return true;
+		else return false;
+	} else if(getModel(model).isNode == 5){ //research
+		if(tileGrid[xOff+1][yOff+top].node == true) return true;
+		else return false;
+	} else if(getModel(model).isNode == 6){ //lab
+		if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;
+		if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
+		else return false;
+	} else if(getModel(model).isNode == 1){
+		if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;
+		if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
+		if(tileGrid[xOff-right][yOff-Math.floor((bot/2))].node == true) return true;
+		if(tileGrid[xOff-left][yOff-Math.floor((bot/2))].node == true) return true;
 	}
-	if(tileGrid[xOff-Math.floor((right/2))][yOff-bot].node == true) return true;
-	if(tileGrid[xOff-Math.floor((right/2))][yOff-top].node == true) return true;
-	if(tileGrid[xOff-right][yOff-Math.floor((bot/2))].node == true) return true;
-	if(tileGrid[xOff-left][yOff-Math.floor((bot/2))].node == true) return true;
 	return false;
 }

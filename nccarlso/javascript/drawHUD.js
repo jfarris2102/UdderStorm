@@ -48,6 +48,9 @@ function clearText(){
 	//textArr = [];
 }
 
+//Sound
+var sfx_off=new Audio("sound/liftoff.wav");
+//////////////shit
 moneyRound = Math.ceil(money*10)/10;
 energyRound = Math.ceil(energy*10)/10;
 var pad = "";
@@ -341,7 +344,7 @@ manager.onMouseDown = function () {
 			}
 		}
 	}
-}
+};
 
 //When button MouseUp
 manager.onMouseUp = function () {
@@ -359,6 +362,9 @@ manager.onMouseUp = function () {
 					spritesHover[i].visible = true;
 					if(i == 0) { //StartGame;
 						stop();
+						//sound
+						sfx_off.play();
+						//end sound
 						newGameMars();
 						resetVariables();
 						startEarth();
@@ -444,4 +450,4 @@ manager.onMouseUp = function () {
 			updateStoreText();
 		} else if (storeActive) storeClickable = true;
 	}
-}
+};
