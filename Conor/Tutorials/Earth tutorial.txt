@@ -1,0 +1,36 @@
+//this might be a bit much for one pop-up, so you might consider splitting 
+//it into 2-5 different windows.
+
+//window 1
+
+Welcome to the Control Room!
+
+In the upper left is the "Doomsday clock."
+which counts down the Years:Months:Days until
+the Earth becomes uninhabitable.
+
+At the top of the screen is the technology section,
+where you can use "Research Points" to research a 
+variety of upgrades for your buildings or the overall
+mission. 
+
+In the Shop menu, you can purchase buildings and then 
+queue a rocket to launch all of them to Mars. Once 
+it arrives on Mars you can construct the buildings
+you purchased. Money and Research Points both renew 
+over time when you are not in a purchase menu.
+
+
+//window 2
+
+
+In the bottom right of the screen there are three buttons:
+To view the solar system and any recently-launched rockets,
+click on the purple button.
+The brown button will show you an overview of your Mars colony,
+where you can place your buildings,
+and the green button returns you to the Control Room.
+
+
+
+

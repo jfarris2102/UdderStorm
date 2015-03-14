@@ -212,10 +212,12 @@ gInput.addBool(72, "HAAAAAX");
 
 window.onkeydown = function(event) {
 	if(gInput.HAAAAAX) {
-		for(var i = 1; i <= buildingTypes; i++)
+		for(var i = 1; i <= buildingTypes; i++){
 			buidlingUnlocked[i] = true;
-		money += 1000;
-		researchPoints += 1000;
+			buidlingsAvailable[i] += 25;
+		}
+		money += 2500;
+		researchPoints += 2500;
 	}
 	if(marsActive){
 		if(gInput.left && placeBuildingMode){
