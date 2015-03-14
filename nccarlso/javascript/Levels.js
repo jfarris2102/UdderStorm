@@ -235,7 +235,7 @@ function getHealth(){
 	
 	if(healthInc == 0) healthInc = 1;
 	health += healthInc;
-	if(health < 0) health=0;
+	if(health < 0) health=-1;
 	if(health > 100) health = 100;
 	
 	return health;

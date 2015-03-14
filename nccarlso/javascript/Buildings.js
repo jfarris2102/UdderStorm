@@ -426,7 +426,7 @@ function updateBuild(){ //Every 6 months game time
 	incPressure();
 	incTemperature();
 	getHealth();
-	if(health==0) popMars -=6;
+	if(health<0) popMars -=6;
 	if (getNumberOf(1)>0 && popMars<0) gameOverMan();
 	//increaseTerra(); //increases terra values
 }
