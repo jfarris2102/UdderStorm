@@ -11,6 +11,9 @@ function startTech(){
 	world.addChild(techbg);
 	world.addChild(currentTreeTextbox);
 	world.addChild(researchPointsTextbox);
+	world.addChild(ePointsText);
+	world.addChild(dPointsText);
+	world.addChild(sPointsText);
 	world.removeChild(HUD);
 	clearText();
 	generateTech();
@@ -21,6 +24,9 @@ function stopTech(){
 	world.removeChild(techbg);
 	world.removeChild(currentTreeTextbox);
 	world.removeChild(researchPointsTextbox);
+	world.removeChild(ePointsText);
+	world.removeChild(dPointsText);
+	world.removeChild(sPointsText);
 	startHUD();
 	clearTech();
 }
@@ -43,6 +49,33 @@ researchPointsTextbox.color = '#CCFFCC';
 researchPointsTextbox.dropShadow = true;
 researchPointsTextbox.shadowColorCustom = '#91E8BC';
 researchPointsTextbox.shadowBlurCustom = 4;
+var ePointsText = new TextBox("Economy Points: 0");
+ePointsText.x = 675;
+ePointsText.y = 120;
+ePointsText.fontSize = '14';
+ePointsText.font = 'bitwise';
+ePointsText.color = '#CCFFCC';
+ePointsText.dropShadow = true;
+ePointsText.shadowColorCustom = '#91E8BC';
+ePointsText.shadowBlurCustom = 4;
+var dPointsText = new TextBox("Diplomacy Points: 0");
+dPointsText.x = 675;
+dPointsText.y = 140;
+dPointsText.fontSize = '14';
+dPointsText.font = 'bitwise';
+dPointsText.color = '#CCFFCC';
+dPointsText.dropShadow = true;
+dPointsText.shadowColorCustom = '#91E8BC';
+dPointsText.shadowBlurCustom = 4;
+var sPointsText = new TextBox("Sustainability Points: 0");
+sPointsText.x = 675;
+sPointsText.y = 160;
+sPointsText.fontSize = '14';
+sPointsText.font = 'bitwise';
+sPointsText.color = '#CCFFCC';
+sPointsText.dropShadow = true;
+sPointsText.shadowColorCustom = '#91E8BC';
+sPointsText.shadowBlurCustom = 4;
 ////////////////////////////////////////////////////////////
 
 function pickColor(x){
@@ -67,6 +100,9 @@ function pickColor(x){
 var researchPoints = 500;
 function updateTechInfo(){
 	researchPointsTextbox.text = "Points: " + researchPoints;
+	ePointsText.text = "Economy Points: " + economyPoints;
+	dPointsText.text = "Diplomacy Points: " + diplomacyPoints;
+	sPointsText.text = "Sustainability Points: " + sustainabilityPoints;
 }
 
 var currTech = 0;
