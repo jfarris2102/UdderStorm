@@ -1,0 +1,15 @@
+Welcome to the Martian Surface!
+Here you can build your colony using 
+your available buildings.
+
+To navigate, click and drag the mouse on 
+the screen. Take care not to get lost.
+
+To start or stop building, press "S." 
+To cycle between different buildings,
+use the "A" and "D" keys.
+
+When you've finished building, use the buttons 
+in the bottom right to navigate back to the
+Control Room to research new technologies and
+launch more buildings. 

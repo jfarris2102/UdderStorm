@@ -291,25 +291,25 @@ function Win(){
 }
 
 function startTutorialE(){
-	stopActive();
-	world.addChild(TutorialPageE);
-	tutorialEActive = true;
+	//stopActive();
+	//world.addChild(TutorialPageE);
+	//tutorialEActive = true;
 }
 
 function stopTutorialE(){
-	tutorialEActive = false;
-	world.removeChild(TutorialPageE);
-	startEarth();
+	//tutorialEActive = false;
+	//world.removeChild(TutorialPageE);
+	//startEarth();
 }
 
 function startTutorialM(){
-	stopActive();
-	world.addChild(TutorialPageM);
-	tutorialMActive = true;
+	//stopActive();
+	//world.addChild(TutorialPageM);
+	//tutorialMActive = true;
 }
 
 function stopTutorialM(){
-	tutorialMActive = false;
-	world.removeChild(TutorialPageM);
-	startMars();
+	//tutorialMActive = false;
+	//world.removeChild(TutorialPageM);
+	//startMars();
 }

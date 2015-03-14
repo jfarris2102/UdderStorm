@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--UdderStorm-->
+<!--A Certain HTML Index-->
+<!--Main Section-->
+<html>
+	<head>
+		<title>Get Your Ass to Mars</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<!--script src="http://code.jquery.com/jquery-1.7.1.min.js"></script-->
+		<script type='text/javascript'>
+//Global Variables
+	//Resources
+			var food=50; //Displayed in food units (1 unit feeds a human for a year)
+			var water=50; //Displayed in water units (1 unit quenches a human for a year)
+			var air=.14; //Displayed as % of oxygen in atmosphere
+			var atmosphere = 0.6;
+			var temperature = -67;
+			var minerals=0; //Displayed in thousand tons
+			var energy=100; //Displayed in million BTU's
+			var popEarth= 7.3; //Displayed in billions
+			var money= 750; //Displayed in millions\
+			var popMars=0; //Displayed in ones
+			var health=0; //Displayed as % (50 is content, <50 upset, >50 happy)
+			var research = 100;
+			var diplomacy = 100;
+			var economy = 100;
+	//Lifetime and gametime
+			var damageFactor = 1;
+			var energyFactor = 1;
+			var growthRate = .012;
+			var gravForce = 3.7;
+			var years = 2015;
+			var months = 0;
+			var days = 0;
+	//Buildings for levels
+			var solar = 3;
+			var green = 5;
+			var turbine = 8;
+			var reactor = 17;
+			var sust1 = 18;
+			var sust2 = 19;
+			var sust3 = 20;
+			var terra1 = 21;
+			var terra2 = 22;
+			var terra3 = 23;
+			var terra4 = 24;
+			var terra5 = 25;
+			var mine = 26;
+			var space = 27;
+			var econ = 28;
+			//Resource incrementers
+	        var foodInc = 0;
+	        var waterInc = 0;
+	        var energyInc = 0;
+	        var mineralInc = 0;
+	        var healthInc = 0;
+	        var popInc = 0;
+	        var airInc = 0;
+	        var resInc = 0;
+	        var atmosInc = 0;
+	        var tempInc = 0;
+		</script>
+		<script src="javascript/Brine.js"></script>
+		<script src="javascript/Terraform.js"></script>
+		<script src="javascript/Solar.js"></script>
+		<script src="javascript/earth.js"></script>
+		<script src="javascript/researchList.js"></script>
+		<script src="javascript/tech.js"></script>
+		<script src="javascript/store.js"></script>
+		<script src="javascript/Buildings.js"></script>
+		<script src="javascript/StartMenu.js"></script>
+		<script src="javascript/Levels.js"></script>
+		<script src="javascript/drawHUD.js"></script>
+		<script src="javascript/Mars.js"></script>
+	</head>
+	<body onload="initGame('canvas'); start(); initSolar();">
+		<!--Main Game Canvas-->
+		<canvas id="canvas" width="960" height="640">
+			Error.
+		</canvas>
+		<!--HUD Canvas-->
+		<!--<canvas id="HUD" width="640" height="100">
+			<img id="backHUD" src="http://people.ucsc.edu/~dadkelly/source/HUD.png" alt="Background">
+		</canvas>-->
+	</body>
+</html>
