@@ -1,39 +1,166 @@
-Weekly Log for March 6- March 14 Team UdderStorm
- 
- 
- Dawson Kelly-
+ï»¿Final Contributions document for Team UdderStorm
+Developing  "Get Your Ass to Mars."
+__________________________________________________________________________
 
-We have a lot of our game done and it is mostly finished.  There are a few specific points that need to be fleshed out.  These include linking our dooooomsday algorithm and fixing a few basic errors.  These will be fixed by monday for certain.  We also are using lots of temporary sprites that will be polished by the game showing date. 
+Dawson Kelly- 2/20-2/27
+
+2/21: We met at the Redwood Grove lounge and planned out our following weeks 
+and the deadlines to come.  We also coded a few things, I created the basis 
+for the earth view section of the game.  
+
+2/22-2/24: Finished as much of the earth view as possible with the current state 
+of the game.  
+
+2/26: We met for 4 hours in the 109 Jack Baskin lounge and I was able to update 
+my earth view section to accommodate other parts of code.  I also created a bottom menu. 
+
+2/27: We worked on putting our game together and bringing all of our different .js 
+files together. I scrapped my bottom menu and used part of the code to create a side 
+menu that was not on a separate canvas. Our tile engine, main menu, side menu, 
+earthview etc. were all put together and work somewhat as imagined. 
+
+Dawson Kelly- 2/28-3/6
+
+We have a lot of our game done and it is mostly finished.  
+There are a few specific points that need to be fleshed out.  
+These include linking our dooooomsday algorithm and fixing a few basic errors.  
+These will be fixed by monday for certain.  We also are using lots of temporary 
+sprites that will be polished by the game showing date. 
 
 I created all of our temporary sprites this week.
 I also was the one to fix and implement the rest of the resources into the HUD sidebar.  
 Finally just general help around on the program and idea building stuff.
+
+Dawson Kelly- 3/7-3/14
+
+A lot of time was spent polishing and adding finishing touches to our game this week.  
+For our place test it was not balanced as well as we hoped reasorce wise.  
+A lot of time was spent working on the resource tree.  I specifically did 
+a lot of heavy playtesting to identify all manor of errors as well as helping 
+to impliment the tech tree by implimenting the infustructure tab as well as
+helping out at a few other points along the way.  I also compiled
+and edited most of our audio files along with their sources and respective
+individual creators.  I did a decent amount of editing with audacity to most
+of these files.  It was a very hectic last few days with a big push to get things
+done.  I think its a great looking game in the end and am proud of our work.
+
+__________________________________________________________________________
+
+Conor Mahoney- 2/20-2/27
+
+2/21: Meeting at Redwood Grove to discuss deadlines and revise and finish the 
+design process. Spent 3 hours creating pseudo-code for the playable gameï¿½s tile 
+engine. Additionally, we distributed various tasks to each group member.
+
+2/22-2/25: Created a simple tile engine for the game that allows for drawing each visible 
+grid in the engine. Implements mouse-based click and drag movement for the game.
+
+2/26: Met for 3 hours in JBaskin 109 to finish programming the tile engine and interface 
+it with resource management and building systems. Worked with Niklas to convert the tile engine 
+to a brine-based system and combat the huge latency initially produced by that change.
+
+2/27: Worked for two hours to finish the playable prototype for submission, including 
+combining the tile engine with 
  
-----------------------------------------------------------------------------------------------------------------------------
+Conor Mahoney- 2/28-3/6
+Overall, we worked to finalize our game by patching together our different view windows and 
+adding content to the building system and the overall game mechanics.
  
-Conor Mahoney-
- 
-Overall, we worked to finalize our game by patching together our different view windows and adding content to the building system and the overall game mechanics.
- 
-While the majority of the game takes part in the mars view, we followed the original plan of having three separate views, which each represent a different part of the mission, and allow the player different options and information
+While the majority of the game takes part in the mars view, we followed the original plan of 
+having three separate views, which each represent a different part of the mission, and allow the 
+player different options and information
  
 3/5: Worked on the Martian surface, to change terrain spawn rates and create harsher terrain tiles,
 defined as blockedTiles, upon which building was impossible.
  
-3/6: Made several last minute changes to the game’s organization and documentation, including program comments and progress documentation.
- 
-----------------------------------------------------------------------------------------------------------------------------
+3/6: Made several last minute changes to the gameï¿½s organization and documentation, 
+including program comments and progress documentation.
+
+Conor Mahoney- 3/7-3/13
+
+3/7: Helped to implement the "tech tree" consisting of all the upgrades available in the game.
+It's basically a several-hundred line file that creates array entries for each available piece of research.
+Additionally, wrote comment descriptons for all javascript files, and wrote new commments for 
+certain confusing sections of code.
+
+3/9: Went to playtesting for our game at baskin, recorded players' input regarding the game
+and certain bugs that became apparent during their attempts.
+Later, added more to the tech tree.
+
+3/10: Discussed the final stages of the game as a team, and what we intend to add before submission
+
+3/12: Created Sprites to be used in the terraforming process, where mars gradually becomes capable of sustaining life.
+These sprites depict varying stages of greenery developing on the different types of rock and sand.
+
+3/13: Wrote new tutorials for the two major phases of the game, so that players get a quick introduction
+to the somewhat complicated game mechanics.
+Finalized Research Tree, 
+Worked as a team to finalize the project and submit the required components of the ecommons assignment.
+__________________________________________________________________________
 
 
-Justin Farris - 
+Niklas Carlson- 2/20-2/27
+
+2/21: Group met at Redwood Grove to discuss deadlines and revise and finish the 
+design process. Later on designed and implemented the main menu using photoshop.
+
+2/22-2/25:  Designed some sprites to be used in the 2/27 prototype.
+
+2/26: Met for 3 hours in JBaskin 109 to finish programming the tile engine and 
+interface it with resource management and building systems. Worked with Conor to 
+convert the tile engine to a brine-based system and combat the huge latency initially 
+produced by that change.
+
+2/26-2/27: Modified Conor's tile engine to implement/modify features such as building 
+placement, view dragging, and various other tweaks and optimizations.
+
+2/27: Worked for several hours to finalize the playable prototype for submission. 
+Specifically linking all game states and menus together.
+
+Niklas Carlson - 2/28-3/6
+Finished mosts tasks, implemented tech, shop, terminal sprites, earth sprites, 
+doomsday graphics, text displays, mars code updates, various tweaks, and bugfixes. 
+Also added solar view and orbital timeframe as well as improved menu navigation.
+
+Niklas Carlson - 3/7-3/14
+Added remainder of sprites, Implemented factory building system, Finalized various tech changes, Implemented tile 
+change when terraforming, Added support for building connections in relation to new sprites. Added seamless dust effect for Mars view. Modified store to incorporate new changes, Added support for new point system to tech tree(economy points, diplomacy points, etc.).
+Added various tech to the Research list as well as updated some text displays, Tutorial screens incorporated, other various bugfixes and performance tweaks.
+
+
+__________________________________________________________________________
+
+Justin Farris 2/20-2/27
+
+Established global variables for resources and buildings and determined each 
+building's functions.
+
+Developed resource generation algorithms based on building types and amounts, according to our game 
+time - real time relationshipIntegrated javascript files in order to properly generate resources based 
+on building placement, and to properly update the resource display accordingly
+
+General finalization of the prototype
+
+Justin Farris - 2/28 -3/6
 
 Fully solidified a tech tree 
 Completed the algorithm to calculate the remaining lifetime of earth
 Completed resource updates based on current levels of all buildings
 Recorded some music to be edited and eventually added to the game
 
-----------------------------------------------------------------------------------------------------------------------------
+Justin Farris - 3/7 - 3/14
 
-Niklas Carlson - Progress Update:
-Added remainder of sprites, Implemented factory building system, Finalized various tech changes, Implemented tile change when terraforming, Added support for building connections in relation to new sprites. Added seamless dust effect for Mars view. Modified store to incorporate new changes, Added support for new point system to tech tree(economy points, diplomacy points, etc.).
-Added various tech to the Research list as well as updated some text displays, Tutorial screens incorporated, other various bugfixes and performance tweaks.
+Completed an algorithm that measures the terraformed-ness of Mars
+Completed an algorithm that determines the health of your colony
+Balanced and flushed out various parts of the tech tree with proper costs and descriptions
+Completed music to be added to the game
+Further developed the resource generation algorithms
+Re-organized the HUD and added progress/health displays
+General balancing of gameplay (team effort)
+
+__________________________________________________________________________
+
+
+
+
+
