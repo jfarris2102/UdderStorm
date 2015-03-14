@@ -11,9 +11,6 @@ var diplomacyPoints = 0;
 var economyPoints = 0;
 var sustainabilityPoints = 0;
 
-//Sound
-var sfx_off=new Audio("sound/liftoff.wav");
-
 //Sprites
 
 var bg=new Sprite(); {
@@ -60,8 +57,6 @@ var earthActive = false;
 
 //Functions
 function startEarth(){
-    sfx_off.play();
-    
 	earthActive = true;
 	world.addChild(bg);
 	world.addChild(techHighlight);
