@@ -63,6 +63,26 @@ defined as blockedTiles, upon which building was impossible.
 3/6: Made several last minute changes to the game’s organization and documentation, 
 including program comments and progress documentation.
 
+Conor Mahoney- 3/7-3/13
+
+3/7: Helped to implement the "tech tree" consisting of all the upgrades available in the game.
+It's basically a several-hundred line file that creates array entries for each available piece of research.
+Additionally, wrote comment descriptons for all javascript files, and wrote new commments for 
+certain confusing sections of code.
+
+3/9: Went to playtesting for our game at baskin, recorded players' input regarding the game
+and certain bugs that became apparent during their attempts.
+Later, added more to the tech tree.
+
+3/10: Discussed the final stages of the game as a team, and what we intend to add before submission
+
+3/12: Created Sprites to be used in the terraforming process, where mars gradually becomes capable of sustaining life.
+These sprites depict varying stages of greenery developing on the different types of rock and sand.
+
+3/13: Wrote new tutorials for the two major phases of the game, so that players get a quick introduction
+to the somewhat complicated game mechanics.
+Finalized Research Tree, 
+Worked as a team to finalize the project and submit the required components of the ecommons assignment.
 __________________________________________________________________________
 
 

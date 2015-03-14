@@ -16,7 +16,7 @@ var Launched = false;
 var LaunchQueued = false;
 var solarActive = false;
 var firstSolar = true;
-var doomsDay = 2065;
+var doomsDay = 50;
 
 var sfx=new Audio('sound/Rocket_Launch.mp3');
 
