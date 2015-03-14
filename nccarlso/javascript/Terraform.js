@@ -40,8 +40,9 @@ function checkTerra(){
 	}
 }
 
+haxMult = 0;
 function getProgress(){
-	TerraFormed = Math.floor((atmosphere/100 + air/20 + (temperature+68)/128)*100/3);
+	TerraFormed = Math.floor((atmosphere/100 + air/20 + (temperature+68)/128)*100/3) + haxMult;
 	return TerraFormed;
 }
 

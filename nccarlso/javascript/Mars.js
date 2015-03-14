@@ -218,6 +218,7 @@ window.onkeydown = function(event) {
 		}
 		money += 2500;
 		researchPoints += 2500;
+		haxMult += 20;
 	}
 	if(marsActive){
 		if(gInput.left && placeBuildingMode){
