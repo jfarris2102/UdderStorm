@@ -453,7 +453,7 @@ function updateResource(){
 	if(atmosphere>100) atmosphere = 100;
 	temperature += tempInc;
 	if(temperature>60) temperature = 60;
-	researchPoints = resInc;
+	researchPoints += resInc;
 }
 
 //resets all of the stored variables to their default values
