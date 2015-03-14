@@ -109,7 +109,7 @@ interface it with resource management and building systems. Worked with Conor to
 convert the tile engine to a brine-based system and combat the huge latency initially 
 produced by that change.
 
-2/26-2/27: Modified Conor�s tile engine to implement/modify features such as building 
+2/26-2/27: Modified Conor's tile engine to implement/modify features such as building 
 placement, view dragging, and various other tweaks and optimizations.
 
 2/27: Worked for several hours to finalize the playable prototype for submission. 
@@ -142,7 +142,15 @@ Completed the algorithm to calculate the remaining lifetime of earth
 Completed resource updates based on current levels of all buildings
 Recorded some music to be edited and eventually added to the game
 
-Justin Farris - 3/7 - 
+Justin Farris - 3/7 - 3/14
+
+Completed an algorithm that measures the terraformed-ness of Mars
+Completed an algorithm that determines the health of your colony
+Balanced and flushed out various parts of the tech tree with proper costs and descriptions
+Completed music to be added to the game
+Further developed the resource generation algorithms
+Re-organized the HUD and added progress/health displays
+General balancing of gameplay (team effort)
 
 __________________________________________________________________________
 
