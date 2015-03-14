@@ -1,4 +1,4 @@
-Final Contributions document for Team UdderStorm
+﻿Final Contributions document for Team UdderStorm
 Developing  "Get Your Ass to Mars."
 __________________________________________________________________________
 
@@ -36,7 +36,9 @@ Dawson Kelly- 3/7-3/14
 A lot of time was spent polishing and adding finishing touches to our game this week.  
 For our place test it was not balanced as well as we hoped reasorce wise.  
 A lot of time was spent working on the resource tree.  I specifically did 
-a lot of heavy playtesting to identify all manor of errors.  I also compiled
+a lot of heavy playtesting to identify all manor of errors as well as helping 
+to impliment the tech tree by implimenting the infustructure tab as well as
+helping out at a few other points along the way.  I also compiled
 and edited most of our audio files along with their sources and respective
 individual creators.  I did a decent amount of editing with audacity to most
 of these files.  It was a very hectic last few days with a big push to get things
@@ -120,6 +122,10 @@ Finished mosts tasks, implemented tech, shop, terminal sprites, earth sprites,
 doomsday graphics, text displays, mars code updates, various tweaks, and bugfixes. 
 Also added solar view and orbital timeframe as well as improved menu navigation.
 
+Niklas Carlson - 3/7-3/14
+Added remainder of sprites, Implemented factory building system, Finalized various tech changes, Implemented tile 
+change when terraforming, Added support for building connections in relation to new sprites. Added seamless dust effect for Mars view. Modified store to incorporate new changes, Added support for new point system to tech tree(economy points, diplomacy points, etc.).
+Added various tech to the Research list as well as updated some text displays, Tutorial screens incorporated, other various bugfixes and performance tweaks.
 
 
 __________________________________________________________________________
